@@ -1,20 +1,15 @@
-# REGISTRE DES RESTRICTIONS (V1.2 - 4.0-S)
+# REGISTRE DES RESTRICTIONS (V1.3 - 4.0-S)
 
-Ce fichier consigne les interdictions formelles pour maintenir l'intégrité souveraine.
+Ce fichier consigne les interdictions formelles liées à l'environnement Vercel.
 
-## SÉCURITÉ & INFRASTRUCTURE
-- **PROHIBITION_SEC_001** : Interdiction absolue d'importer `@google/genai` dans un composant client si la clé API est requise côté client. Le passage par un proxy ou un middleware est obligatoire.
-- **PROHIBITION_SEC_002** : Interdiction de définir `process.env` manuellement dans le code.
-- **PROHIBITION_SEC_003** : Interdiction d'exposer des routes API non sécurisées sans RLS (Row Level Security) si un backend est connecté.
+## INFRASTRUCTURE VERCEL
+- **PROHIBITION_VRC_001** : Interdiction d'utiliser les modules Node.js `fs`, `path`, `os` dans le runtime Edge.
+- **PROHIBITION_VRC_002** : Interdiction de configurer des redirections côté client via JS si elles peuvent être gérées dans `vercel.json`.
+- **PROHIBITION_VRC_003** : Interdiction d'exposer `VITE_API_KEY` dans le bundle client. Utiliser exclusivement `API_KEY` côté serveur/edge.
 
 ## RUNTIME & BUILD
-- **PROHIBITION_RUN_001** : Interdiction d'utiliser des plugins Vite modifiant la résolution globale de React au-delà de l'importmap défini.
-- **PROHIBITION_RUN_002** : Interdiction d'installer des binaires natifs (`postinstall`) incompatibles avec les environnements cloud standard.
-
-## DESIGN & UX (RAPPEL)
-- **PROHIBITION_001** : Taille de police titre <= `text-6xl`.
-- **PROHIBITION_009** : Interdiction de l'icône "Sparkles/Magic" (Sérieux financier exigé).
-- **PROHIBITION_010** : Mentions d'agrément réservées exclusivement à la page "Mentions Légales".
+- **PROHIBITION_RUN_001** : Interdiction de modifier l'importmap pour introduire des versions de React non certifiées (< 19.0).
+- **PROHIBITION_RUN_002** : Interdiction d'utiliser des plugins Vite nécessitant des binaires locaux lors du build cloud.
 
 ## GOUVERNANCE IA
-- **PROHIBITION_IA_001** : Interdiction pour l'IA de proposer des changements structurels (suppression de pages, renommage de fichiers racines) sans instruction utilisateur explicite et auditée.
+- **PROHIBITION_IA_002** : Interdiction d'utiliser les propriétés dépréciées du SDK Gemini. Utilisation stricte de `.text` (SDK v0.4.0).

@@ -13,7 +13,6 @@ import {
   LayoutGrid,
   Zap,
   BookOpen,
-  ChevronRight,
   Calculator,
   HelpCircle,
   SlidersHorizontal,
@@ -22,6 +21,8 @@ import {
   Lock,
   SpellCheck
 } from 'lucide-react';
+
+// Pages
 import LandingPage from './pages/LandingPage';
 import SimulatorPage from './pages/SimulatorPage';
 import OffersPage from './pages/OffersPage';
@@ -43,6 +44,8 @@ import GlossaryPage from './pages/GlossaryPage';
 import HelpPage from './pages/HelpPage';
 import AboutPage from './pages/AboutPage';
 import CreditsPage from './pages/CreditsPage';
+
+// Components
 import ApplicationFormModal from './components/ApplicationFormModal';
 import SearchResults from './components/SearchResults';
 import PreFooter from './components/PreFooter';
@@ -52,6 +55,8 @@ import ConsentPopover from './components/ConsentPopover';
 import LanguageSwitcher from './components/LanguageSwitcher';
 import { PageTransitionSkeleton } from './components/Skeleton';
 import { LOAN_OFFERS, getIcon } from './constants';
+
+const BRAND_NAME = "YOUNITED";
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -97,8 +102,8 @@ const MobileOffCanvas: React.FC<{ isOpen: boolean; onClose: () => void; onOpenAp
             className={`lg:hidden fixed top-0 ${isRTL ? 'right-0' : 'left-0'} bottom-0 w-[85%] max-w-[380px] bg-white dark:bg-slate-950 z-[210] shadow-[20px_0_60px_rgba(0,0,0,0.1)] flex flex-col border-r border-slate-100 dark:border-slate-800`}
           >
             <div className="px-4 py-[5px] flex items-center justify-between border-b border-slate-100 dark:border-slate-900/50 min-h-[65px]">
-              <Link to="/" onClick={onClose} className="font-black tracking-tighter uppercase text-xl text-slate-950 dark:text-white italic">LOGO</Link>
-              <button onClick={onClose} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-500"><X size={18} /></button>
+              <Link to="/" onClick={onClose} className="font-black tracking-tighter uppercase text-xl text-slate-950 dark:text-white italic">{BRAND_NAME}</Link>
+              <button onClick={onClose} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-500 transition-colors hover:text-rose-500"><X size={18} /></button>
             </div>
             
             <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
@@ -239,7 +244,6 @@ const AppContent: React.FC = () => {
 
   const scrollTimeoutRef = useRef<number | null>(null);
 
-  // Gestion RTL
   useEffect(() => {
     document.documentElement.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
   }, [i18n.language]);
@@ -323,7 +327,7 @@ const AppContent: React.FC = () => {
               {!isSearchOpen ? (
                 <motion.div key="nav-content" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} className={`flex-1 flex items-center justify-between h-full ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <div className={`flex items-center space-x-12 ${isRTL ? 'space-x-reverse' : ''}`}>
-                    <Link to="/" className="font-black tracking-tighter uppercase text-xl lg:text-2xl italic select-none">LOGO</Link>
+                    <Link to="/" className="font-black tracking-tighter uppercase text-xl lg:text-2xl italic select-none">{BRAND_NAME}</Link>
                     <div className={`hidden lg:flex items-center space-x-1 ${isRTL ? 'space-x-reverse' : ''}`}>
                       <Link to="/" className={`px-5 py-2 rounded-full font-black text-[10px] uppercase tracking-widest transition-all ${location.pathname === '/' ? 'bg-brand-primary/10 text-brand-primary' : 'hover:bg-slate-100 dark:hover:bg-slate-800'}`}>{t('nav.home')}</Link>
                       <div onMouseEnter={() => setActiveMegaMenu('offers')} onMouseLeave={() => setActiveMegaMenu(null)} className="relative h-[75px] flex items-center">
@@ -370,7 +374,7 @@ const AppContent: React.FC = () => {
                                 ))}
                               </div>
                               <div className="w-1/2 space-y-3 px-6 pt-10 text-center">
-                                <Link to="/a-propos" onClick={() => setActiveMegaMenu(null)} className="inline-block px-5 py-2.5 bg-slate-950 dark:bg-white dark:text-slate-950 text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:opacity-90">{t('nav.resources_menu.about_btn')}</Link>
+                                <Link to="/a-propos" onClick={() => setActiveMegaMenu(null)} className="inline-block px-5 py-2.5 bg-slate-950 dark:bg-white dark:text-slate-950 text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:opacity-90 transition-all">{t('nav.resources_menu.about_btn')}</Link>
                               </div>
                             </motion.div>
                           )}
@@ -380,10 +384,10 @@ const AppContent: React.FC = () => {
                   </div>
 
                   <div className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''}`}>
-                    <button onClick={() => setIsSearchOpen(true)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300"><Search size={18} /></button>
-                    <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300">{isDarkMode ? <Sun size={18} /> : <Moon size={18} />}</button>
+                    <button onClick={() => setIsSearchOpen(true)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300" aria-label="Rechercher"><Search size={18} /></button>
+                    <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300" aria-label="Changer de thème">{isDarkMode ? <Sun size={18} /> : <Moon size={18} />}</button>
                     <LanguageSwitcher />
-                    <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 lg:p-2.5 bg-brand-primary/10 text-brand-primary rounded-xl"><AnimatedMenuIcon isOpen={isMobileMenuOpen} /></button>
+                    <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 lg:p-2.5 bg-brand-primary/10 text-brand-primary rounded-xl" aria-label="Menu Mobile"><AnimatedMenuIcon isOpen={isMobileMenuOpen} /></button>
                     <button onClick={(e) => handleOpenAppForm(null, e)} className="hidden sm:flex bg-brand-primary text-white px-6 py-3 rounded-full font-black text-[10px] uppercase tracking-widest shadow-brand active:scale-95 transition-all"><Zap size={12} className="fill-white mr-2" />{t('nav.request')}</button>
                   </div>
                 </motion.div>
@@ -398,7 +402,7 @@ const AppContent: React.FC = () => {
                         className={`w-full bg-transparent border-none ${isRTL ? 'pr-10 pl-4' : 'pl-10 pr-4'} py-2 text-lg lg:text-2xl font-black italic outline-none text-slate-950 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-700`} 
                       />
                     </div>
-                    <button onClick={() => {setIsSearchOpen(false); setSearchQuery('');}} className="p-2 lg:p-3 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-rose-500 hover:text-white rounded-2xl transition-all group shrink-0 text-slate-500 dark:text-slate-400"><X size={18} className="group-hover:rotate-90 transition-transform" /></button>
+                    <button onClick={() => {setIsSearchOpen(false); setSearchQuery('');}} className="p-2 lg:p-3 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-rose-500 hover:text-white rounded-2xl transition-all group shrink-0 text-slate-500 dark:text-slate-400" aria-label="Fermer la recherche"><X size={18} className="group-hover:rotate-90 transition-transform" /></button>
                   </div>
                 </motion.div>
               )}

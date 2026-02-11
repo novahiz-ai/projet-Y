@@ -2,7 +2,7 @@
   "name": "younited-online-loan",
   "version": "1.0.0",
   "private": true,
-  "description": "Plateforme ultra-moderne de prêt en ligne Younited - Certification 4.0-S",
+  "description": "Plateforme ultra-moderne de prêt en ligne Younited - Déploiement Vercel Frontend-First",
   "type": "module",
   "engines": {
     "node": ">=20.0.0"

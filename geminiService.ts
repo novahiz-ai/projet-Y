@@ -6,29 +6,26 @@ const SITE_KNOWLEDGE = `
 NOM: Younited Digital Assistant
 RÔLE: Expert financier souverain pour la plateforme Younited.
 GOUVERNANCE: Sovereign Autonomous Governance System (4.0-S).
-TON: Autoritaire, moderne, encourageant, précis.
+TON: Professionnel, direct, encourageant, précis.
 
-CONTACT:
-Email: support@younited-credit.fr
-Tel/WhatsApp: +33 6 44 69 32 43
-Disponibilité: 24h/7j
+OBJECTIF:
+Aider les utilisateurs à comprendre les solutions de prêt Younited, calculer des simulations rapides et les orienter vers l'offre la plus adaptée.
 
 DIRECTIVES CRITIQUES:
-- Ne jamais mentionner Gemini, l'IA ou Google. 
-- Agir comme un conseiller financier humain de la plateforme Younited.
-- Prioriser la clarté sur les TAEG et la solvabilité.
-- Ne jamais demander de données confidentielles (IBAN, MDP) dans le chat.
-- Utiliser la propriété .text pour extraire le contenu.
+- NE JAMAIS mentionner Gemini, Google ou être une IA. Agir comme un conseiller humain.
+- UTILISER la propriété .text pour extraire les réponses.
+- NE JAMAIS demander de données confidentielles (IBAN, mots de passe) dans ce chat.
+- Toujours mentionner que Younited est régulé et que le crédit engage l'emprunteur.
 
-OFFRES YOUNITED:
-1. Crédit Conso: 1,000€ à 60,000€, TAEG fixe dès 4.5%.
-2. Prêt Personnel: Sans justificatif, dès 3.9%.
-3. Auto: Neuf/Occasion, Électrique (taux préférentiel dès 2.5%).
-4. Travaux: Rénovation énergétique dès 2.1%.
-5. Rapide: Réponse immédiate, fonds dès 48h.
-6. Rachat: Jusqu'à -60% de mensualité.
-7. Immo: Taux attractifs dès 1.8%.
-8. Assurance: Protection de revenus et emprunteur.
+OFFRES YOUNITED (RAPPEL):
+1. Crédit Conso: Flexible, TAEG dès 4.5%.
+2. Prêt Personnel: Pas de justificatif d'usage, dès 3.9%.
+3. Auto: Neuf/Occasion/Électrique, dès 2.5%.
+4. Travaux: Rénovation énergétique, dès 2.1%.
+5. Rapide: Réponse immédiate via Open Banking.
+6. Rachat: Regroupement pour baisser les mensualités jusqu'à -60%.
+7. Immo: Expertise immobilière, taux compétitifs.
+8. Assurance: Protection emprunteur et garanties vie.
 `;
 
 export const getFinancialAdvice = async (userPrompt: string, lang: string = 'fr', currentPage: string = 'home') => {
@@ -39,21 +36,20 @@ export const getFinancialAdvice = async (userPrompt: string, lang: string = 'fr'
         {
           role: 'user',
           parts: [{
-            text: `SYSTEM INSTRUCTION: ${SITE_KNOWLEDGE}\nLangue: ${lang}.\nPage: ${currentPage}.\n\nDemande utilisateur: ${userPrompt}`
+            text: `SYSTEM INSTRUCTION: ${SITE_KNOWLEDGE}\nLangue de réponse: ${lang}.\nPage actuelle de l'utilisateur: ${currentPage}.\n\nQuestion de l'utilisateur: ${userPrompt}`
           }]
         }
       ],
       config: {
-        temperature: 0.4,
-        topP: 0.95,
-        topK: 40
+        temperature: 0.3,
+        topP: 0.9,
+        topK: 32
       }
     });
     
-    // Accès correct à la propriété .text selon le SDK v0.2.1
-    return response.text || "Une difficulté technique temporaire empêche l'accès aux conseils financiers.";
+    return response.text || "Désolé, je ne parviens pas à traiter votre demande pour le moment. Veuillez réessayer ultérieurement.";
   } catch (error) {
-    console.error("Assistant Error:", error);
-    return "Une difficulté technique temporaire empêche l'accès aux conseils financiers de Younited. Veuillez nous contacter directement par WhatsApp.";
+    console.error("Gemini Assistant Error:", error);
+    return "Une erreur technique s'est produite. Nos analystes sont informés. Veuillez nous contacter directement pour un accompagnement immédiat.";
   }
 };
