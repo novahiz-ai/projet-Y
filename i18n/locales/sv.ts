@@ -1,13 +1,16 @@
 
 import { common } from './sv/common';
 import { landing } from './sv/pages/landing';
-import { loans } from './sv/pages/loans';
+// Fix: Use a temporary variable to cast the loans export to any to avoid property access errors since the source data might be partial
+import { loans as loansData } from './sv/pages/loans';
 import { insurance } from './sv/pages/insurance';
 import { simulator } from './sv/pages/simulator';
 import { glossary } from './sv/glossary';
 import { legal } from './sv/pages/legal';
 import { info } from './sv/pages/info';
 import { guide } from './sv/pages/guide';
+
+const loans = loansData as any;
 
 export const sv = {
   common: {

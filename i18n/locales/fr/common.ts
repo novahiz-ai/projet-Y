@@ -1,12 +1,13 @@
+
 export const common = {
   chatbot: {
-    welcome: "Bonjour ! Je suis l'assistant digital de LOGO. Comment puis-je t'agner dans tes projets aujourd'hui ?",
+    welcome: "Bonjour ! Je suis l'assistant digital de LOGO. Comment puis-je vous accompagner dans vos projets aujourd'hui ?",
     error: "Je rencontre une difficulté de connexion. Réessayons ?",
     brand_label: "Assistant LOGO",
     agent_name: "Conseiller Digital",
     secure_notice: "Canal de support sécurisé LOGO",
     placeholder: "Votre projet, nos solutions...",
-    version: "LOGO Core v2.4 • Propulsé par LOGO Core"
+    version: "Assistant Digital v2.4"
   },
   nav: {
     home: "Accueil",
@@ -42,7 +43,7 @@ export const common = {
     cat_glossary: "Lexique & Définitions",
     cat_guides: "Guide & Conseils",
     cat_quick: "Accès Rapides",
-    version: "Recherche Intelligente v2.1",
+    version: "Recherche Intelligente",
     placeholder: "Rechercher un service, un article...",
     results_for: "Résultats pour"
   },
@@ -85,11 +86,11 @@ export const common = {
     sign_highlight: "SIGNATURE.",
     sign_desc: "Veuillez signer dans le cadre ci-dessous pour valider votre demande.",
     sign_reset: "Effacer et recommencer",
-    sign_cert: "Certifié conforme eIDAS",
+    sign_cert: "Certifié conforme",
     sign_submit: "Soumettre mon dossier",
     id_validation: "Validation ID Numérique",
     bank_other: "Autre banque",
-    security_footer: "Protection AES-256 • Audit PCI-DSS Level 1",
+    security_footer: "Protection Haute Sécurité AES-256",
     fields: {
       firstname: "Prénom",
       lastname: "Nom",
@@ -187,7 +188,7 @@ export const common = {
     resources_title: "Ressources",
     social_title: "Suivez-nous",
     rights: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS.",
-    rights_full: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS. LOGO est un établissement de crédit agréé.",
+    rights_full: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS.",
     legal: "Mentions Légales",
     privacy: "Confidentialité",
     cookies: "Cookies",

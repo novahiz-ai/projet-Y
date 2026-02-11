@@ -6,8 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { 
   ChevronRight, 
   Zap, 
-  ArrowRight,
-  Sparkles
+  ArrowRight
 } from 'lucide-react';
 import { LOAN_OFFERS } from '../constants';
 import { getArticles } from '../data/articles';
