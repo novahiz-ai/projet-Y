@@ -83,7 +83,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ delay: 0.2 }}
-                className="max-w-2xl text-lg md:text-xl text-slate-600 dark:text-slate-400 font-semibold leading-relaxed"
+                className="max-w-2xl text-xl md:text-2xl text-slate-600 dark:text-slate-400 font-semibold leading-relaxed"
               >
                 {description}
               </motion.p>

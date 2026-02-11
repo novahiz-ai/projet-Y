@@ -33,7 +33,7 @@ const FloatingIcons = ({ iconName }: { iconName: string }) => {
             top: `${10 + (i * 25)}%`,
           }}
         >
-          {getIcon(iconName, 120 + (i * 20))}
+          {getIcon(iconName, 100 + (i * 10))}
         </motion.div>
       ))}
     </div>
@@ -55,7 +55,7 @@ const LoanCard: React.FC<LoanCardProps> = ({ offer, onClick, onExpressDemand }) 
       whileHover={{ y: -8, scale: 1.01 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className="group relative h-[420px] bg-white dark:bg-slate-900 rounded-[3rem] border border-slate-100 dark:border-slate-800 hover:border-brand-primary/30 transition-all duration-500 shadow-xl shadow-slate-200/20 dark:shadow-none cursor-pointer overflow-hidden flex flex-col"
+      className="group relative h-[300px] bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 hover:border-brand-primary/30 transition-all duration-500 shadow-xl shadow-slate-200/20 dark:shadow-none cursor-pointer overflow-hidden flex flex-col"
       onClick={offer.id !== 'assurance' ? onClick : undefined}
     >
       {/* Animated Icon Background */}
@@ -64,42 +64,42 @@ const LoanCard: React.FC<LoanCardProps> = ({ offer, onClick, onExpressDemand }) 
       {/* Glossy Overlay effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-transparent to-transparent dark:from-white/5 pointer-events-none" />
 
-      <div className="relative z-10 p-8 flex flex-col h-full">
-        {/* Header: Icon & Rate */}
-        <div className="flex justify-between items-start mb-8">
-          <div className={`w-16 h-16 ${offer.color} text-white rounded-[1.5rem] flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl shadow-current/20`}>
-            {getIcon(offer.icon, 32)}
+      <div className="relative z-10 p-6 flex flex-col h-full">
+        {/* Header: Icon & Rate - Stay at top */}
+        <div className="shrink-0 flex justify-between items-start mb-2">
+          <div className={`w-10 h-10 ${offer.color} text-white rounded-[1.2rem] flex items-center justify-center transform group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg shadow-current/20`}>
+            {getIcon(offer.icon, 20)}
           </div>
-          <div className="bg-slate-50 dark:bg-slate-800/80 backdrop-blur-md px-4 py-2 rounded-2xl border border-slate-100 dark:border-slate-700 text-right">
-            <span className="text-[8px] text-slate-400 dark:text-slate-500 uppercase font-black tracking-widest block leading-none mb-1">{t('labels.rate_from')}</span>
-            <div className="text-xl font-black text-brand-primary italic leading-none">
+          <div className="bg-slate-50 dark:bg-slate-800/80 backdrop-blur-md px-3 py-1 rounded-xl border border-slate-100 dark:border-slate-700 text-right">
+            <span className="text-[7px] text-slate-400 dark:text-slate-500 uppercase font-black tracking-widest block leading-none mb-0.5">{t('labels.rate_from')}</span>
+            <div className="text-base font-black text-brand-primary italic leading-none">
               {offer.minRate}%
             </div>
           </div>
         </div>
         
-        {/* Content */}
-        <div className="space-y-3">
-          <h3 className="text-2xl font-black text-slate-900 dark:text-white group-hover:text-brand-primary transition-colors uppercase tracking-tighter italic">
+        {/* Centered Content */}
+        <div className="flex-1 flex flex-col justify-center items-center text-center space-y-3">
+          <h3 className="text-2xl font-black text-slate-900 dark:text-white group-hover:text-brand-primary transition-colors uppercase tracking-tighter italic leading-tight">
             {t(offer.title)}
           </h3>
-          <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium line-clamp-3">
+          <p className="text-slate-500 dark:text-slate-400 text-base leading-snug font-medium line-clamp-3">
             {t(offer.description)}
           </p>
         </div>
 
-        {/* Footer: Primary Action & Info */}
-        <div className="mt-auto pt-6 flex items-center justify-between border-t border-slate-50 dark:border-slate-800/50">
+        {/* Footer: Primary Action & Info - Stay at bottom */}
+        <div className="shrink-0 mt-auto pt-3 flex items-center justify-between border-t border-slate-50 dark:border-slate-800/50">
           <button 
             onClick={handleExpressClick}
-            className="flex items-center space-x-2.5 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary px-5 py-3 rounded-2xl font-black uppercase text-[10px] tracking-widest hover:bg-brand-primary hover:text-white transition-all shadow-sm active:scale-95"
+            className="flex items-center space-x-2 bg-brand-primary/10 dark:bg-brand-primary/20 text-brand-primary px-4 py-2 rounded-xl font-black uppercase text-[9px] tracking-widest hover:bg-brand-primary hover:text-white transition-all shadow-sm active:scale-95"
           >
-            <Zap size={14} className="fill-current" />
+            <Zap size={11} className="fill-current" />
             <span>{t('labels.express_demand')}</span>
           </button>
           
-          <div className="w-11 h-11 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-brand-primary group-hover:text-white group-hover:shadow-lg group-hover:shadow-brand-primary/30 transition-all">
-            <ArrowUpRight size={20} />
+          <div className="w-8 h-8 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:bg-brand-primary group-hover:text-white group-hover:shadow-lg group-hover:shadow-brand-primary/30 transition-all">
+            <ArrowUpRight size={16} />
           </div>
         </div>
       </div>
