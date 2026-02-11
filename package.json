@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "description": "Plateforme ultra-moderne de prêt en ligne Younited - Certification 4.0-S",
+  "type": "module",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -11,22 +15,22 @@
   "dependencies": {
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "react-router-dom": "^7.1.1",
-    "framer-motion": "^11.15.0",
-    "lucide-react": "^0.463.0",
-    "recharts": "^2.15.0",
+    "react-router-dom": "7.1.1",
+    "framer-motion": "11.15.0",
+    "lucide-react": "0.463.0",
+    "recharts": "2.15.0",
     "@google/genai": "0.2.1",
-    "signature_pad": "^5.0.4",
-    "i18next": "^24.2.2",
-    "react-i18next": "^15.4.0"
+    "signature_pad": "5.0.4",
+    "i18next": "24.2.2",
+    "react-i18next": "15.4.0"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "vite": "^6.0.0",
-    "tailwindcss": "^3.4.0",
-    "autoprefixer": "^10.4.0",
-    "postcss": "^8.4.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0"
+    "typescript": "5.7.2",
+    "vite": "6.0.0",
+    "tailwindcss": "3.4.16",
+    "autoprefixer": "10.4.20",
+    "postcss": "8.4.49",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "19.0.1"
   }
 }

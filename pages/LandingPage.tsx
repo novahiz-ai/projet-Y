@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -72,7 +71,7 @@ const LandingPage: React.FC<{ onOpenApp: (context?: any) => void }> = ({ onOpenA
         </div>
       </HeroSection>
 
-      <div className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[4rem] lg:rounded-t-[6rem] mt-12 lg:-mt-24 transition-colors duration-500 pb-20">
+      <div className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[4rem] lg:rounded-t-[6rem] mt-12 lg:-mt-32 transition-colors duration-500 pb-20">
         
         <div className="relative pt-12 flex justify-center">
           <StatsBar />

@@ -333,14 +333,14 @@ const AppContent: React.FC = () => {
                         </div>
                         <AnimatePresence>
                           {activeMegaMenu === 'offers' && (
-                            <motion.div variants={megaMenuVariants} initial="hidden" animate="visible" exit="exit" className={`absolute top-[70px] ${isRTL ? 'right-[-50px]' : 'left-[-50px]'} w-[800px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-3xl rounded-[2.5rem] p-8 grid grid-cols-3 gap-3`}>
+                            <motion.div variants={megaMenuVariants} initial="hidden" animate="visible" exit="exit" className={`absolute top-[70px] ${isRTL ? 'right-[-50px]' : 'left-[-50px]'} w-[800px] bg-white/95 dark:bg-slate-900/95 backdrop-blur-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-3xl rounded-[2.5rem] p-8 grid grid-cols-3 gap-4`}>
                               {LOAN_OFFERS.map(offer => (
                                 <Link key={offer.id} to={`/offres/${offer.id}`} onClick={() => setActiveMegaMenu(null)} className={`flex items-start space-x-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all border border-transparent hover:border-slate-100 dark:hover:border-slate-700 group ${isRTL ? 'space-x-reverse' : ''}`}>
                                   <div className={`w-11 h-11 ${offer.color} text-white rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>{getIcon(offer.icon, 20)}</div>
                                   <div className="overflow-hidden">
-                                    <h4 className="font-black uppercase text-[10px] tracking-tight text-slate-900 dark:text-white truncate">{t(offer.title)}</h4>
-                                    <p className="text-[9px] text-slate-500 dark:text-slate-400 font-medium leading-relaxed line-clamp-2 mt-1">{t(offer.description)}</p>
-                                    <span className="text-brand-primary font-black text-[7px] uppercase tracking-widest mt-1 block">{t('labels.rate_from')} {offer.minRate}%</span>
+                                    <h4 className="font-black uppercase text-sm tracking-tight text-slate-900 dark:text-white truncate">{t(offer.title)}</h4>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed line-clamp-2 mt-1.5">{t(offer.description)}</p>
+                                    <span className="text-brand-primary font-black text-[9px] uppercase tracking-widest mt-2 block">{t('labels.rate_from')} {offer.minRate}%</span>
                                   </div>
                                 </Link>
                               ))}
@@ -365,12 +365,12 @@ const AppContent: React.FC = () => {
                                 ].map(res => (
                                   <Link key={res.path} to={res.path} onClick={() => setActiveMegaMenu(null)} className={`flex items-center space-x-3 p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all group ${isRTL ? 'space-x-reverse' : ''}`}>
                                     <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-400 group-hover:text-brand-primary">{res.icon}</div>
-                                    <span className="text-[10px] font-black uppercase text-slate-700 dark:text-slate-300 group-hover:text-brand-primary">{res.label}</span>
+                                    <span className="text-sm font-black uppercase text-slate-700 dark:text-slate-300 group-hover:text-brand-primary">{res.label}</span>
                                   </Link>
                                 ))}
                               </div>
                               <div className="w-1/2 space-y-3 px-6 pt-10 text-center">
-                                <Link to="/a-propos" onClick={() => setActiveMegaMenu(null)} className="inline-block px-5 py-2.5 bg-slate-950 dark:bg-white dark:text-slate-950 text-white rounded-full text-[9px] font-black uppercase tracking-widest hover:opacity-90">{t('nav.resources_menu.about_btn')}</Link>
+                                <Link to="/a-propos" onClick={() => setActiveMegaMenu(null)} className="inline-block px-5 py-2.5 bg-slate-950 dark:bg-white dark:text-slate-950 text-white rounded-full text-[10px] font-black uppercase tracking-widest hover:opacity-90">{t('nav.resources_menu.about_btn')}</Link>
                               </div>
                             </motion.div>
                           )}

@@ -50,7 +50,8 @@ export const getFinancialAdvice = async (userPrompt: string, lang: string = 'fr'
       }
     });
     
-    return response.text;
+    // Accès correct à la propriété .text selon le SDK v0.2.1
+    return response.text || "Une difficulté technique temporaire empêche l'accès aux conseils financiers.";
   } catch (error) {
     console.error("Assistant Error:", error);
     return "Une difficulté technique temporaire empêche l'accès aux conseils financiers de Younited. Veuillez nous contacter directement par WhatsApp.";

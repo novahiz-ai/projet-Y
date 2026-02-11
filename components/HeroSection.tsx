@@ -7,8 +7,6 @@ import {
   User,
   Heart,
   Clock,
-  ShieldCheck,
-  Zap,
   ChevronRight,
   Shield
 } from 'lucide-react';
@@ -47,16 +45,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }, [projects.length]);
 
   return (
-    <section className="relative min-h-[90vh] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden bg-white dark:bg-slate-950 pt-24 lg:pt-0">
+    <section className="relative min-h-[90vh] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden bg-white dark:bg-slate-950 pt-32 lg:pt-40 pb-32 lg:pb-56 transition-all duration-700">
       
-      {/* Background Image Layer */}
+      {/* Background Image Layer - Updated for professional context and better visibility */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000" 
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
           alt="" 
-          className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.12]"
+          className="w-full h-full object-cover opacity-[0.15] dark:opacity-[0.25] transition-opacity duration-1000"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-white dark:from-slate-950 dark:via-slate-950/70 dark:to-slate-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/40 to-white dark:from-slate-950 dark:via-slate-950/40 dark:to-slate-950" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-10 relative z-10">
