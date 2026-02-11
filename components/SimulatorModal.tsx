@@ -34,7 +34,6 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({
   const { t } = useTranslation();
   const [isMounted, setIsMounted] = useState(false);
   
-  // Memoize initial offer logic
   const initialOffer = useMemo(() => 
     initialOfferId ? LOAN_OFFERS.find(o => o.id === initialOfferId) : LOAN_OFFERS[0]
   , [initialOfferId]);
@@ -144,11 +143,9 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({
 
       {/* Main Content */}
       <main className="flex-1 flex flex-col lg:flex-row overflow-hidden relative">
-        
         {/* Left Column: Input Controls */}
         <div className="lg:w-1/2 p-6 md:p-12 lg:p-20 flex flex-col justify-start lg:justify-center overflow-y-auto scrollbar-hide pb-40 lg:pb-20">
           <div className="max-w-xl mx-auto w-full space-y-12">
-            
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               <ModernSelect 
                 label={t('simulator.project')} 
@@ -211,7 +208,6 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({
               </div>
             </div>
 
-            {/* Trust Footer */}
             <div className="flex items-center space-x-4 p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-3xl">
                <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-white shadow-lg shrink-0">
                  <ShieldCheck size={24} />
@@ -229,10 +225,7 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({
         {/* Right Column: Visualization & CTA */}
         <div className="hidden lg:flex lg:w-1/2 p-12 lg:p-20 flex-col items-center justify-center bg-slate-50/50 dark:bg-slate-900/20 border-l border-slate-100 dark:border-slate-800 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.05),transparent_70%)] pointer-events-none" />
-          
           <div className="w-full max-w-md flex flex-col items-center space-y-16">
-            
-            {/* Payment Display */}
             <div className="text-center space-y-4">
               <span className="text-[12px] font-black uppercase tracking-[0.5em] text-slate-400">{t('simulator.est_monthly')}</span>
               <div className="flex items-center justify-center">
@@ -248,7 +241,6 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({
               </div>
             </div>
 
-            {/* Mini Stats Grid */}
             <div className="grid grid-cols-2 gap-6 w-full">
                <div className="p-8 bg-white dark:bg-slate-950 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm text-center space-y-2">
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">{t('simulator.interests')}</p>
@@ -264,7 +256,6 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({
                </div>
             </div>
 
-            {/* Recharts Visualization */}
             <div className="w-full relative h-[250px] flex items-center justify-center">
               {isMounted && (
                 <ResponsiveContainer width="100%" height="100%">
@@ -279,7 +270,9 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({
                       animationBegin={0}
                       animationDuration={1500}
                     >
-                      {chartData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
+                      {chartData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
                     </Pie>
                   </PieChart>
                 </ResponsiveContainer>
