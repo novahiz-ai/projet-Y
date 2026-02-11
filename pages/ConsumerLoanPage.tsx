@@ -82,7 +82,7 @@ const ConsumerLoanPage: React.FC = () => {
             <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] tracking-tighter uppercase italic text-slate-950 dark:text-white">
                 {t('consumer_loan.hero.title')} <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-secondary">{t('consumer_loan.hero.highlight')}</span>
+                <span className="text-gradient drop-shadow-sm">{t('consumer_loan.hero.highlight')}</span>
               </h1>
               <p className="text-lg text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
                 {t('consumer_loan.hero.desc')}

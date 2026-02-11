@@ -8,7 +8,7 @@ export const insurance = {
     resume: "Résumé"
   },
   hero: {
-    label: "Protection Younited",
+    label: "Protection United",
     title: "VOTRE AVENIR, ",
     highlight: "PROTÉGÉ.",
     desc: "Anticipez les aléas de la vie avec nos solutions d'assurance sur-mesure. Simplicité, transparence et couverture optimale."
@@ -25,7 +25,7 @@ export const insurance = {
   content: {
     maintien_title: "Maintien de revenus",
     maintien_h3: "Sécurisez votre pouvoir d'achat",
-    maintien_p: "En cas d'arrêt de travail ou d'invalidité, Younited vous aide à maintenir votre niveau de vie en complétant vos indemnités journalières.",
+    maintien_p: "En cas d'arrêt de travail ou d'invalidité, United vous aide à maintenir votre niveau de vie en complétant vos indemnités journalières.",
     maintien_btn: "Simuler ma protection",
     auto_title: "Assurance Auto",
     auto_p: "Une couverture complète pour rouler en toute tranquillité, que vous soyez jeune conducteur ou expert.",

@@ -64,15 +64,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           
           <div className="lg:col-span-7 space-y-12">
             <div className="space-y-6">
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center space-x-2 px-3 py-1 bg-brand-primary/10 rounded-lg text-brand-primary border border-brand-primary/20"
-              >
-                <Zap size={14} className="fill-current" />
-                <span className="text-[10px] font-black uppercase tracking-widest">{t('landing.hero.tech_label')}</span>
-              </motion.div>
-              
               <div className="relative inline-block">
                 <motion.h1 
                   initial={{ opacity: 0, x: -30 }} 

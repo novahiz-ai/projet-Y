@@ -1,4 +1,3 @@
-
 export const info = {
   help: {
     title: "CENTRE D'",
@@ -29,7 +28,7 @@ export const info = {
     faq_1_q: "Quels sont les délais d'obtention ?",
     faq_1_a: "Younited propose une réponse de principe immédiate. Une fois votre dossier finalisé et accepté, les fonds sont virés sous 48h ouvrées après expiration du délai légal de rétractation.",
     faq_2_q: "Quels documents dois-je fournir ?",
-    faq_2_a: "Généralement : une pièce d'identité, un justificatif de domicile de moins de 3 mois et vos 3 derniers relevés de compte. Tout se télécharge en ligne.",
+    faq_2_a: "Généralement : une pièce d'identité, un justificatif de domicile de moins de 3 mois et vos derniers relevés de compte. Tout se télécharge en ligne.",
     faq_3_q: "Mes données sont-elles sécurisées ?",
     faq_3_a: "Oui, nous utilisons un cryptage AES-256 bits et nos serveurs sont situés en Europe. Nous sommes audités régulièrement selon la norme PCI-DSS.",
     faq_4_q: "Puis-je rembourser par anticipation ?",

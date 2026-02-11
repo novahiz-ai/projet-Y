@@ -1,14 +1,27 @@
-# CHECKLIST DE VALIDATION (V4.0-S)
+# CHECKLIST DE VALIDATION SOUVERAINE (V4.0-S)
 
-Avant chaque réponse ou déploiement, les points suivants doivent être validés :
+Avant chaque réponse, modification ou déploiement, les points suivants doivent être impérativement validés :
 
-- [x] **Runtime conforme :** Modèle ESM sans bundler respecté.
-- [x] **Importmap intact :** Versions exactes (pinning) vérifiées dans `index.html`.
-- [x] **React Singleton :** Aucun import React indirect ou multiple.
-- [x] **Snapshot respecté :** Les structures de pages, layout et routage sont inchangées sauf instruction explicite.
-- [x] **Modularisation :** Externalisation des composants complexes (>50 lignes) validée.
-- [x] **Risque faible :** Aucune modification de logique métier critique sans audit préalable.
-- [x] **Gemini API :** Utilisation de `.text` (propriété) et non `.text()` (méthode).
-- [x] **API Key :** Accès exclusif via `process.env.API_KEY`.
+## 1. RUNTIME & DÉPENDANCES
+- [ ] **Importmap Intact :** Aucune modification implicite des versions. Pinning strict requis.
+- [ ] **React Singleton :** Vérification de l'absence de double bundle React dans le runtime client.
+- [ ] **Modèle ESM :** Conformité totale au modèle sans bundler.
+- [ ] **Compatibilité React 19 :** Aucune API dépréciée utilisée.
 
-**DÉCISION FINALE : AUTORISÉ (Score estimé : 98/100)**
+## 2. DÉPLOIEMENT VERCEL
+- [ ] **Classification Dépendances :** Build vs Runtime correctement identifié.
+- [ ] **Edge Runtime :** Validation des APIs compatibles (pas de `fs`, `path` ou modules Node.js natifs).
+- [ ] **Sécurité Variables :** Absence de clés API en clair dans le code.
+- [ ] **Rendu Client-Only :** Isolation des librairies sensibles (SignaturePad, Recharts).
+
+## 3. STRUCTURE & MODULARISATION
+- [ ] **Snapshot Inviolable :** Les structures de pages et le routage sont préservés.
+- [ ] **Externalisation :** Blocs > 50 lignes déplacés dans `components/`.
+- [ ] **Propriété .text :** Extraction des réponses Gemini via la propriété `.text` exclusivement.
+
+## 4. DESIGN & UX
+- [ ] **Tokens Design :** Utilisation stricte des variables de thème CSS.
+- [ ] **Accessibilité :** Attributs ARIA présents sur les nouveaux composants.
+- [ ] **Responsive :** Validation mobile/tablette/desktop.
+
+**DÉCISION FINALE REQUISE : AUTORISÉ | AUTORISÉ_SOUS_RÉSERVE | BLOQUÉ**

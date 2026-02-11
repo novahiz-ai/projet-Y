@@ -2,14 +2,13 @@ export const landing = {
   hero: {
     title: "VOTRE PROJET,",
     highlight: "NOTRE EXPERTISE.",
-    desc: "LOGO transforme le crédit en une expérience simple, transparente et 100% digitale. Obtenez une réponse ferme en temps réel.",
+    desc: "Younited transforme le crédit en une expérience simple, transparente et 100% digitale. Obtenez une réponse ferme en temps réel.",
     simulate: "Simuler mon prêt",
     express: "Demande Express",
     trustpilot: "Note Trustpilot 4.8/5",
     response_time: "Réponse en 3 minutes",
     expert_choice: "Le choix de l'expert",
     secured: "Paiement Sécurisé",
-    tech_label: "Technologie 100% Digitale",
     apr_fixed: "TAEG FIXE",
     projects: {
       auto: { label: "Prêt Auto", desc: "Financez votre véhicule neuf ou d'occasion au meilleur taux.", limit: "Jusqu'à 60 000€" },
@@ -50,8 +49,8 @@ export const landing = {
   auto_subtitle: "AUJOURD'HUI.",
   auto_desc: "Financez votre voiture neuve ou d'occasion avec une réponse de principe immédiate.",
   auto_cta: "Simuler mon prêt auto",
-  expertise_label: "Expertise LOGO",
-  expertise_title: "L'INTELLIGENZ AU SERVICE DU ",
+  expertise_label: "Expertise Younited",
+  expertise_title: "L'INTELLIGENCE AU SERVICE DU ",
   expertise_highlight: "CONSEIL.",
   access_guide: "Accéder au guide complet",
   testimonials: {
@@ -67,7 +66,7 @@ export const landing = {
   prefooter: {
     smart_title: "Gestion Intelligente",
     smart_desc: "Pilotez vos remboursements depuis votre espace client sécurisé.",
-    smart_label: "Technologie LOGO",
+    smart_label: "Technologie Younited",
     help_desc: "Une question sur votre dossier ? Accédez à notre centre d'aide complet.",
     help_cta: "Accéder aux FAQ",
     contact_title: "Experts à l'écoute",

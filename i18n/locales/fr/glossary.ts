@@ -1,9 +1,8 @@
-
 export const glossary = {
   label: "Glossaire Financier",
   title: "LE LEXIQUE DU ",
   highlight: "CRÉDIT.",
-  desc: "Maîtrisez les termes bancaires pour mieux piloter votre budget. L'expertise financière à votre portée.",
+  desc: "Maîtrisez les termes bancaires pour mieux piloter votre budget avec Younited. L'expertise financière à votre portée.",
   search_placeholder: "Rechercher un terme (ex: TAEG, Rachat...)",
   all_themes: "Tous les thèmes",
   reset: "Réinitialiser la recherche",

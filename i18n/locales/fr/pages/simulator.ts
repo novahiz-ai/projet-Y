@@ -7,7 +7,7 @@ export const simulator = {
   months: "Mois",
   months_short: "m",
   validate: "Valider mon projet",
-  guarantee: "Étude immédiate • Taux garanti",
+  guarantee: "Étude immédiate • Taux garanti Younited",
   est_monthly: "Mensualité Estimée",
   interests: "Intérêts",
   total_cost: "Total dû",

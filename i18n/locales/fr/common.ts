@@ -1,10 +1,10 @@
 export const common = {
   chatbot: {
-    welcome: "Bonjour ! Je suis l'assistant digital de LOGO. Comment puis-je vous accompagner dans vos projets aujourd'hui ?",
+    welcome: "Bonjour ! Je suis l'assistant digital de Younited. Comment puis-je vous accompagner dans vos projets aujourd'hui ?",
     error: "Je rencontre une difficulté de connexion. Réessayons ?",
-    brand_label: "Assistant LOGO",
+    brand_label: "Assistant Younited",
     agent_name: "Conseiller Digital",
-    secure_notice: "Canal de support sécurisé LOGO",
+    secure_notice: "Canal de support sécurisé Younited",
     placeholder: "Votre projet, nos solutions...",
     version: "Assistant Digital v2.4"
   },
@@ -188,11 +188,11 @@ export const common = {
     offers_title: "Offres",
     resources_title: "Ressources",
     social_title: "Suivez-nous",
-    rights: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS.",
+    rights: "© {{year}} Younited. TOUS DROITS RÉSERVÉS.",
     legal: "Mentions Légales",
     privacy: "Confidentialité",
     cookies: "Cookies",
-    eu_notice: "LOGO est un établissement de crédit opérant dans toute l'Union Européenne.",
+    eu_notice: "Younited est un établissement de crédit opérant dans toute l'Union Européenne.",
     assistance: "Assistance",
     whatsapp_direct: "WhatsApp Direct",
     glossary_fin: "Glossaire financier",

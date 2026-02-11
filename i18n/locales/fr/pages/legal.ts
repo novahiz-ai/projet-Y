@@ -30,10 +30,10 @@ export const legal = {
     gdpr_purposes_desc: "Simulation de crédit, gestion de contrat, lutte contre la fraude.",
     gdpr_retention: "Durée",
     gdpr_retention_desc: "Conservation selon les obligations légales (5 à 10 ans).",
-    gdpr_recipients: "Destinataires",
+    gdpr_recipients: "Destinitaires",
     gdpr_recipients_desc: "Services internes, partenaires bancaires, autorités régulatrices.",
     gdpr_rights_label: "Vos droits",
-    gdpr_rights_desc: "Accès, rectification, suppression. Contactez : Younitedcreditfr@outlook.fr",
+    gdpr_rights_desc: "Accès, rectification, suppression. Contactez : support@younited-credit.fr",
     mediation_title: "Médiation & Réclamations",
     mediation_p1: "En cas de litige, nous privilégions toujours la résolution amiable.",
     mediation_service_client: "Service Client",
@@ -65,7 +65,7 @@ export const legal = {
     intro_p2: "Cette politique détaille comment nous traitons vos informations avec transparence, conformément au RGPD.",
     collect_title: "Données que nous collectons",
     collect_items: [
-      { t: "Identité & Civilisé", d: "Nom, prénom, date de naissance, adresse et pièce d'identité." },
+      { t: "Identité & Civilité", d: "Nom, prénom, date de naissance, adresse et pièce d'identité." },
       { t: "Données Financières", d: "Revenus, charges, relevés bancaires via l'Open Banking pour l'analyse de solvabilité." }
     ],
     purpose_title: "Pourquoi collectons-nous vos données ?",
@@ -112,11 +112,11 @@ export const legal = {
     types_items: [
       { t: "Essentiels", d: "Indispensables au fonctionnement du site, à la sécurité et à la signature électronique.", s: "Obligatoire" },
       { t: "Analytiques", d: "Mesure d'audience anonymisée pour améliorer l'ergonomie et nos services.", s: "Optionnel" },
-      { t: "Marketing", d: "Personnalisation des offres publicitaires en fonction de vos intérêts.", s: "Optionnel" }
+      { t: "Marketing", d: "Personalisations des offres publicitaires en fonction de vos intérêts.", s: "Optionnel" }
     ],
     manage_title: "Contrôlez vos préférences",
     manage_h3: "Centre de paramétrage",
-    manage_p: "Vous avez la liberté d'accepter ou de refuser chaque catégorie de cookie de manera granulaire.",
+    manage_p: "Vous avez la liberté d'accepter ou de refuser chaque catégorie de cookie de manière granulaire.",
     manage_btn: "Ouvrir les réglages",
     manage_note: "Le refus de certains cookies peut altérer la fluidité de votre expérience utilisateur.",
     retention_title: "Durée de conservation",
