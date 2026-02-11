@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -95,7 +96,6 @@ const MobileOffCanvas: React.FC<{ isOpen: boolean; onClose: () => void; onOpenAp
             transition={{ type: 'spring', damping: 30, stiffness: 300 }} 
             className="lg:hidden fixed top-0 left-0 bottom-0 w-[85%] max-w-[380px] bg-white dark:bg-slate-950 z-[210] shadow-[20px_0_60px_rgba(0,0,0,0.1)] flex flex-col border-r border-slate-100 dark:border-slate-800"
           >
-            {/* Mobile Header (65px total) */}
             <div className="px-4 py-[5px] flex items-center justify-between border-b border-slate-100 dark:border-slate-900/50 min-h-[65px]">
               <Link to="/" onClick={onClose} className="font-black tracking-tighter uppercase text-xl text-slate-950 dark:text-white italic">LOGO</Link>
               <button onClick={onClose} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-500"><X size={18} /></button>
@@ -103,19 +103,16 @@ const MobileOffCanvas: React.FC<{ isOpen: boolean; onClose: () => void; onOpenAp
             
             <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
               <div className="space-y-2">
-                {/* 1. Home */}
                 <Link to="/" onClick={onClose} className={`flex items-center space-x-4 p-4 rounded-2xl transition-all ${isActive('/') ? 'bg-brand-primary text-white shadow-brand' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900'}`}>
                   <span className={isActive('/') ? 'text-white' : 'text-brand-primary'}><Home size={20} /></span>
                   <span className="text-sm font-bold uppercase tracking-tight">{t('nav.home')}</span>
                 </Link>
 
-                {/* 2. Simulator */}
                 <Link to="/simulateur" onClick={onClose} className={`flex items-center space-x-4 p-4 rounded-2xl transition-all ${isActive('/simulateur') ? 'bg-brand-primary text-white shadow-brand' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900'}`}>
                   <span className={isActive('/simulateur') ? 'text-white' : 'text-brand-primary'}><Calculator size={20} /></span>
                   <span className="text-sm font-bold uppercase tracking-tight">{t('nav.simulator')}</span>
                 </Link>
 
-                {/* 3. Credit (Collapsible) */}
                 <div className="space-y-2">
                   <button onClick={() => setIsOffersExpanded(!isOffersExpanded)} className={`flex items-center justify-between w-full p-4 rounded-2xl transition-all ${isOffersExpanded ? 'bg-slate-50 dark:bg-slate-900' : 'text-slate-600 dark:text-slate-400'}`}>
                     <div className="flex items-center space-x-4">
@@ -140,13 +137,11 @@ const MobileOffCanvas: React.FC<{ isOpen: boolean; onClose: () => void; onOpenAp
                   </AnimatePresence>
                 </div>
 
-                {/* 4. Guide */}
                 <Link to="/guide" onClick={onClose} className={`flex items-center space-x-4 p-4 rounded-2xl transition-all ${isActive('/guide') ? 'bg-brand-primary text-white shadow-brand' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900'}`}>
                   <span className={isActive('/guide') ? 'text-white' : 'text-brand-primary'}><BookOpen size={20} /></span>
                   <span className="text-sm font-bold uppercase tracking-tight">{t('nav.guide')}</span>
                 </Link>
 
-                {/* 5. Help */}
                 <Link to="/aide" onClick={onClose} className={`flex items-center space-x-4 p-4 rounded-2xl transition-all ${isActive('/aide') ? 'bg-brand-primary text-white shadow-brand' : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-900'}`}>
                   <span className={isActive('/aide') ? 'text-white' : 'text-brand-primary'}><HelpCircle size={20} /></span>
                   <span className="text-sm font-bold uppercase tracking-tight">{t('nav.help')}</span>
@@ -188,7 +183,7 @@ const MobileBottomNav: React.FC<{ onSimulate: () => void; isVisible: boolean }> 
   const isActive = (path: string) => location.pathname === path;
   
   return (
-    <div className={`lg:hidden fixed bottom-0 left-0 right-0 z-[110] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200/50 dark:border-slate-800/50 h-[60px] pb-safe flex items-center justify-around px-2 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-[120%]'}`}>
+    <div className={`lg:hidden fixed bottom-0 left-0 right-0 z-[110] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-200/50 dark:border-slate-800/50 h-[60px] pb-safe flex items-center justify-around px-2 shadow-[0_-10px_30px_rgba(0,0,0,0.05)] transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-[120%] opacity-0'}`}>
       {[
         { icon: <Home size={20} />, label: t('nav.home'), path: "/" },
         { icon: <LayoutGrid size={20} />, label: t('nav.credit'), path: "/offres" },
@@ -236,6 +231,8 @@ const AppContent: React.FC = () => {
   const [pendingContext, setPendingContext] = useState<any>(null);
   const [isChangingLanguage, setIsChangingLanguage] = useState(false);
 
+  const scrollTimeoutRef = useRef<number | null>(null);
+
   useEffect(() => {
     const root = window.document.documentElement;
     if (isDarkMode) {
@@ -248,19 +245,27 @@ const AppContent: React.FC = () => {
   }, [isDarkMode]);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsMobileNavVisible(false);
-      } else {
-        setIsMobileNavVisible(true);
+      
+      // Cache immédiat dès qu'on commence à scroller
+      setIsMobileNavVisible(false);
+
+      if (scrollTimeoutRef.current) {
+        window.clearTimeout(scrollTimeoutRef.current);
       }
-      lastScrollY = currentScrollY;
+
+      // Réapparition automatique après 800ms d'arrêt du scroll
+      scrollTimeoutRef.current = window.setTimeout(() => {
+        setIsMobileNavVisible(true);
+      }, 800);
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
+    };
   }, []);
 
   useEffect(() => {
@@ -367,8 +372,8 @@ const AppContent: React.FC = () => {
                   </div>
 
                   <div className="flex items-center space-x-2">
-                    <button onClick={() => setIsSearchOpen(true)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300"><Search size={18} lg:size={20} /></button>
-                    <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300">{isDarkMode ? <Sun size={18} lg:size={20} /> : <Moon size={18} lg:size={20} />}</button>
+                    <button onClick={() => setIsSearchOpen(true)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300"><Search size={18} /></button>
+                    <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300">{isDarkMode ? <Sun size={18} /> : <Moon size={18} />}</button>
                     <LanguageSwitcher />
                     <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 lg:p-2.5 bg-brand-primary/10 text-brand-primary rounded-xl"><AnimatedMenuIcon isOpen={isMobileMenuOpen} /></button>
                     <button onClick={(e) => handleOpenAppForm(null, e)} className="hidden sm:flex bg-brand-primary text-white px-6 py-3 rounded-full font-black text-[10px] uppercase tracking-widest shadow-brand active:scale-95 transition-all"><Zap size={12} className="fill-white mr-2" />{t('nav.request')}</button>
@@ -385,7 +390,7 @@ const AppContent: React.FC = () => {
                         className="w-full bg-transparent border-none pl-10 pr-4 py-2 text-lg lg:text-2xl font-black italic outline-none text-slate-950 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-700" 
                       />
                     </div>
-                    <button onClick={() => {setIsSearchOpen(false); setSearchQuery('');}} className="p-2 lg:p-3 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-rose-500 hover:text-white rounded-2xl transition-all group shrink-0 text-slate-500 dark:text-slate-400"><X size={18} lg:size={20} className="group-hover:rotate-90 transition-transform" /></button>
+                    <button onClick={() => {setIsSearchOpen(false); setSearchQuery('');}} className="p-2 lg:p-3 bg-slate-100/50 dark:bg-slate-800/50 hover:bg-rose-500 hover:text-white rounded-2xl transition-all group shrink-0 text-slate-500 dark:text-slate-400"><X size={18} className="group-hover:rotate-90 transition-transform" /></button>
                   </div>
                 </motion.div>
               )}

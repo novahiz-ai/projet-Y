@@ -1,3 +1,4 @@
+
 import React, { useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -5,9 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { 
   ChevronRight, 
   Zap, 
-  Car,
   ArrowRight,
-  BookOpen
+  Sparkles
 } from 'lucide-react';
 import { LOAN_OFFERS } from '../constants';
 import { getArticles } from '../data/articles';
@@ -20,11 +20,7 @@ import TestimonialsSection from '../components/TestimonialsSection';
 import ArticleCard from '../components/ArticleCard';
 import HomeRenovationSection from '../components/HomeRenovationSection';
 
-interface LandingPageProps {
-  onOpenApp: (context?: any) => void;
-}
-
-const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp }) => {
+const LandingPage: React.FC<{ onOpenApp: (context?: any) => void }> = ({ onOpenApp }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const articles = useMemo(() => getArticles(t), [t]);
@@ -54,28 +50,32 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp }) => {
         description={t('landing.hero.desc')}
       >
         <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
-          <StandardButton 
-            onClick={() => navigate('/simulateur')}
-            className="w-full sm:w-auto !py-5 !px-12 shadow-brand"
-          >
-            <Zap size={20} className="fill-white" />
-            <span>{t('landing.hero.simulate')}</span>
-          </StandardButton>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <StandardButton 
+              onClick={() => navigate('/simulateur')}
+              className="w-full sm:w-auto !py-5 !px-12 shadow-brand bg-brand-primary"
+            >
+              <Zap size={20} className="fill-white" />
+              <span>{t('landing.hero.simulate')}</span>
+            </StandardButton>
+          </motion.div>
 
-          <StandardButton 
-            variant="outline"
-            onClick={() => onOpenApp({ express: true })}
-            className="w-full sm:w-auto !py-5 !px-12"
-          >
-            <ArrowRight size={20} />
-            <span>{t('landing.hero.express')}</span>
-          </StandardButton>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <StandardButton 
+              variant="outline"
+              onClick={() => onOpenApp({ express: true })}
+              className="w-full sm:w-auto !py-5 !px-12 backdrop-blur-md"
+            >
+              <ArrowRight size={20} />
+              <span>{t('landing.hero.express')}</span>
+            </StandardButton>
+          </motion.div>
         </div>
       </HeroSection>
 
-      <div className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[4rem] lg:rounded-t-[6rem] mt-12 lg:-mt-16 transition-colors duration-500 pb-20">
+      <div className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[4rem] lg:rounded-t-[6rem] mt-12 lg:-mt-24 transition-colors duration-500 pb-20">
         
-        <div className="relative pt-12">
+        <div className="relative pt-12 flex justify-center">
           <StatsBar />
         </div>
 
@@ -90,12 +90,16 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp }) => {
           >
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
               <div className="space-y-4">
+                <div className="flex items-center space-x-2 text-brand-primary">
+                  <div className="w-10 h-1 bg-brand-primary rounded-full" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.3em]">{t('footer.offers_title')}</span>
+                </div>
                 <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase italic">
                   {t('landing.solutions_title')}<span className="text-brand-primary">{t('landing.solutions_highlight')}</span>
                 </h2>
                 <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-xl">{t('landing.solutions_desc')}</p>
               </div>
-              <Link to="/offres" className="group flex items-center justify-center space-x-3 bg-slate-100 dark:bg-slate-900 px-8 py-4 rounded-full text-slate-950 dark:text-white font-black uppercase text-[10px] tracking-widest hover:bg-brand-primary hover:text-white transition-all">
+              <Link to="/offres" className="group flex items-center justify-center space-x-3 bg-slate-100 dark:bg-slate-900 px-8 py-4 rounded-full text-slate-950 dark:text-white font-black uppercase text-[10px] tracking-widest hover:bg-brand-primary hover:text-white transition-all shadow-sm">
                 <span>{t('landing.view_catalog')}</span>
                 <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -103,7 +107,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp }) => {
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {LOAN_OFFERS.slice(0, 4).map((offer) => (
-                <motion.div key={offer.id} variants={fadeInUp}>
+                <motion.div key={offer.id} variants={fadeInUp} whileHover={{ y: -10 }}>
                   <LoanCard offer={offer} onExpressDemand={(ctx) => onOpenApp(ctx)} onClick={() => navigate(`/offres/${offer.id}`)} />
                 </motion.div>
               ))}
@@ -123,7 +127,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp }) => {
             variants={fadeInUp}
             className="max-w-7xl mx-auto px-6"
           >
-            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-[4rem] border border-slate-100 dark:border-slate-800 overflow-hidden">
+            <div className="bg-slate-50 dark:bg-slate-900/50 rounded-[4rem] border border-slate-100 dark:border-slate-800 overflow-hidden shadow-2xl">
               <div className="grid grid-cols-1 lg:grid-cols-2 items-center">
                 <div className="p-10 lg:p-20 space-y-10">
                   <div className="space-y-6">
@@ -144,6 +148,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp }) => {
                 </div>
                 <div className="h-[400px] lg:h-full relative overflow-hidden">
                   <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover animate-subtle-zoom" alt="" />
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-slate-50 dark:to-slate-900/50 hidden lg:block" />
                 </div>
               </div>
             </div>
