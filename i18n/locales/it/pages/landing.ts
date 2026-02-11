@@ -1,4 +1,3 @@
-
 export const landing = {
   hero: {
     title: "IL TUO PROGETTO,",

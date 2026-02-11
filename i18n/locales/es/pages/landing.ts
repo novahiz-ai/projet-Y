@@ -1,4 +1,3 @@
-
 export const landing = {
   hero: {
     title: "TU PROYECTO,",
@@ -45,7 +44,7 @@ export const landing = {
   renovation_card_value_desc: "Aumente el valor de su patrimonio inmobiliario.",
   renovation_card_saving_title: "Ahorro",
   renovation_card_saving_desc: "Reduzca sus facturas de energía hasta un 40%.",
-  auto_label: "Movilidad Sostenible",
+  auto_label: "Mobilidad Sostenible",
   auto_title: "TU NUEVO ",
   auto_highlight: "VEHÍCULO,",
   auto_subtitle: "HOY MISMO.",
