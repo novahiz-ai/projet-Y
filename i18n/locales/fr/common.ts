@@ -1,0 +1,199 @@
+export const common = {
+  chatbot: {
+    welcome: "Bonjour ! Je suis l'assistant digital de LOGO. Comment puis-je t'agner dans tes projets aujourd'hui ?",
+    error: "Je rencontre une difficulté de connexion. Réessayons ?",
+    brand_label: "Assistant LOGO",
+    agent_name: "Conseiller Digital",
+    secure_notice: "Canal de support sécurisé LOGO",
+    placeholder: "Votre projet, nos solutions...",
+    version: "LOGO Core v2.4 • Propulsé par LOGO Core"
+  },
+  nav: {
+    home: "Accueil",
+    credit: "Crédit",
+    simulator: "Simulateur",
+    guide: "Guide",
+    resources: "Ressources",
+    request: "Demande",
+    help: "Aide",
+    about: "À Propos",
+    credits: "Crédits",
+    resources_menu: {
+      help_label: "Aide",
+      help_desc: "Toutes les réponses à vos interrogations.",
+      guide_label: "Guide de l'emprunt",
+      guide_desc: "Nos dossiers d'experts pour s'informer.",
+      glossary_label: "Glossaire",
+      glossary_desc: "Le lexique complet pour tout comprendre.",
+      legal_label: "Légal",
+      legal_desc: "Cadre juridique et réglementaire.",
+      privacy_label: "Vie Privée",
+      privacy_desc: "Protection de vos données personnelles.",
+      cookies_label: "Cookies",
+      cookies_desc: "Gérez vos préférences de navigation.",
+      expert_center_label: "Centre d'expertise",
+      about_btn: "Qui sommes-nous ?"
+    }
+  },
+  search: {
+    no_results: "Aucun résultat trouvé",
+    try_terms: "Essayez des termes comme 'Auto', 'Taux' ou 'Rachat'",
+    cat_offers: "Offres de Crédit",
+    cat_glossary: "Lexique & Définitions",
+    cat_guides: "Guide & Conseils",
+    cat_quick: "Accès Rapides",
+    version: "Recherche Intelligente v2.1",
+    placeholder: "Rechercher un service, un article...",
+    results_for: "Résultats pour"
+  },
+  contact_section: {
+    whatsapp_label: "WhatsApp & Mobile",
+    email_label: "Email direct",
+    support_label: "Support Client 24/7",
+    availability_title: "Disponibilité Totale",
+    availability_desc: "Service permanent"
+  },
+  form: {
+    step_back: "Retour",
+    next: "Continuer",
+    step_label: "Étape",
+    secure_session: "Session sécurisée",
+    completion_label: "Complété",
+    phases: {
+      basics: "Profil",
+      situation: "Situation",
+      finances: "Finances",
+      finalize: "Validation"
+    },
+    identity_title: "VOTRE ",
+    identity_highlight: "IDENTITÉ.",
+    identity_desc: "Informations légales pour votre contrat.",
+    activity_title: "VOTRE ",
+    activity_highlight: "ACTIVITÉ.",
+    contact_title: "VOS ",
+    contact_highlight: "COORDONNÉES.",
+    funds_title: "VOS ",
+    funds_highlight: "FONDS.",
+    funds_desc: "Coordonnées bancaires pour le virement.",
+    project_title: "VOTRE ",
+    project_highlight: "PROJET.",
+    budget_title: "VOTRE ",
+    budget_highlight: "BUDGET.",
+    docs_title: "VOS ",
+    docs_highlight: "PIÈCES.",
+    sign_title: "VOTRE ",
+    sign_highlight: "SIGNATURE.",
+    sign_desc: "Veuillez signer dans le cadre ci-dessous pour valider votre demande.",
+    sign_reset: "Effacer et recommencer",
+    sign_cert: "Certifié conforme eIDAS",
+    sign_submit: "Soumettre mon dossier",
+    id_validation: "Validation ID Numérique",
+    bank_other: "Autre banque",
+    security_footer: "Protection AES-256 • Audit PCI-DSS Level 1",
+    fields: {
+      firstname: "Prénom",
+      lastname: "Nom",
+      birthdate: "Date de naissance",
+      job_title: "Profession actuelle",
+      employer: "Nom de l'employeur",
+      email: "Email",
+      phone: "Téléphone",
+      address: "Adresse postale",
+      zip: "Code postal",
+      city: "Ville",
+      iban: "IBAN",
+      id_doc: "Pièce d'identité",
+      address_doc: "Justificatif de domicile",
+      income_doc: "Dernier bulletin de salaire",
+      tax_residency: "Pays de résidence fiscale",
+      bank: "Votre banque principale",
+      purpose: "Nature du projet",
+      amount: "Montant souhaité",
+      months: "Durée (mois)",
+      income: "Revenus nets mensuels",
+      rent: "Charges fixes (loyer/prêts)",
+      family_status: "Situation familiale",
+      dependents: "Enfants à charge"
+    },
+    placeholders: {
+      firstname: "Jean",
+      lastname: "Dupont",
+      job_title: "Ex: Manager",
+      employer: "Ex: Google",
+      email: "nom@exemple.com",
+      address: "Numéro et nom de rue",
+      zip: "75000",
+      city: "Paris",
+      income: "2500",
+      rent: "800",
+      amount: "Montant",
+      months: "Mois"
+    },
+    options: {
+      job_status: {
+        cdi: "CDI",
+        cdd: "CDD",
+        indep: "Indépendant / Freelance",
+        retraite: "Retraité",
+        etudiant: "Étudiant"
+      },
+      civility: {
+        mr: "M.",
+        mrs: "Mme",
+        ms: "Mlle"
+      },
+      family_status: {
+        single: "Célibataire",
+        married: "Marié(e)",
+        pacsed: "Pacsé(e)",
+        divorced: "Divorcé(e)",
+        widowed: "Veuf/Veuve"
+      }
+    }
+  },
+  stats: {
+    borrowers: "Emprunteurs",
+    funds: "Fonds versés",
+    satisfaction: "Satisfaction",
+    live: "En direct"
+  },
+  labels: {
+    language: "Langue",
+    rate_from: "Taux dès",
+    express_demand: "Demande Express",
+    see_details: "Voir détails",
+    months_count: "Mois",
+    support_247: "Support 24h / 7j",
+    characteristic: "Caractéristique",
+    details: "Détails"
+  },
+  cookies_banner: {
+    title: "Respect de votre vie privée",
+    subtitle: "Gestion des cookies",
+    desc: "Nous utilisons des cookies pour optimiser votre expérience, mémoriser vos simulations et analyser notre trafic. Vous pouvez personnaliser vos choix à tout moment.",
+    accept: "Tout accepter",
+    decline: "Refuser",
+    policy: "Politique de confidentialité"
+  },
+  consent: {
+    title: "Note Légale",
+    warning: "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.",
+    accept: "Accepter et continuer",
+    decline: "Annuler la demande"
+  },
+  footer: {
+    desc: "Plateforme de financement innovante. Nous transformons le crédit en une expérience simple, transparente et humaine.",
+    offers_title: "Offres",
+    resources_title: "Ressources",
+    social_title: "Suivez-nous",
+    rights: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS.",
+    rights_full: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS. LOGO est un établissement de crédit agréé.",
+    legal: "Mentions Légales",
+    privacy: "Confidentialité",
+    cookies: "Cookies",
+    eu_notice: "LOGO est un établissement de crédit opérant dans toute l'Union Européenne.",
+    assistance: "Assistance",
+    whatsapp_direct: "WhatsApp Direct",
+    glossary_fin: "Glossaire financier"
+  }
+};

@@ -1,0 +1,198 @@
+
+export const common = {
+  chatbot: {
+    welcome: "Hello! I am Younited's digital assistant. How can I help you with your projects today?",
+    error: "I'm having connection issues. Shall we try again?",
+    brand_label: "Younited Assistant",
+    agent_name: "Digital Advisor",
+    secure_notice: "Younited Secure Support Channel",
+    placeholder: "Your project, our solutions...",
+    version: "Younited Core v2.4 • Powered by Younited Core"
+  },
+  nav: {
+    home: "Home",
+    credit: "Credit",
+    simulator: "Simulate",
+    guide: "Guide",
+    resources: "Resources",
+    request: "Apply",
+    help: "Help",
+    about: "About Us",
+    credits: "Credits",
+    resources_menu: {
+      help_label: "Help",
+      help_desc: "All the answers to your questions.",
+      guide_label: "Borrower's Guide",
+      guide_desc: "Our expert reports to keep you informed.",
+      glossary_label: "Glossary",
+      glossary_desc: "The complete lexicon to understand everything.",
+      legal_label: "Legal",
+      legal_desc: "Legal and regulatory framework.",
+      privacy_label: "Privacy",
+      privacy_desc: "Protection of your personal data.",
+      cookies_label: "Cookies",
+      cookies_desc: "Manage your browsing preferences.",
+      expert_center_label: "Expertise Center",
+      about_btn: "Who are we?"
+    }
+  },
+  search: {
+    no_results: "No results found",
+    try_terms: "Try terms like 'Auto', 'Rates' or 'Refinancing'",
+    cat_offers: "Credit Offers",
+    cat_glossary: "Glossary & Definitions",
+    cat_guides: "Guide & Expertise",
+    cat_quick: "Quick Access",
+    version: "Intelligent Search v2.1",
+    placeholder: "Search for a service, an article...",
+    results_for: "Results for"
+  },
+  contact_section: {
+    whatsapp_label: "WhatsApp & Mobile",
+    email_label: "Direct Email",
+    support_label: "24/7 Client Support",
+    availability_title: "Total Availability",
+    availability_desc: "Permanent service"
+  },
+  form: {
+    step_back: "Back",
+    next: "Continue",
+    secure_session: "Secure session",
+    completion_label: "Completed",
+    phases: {
+      basics: "Profile",
+      situation: "Situation",
+      finances: "Finances",
+      finalize: "Validation"
+    },
+    identity_title: "YOUR ",
+    identity_highlight: "IDENTITY.",
+    identity_desc: "Legal information for your contract.",
+    activity_title: "YOUR ",
+    activity_highlight: "ACTIVITY.",
+    contact_title: "YOUR ",
+    contact_highlight: "CONTACT INFO.",
+    funds_title: "YOUR ",
+    funds_highlight: "FUNDS.",
+    funds_desc: "Banking details for the transfer.",
+    project_title: "YOUR ",
+    project_highlight: "PROJECT.",
+    budget_title: "YOUR ",
+    budget_highlight: "BUDGET.",
+    docs_title: "YOUR ",
+    docs_highlight: "DOCS.",
+    sign_title: "YOUR ",
+    sign_highlight: "SIGNATURE.",
+    sign_desc: "Please sign in the box below to validate your request.",
+    sign_reset: "Clear and restart",
+    sign_cert: "eIDAS Certified",
+    sign_submit: "Submit my file",
+    id_validation: "Digital ID Validation",
+    bank_other: "Other bank",
+    security_footer: "AES-256 Protection • PCI-DSS Level 1 Audit",
+    fields: {
+      firstname: "First name",
+      lastname: "Last name",
+      birthdate: "Birth date",
+      job_title: "Current job",
+      employer: "Employer name",
+      email: "Email",
+      phone: "Phone",
+      address: "Street address",
+      zip: "ZIP code",
+      city: "City",
+      iban: "IBAN",
+      id_doc: "ID Document",
+      address_doc: "Proof of residence",
+      income_doc: "Latest payslip",
+      tax_residency: "Tax residency country",
+      bank: "Primary bank",
+      purpose: "Project type",
+      amount: "Desired amount",
+      months: "Duration (months)",
+      income: "Net monthly income",
+      rent: "Fixed charges (rent/loans)",
+      family_status: "Family status",
+      dependents: "Number of dependents"
+    },
+    placeholders: {
+      firstname: "John",
+      lastname: "Doe",
+      job_title: "Ex: Manager",
+      employer: "Ex: Google",
+      email: "name@example.com",
+      address: "Street number and name",
+      zip: "10001",
+      city: "New York",
+      income: "2500",
+      rent: "800",
+      amount: "Amount",
+      months: "Months"
+    },
+    options: {
+      job_status: {
+        cdi: "Permanent (CDI)",
+        cdd: "Temporary (CDD)",
+        indep: "Self-employed / Freelance",
+        retraite: "Retired",
+        etudiant: "Student"
+      },
+      civility: {
+        mr: "Mr.",
+        mrs: "Mrs.",
+        ms: "Ms."
+      },
+      family_status: {
+        single: "Single",
+        married: "Married",
+        pacsed: "Civil Partnered",
+        divorced: "Divorced",
+        widowed: "Widowed"
+      }
+    }
+  },
+  stats: {
+    borrowers: "Borrowers",
+    funds: "Funds disbursed",
+    satisfaction: "Satisfaction",
+    live: "Live"
+  },
+  labels: {
+    language: "Language",
+    rate_from: "Rate from",
+    express_demand: "Express Request",
+    see_details: "See details",
+    months_count: "Months",
+    support_247: "Support 24/7",
+    characteristic: "Characteristic",
+    details: "Details"
+  },
+  cookies_banner: {
+    title: "Respecting your privacy",
+    subtitle: "Cookie management",
+    desc: "We use cookies to optimize your experience, memorize your simulations and analyze our traffic. You can customize your choices at any time.",
+    accept: "Accept all",
+    decline: "Decline",
+    policy: "Privacy Policy"
+  },
+  consent: {
+    title: "Legal Notice",
+    warning: "A credit commits you and must be repaid. Check your repayment capacity before committing.",
+    accept: "Accept and continue",
+    decline: "Cancel request"
+  },
+  footer: {
+    desc: "Innovative financing platform. We transform credit into a simple, transparent, and human experience.",
+    offers_title: "Offers",
+    resources_title: "Resources",
+    social_title: "Follow Us",
+    rights: "© {{year}} YOUNITED. ALL RIGHTS RESERVED.",
+    legal: "Legal Notice",
+    privacy: "Privacy Policy",
+    cookies: "Cookies",
+    eu_notice: "Younited is a credit institution operating across the European Union.",
+    assistance: "Support",
+    whatsapp_direct: "WhatsApp Direct",
+    glossary_fin: "Financial Glossary"
+  }
+};

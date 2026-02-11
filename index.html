@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>LOGO - Votre Prêt en un Clic</title>
+    <script>
+        // Script critique pour éviter le flash blanc en mode sombre
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    fontSize: {
+                        'xxs': '0.7rem',
+                    },
+                    colors: {
+                        brand: {
+                            primary: 'var(--brand-primary)',
+                            secondary: 'var(--brand-secondary)',
+                            accent: '#a5b4fc',
+                            success: '#10b981',
+                        }
+                    },
+                    boxShadow: {
+                        '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
+                        'brand': '0 20px 40px -10px var(--brand-shadow)',
+                        'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+                        'search': '0 0 0 1px rgba(0,0,0,0.05), 0 30px 60px -12px rgba(0,0,0,0.25)',
+                    },
+                    animation: {
+                        'spin-slow': 'spin 12s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Mise à jour vers l'Indigo (#6366f1) provenant de l'icône de prêt personnel */
+            --brand-primary: #6366f1;
+            --brand-secondary: #818cf8;
+            --brand-shadow: rgba(99, 102, 241, 0.25);
+        }
+
+        .dark {
+            /* Indigo plus lumineux pour une meilleure lisibilité sur fond sombre */
+            --brand-primary: #818cf8;
+            --brand-secondary: #a5b4fc;
+            --brand-shadow: rgba(129, 140, 248, 0.3);
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            font-size: 16px;
+            line-height: 1.6;
+            letter-spacing: -0.011em;
+            background-color: #ffffff;
+        }
+        
+        .dark body {
+            background-color: #020617;
+        }
+
+        /* Masquage des scrollbars sur mobile pour l'effet App Native */
+        @media (max-width: 1024px) {
+            * {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            *::-webkit-scrollbar {
+                display: none;
+            }
+        }
+
+        @keyframes subtle-zoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+
+        .animate-subtle-zoom {
+            animation: subtle-zoom 20s infinite alternate ease-in-out;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--brand-primary);
+            border-radius: 20px;
+            border: 2px solid transparent;
+            background-clip: content-box;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        html.dark {
+            color-scheme: dark;
+        }
+        
+        input, select, textarea {
+            font-size: 1rem !important;
+        }
+
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        .pt-safe { padding-top: env(safe-area-inset-top); }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.7);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, var(--brand-primary), var(--brand-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .simulator-slider {
+          -webkit-appearance: none;
+          height: 6px;
+          border-radius: 10px;
+          outline: none;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "react/": "https://esm.sh/react@19.0.0/",
+    "lucide-react": "https://esm.sh/lucide-react@0.463.0?external=react",
+    "@google/genai": "https://esm.sh/@google/genai@1.40.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@7.1.1?external=react",
+    "recharts": "https://esm.sh/recharts@2.15.0?external=react",
+    "framer-motion": "https://esm.sh/framer-motion@11.15.0?external=react",
+    "signature_pad": "https://esm.sh/signature_pad@5.0.4",
+    "i18next": "https://esm.sh/i18next@24.2.2",
+    "react-i18next": "https://esm.sh/react-i18next@15.4.0?external=react",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-500 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

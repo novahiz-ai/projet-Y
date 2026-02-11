@@ -1,0 +1,132 @@
+export const legal = {
+  legal_page: {
+    title: "MENTIONS ",
+    highlight: "LÉGALES.",
+    desc: "Informations obligatoires concernant l'éditeur et les agréments de la plateforme.",
+    label: "Dossier Juridique",
+    sections: {
+      editeur: "Éditeur",
+      agrement: "Agréments",
+      hebergement: "Hébergement",
+      donnees: "Données",
+      mediation: "Médiation",
+      cookies: "Cookies",
+      propriete: "Propriété"
+    },
+    editor_title: "Éditeur du site",
+    editor_p1: "Le site est édité par la société Younited, leader du crédit instantané en Europe.",
+    editor_identity: "Identité",
+    editor_contact: "Contact",
+    editor_address: "21 rue de Châteaudun, 75009 Paris",
+    licensing_title: "Agréments & Régulation",
+    licensing_p1: "Younited est un établissement de crédit et prestataire de services d'investissement agréé.",
+    licensing_acpr: "ACPR",
+    licensing_acpr_desc: "Agrément n°16488 délivré par l'Autorité de Contrôle Prudentiel et de Résolution.",
+    licensing_orias: "ORIAS",
+    licensing_orias_desc: "Immatriculation n°11061269 en tant que courtier d'assurance.",
+    gdpr_title: "Protection des données (RGPD)",
+    gdpr_p1: "Nous accordons une importance capitale à la sécurité de vos données personnelles.",
+    gdpr_purposes: "Finalités",
+    gdpr_purposes_desc: "Simulation de crédit, gestion de contrat, lutte contre la fraude.",
+    gdpr_retention: "Durée",
+    gdpr_retention_desc: "Conservation selon les obligations légales (5 à 10 ans).",
+    gdpr_recipients: "Destinataires",
+    gdpr_recipients_desc: "Services internes, partenaires bancaires, autorités régulatrices.",
+    gdpr_rights_label: "Vos droits",
+    gdpr_rights_desc: "Accès, rectification, suppression. Contactez : Younitedcreditfr@outlook.fr",
+    mediation_title: "Médiation & Réclamations",
+    mediation_p1: "En cas de litige, nous privilégions toujours la résolution amiable.",
+    mediation_service_client: "Service Client",
+    mediation_service_desc: "Première étape obligatoire pour toute réclamation.",
+    mediation_asf: "Médiateur ASF",
+    mediation_asf_desc: "Saisine possible si aucune réponse satisfaisante sous 2 mois.",
+    ip_title: "Propriété Intellectuelle",
+    ip_p1: "Tous les contenus (textes, logos, algorithmes) sont la propriété exclusive de Younited.",
+    ip_italic: "Toute reproduction sans accord préalable est strictement interdite.",
+    warning_title: "Avertissement Légal",
+    warning_p: "Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement.",
+    regulatory_notice: "Younited opère conformément aux directives européennes sur le crédit aux particuliers."
+  },
+  privacy_page: {
+    title: "POLITIQUE DE ",
+    highlight: "CONFIDENTIALITÉ.",
+    desc: "Engagement de Younited pour la protection de votre vie privée et la sécurisation de vos données financières.",
+    sections: {
+      introduction: "Introduction",
+      collecte: "Collecte",
+      finalites: "Finalités",
+      securite: "Sécurité",
+      droits: "Vos Droits",
+      cookies: "Cookies",
+      contact: "Contact"
+    },
+    intro_title: "Notre engagement de confiance",
+    intro_p1: "Chez Younited, la confiance est le pilier de notre relation. Nous traitons vos données avec la plus grande rigueur éthique et technologique.",
+    intro_p2: "Cette politique détaille comment nous traitons vos informations avec transparence, conformément au RGPD.",
+    collect_title: "Données que nous collectons",
+    collect_items: [
+      { t: "Identité & Civilisé", d: "Nom, prénom, date de naissance, adresse et pièce d'identité." },
+      { t: "Données Financières", d: "Revenus, charges, relevés bancaires via l'Open Banking pour l'analyse de solvabilité." }
+    ],
+    purpose_title: "Pourquoi collectons-nous vos données ?",
+    purpose_items: [
+      "Analyse de solvabilité et score de crédit en temps réel",
+      "Édition et exécution du contrat de prêt",
+      "Lutte contre le blanchiment d'argent et le financement du terrorisme (LCB-FT)",
+      "Sécurisation des transactions et prévention de la fraude"
+    ],
+    security_title: "Sécurité de niveau bancaire",
+    security_h3: "Cryptage de bout en bout",
+    security_p: "Vos données sont chiffrées via le protocole AES-256 et stockées sur des infrastructures hautement sécurisées situées exclusivement en Union Européenne.",
+    rights_title: "Vos droits fondamentaux",
+    rights_p: "Le RGPD vous octroie un contrôle total sur vos données personnelles.",
+    rights_items: [
+      { t: "Accès & Portabilité", d: "Obtenez une copie de vos données dans un format structuré." },
+      { t: "Rectification & Oubli", d: "Corrigez vos informations ou demandez leur suppression définitive." }
+    ],
+    cookies_title: "Gestion des Cookies",
+    cookies_p: "Nous utilisons des cookies strictement nécessaires et des traceurs de performance pour optimiser votre parcours de simulation.",
+    cookies_btn: "Gérer mes préférences",
+    contact_title: "Délégué à la Protection (DPO)",
+    contact_h3: "Une question ou une demande ?",
+    contact_p: "Notre DPO est votre interlocuteur privilégié pour toute question relative à vos données personnelles.",
+    contact_btn: "Contacter le DPO",
+    contact_notice: "Réponse garantie sous 30 jours maximum.",
+    footer_note: "Dernière mise à jour le {{date}}"
+  },
+  cookies_page: {
+    title: "POLITIQUE DES ",
+    highlight: "COOKIES.",
+    desc: "Transparence sur l'utilisation des traceurs sur notre plateforme Younited.",
+    sections: {
+      definition: "C'est quoi ?",
+      types: "Types de cookies",
+      gestion: "Gestion",
+      conservation: "Durée",
+      tiers: "Tiers"
+    },
+    def_title: "Qu'est-ce qu'un cookie ?",
+    def_p1: "Un cookie est un petit fichier texte déposé sur votre terminal lors de votre visite.",
+    def_quote: "Il nous permet de vous reconnaître et de mémoriser vos préférences de simulation pour un parcours fluide.",
+    types_title: "Les cookies que nous utilisons",
+    types_items: [
+      { t: "Essentiels", d: "Indispensables au fonctionnement du site, à la sécurité et à la signature électronique.", s: "Obligatoire" },
+      { t: "Analytiques", d: "Mesure d'audience anonymisée pour améliorer l'ergonomie et nos services.", s: "Optionnel" },
+      { t: "Marketing", d: "Personnalisation des offres publicitaires en fonction de vos intérêts.", s: "Optionnel" }
+    ],
+    manage_title: "Contrôlez vos préférences",
+    manage_h3: "Centre de paramétrage",
+    manage_p: "Vous avez la liberté d'accepter ou de refuser chaque catégorie de cookie de manera granulaire.",
+    manage_btn: "Ouvrir les réglages",
+    manage_note: "Le refus de certains cookies peut altérer la fluidité de votre expérience utilisateur.",
+    retention_title: "Durée de conservation",
+    retention_th1: "Type de traceur",
+    retention_th2: "Durée maximale",
+    retention_rows: [
+      { t: "Session technique", v: "Durée de la visite" },
+      { t: "Consentement utilisateur", v: "6 mois" },
+      { t: "Analyse d'audience", v: "13 mois" }
+    ],
+    footer_info: "Younited respecte strictement les recommandations de la CNIL et le RGPD."
+  }
+};

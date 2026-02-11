@@ -1,0 +1,7 @@
+{
+  "name": "Prêt en Ligne Ultra-Moderne",
+  "description": "Plateforme de simulation et de demande de prêt avec assistance IA et design immersif.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
