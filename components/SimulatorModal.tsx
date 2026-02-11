@@ -260,7 +260,7 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({ isOpen, onClose, onProc
           box-shadow: 0 4px 10px rgba(109, 40, 217, 0.2);
         }
       `}} />
-    </div>
+    </motion.div>
   );
 };
 
