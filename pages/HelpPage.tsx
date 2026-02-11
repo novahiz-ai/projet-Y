@@ -44,7 +44,6 @@ const HelpPage: React.FC = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [activeTab, setActiveTab] = useState<string>('general');
   const [isLoading, setIsLoading] = useState(true);
-  const [votedItems, setVotedItems] = useState<Record<number, boolean>>({});
 
   const FAQ_DATA = useMemo(() => getFaqData(t), [t, i18n.language]);
 
@@ -124,7 +123,7 @@ const HelpPage: React.FC = () => {
                className="group p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[3rem] flex flex-col items-center text-center space-y-6 hover:shadow-2xl hover:border-brand-primary/20 transition-all"
              >
                 <div className={`w-16 h-16 rounded-[2rem] flex items-center justify-center transition-transform group-hover:scale-110 ${item.color === 'emerald' ? 'bg-emerald-50 text-emerald-600' : item.color === 'brand' ? 'bg-brand-primary/10 text-brand-primary' : 'bg-indigo-50 text-indigo-600'}`}>
-                  {React.cloneElement(item.icon as React.ReactElement, { size: 28 })}
+                  {React.cloneElement(item.icon as React.ReactElement<any>, { size: 28 })}
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-xl font-black uppercase tracking-tight">{item.title}</h3>
@@ -202,7 +201,7 @@ const HelpPage: React.FC = () => {
 
             <div className="lg:col-span-4 space-y-8">
                <div className="p-10 bg-slate-950 rounded-[3.5rem] text-white space-y-8 shadow-3xl relative overflow-hidden group">
-                  <div className="absolute top-0 right-0 w-48 h-48 bg-brand-primary/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-brand-primary/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
                   <div className="relative z-10 space-y-6">
                     <h3 className="text-2xl font-black uppercase italic leading-none">{t('help.immediate_support')}</h3>
                     <p className="text-slate-400 text-sm font-medium leading-relaxed">

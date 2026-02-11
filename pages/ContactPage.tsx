@@ -122,7 +122,7 @@ const ContactPage: React.FC = () => {
               className={`p-10 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[3rem] text-left space-y-6 hover:shadow-2xl transition-all group hover:-translate-y-2 ${method.color}`}
              >
                 <div className="w-14 h-14 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
-                  {React.cloneElement(method.icon as React.ReactElement, { size: 28 })}
+                  {React.cloneElement(method.icon as React.ReactElement<any>, { size: 28 })}
                 </div>
                 <div className="space-y-2">
                    <h3 className="text-xl font-black uppercase tracking-tight">{method.title}</h3>

@@ -14,6 +14,7 @@ import {
   Target,
   LayoutGrid,
   Info,
+  Sparkles,
   Wallet
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
@@ -26,7 +27,6 @@ interface SimulatorPageProps {
   onProceedToApp?: (context: any) => void;
 }
 
-// Added missing default export and completed truncated component logic
 const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
   const { t } = useTranslation();
   const location = useLocation();
@@ -42,7 +42,7 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
   const [selectedOffer, setSelectedOffer] = useState(initialOffer || LOAN_OFFERS[0]);
 
   useEffect(() => {
-    // Keep scroll position at top on mount
+    // Scroll to top on mount
     window.scrollTo(0, 0);
   }, []);
 
@@ -122,8 +122,8 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
       <main className="flex-1 flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden scrollbar-hide">
         
         {/* Left Column: Inputs (Scrollable on mobile) */}
-        <div className="lg:w-[40%] p-6 lg:p-12 flex flex-col justify-center shrink-0 border-r border-slate-100 dark:border-slate-800/50 bg-white/20 dark:bg-slate-950/20 backdrop-blur-sm">
-          <div className="max-w-xl mx-auto w-full space-y-6">
+        <div className="lg:w-[40%] p-6 lg:p-12 flex flex-col shrink-0 border-r border-slate-100 dark:border-slate-800/50 bg-white/20 dark:bg-slate-950/20 backdrop-blur-sm">
+          <div className="max-w-xl mx-auto w-full space-y-8">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <ModernSelect 
@@ -155,7 +155,7 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
               </div>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-6">
               <div className="p-8 bg-slate-50 dark:bg-slate-900/50 rounded-[3rem] border border-slate-100 dark:border-slate-800 space-y-8 group hover:border-indigo-500/20 transition-all shadow-sm">
                 <div className="flex justify-between items-center">
                    <span className="font-black uppercase tracking-widest text-[11px] text-slate-400">{t('simulator.amount')}</span>
@@ -193,7 +193,38 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
               </div>
             </div>
 
-            <div className="flex items-center space-x-4 p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-3xl">
+            {/* Mobile-Only Summary Section placed at the bottom of the input column */}
+            <div className="lg:hidden space-y-6 pt-4">
+               <div className="grid grid-cols-2 gap-4">
+                  <div className="p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] text-center space-y-1 shadow-sm">
+                     <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{t('simulator.interests')}</p>
+                     <p className="text-xl font-black italic text-slate-950 dark:text-white">
+                        {results.totalInterest.toLocaleString()} {currencyConfig[currency as keyof typeof currencyConfig].symbol}
+                     </p>
+                  </div>
+                  <div className="p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] text-center space-y-1 shadow-sm">
+                     <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{t('simulator.total_cost')}</p>
+                     <p className="text-xl font-black italic text-slate-950 dark:text-white">
+                        {results.totalCost.toLocaleString()} {currencyConfig[currency as keyof typeof currencyConfig].symbol}
+                     </p>
+                  </div>
+               </div>
+               
+               <div className="flex items-center space-x-4 p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-3xl">
+                  <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg shrink-0">
+                    <ShieldCheck size={20} />
+                  </div>
+                  <div className="space-y-0.5">
+                     <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600 dark:text-emerald-400 leading-tight">
+                       {t('simulator.guarantee')}
+                     </p>
+                     <p className="text-[8px] text-slate-400 font-bold uppercase tracking-tight">{t('stats.live')}</p>
+                  </div>
+               </div>
+            </div>
+
+            {/* Laptop Visibility Element */}
+            <div className="hidden lg:flex items-center space-x-4 p-6 bg-emerald-500/5 border border-emerald-500/10 rounded-3xl">
                <div className="w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-white shadow-lg shrink-0">
                  <ShieldCheck size={24} />
                </div>
@@ -207,7 +238,7 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
           </div>
         </div>
 
-        {/* Right Column: Visualization & CTA */}
+        {/* Right Column: Visualization & CTA (Desktop only) */}
         <div className="hidden lg:flex lg:w-[60%] p-12 lg:p-20 flex-col items-center justify-center bg-slate-50/50 dark:bg-slate-900/20 border-l border-slate-100 dark:border-slate-800 relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(79,70,229,0.05),transparent_70%)] pointer-events-none" />
           <div className="w-full max-w-md flex flex-col items-center space-y-16">
