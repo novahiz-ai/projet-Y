@@ -8,9 +8,9 @@ Avant chaque réponse, modification ou déploiement, les points suivants doivent
 - [ ] **Modèle ESM :** Conformité totale au modèle sans bundler.
 - [ ] **Compatibilité React 19 :** Aucune API dépréciée utilisée.
 
-## 2. DÉPLOIEMENT VERCEL
+## 2. INFRASTRUCTURE & SÉCURITÉ
 - [ ] **Classification Dépendances :** Build vs Runtime correctement identifié.
-- [ ] **Edge Runtime :** Validation des APIs compatibles (pas de `fs`, `path` ou modules Node.js natifs).
+- [ ] **Web Standard APIs :** Validation de l'usage exclusif des APIs Web standard.
 - [ ] **Sécurité Variables :** Absence de clés API en clair dans le code.
 - [ ] **Rendu Client-Only :** Isolation des librairies sensibles (SignaturePad, Recharts).
 

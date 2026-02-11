@@ -2,7 +2,7 @@
 **Version :** 4.0-S  
 **Niveau :** INSTITUTIONNEL (ÉTAT, BANQUE, FINTECH, INFRA CRITIQUE)  
 **Statut :** AUTO_CERTIFIÉ & AUTO_REMÉDIANT_CONTRÔLÉ  
-**Environnement Cible :** Vercel Edge Network / Google AI Studio Build
+**Environnement Cible :** Cloud SPA / Google AI Studio Build
 
 ---
 
@@ -20,12 +20,12 @@
 - **Framework :** React 19 (Singleton obligatoire).
 - **Build & Runtime :** Vite / TypeScript / ESM Natif.
 - **UI & Design :** TailwindCSS 3.4 / Framer Motion / Lucide React.
-- **IA :** Gemini 3 Flash Preview / @google/genai @0.2.1.
-- **Infrastructure :** Vercel Frontend-First (Edge Runtime compatible).
+- **IA :** Gemini 3 Flash Preview / @google/genai @0.4.0.
+- **Infrastructure :** Cloud Native (Standard Web compatible).
 
-## 4. DÉPLOIEMENT VERCEL FRONTEND-FIRST
-- **Edge Runtime :** Utilisation prioritaire des APIs Web Standard (WebCrypto, Streams).
-- **Secrets :** Aucune exposition de clés API côté client. Utilisation exclusive des variables d'environnement Vercel.
+## 4. DÉPLOIEMENT FRONTEND-FIRST
+- **Runtime :** Utilisation prioritaire des APIs Web Standard (WebCrypto, Streams).
+- **Secrets :** Aucune exposition de clés API côté client. Utilisation exclusive des variables d'environnement.
 - **Build Isolation :** Séparation stricte entre dépendances `build_only` et `runtime_client`.
 
 ## 5. SCORING ET CERTIFICATION (OBLIGATOIRE)
@@ -45,7 +45,7 @@ Pondérations du score de conformité institutionnelle :
 ## 6. AUTO-RÉMÉDIATION CONTRÔLÉE
 Le système est autorisé à :
 - Durcir les politiques restrictives par défaut.
-- Bloquer tout accès public implicite ou fuite de variable `VITE_`.
+- Bloquer tout accès public implicite ou fuite de variable.
 - Corriger les versions de dépendances pour maintenir le `SNAPSHOT_IMMUTABLE`.
 
 ## 7. SIGNATURE OFFICIELLE
