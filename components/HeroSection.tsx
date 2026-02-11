@@ -144,7 +144,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <img src={projects[activeProject].image} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-1000" alt="" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
                 
-                <div className="absolute bottom-12 left-10 right-10 space-y-5 text-white">
+                <div className="absolute bottom-6 left-10 right-10 space-y-5 text-white">
                   <div className="space-y-1">
                     <h3 className="text-4xl font-black uppercase italic tracking-tighter leading-none">{projects[activeProject].label}.</h3>
                     <div className="flex items-center space-x-4">
@@ -153,11 +153,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                       <span className="text-[10px] font-black uppercase tracking-widest text-white/70">{t('landing.hero.apr_fixed')}</span>
                     </div>
                   </div>
-                  <div className="pt-6 border-t border-white/20 flex justify-between items-center">
-                    <div className="flex items-center space-x-2 text-[10px] font-black uppercase text-white/60">
-                      <Shield size={18} className="text-brand-primary" />
-                      <span>{t('landing.hero.secured')}</span>
-                    </div>
+                  <div className="pt-6 border-t border-white/20 flex justify-end items-center">
                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-primary transition-all">
                       <ChevronRight size={24} />
                     </div>
