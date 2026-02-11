@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
-  Star, 
   Car,
   Home,
   User,
   Heart,
   Clock,
   ChevronRight,
-  Shield
+  Shield,
+  ShieldCheck
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -47,7 +47,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden bg-white dark:bg-slate-950 pt-32 lg:pt-40 pb-32 lg:pb-56 transition-all duration-700">
       
-      {/* Background Image Layer - Updated for professional context and better visibility */}
+      {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000" 
@@ -117,15 +117,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
             <div className="flex items-center space-x-10 pt-10 border-t border-slate-200/50 dark:border-slate-800/50">
               <div className="flex flex-col">
-                <div className="flex items-center space-x-1 text-brand-primary mb-1">
-                  {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="currentColor" />)}
-                </div>
+                <span className="text-brand-primary font-black text-lg">4.8/5</span>
                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t('landing.hero.trustpilot')}</p>
               </div>
               <div className="h-10 w-px bg-slate-200 dark:bg-slate-800" />
               <div className="flex items-center space-x-3 text-slate-500 dark:text-slate-400">
                 <Clock size={18} className="text-brand-primary" />
                 <span className="text-[10px] font-black uppercase tracking-widest">{t('landing.hero.response_time')}</span>
+              </div>
+              <div className="h-10 w-px bg-slate-200 dark:bg-slate-800" />
+              <div className="flex items-center space-x-3 text-slate-500 dark:text-slate-400">
+                <ShieldCheck size={18} className="text-emerald-500" />
+                <span className="text-[10px] font-black uppercase tracking-widest">ISO 27001 Certified</span>
               </div>
             </div>
           </div>

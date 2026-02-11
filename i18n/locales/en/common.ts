@@ -1,10 +1,10 @@
 export const common = {
   chatbot: {
-    welcome: "Hello! I am LOGO's digital assistant. How can I help you with your projects today?",
+    welcome: "Hello! I am logo's digital assistant. How can I help you with your projects today?",
     error: "I'm having connection issues. Shall we try again?",
-    brand_label: "LOGO Assistant",
+    brand_label: "logo Assistant",
     agent_name: "Digital Advisor",
-    secure_notice: "LOGO Secure Support Channel",
+    secure_notice: "logo Secure Support Channel",
     placeholder: "Your project, our solutions...",
     version: "Assistant Digital v2.4"
   },
@@ -188,11 +188,11 @@ export const common = {
     offers_title: "Offers",
     resources_title: "Resources",
     social_title: "Follow Us",
-    rights: "© {{year}} LOGO. ALL RIGHTS RESERVED.",
+    rights: "© {{year}} logo. ALL RIGHTS RESERVED.",
     legal: "Legal Notice",
     privacy: "Privacy Policy",
     cookies: "Cookies",
-    eu_notice: "LOGO is a credit institution operating across the European Union.",
+    eu_notice: "logo is a credit institution operating across the European Union.",
     assistance: "Support",
     whatsapp_direct: "WhatsApp Direct",
     glossary_fin: "Financial Glossary",

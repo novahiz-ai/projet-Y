@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import { Quote, Star, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Quote, MapPin, ChevronLeft, ChevronRight, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 interface Testimonial {
@@ -112,7 +111,7 @@ const TestimonialsSection: React.FC = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="space-y-4">
             <div className="inline-flex items-center space-x-2 px-4 py-1.5 bg-brand-primary/5 border border-brand-primary/10 rounded-full">
-              <Star size={14} className="text-brand-primary fill-brand-primary" />
+              <ShieldCheck size={14} className="text-brand-primary" />
               <span className="text-[9px] font-black uppercase tracking-[0.3em] text-brand-primary">{t('testimonials_data.label')}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic leading-none">
@@ -154,10 +153,9 @@ const TestimonialsSection: React.FC = () => {
                 <div className="group h-full p-8 bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 rounded-[3rem] space-y-8 flex flex-col justify-between hover:shadow-2xl hover:shadow-brand-primary/10 hover:border-brand-primary/20 transition-all duration-500 cursor-default">
                   <div className="space-y-6">
                     <div className="flex justify-between items-start">
-                      <div className="flex items-center space-x-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={14} className={i < testimonial.rating ? "text-brand-primary fill-brand-primary" : "text-slate-300 dark:text-slate-700"} />
-                        ))}
+                      <div className="flex items-center space-x-2 px-3 py-1 bg-emerald-500/10 rounded-lg text-emerald-600">
+                        <ShieldCheck size={12} />
+                        <span className="text-[10px] font-black uppercase tracking-widest">Avis vérifié</span>
                       </div>
                       <Quote size={32} className="text-brand-primary/10 group-hover:text-brand-primary/20 transition-colors" />
                     </div>

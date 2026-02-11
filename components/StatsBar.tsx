@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { TrendingUp, Users, Star, Activity } from 'lucide-react';
+import { TrendingUp, Users, CheckCircle2, Activity } from 'lucide-react';
 import { StatsSkeleton } from './Skeleton';
 
 const StatsBar: React.FC = () => {
@@ -31,7 +30,7 @@ const StatsBar: React.FC = () => {
     { 
       label: t('stats.satisfaction'), 
       value: "4.8/5", 
-      icon: <Star size={12} />, 
+      icon: <CheckCircle2 size={12} />, 
       color: "text-amber-500",
       bg: "bg-amber-500/5"
     }

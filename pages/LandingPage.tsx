@@ -11,6 +11,7 @@ import { LOAN_OFFERS } from '../constants';
 import { getArticles } from '../data/articles';
 import LoanCard from '../components/LoanCard';
 import HeroSection from '../components/HeroSection';
+import MobileHeroSection from '../components/MobileHeroSection';
 import StandardButton from '../components/StandardButton';
 import StatsBar from '../components/StatsBar';
 import ProcessSteps from '../components/ProcessSteps';
@@ -42,36 +43,44 @@ const LandingPage: React.FC<{ onOpenApp: (context?: any) => void }> = ({ onOpenA
 
   return (
     <div className="relative">
-      <HeroSection 
-        title={t('landing.hero.title')}
-        highlightText={t('landing.hero.highlight')}
-        description={t('landing.hero.desc')}
-      >
-        <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <StandardButton 
-              onClick={() => navigate('/simulateur')}
-              className="w-full sm:w-auto !py-5 !px-12 shadow-brand bg-brand-primary"
-            >
-              <Zap size={20} className="fill-white" />
-              <span>{t('landing.hero.simulate')}</span>
-            </StandardButton>
-          </motion.div>
+      {/* Desktop Hero Section */}
+      <div className="hidden lg:block">
+        <HeroSection 
+          title={t('landing.hero.title')}
+          highlightText={t('landing.hero.highlight')}
+          description={t('landing.hero.desc')}
+        >
+          <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-start">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <StandardButton 
+                onClick={() => navigate('/simulateur')}
+                className="w-full sm:w-auto !py-5 !px-12 shadow-brand bg-brand-primary"
+              >
+                <Zap size={20} className="fill-white" />
+                <span>{t('landing.hero.simulate')}</span>
+              </StandardButton>
+            </motion.div>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <StandardButton 
-              variant="outline"
-              onClick={() => onOpenApp({ express: true })}
-              className="w-full sm:w-auto !py-5 !px-12 backdrop-blur-md"
-            >
-              <ArrowRight size={20} />
-              <span>{t('landing.hero.express')}</span>
-            </StandardButton>
-          </motion.div>
-        </div>
-      </HeroSection>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <StandardButton 
+                variant="outline"
+                onClick={() => onOpenApp({ express: true })}
+                className="w-full sm:w-auto !py-5 !px-12 backdrop-blur-md"
+              >
+                <ArrowRight size={20} />
+                <span>{t('landing.hero.express')}</span>
+              </StandardButton>
+            </motion.div>
+          </div>
+        </HeroSection>
+      </div>
 
-      <div className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[4rem] lg:rounded-t-[6rem] mt-12 lg:-mt-32 transition-colors duration-500 pb-20">
+      {/* Mobile Hero Section - Native App Design */}
+      <div className="lg:hidden">
+        <MobileHeroSection onOpenApp={onOpenApp} />
+      </div>
+
+      <div className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[4rem] lg:rounded-t-[6rem] mt-4 lg:-mt-32 transition-colors duration-500 pb-20 shadow-[0_-20px_50px_rgba(0,0,0,0.05)]">
         
         <div className="relative pt-12 flex justify-center">
           <StatsBar />
@@ -103,9 +112,9 @@ const LandingPage: React.FC<{ onOpenApp: (context?: any) => void }> = ({ onOpenA
               </Link>
             </div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
               {LOAN_OFFERS.slice(0, 4).map((offer) => (
-                <motion.div key={offer.id} variants={fadeInUp} whileHover={{ y: -10 }}>
+                <motion.div key={offer.id} variants={fadeInUp}>
                   <LoanCard offer={offer} onExpressDemand={(ctx) => onOpenApp(ctx)} onClick={() => navigate(`/offres/${offer.id}`)} />
                 </motion.div>
               ))}
