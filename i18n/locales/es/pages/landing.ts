@@ -1,18 +1,21 @@
+
 export const landing = {
   hero: {
     title: "TU PROYECTO,",
     highlight: "NUESTRA EXPERIENCIA.",
-    desc: "Younited transforma el crédito en una experience sencilla, transparente y 100% digital. Obtén una respuesta firme en tiempo real.",
+    desc: "LOGO transforma el crédito en una experiencia sencilla, transparente y 100% digital. Obtén una respuesta firme en tiempo real.",
     simulate: "Simular mi préstamo",
     express: "Solicitud Express",
     trustpilot: "Nota Trustpilot 4.8/5",
     response_time: "Respuesta en 3 minutos",
     expert_choice: "La elección del experto",
     secured: "Pago Seguro",
+    tech_label: "Tecnología 100% Digital",
+    apr_fixed: "TAE FIJO",
     projects: {
       auto: { label: "Préstamo Auto", desc: "Financia tu vehículo nuevo o de ocasión a la mejor tasa.", limit: "Hasta 60.000€" },
       immo: { label: "Hipoteca", desc: "Hazte propietario con un acompañamiento a medida.", limit: "Proyectos inmobiliarios" },
-      perso: { label: "Préstamo Perso", desc: "Un crédito sin justificante para tus imprevistos.", limit: "Libre uso" },
+      perso: { label: "Préstamo Personale", desc: "Un crédito sin justificante para tus imprevistos.", limit: "Libre uso" },
       projet: { label: "Préstamo Proyecto", desc: "Bodas, viajes, estudios: realiza tus sueños.", limit: "Multiproyecto" }
     }
   },
@@ -48,7 +51,7 @@ export const landing = {
   auto_subtitle: "HOY MISMO.",
   auto_desc: "Financia tu coche nuevo o de ocasión con una respuesta de principio inmediata.",
   auto_cta: "Simular mi préstamo auto",
-  expertise_label: "Experiencia Younited",
+  expertise_label: "Experiencia LOGO",
   expertise_title: "LA INTELIGENCIA AL SERVICIO DEL ",
   expertise_highlight: "CONSEJO.",
   access_guide: "Acceder a la guía completa",
@@ -65,7 +68,9 @@ export const landing = {
   prefooter: {
     smart_title: "Gestión Inteligente",
     smart_desc: "Gestiona tus reembolsos desde tu espacio de cliente seguro.",
-    smart_label: "Tecnología Younited",
+    smart_label: "Tecnología LOGO",
+    help_desc: "¿Una pregunta sobre tu expediente? Accede a nuestro centro de ayuda completo.",
+    help_cta: "Acceder a las FAQ",
     contact_title: "Expertos a tu escucha",
     contact_label: "Soporte Humano",
     speed_title: "Velocidad Récord",

@@ -1,13 +1,12 @@
-
 export const common = {
   chatbot: {
-    welcome: "Ciao! Sono l'assistente digitale di Younited. Come posso aiutarti con i tuoi progetti oggi?",
+    welcome: "Ciao! Sono l'assistente digitale di LOGO. Come posso aiutarti con i tuoi progetti oggi?",
     error: "Sto riscontrando problemi di connessione. Riprovinamo?",
-    brand_label: "Assistente Younited",
+    brand_label: "Assistente LOGO",
     agent_name: "Consulente Digitale",
-    secure_notice: "Canale di supporto sicuro Younited",
+    secure_notice: "Canale di supporto sicuro LOGO",
     placeholder: "Il tuo progetto, le nostre soluzioni...",
-    version: "Younited Core v2.4 • Powered by Younited Core"
+    version: "Assistant Digital v2.4"
   },
   nav: {
     home: "Home",
@@ -43,7 +42,7 @@ export const common = {
     cat_glossary: "Glossario & Definizioni",
     cat_guides: "Guida & Expertise",
     cat_quick: "Accesso Rapido",
-    version: "Ricerca Intelligente v2.1",
+    version: "Ricerca Intelligente",
     placeholder: "Cerca un servizio, un articolo...",
     results_for: "Risultati per"
   },
@@ -57,6 +56,7 @@ export const common = {
   form: {
     step_back: "Indietro",
     next: "Continua",
+    step_label: "Passaggio",
     secure_session: "Sessione sicura",
     completion_label: "Completato",
     phases: {
@@ -85,77 +85,44 @@ export const common = {
     sign_highlight: "FIRMA.",
     sign_desc: "Si prega di firmare nel riquadro sottostante per convalidare la richiesta.",
     sign_reset: "Cancella e ricomincia",
-    sign_cert: "Certificato eIDAS",
+    sign_cert: "Certificato",
     sign_submit: "Invia pratica",
     id_validation: "Validazione ID Digitale",
     bank_other: "Altra banca",
-    security_footer: "Protezione AES-256 • Audit PCI-DSS Level 1",
+    security_footer: "Protezione AES-256",
     fields: {
       firstname: "Nome",
       lastname: "Cognome",
       birthdate: "Data di nascita",
-      job_title: "Professione attuale",
-      employer: "Nome datore di lavoro",
+      job_title: "Professione",
+      employer: "Datore di lavoro",
       email: "Email",
       phone: "Telefono",
-      address: "Indirizzo postale",
+      address: "Indirizzo",
       zip: "CAP",
       city: "Città",
       iban: "IBAN",
-      id_doc: "Documento d'identità",
-      address_doc: "Certificato di residenza",
-      income_doc: "Ultima busta paga",
-      tax_residency: "Paese residenza fiscale",
+      id_doc: "Identità",
+      address_doc: "Residenza",
+      income_doc: "Busta paga",
+      tax_residency: "Residenza fiscale",
       bank: "Banca principale",
-      purpose: "Natura del progetto",
-      amount: "Importo richiesto",
-      months: "Durata (mesi)",
-      income: "Reddito netto mensile",
-      rent: "Spese fisse (affitto/prestiti)",
-      family_status: "Situatione familiare",
-      dependents: "Figli a carico"
-    },
-    placeholders: {
-      firstname: "Mario",
-      lastname: "Rossi",
-      job_title: "Es: Manager",
-      employer: "Es: Google",
-      email: "nome@esempio.com",
-      address: "Numero e nome della via",
-      zip: "00100",
-      city: "Roma",
-      income: "2500",
-      rent: "800",
+      purpose: "Progetto",
       amount: "Importo",
-      months: "Mesi"
-    },
-    options: {
-      job_status: {
-        cdi: "Tempo Indeterminato",
-        cdd: "Tempo Determinato",
-        indep: "Autonomo / Freelance",
-        retraite: "Pensionato",
-        etudiant: "Studente"
-      },
-      civility: {
-        mr: "Sig.",
-        mrs: "Sig.ra",
-        ms: "Sig.na"
-      },
-      family_status: {
-        single: "Celibe / Nubile",
-        married: "Sposato/a",
-        pacsed: "Unione Civile",
-        divorced: "Divorziato/a",
-        widowed: "Vedovo/a"
-      }
+      months: "Durata (mesi)",
+      income: "Reddito mensile",
+      rent: "Spese fisse",
+      family_status: "Stato civile",
+      dependents: "Figli"
     }
   },
   stats: {
     borrowers: "Mutuatari",
     funds: "Fondi erogati",
     satisfaction: "Soddisfazione",
-    live: "In tempo reale"
+    live: "In tempo reale",
+    banking: "Banking",
+    index: "Index"
   },
   labels: {
     language: "Lingua",
@@ -164,7 +131,7 @@ export const common = {
     see_details: "Vedi dettagli",
     months_count: "Mesi",
     support_247: "Supporto 24/7",
-    characteristic: "Caractéristique",
+    characteristic: "Caratteristica",
     details: "Dettagli"
   },
   cookies_banner: {
@@ -186,13 +153,14 @@ export const common = {
     offers_title: "Offerte",
     resources_title: "Risorse",
     social_title: "Seguici",
-    rights: "© {{year}} YOUNITED. TUTTI I DIRITTI RISERVATI.",
+    rights: "© {{year}} LOGO. TUTTI I DIRITTI RISERVATI.",
     legal: "Note Legali",
     privacy: "Privacy",
     cookies: "Cookie",
-    eu_notice: "Younited è un istituto di credito che opera in tutta l'Unione Europea.",
+    eu_notice: "LOGO è un istituto di credito che opera in tutta l'Unione Europea.",
     assistance: "Assistenza",
     whatsapp_direct: "WhatsApp Diretto",
-    glossary_fin: "Glossaire financier"
+    glossary_fin: "Glossario finanziario",
+    trust_label: "Certificato & Regolato"
   }
 };

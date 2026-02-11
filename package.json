@@ -1,9 +1,8 @@
-
 {
   "name": "younited-online-loan",
   "version": "1.0.0",
   "private": true,
-  "description": "Plateforme moderne de prêt en ligne Younited",
+  "description": "Plateforme moderne de prêt en ligne LOGO",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",

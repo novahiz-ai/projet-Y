@@ -1,18 +1,17 @@
-
 export const common = {
   chatbot: {
-    welcome: "Hello! I am Younited's digital assistant. How can I help you with your projects today?",
+    welcome: "Hello! I am LOGO's digital assistant. How can I help you with your projects today?",
     error: "I'm having connection issues. Shall we try again?",
-    brand_label: "Younited Assistant",
+    brand_label: "LOGO Assistant",
     agent_name: "Digital Advisor",
-    secure_notice: "Younited Secure Support Channel",
+    secure_notice: "LOGO Secure Support Channel",
     placeholder: "Your project, our solutions...",
-    version: "Younited Core v2.4 • Powered by Younited Core"
+    version: "Assistant Digital v2.4"
   },
   nav: {
     home: "Home",
     credit: "Credit",
-    simulator: "Simulate",
+    simulator: "Simulator",
     guide: "Guide",
     resources: "Resources",
     request: "Apply",
@@ -43,7 +42,7 @@ export const common = {
     cat_glossary: "Glossary & Definitions",
     cat_guides: "Guide & Expertise",
     cat_quick: "Quick Access",
-    version: "Intelligent Search v2.1",
+    version: "Intelligent Search",
     placeholder: "Search for a service, an article...",
     results_for: "Results for"
   },
@@ -57,6 +56,7 @@ export const common = {
   form: {
     step_back: "Back",
     next: "Continue",
+    step_label: "Step",
     secure_session: "Secure session",
     completion_label: "Completed",
     phases: {
@@ -85,11 +85,11 @@ export const common = {
     sign_highlight: "SIGNATURE.",
     sign_desc: "Please sign in the box below to validate your request.",
     sign_reset: "Clear and restart",
-    sign_cert: "eIDAS Certified",
+    sign_cert: "Certified",
     sign_submit: "Submit my file",
     id_validation: "Digital ID Validation",
     bank_other: "Other bank",
-    security_footer: "AES-256 Protection • PCI-DSS Level 1 Audit",
+    security_footer: "AES-256 Protection",
     fields: {
       firstname: "First name",
       lastname: "Last name",
@@ -131,9 +131,9 @@ export const common = {
     },
     options: {
       job_status: {
-        cdi: "Permanent (CDI)",
-        cdd: "Temporary (CDD)",
-        indep: "Self-employed / Freelance",
+        cdi: "Permanent",
+        cdd: "Temporary",
+        indep: "Freelance",
         retraite: "Retired",
         etudiant: "Student"
       },
@@ -145,7 +145,7 @@ export const common = {
       family_status: {
         single: "Single",
         married: "Married",
-        pacsed: "Civil Partnered",
+        pacsed: "Partnered",
         divorced: "Divorced",
         widowed: "Widowed"
       }
@@ -155,7 +155,9 @@ export const common = {
     borrowers: "Borrowers",
     funds: "Funds disbursed",
     satisfaction: "Satisfaction",
-    live: "Live"
+    live: "Live",
+    banking: "Banking",
+    index: "Index"
   },
   labels: {
     language: "Language",
@@ -186,13 +188,14 @@ export const common = {
     offers_title: "Offers",
     resources_title: "Resources",
     social_title: "Follow Us",
-    rights: "© {{year}} YOUNITED. ALL RIGHTS RESERVED.",
+    rights: "© {{year}} LOGO. ALL RIGHTS RESERVED.",
     legal: "Legal Notice",
     privacy: "Privacy Policy",
     cookies: "Cookies",
-    eu_notice: "Younited is a credit institution operating across the European Union.",
+    eu_notice: "LOGO is a credit institution operating across the European Union.",
     assistance: "Support",
     whatsapp_direct: "WhatsApp Direct",
-    glossary_fin: "Financial Glossary"
+    glossary_fin: "Financial Glossary",
+    trust_label: "Certified & Regulated"
   }
 };

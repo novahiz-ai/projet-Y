@@ -1,13 +1,12 @@
-
 export const common = {
   chatbot: {
-    welcome: "مرحباً! أنا المساعد الرقمي ليونايتد. كيف يمكنني مساعدتك في مشاريعك اليوم؟",
+    welcome: "مرحباً! أنا المساعد الرقمي لـ LOGO. كيف يمكنني مساعدتك في مشاريعك اليوم؟",
     error: "أواجه مشكلة في الاتصال. هل نحاول مرة أخرى؟",
-    brand_label: "مساعد يونايتد",
+    brand_label: "مساعد LOGO",
     agent_name: "مستشار رقمي",
-    secure_notice: "قناة دعم يونايتد الآمنة",
+    secure_notice: "قناة دعم LOGO الآمنة",
     placeholder: "مشروعك، حلولنا...",
-    version: "Younited Core v2.4 • مدعوم من Younited Core"
+    version: "Assistant Digital v2.4"
   },
   nav: {
     home: "الرئيسية",
@@ -43,7 +42,7 @@ export const common = {
     cat_glossary: "المصطلحات والتعاريف",
     cat_guides: "الخبرة والأدلة",
     cat_quick: "وصول سريع",
-    version: "البحث الذكي v2.1",
+    version: "البحث الذكي",
     placeholder: "ابحث عن خدمة، مقال...",
     results_for: "نتائج لـ"
   },
@@ -57,6 +56,7 @@ export const common = {
   form: {
     step_back: "رجوع",
     next: "متابعة",
+    step_label: "خطوة",
     secure_session: "جلسة آمنة",
     completion_label: "مكتمل",
     phases: {
@@ -85,81 +85,48 @@ export const common = {
     sign_highlight: "الخاص.",
     sign_desc: "يرجى التوقيع في المربع أدناه للتحقق من طلبك.",
     sign_reset: "مسح والبدء من جديد",
-    sign_cert: "معتمد من eIDAS",
+    sign_cert: "معتمد",
     sign_submit: "تقديم الملف",
     id_validation: "التحقق الرقمي من الهوية",
     bank_other: "بنك آخر",
-    security_footer: "حماية AES-256 • تدقيق PCI-DSS المستوى 1",
+    security_footer: "حماية AES-256",
     fields: {
       firstname: "الاسم الأول",
       lastname: "الاسم الأخير",
       birthdate: "تاريخ الميلاد",
-      job_title: "المهنة الحالية",
-      employer: "اسم صاحب العمل",
+      job_title: "المهنة",
+      employer: "صاحب العمل",
       email: "البريد الإلكتروني",
       phone: "الهاتف",
-      address: "العنوان البريدي",
+      address: "العنوان",
       zip: "الرمز البريدي",
       city: "المدينة",
-      iban: "رقم الآيبان (IBAN)",
-      id_doc: "وثيقة الهوية",
-      address_doc: "إثبات العنوان",
-      income_doc: "آخر قسيمة راتب",
-      tax_residency: "بلد الإقامة الضريبية",
-      bank: "بنكك الرئيسي",
-      purpose: "طبيعة المشروع",
-      amount: "المبلغ المطلوب",
-      months: "المدة (بالأشهر)",
-      income: "صافي الدخل الشهري",
-      rent: "التكاليف الثابتة (إيجار/قروض)",
-      family_status: "الحالة الاجتماعية",
-      dependents: "الآباء المعالون"
-    },
-    placeholders: {
-      firstname: "أحمد",
-      lastname: "علي",
-      job_title: "مثال: مدير",
-      employer: "مثال: جوجل",
-      email: "name@example.com",
-      address: "رقم الشارع واسمه",
-      zip: "10001",
-      city: "الرياض",
-      income: "2500",
-      rent: "800",
+      iban: "الآيبان",
+      id_doc: "الهوية",
+      address_doc: "إثبات سكن",
+      income_doc: "قسيمة راتب",
+      tax_residency: "الإقامة الضريبية",
+      bank: "البنك",
+      purpose: "المشروع",
       amount: "المبلغ",
-      months: "الأشهر"
-    },
-    options: {
-      job_status: {
-        cdi: "عقد دائم (CDI)",
-        cdd: "عقد مؤقت (CDD)",
-        indep: "عمل حر / مستقل",
-        retraite: "متقاعد",
-        etudiant: "طالب"
-      },
-      civility: {
-        mr: "سيد",
-        mrs: "سيدة",
-        ms: "آنسة"
-      },
-      family_status: {
-        single: "أعزب / عزباء",
-        married: "متزوج / متزوجة",
-        pacsed: "شريك مدني",
-        divorced: "مطلق / مطلقة",
-        widowed: "أرمل / أرملة"
-      }
+      months: "المدة",
+      income: "الدخل",
+      rent: "المصاريف",
+      family_status: "الحالة",
+      dependents: "الأطفال"
     }
   },
   stats: {
     borrowers: "المقترضون",
     funds: "الأموال المدفوعة",
     satisfaction: "رضا العملاء",
-    live: "مباشر"
+    live: "مباشر",
+    banking: "الخدمات البنكية",
+    index: "مؤشر"
   },
   labels: {
     language: "اللغة",
-    rate_from: "معدل يبدأ من",
+    rate_from: "معدل من",
     express_demand: "طلب سريع",
     see_details: "انظر التفاصيل",
     months_count: "أشهر",
@@ -186,13 +153,14 @@ export const common = {
     offers_title: "العروض",
     resources_title: "الموارد",
     social_title: "تابعونا",
-    rights: "© {{year}} يونايتد. جميع الحقوق محفوظة.",
+    rights: "© {{year}} LOGO. جميع الحقوق محفوظة.",
     legal: "إشعار قانوني",
     privacy: "الخصوصية",
     cookies: "ملفات تعريف الارتباط",
-    eu_notice: "يونايتد هي مؤسسة ائتمانية تعمل في جميع أنحاء الاتحاد الأوروبي.",
+    eu_notice: "LOGO هي مؤسسة ائتمانية تعمل في جميع أنحاء الاتحاد الأوروبي.",
     assistance: "المساعدة",
     whatsapp_direct: "واتساب مباشر",
-    glossary_fin: "المصطلحات المالية"
+    glossary_fin: "المصطلحات المالية",
+    trust_label: "معتمد ومنظم"
   }
 };

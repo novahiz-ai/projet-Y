@@ -1,4 +1,3 @@
-
 export const common = {
   chatbot: {
     welcome: "Bonjour ! Je suis l'assistant digital de LOGO. Comment puis-je vous accompagner dans vos projets aujourd'hui ?",
@@ -156,7 +155,9 @@ export const common = {
     borrowers: "Emprunteurs",
     funds: "Fonds versés",
     satisfaction: "Satisfaction",
-    live: "En direct"
+    live: "En direct",
+    banking: "Banking",
+    index: "Index"
   },
   labels: {
     language: "Langue",
@@ -188,13 +189,13 @@ export const common = {
     resources_title: "Ressources",
     social_title: "Suivez-nous",
     rights: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS.",
-    rights_full: "© {{year}} LOGO. TOUS DROITS RÉSERVÉS.",
     legal: "Mentions Légales",
     privacy: "Confidentialité",
     cookies: "Cookies",
     eu_notice: "LOGO est un établissement de crédit opérant dans toute l'Union Européenne.",
     assistance: "Assistance",
     whatsapp_direct: "WhatsApp Direct",
-    glossary_fin: "Glossaire financier"
+    glossary_fin: "Glossaire financier",
+    trust_label: "Certifié & Régulé"
   }
 };

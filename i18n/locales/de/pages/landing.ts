@@ -1,14 +1,17 @@
+
 export const landing = {
   hero: {
     title: "IHR PROJEKT,",
     highlight: "UNSERE EXPERTISE.",
-    desc: "Younited macht Kredite einfach, transparent und 100% digital. Erhalten Sie eine verbindliche Antwort in Echtzeit.",
+    desc: "LOGO macht Kredite einfach, transparent und 100% digital. Erhalten Sie eine verbindliche Antwort in Echtzeit.",
     simulate: "Meinen Kredit simulieren",
     express: "Express-Anfrage",
     trustpilot: "Trustpilot Note 4.8/5",
     response_time: "Antwort in 3 Minuten",
     expert_choice: "Experten-Empfehlung",
     secured: "Sichere Zahlung",
+    tech_label: "100% Digitale Technologie",
+    apr_fixed: "FEST-TAEG",
     projects: {
       auto: { label: "Autokredit", desc: "Finanzieren Sie Ihr Fahrzeug zum Bestzins.", limit: "Bis zu 60.000€" },
       immo: { label: "Immobilien", desc: "Werden Sie Eigentümer mit individueller Begleitung.", limit: "Immobilienprojekte" },
@@ -48,7 +51,7 @@ export const landing = {
   auto_subtitle: "HEUTE.",
   auto_desc: "Finanzieren Sie Ihr Auto mit einer sofortigen Grundsatzentscheidung.",
   auto_cta: "Meinen Autokredit simulieren",
-  expertise_label: "Younited Expertise",
+  expertise_label: "LOGO Expertise",
   expertise_title: "INTELLIGENZ IM DIENSTE DER ",
   expertise_highlight: "BERATUNG.",
   access_guide: "Zum vollständigen Ratgeber",
@@ -65,7 +68,9 @@ export const landing = {
   prefooter: {
     smart_title: "Intelligente Verwaltung",
     smart_desc: "Steuern Sie Ihre Rückzahlungen über Ihr sicheres Kundenkonto.",
-    smart_label: "Younited Technologie",
+    smart_label: "LOGO Technologie",
+    help_desc: "Fragen zu Ihrem Dossier? Besuchen Sie unser vollständiges Hilfezentrum.",
+    help_cta: "Zu den FAQs",
     contact_title: "Experten hören zu",
     contact_label: "Menschlicher Support",
     speed_title: "Rekordgeschwindigkeit",

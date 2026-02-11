@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { TrendingUp, HelpCircle, Zap, Phone, Mail, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -22,15 +23,15 @@ const PreFooter: React.FC<PreFooterProps> = ({ onOpenApp }) => {
             </div>
             <div className="space-y-6">
               <h3 className="text-lg font-black text-slate-950 dark:text-white uppercase tracking-wider">
-                {t('prefooter.smart_title')}
+                {t('landing.prefooter.smart_title')}
               </h3>
               <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-medium">
-                {t('prefooter.smart_desc')}
+                {t('landing.prefooter.smart_desc')}
               </p>
             </div>
             <div className="pt-6 mt-auto border-t border-slate-100 dark:border-slate-800">
               <span className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">
-                {t('prefooter.smart_label')}
+                {t('landing.prefooter.smart_label')}
               </span>
             </div>
           </div>
@@ -44,19 +45,19 @@ const PreFooter: React.FC<PreFooterProps> = ({ onOpenApp }) => {
                 {t('nav.resources_menu.help_label')}
               </h3>
               <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed font-medium">
-                Une question sur votre dossier ? Accédez à notre centre d'aide complet.
+                {t('landing.prefooter.help_desc')}
               </p>
               <button 
                 onClick={() => navigate('/aide')}
                 className="text-emerald-500 font-black uppercase text-[10px] tracking-widest flex items-center space-x-2 group"
               >
-                <span>Accéder aux FAQ</span>
+                <span>{t('landing.prefooter.help_cta')}</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
             <div className="pt-6 mt-auto border-t border-slate-100 dark:border-slate-800">
                <span className="text-xs font-black text-slate-500 uppercase tracking-[0.2em]">
-                Assistance Digitale
+                {t('chatbot.brand_label')}
               </span>
             </div>
           </div>
@@ -68,10 +69,10 @@ const PreFooter: React.FC<PreFooterProps> = ({ onOpenApp }) => {
             </div>
             <div className="space-y-6">
               <h3 className="text-lg font-black text-white uppercase tracking-wider">
-                {t('prefooter.speed_title')}
+                {t('landing.prefooter.speed_title')}
               </h3>
               <p className="text-slate-400 text-base leading-relaxed font-medium">
-                {t('prefooter.speed_desc')}
+                {t('landing.prefooter.speed_desc')}
               </p>
             </div>
             <div className="pt-8 mt-auto">
@@ -79,7 +80,7 @@ const PreFooter: React.FC<PreFooterProps> = ({ onOpenApp }) => {
                 onClick={() => onOpenApp ? onOpenApp() : navigate('/simulateur')}
                 className="w-full bg-brand-primary hover:bg-brand-secondary text-white py-5 rounded-[2rem] font-black text-sm uppercase tracking-widest transition-all shadow-brand flex items-center justify-center space-x-4 active:scale-95"
                >
-                 <span>{t('prefooter.speed_btn')}</span>
+                 <span>{t('landing.prefooter.speed_btn')}</span>
                  <ArrowRight size={18} />
                </button>
             </div>

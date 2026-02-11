@@ -1,13 +1,12 @@
-
 export const common = {
   chatbot: {
-    welcome: "Hej! Jag är Youniteds digitala assistent. Hur kan jag hjälpa dig med dina projekt idag?",
+    welcome: "Hej! Jag är LOGO:s digitala assistent. Hur kan jag hjälpa dig med dina projekt idag?",
     error: "Jag har anslutningsproblem. Ska vi försöka igen?",
-    brand_label: "Younited Assistent",
+    brand_label: "LOGO Assistent",
     agent_name: "Digital Rådgivare",
-    secure_notice: "Younited säker supportkanal",
+    secure_notice: "LOGO säker supportkanal",
     placeholder: "Ditt projekt, våra lösningar...",
-    version: "Younited Core v2.4 • Drivs av Younited Core"
+    version: "Assistant Digital v2.4"
   },
   nav: {
     home: "Hem",
@@ -43,7 +42,7 @@ export const common = {
     cat_glossary: "Ordlista & Definitioner",
     cat_guides: "Guide & Expertis",
     cat_quick: "Snabbåtkomst",
-    version: "Intelligent Sökning v2.1",
+    version: "Intelligent Sökning",
     placeholder: "Sök tjänst, artikel...",
     results_for: "Resultat för"
   },
@@ -57,6 +56,7 @@ export const common = {
   form: {
     step_back: "Tillbaka",
     next: "Fortsätt",
+    step_label: "Steg",
     secure_session: "Säker session",
     completion_label: "Klart",
     phases: {
@@ -85,77 +85,44 @@ export const common = {
     sign_highlight: "SIGNATUR.",
     sign_desc: "Vänligen signera i rutan nedan för att bekräfta din ansökan.",
     sign_reset: "Rensa och börja om",
-    sign_cert: "eIDAS-certifierad",
+    sign_cert: "Certifierad",
     sign_submit: "Skicka in ansökan",
     id_validation: "Digital ID-validering",
     bank_other: "Annan bank",
-    security_footer: "AES-256-skydd • PCI-DSS Level 1-revision",
+    security_footer: "AES-256-skydd",
     fields: {
       firstname: "Förnamn",
       lastname: "Efternamn",
       birthdate: "Födelsedatum",
-      job_title: "Nuvarande yrke",
-      employer: "Arbetsgivarens namn",
+      job_title: "Yrke",
+      employer: "Arbetsgivare",
       email: "E-post",
       phone: "Telefon",
-      address: "Postadress",
-      zip: "Postnummer",
-      city: "Ort",
+      address: "Adress",
+      zip: "Postnr",
+      city: "Stad",
       iban: "IBAN",
-      id_doc: "Identitetshandling",
+      id_doc: "ID",
       address_doc: "Adressbevis",
-      income_doc: "Senaste lönespecifikation",
+      income_doc: "Lönespec",
       tax_residency: "Skattehemvist",
       bank: "Huvudbank",
-      purpose: "Lånesyfte",
-      amount: "Önskat belopp",
-      months: "Löptid (månader)",
-      income: "Nettoinkomst per månad",
-      rent: "Fasta kostnader (hyra/lån)",
-      family_status: "Civilstånd",
-      dependents: "Barn i hushållet"
-    },
-    placeholders: {
-      firstname: "Erik",
-      lastname: "Svensson",
-      job_title: "Ex: Manager",
-      employer: "Ex: Google",
-      email: "namn@exempel.se",
-      address: "Gatunummer och namn",
-      zip: "11122",
-      city: "Stockholm",
-      income: "25000",
-      rent: "8000",
+      purpose: "Syfte",
       amount: "Belopp",
-      months: "Månader"
-    },
-    options: {
-      job_status: {
-        cdi: "Tillsvidareanställning",
-        cdd: "Visstidsanställning",
-        indep: "Frilans / Egenföretagare",
-        retraite: "Pensionär",
-        etudiant: "Student"
-      },
-      civility: {
-        mr: "Herr",
-        mrs: "Fru",
-        ms: "Fröken"
-      },
-      family_status: {
-        single: "Ensamstående",
-        married: "Gift",
-        pacsed: "Partner",
-        divorced: "Skild",
-        widowed: "Änka / Änkling"
-      }
+      months: "Löptid (månader)",
+      income: "Månadsinkomst",
+      rent: "Fasta utgifter",
+      family_status: "Civilstånd",
+      dependents: "Barn"
     }
   },
   stats: {
     borrowers: "Låntagare",
     funds: "Utbetalda medel",
     satisfaction: "Kundnöjdhet",
-    live: "Live"
+    live: "Live",
+    banking: "Banking",
+    index: "Index"
   },
   labels: {
     language: "Språk",
@@ -186,13 +153,14 @@ export const common = {
     offers_title: "Erbjudanden",
     resources_title: "Resurser",
     social_title: "Följ oss",
-    rights: "© {{year}} YOUNITED. ALLA RÄTTIGHETER FÖRBEHÅLLNA.",
+    rights: "© {{year}} LOGO. ALLA RÄTTIGHETER FÖRBEHÅLLNA.",
     legal: "Juridiska villkor",
     privacy: "Integritetspolicy",
     cookies: "Cookies",
-    eu_notice: "Younited är ett kreditinstitut som verkar i hela Europeiska unionen.",
+    eu_notice: "LOGO är ett kreditinstitut som verkar i hela Europeiska unionen.",
     assistance: "Support",
     whatsapp_direct: "WhatsApp",
-    glossary_fin: "Finansiell ordlista"
+    glossary_fin: "Finansiell ordlista",
+    trust_label: "Certifierat & Reglerat"
   }
 };

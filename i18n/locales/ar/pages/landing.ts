@@ -1,14 +1,17 @@
+
 export const landing = {
   hero: {
     title: "مشروعك،",
     highlight: "خبرتنا.",
-    desc: "يونايتد تحول الائتمان إلى تجربة بسيطة وشفافة ورقمية 100%. احصل على رد نهائي في الوقت الفعلي.",
+    desc: "LOGO تحول الائتمان إلى تجربة بسيطة وشفافة ورقمية 100%. احصل على رد نهائي في الوقت الفعلي.",
     simulate: "محاكاة قرضي",
     express: "طلب سريع",
     trustpilot: "تقييم Trustpilot 4.8/5",
     response_time: "الرد في 3 دقائق",
     expert_choice: "خيار الخبير",
     secured: "دفع آمن",
+    tech_label: "تقنية رقمية 100%",
+    apr_fixed: "معدل فائدة سنوي ثابت",
     projects: {
       auto: { label: "قرض سيارة", desc: "مول مركبتك الجديدة أو المستعملة بأفضل معدل.", limit: "حتى 60,000€" },
       immo: { label: "قرض عقاري", desc: "كن مالكاً مع مرافقة مخصصة.", limit: "مشاريع عقارية" },
@@ -48,7 +51,7 @@ export const landing = {
   auto_subtitle: "اليوم.",
   auto_desc: "مول سيارتك الجديدة أو المستعملة مع موافقة مبدئية فورية.",
   auto_cta: "محاكاة قرض سيارتي",
-  expertise_label: "خبرة يونايتد",
+  expertise_label: "خبرة LOGO",
   expertise_title: "الذكاء في خدمة ",
   expertise_highlight: "الاستشارة.",
   access_guide: "الوصول إلى الدليل الكامل",
@@ -65,7 +68,9 @@ export const landing = {
   prefooter: {
     smart_title: "إدارة ذكية",
     smart_desc: "أدر مدفوعاتك من مساحة العملاء الآمنة الخاصة بك.",
-    smart_label: "تقنية يونايتد",
+    smart_label: "تقنية LOGO",
+    help_desc: "لديك سؤال حول ملفك؟ تفضل بزيارة مركز المساعدة الشامل لدينا.",
+    help_cta: "الوصول للأسئلة الشائعة",
     contact_title: "خبراء يستمعون",
     contact_label: "دعم بشري",
     speed_title: "سرعة قياسية",

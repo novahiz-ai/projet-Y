@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { TrendingUp, Users, Star, Activity } from 'lucide-react';
@@ -42,10 +43,10 @@ const StatsBar: React.FC = () => {
     <section className="w-full max-w-5xl mx-auto h-[60px] flex items-center bg-white/60 dark:bg-slate-900/40 backdrop-blur-2xl border border-slate-200/50 dark:border-slate-800/50 rounded-full lg:rounded-2xl shadow-brand shadow-slate-200/10 dark:shadow-none relative z-30 transition-all duration-500 px-4 lg:px-8 animate-in fade-in zoom-in duration-700">
       <div className="w-full flex items-center justify-between gap-4 h-full">
         <div className="hidden md:flex items-center space-x-2 shrink-0">
-           <span className="text-[10px] font-black uppercase tracking-tighter text-slate-900 dark:text-white">Logo</span>
+           <span className="text-[10px] font-black uppercase tracking-tighter text-slate-950 dark:text-white select-none">LOGO</span>
            <div className="flex flex-col -space-y-1 ml-2">
-             <span className="text-[8px] font-black uppercase tracking-tight text-slate-900 dark:text-white">Banking</span>
-             <span className="text-[6px] font-bold uppercase tracking-widest text-slate-400">Index</span>
+             <span className="text-[8px] font-black uppercase tracking-tight text-slate-950 dark:text-white">{t('stats.banking')}</span>
+             <span className="text-[6px] font-bold uppercase tracking-widest text-slate-400">{t('stats.index')}</span>
            </div>
         </div>
 

@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -10,7 +9,8 @@ import {
   Clock,
   ShieldCheck,
   Zap,
-  ChevronRight
+  ChevronRight,
+  Shield
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -44,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       setActiveProject((prev) => (prev + 1) % projects.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [projects.length]);
 
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen w-full flex flex-col justify-center overflow-hidden bg-white dark:bg-slate-950 pt-24 lg:pt-0">
@@ -54,19 +54,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <img 
           src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&q=80&w=2000" 
           alt="" 
-          className="w-full h-full object-cover opacity-[0.15] dark:opacity-[0.2]"
+          className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.12]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-white dark:from-slate-950 dark:via-slate-950/80 dark:to-slate-950" />
-        
-        {/* Glow Effects */}
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-primary/10 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-brand-secondary/10 blur-[120px] rounded-full animate-pulse [animation-delay:2s]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/70 to-white dark:from-slate-950 dark:via-slate-950/70 dark:to-slate-950" />
       </div>
 
       <div className="max-w-7xl mx-auto w-full px-6 lg:px-10 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          <div className="lg:col-span-7 space-y-10">
+          <div className="lg:col-span-7 space-y-12">
             <div className="space-y-6">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -74,17 +70,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 className="inline-flex items-center space-x-2 px-3 py-1 bg-brand-primary/10 rounded-lg text-brand-primary border border-brand-primary/20"
               >
                 <Zap size={14} className="fill-current" />
-                <span className="text-[10px] font-black uppercase tracking-widest">Technologie 100% Digitale</span>
+                <span className="text-[10px] font-black uppercase tracking-widest">{t('landing.hero.tech_label')}</span>
               </motion.div>
               
-              <motion.h1 
-                initial={{ opacity: 0, x: -30 }} 
-                animate={{ opacity: 1, x: 0 }} 
-                className="text-4xl md:text-6xl xl:text-8xl font-black leading-[0.9] tracking-tighter uppercase italic"
-              >
-                {title} <br />
-                <span className="text-gradient drop-shadow-sm">{highlightText}</span>
-              </motion.h1>
+              <div className="relative inline-block">
+                <motion.h1 
+                  initial={{ opacity: 0, x: -30 }} 
+                  animate={{ opacity: 1, x: 0 }} 
+                  className="text-4xl md:text-6xl xl:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic relative z-10 text-slate-950 dark:text-white"
+                >
+                  <div className="relative inline-block">
+                    <span className="relative z-10">{title}</span>
+                  </div>
+                  <br />
+                  <div className="relative inline-block mt-2">
+                    <div className="absolute inset-0 bg-brand-primary/20 dark:bg-brand-primary/30 -rotate-1 scale-105 rounded-lg z-0" />
+                    <span className="relative z-10 text-brand-primary drop-shadow-sm">{highlightText}</span>
+                  </div>
+                </motion.h1>
+              </div>
               
               <motion.p 
                 initial={{ opacity: 0 }} 
@@ -96,85 +100,85 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </motion.p>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl">
               {projects.map((proj, idx) => (
                 <button
                   key={proj.id}
                   onClick={() => setActiveProject(idx)}
-                  className={`p-4 rounded-[2.5rem] border-2 transition-all flex flex-col items-center space-y-3 ${
+                  className={`p-5 rounded-[2rem] border-2 transition-all flex flex-col items-center space-y-3 group ${
                     activeProject === idx 
                       ? 'bg-white dark:bg-slate-900 border-brand-primary shadow-2xl shadow-brand-primary/20 scale-105' 
                       : 'bg-white/40 dark:bg-slate-900/40 border-slate-200/50 dark:border-slate-800/50 hover:border-slate-300'
                   }`}
                 >
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
-                    activeProject === idx ? 'bg-brand-primary text-white' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${
+                    activeProject === idx ? 'bg-brand-primary text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'
                   }`}>
                     {proj.icon}
                   </div>
                   <div className="text-center">
-                    <p className="text-[9px] font-black uppercase text-slate-950 dark:text-white leading-none mb-1">{proj.label}</p>
-                    <p className={`text-[9px] font-black ${activeProject === idx ? 'text-brand-primary' : 'text-slate-400'}`}>{proj.rate}</p>
+                    <p className="text-[10px] font-black uppercase text-slate-950 dark:text-white leading-none mb-1">{proj.label}</p>
+                    <p className={`text-[10px] font-black ${activeProject === idx ? 'text-brand-primary' : 'text-slate-400'}`}>{proj.rate}</p>
                   </div>
                 </button>
               ))}
             </div>
 
-            <div className="pt-4">{children}</div>
+            <div className="pt-6">{children}</div>
 
-            <div className="flex items-center space-x-8 pt-8 border-t border-slate-200/50 dark:border-slate-800/50">
+            <div className="flex items-center space-x-10 pt-10 border-t border-slate-200/50 dark:border-slate-800/50">
               <div className="flex flex-col">
-                <div className="flex items-center space-x-1 text-emerald-500 mb-1">
+                <div className="flex items-center space-x-1 text-brand-primary mb-1">
                   {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="currentColor" />)}
                 </div>
                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{t('landing.hero.trustpilot')}</p>
               </div>
-              <div className="h-8 w-px bg-slate-200 dark:bg-slate-800" />
+              <div className="h-10 w-px bg-slate-200 dark:bg-slate-800" />
               <div className="flex items-center space-x-3 text-slate-500 dark:text-slate-400">
-                <Clock size={16} />
+                <Clock size={18} className="text-brand-primary" />
                 <span className="text-[10px] font-black uppercase tracking-widest">{t('landing.hero.response_time')}</span>
               </div>
             </div>
           </div>
 
-          <div className="lg:col-span-5 relative h-[500px] flex justify-center items-center">
+          <div className="lg:col-span-5 relative h-[550px] flex justify-center items-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProject}
-                initial={{ opacity: 0, scale: 0.8, rotateY: 20 }}
+                initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                exit={{ opacity: 0, scale: 1.1, rotateY: -20 }}
-                transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
-                className="relative w-full max-w-[420px] h-[420px] bg-slate-900 rounded-[4rem] shadow-3xl overflow-hidden border-4 border-white dark:border-slate-800 cursor-pointer group"
+                exit={{ opacity: 0, scale: 1.05, rotateY: -15 }}
+                transition={{ duration: 0.8, ease: [0.19, 1, 0.22, 1] }}
+                className="relative w-full max-w-[450px] h-[450px] bg-slate-900 rounded-[4rem] shadow-3xl overflow-hidden border-8 border-white dark:border-slate-800 cursor-pointer group"
                 onClick={() => navigate(`/offres/${projects[activeProject].id}`)}
               >
-                <img src={projects[activeProject].image} className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-110 transition-transform duration-1000" alt="" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <img src={projects[activeProject].image} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-1000" alt="" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
                 
-                <div className="absolute bottom-10 left-10 right-10 space-y-4 text-white">
+                <div className="absolute bottom-12 left-10 right-10 space-y-5 text-white">
                   <div className="space-y-1">
-                    <h3 className="text-3xl font-black uppercase italic tracking-tighter leading-none">{projects[activeProject].label}.</h3>
-                    <div className="flex items-center space-x-3">
-                      <span className="text-4xl font-black italic text-brand-primary">{projects[activeProject].rate}</span>
-                      <div className="h-4 w-px bg-white/30" />
-                      <span className="text-[9px] font-black uppercase tracking-widest text-white/70">TAEG FIXE</span>
+                    <h3 className="text-4xl font-black uppercase italic tracking-tighter leading-none">{projects[activeProject].label}.</h3>
+                    <div className="flex items-center space-x-4">
+                      <span className="text-5xl font-black italic text-brand-primary">{projects[activeProject].rate}</span>
+                      <div className="h-6 w-px bg-white/30" />
+                      <span className="text-[10px] font-black uppercase tracking-widest text-white/70">{t('landing.hero.apr_fixed')}</span>
                     </div>
                   </div>
-                  <div className="pt-4 border-t border-slate-700/50 flex justify-between items-center">
-                    <div className="flex items-center space-x-2 text-[9px] font-black uppercase text-white/60">
-                      <ShieldCheck size={16} className="text-emerald-400" />
+                  <div className="pt-6 border-t border-white/20 flex justify-between items-center">
+                    <div className="flex items-center space-x-2 text-[10px] font-black uppercase text-white/60">
+                      <Shield size={18} className="text-brand-primary" />
                       <span>{t('landing.hero.secured')}</span>
                     </div>
-                    <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-primary transition-all">
-                      <ChevronRight size={20} />
+                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-brand-primary transition-all">
+                      <ChevronRight size={24} />
                     </div>
                   </div>
                 </div>
               </motion.div>
             </AnimatePresence>
             
-            {/* Ambient decoration */}
-            <div className="absolute -z-10 w-full h-full bg-[radial-gradient(circle_at_center,var(--brand-primary),transparent_70%)] opacity-5" />
+            {/* Background floating blur */}
+            <div className="absolute -z-10 w-80 h-80 bg-brand-primary/20 blur-[100px] rounded-full animate-pulse" />
           </div>
 
         </div>
