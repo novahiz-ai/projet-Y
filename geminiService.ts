@@ -26,17 +26,12 @@ OFFRES YOUNITED :
 
 export const getFinancialAdvice = async (userPrompt: string, lang: string = 'fr', currentPage: string = 'home') => {
   try {
+    // Correct method to generate content with system instruction in the config.
     const response = await ai.models.generateContent({
       model: 'gemini-3-pro-preview',
-      contents: [
-        {
-          role: 'user',
-          parts: [{
-            text: `SYSTEM INSTRUCTION: ${SITE_KNOWLEDGE}\nLangue de réponse: ${lang}.\nPage actuelle de l'utilisateur: ${currentPage}.\n\nQuestion de l'utilisateur: ${userPrompt}`
-          }]
-        }
-      ],
+      contents: userPrompt,
       config: {
+        systemInstruction: `${SITE_KNOWLEDGE}\nLangue de réponse: ${lang}.\nPage actuelle de l'utilisateur: ${currentPage}.`,
         temperature: 0.2,
         topP: 0.8,
         topK: 40

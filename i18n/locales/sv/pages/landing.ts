@@ -1,8 +1,9 @@
+
 export const landing = {
   hero: {
     title: "DITT PROJEKT,",
     highlight: "VÅR EXPERTIS.",
-    desc: "LOGO förvandlar kredit till en enkel, transparent och 100 % digital upplevelse. Få ett definitivt svar i realtid.",
+    desc: "Younited förvandlar kredit till en enkel, transparent och 100 % digital upplevelse. Få ett definitivt svar i realtid.",
     simulate: "Simulera mitt lån",
     express: "Expressansökan",
     trustpilot: "Trustpilot-betyg 4.8/5",
@@ -50,7 +51,7 @@ export const landing = {
   auto_subtitle: "IDAG.",
   auto_desc: "Finansiera din nya eller begagnade bil med ett omedelbart principbesked.",
   auto_cta: "Simulera mitt billån",
-  expertise_label: "LOGO Expertis",
+  expertise_label: "Younited Expertis",
   expertise_title: "INTELLIGENS I TJÄNST FÖR ",
   expertise_highlight: "RÅDGIVNING.",
   access_guide: "Gå till hela guiden",
@@ -67,7 +68,7 @@ export const landing = {
   prefooter: {
     smart_title: "Smart hantering",
     smart_desc: "Hantera dina återbetalningar från din säkra kundportal.",
-    smart_label: "LOGO Teknologi",
+    smart_label: "Teknologi Younited",
     help_desc: "En fråga om ditt ärende? Besök vårt fullständiga hjälpcenter.",
     help_cta: "Gå till FAQ",
     contact_title: "Experter som lyssnar",

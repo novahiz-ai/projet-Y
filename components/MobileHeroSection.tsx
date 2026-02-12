@@ -19,9 +19,10 @@ import StandardButton from './StandardButton';
 
 interface MobileHeroSectionProps {
   onOpenApp: (context?: any) => void;
+  onOpenSimulator: (offerId?: string) => void;
 }
 
-const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp }) => {
+const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpenSimulator }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -49,7 +50,7 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp }) => {
       <div className="absolute bottom-1/4 left-0 w-48 h-48 bg-indigo-500/5 blur-[60px] rounded-full -translate-x-1/2 z-0"></div>
 
       <div className="relative z-10 space-y-8">
-        {/* Welcome Header - Removed "Assistant logo" title as requested */}
+        {/* Welcome Header */}
         <div className="flex items-center justify-between">
           <div className="space-y-1">
             <motion.h2 
@@ -70,7 +71,7 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp }) => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, type: "spring", stiffness: 300, damping: 20 }}
-          onClick={() => navigate('/simulateur')}
+          onClick={() => onOpenSimulator()}
           className="relative group bg-slate-950 dark:bg-slate-900 p-8 rounded-[2.5rem] shadow-2xl overflow-hidden border border-white/10 active:scale-95 transition-transform cursor-pointer"
         >
           <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/20 blur-3xl rounded-full"></div>

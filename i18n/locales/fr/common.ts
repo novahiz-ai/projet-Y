@@ -19,6 +19,7 @@ export const common = {
     help: "Aide",
     about: "À Propos",
     credits: "Crédits",
+    glossary_label: "Glossaire Financier",
     resources_menu: {
       help_label: "Aide",
       help_desc: "Réponses à vos interrogations.",
@@ -38,14 +39,17 @@ export const common = {
   },
   search: {
     no_results: "Aucun résultat trouvé",
-    try_terms: "Essayez 'Taux', 'Auto' ou 'Rachat'",
+    try_terms: "Essayez des termes clés",
     cat_offers: "Offres de Crédit",
     cat_glossary: "Lexique & Définitions",
     cat_guides: "Expertise & Guides",
     cat_quick: "Accès Rapides",
     version: "Recherche Souveraine",
     placeholder: "Rechercher une expertise...",
-    results_for: "Résultats pour"
+    results_for: "Résultats pour",
+    nav_tip: "Naviguer",
+    open_tip: "Ouvrir",
+    close_tip: "Fermer"
   },
   contact_section: {
     whatsapp_label: "Contact Direct",
@@ -168,7 +172,9 @@ export const common = {
     months_count: "Mois",
     support_247: "Expertise 24/7",
     characteristic: "Caractéristique",
-    details: "Données"
+    details: "Données",
+    load_more: "Afficher plus d'offres",
+    load_less: "Afficher moins"
   },
   cookies_banner: {
     title: "Respect de la vie privée",

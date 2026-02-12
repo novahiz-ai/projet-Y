@@ -1,8 +1,9 @@
+
 export const landing = {
   hero: {
     title: "TU PROYECTO,",
     highlight: "NUESTRA EXPERIENCIA.",
-    desc: "LOGO transforma el crédito en una experiencia sencilla, transparente y 100% digital. Obtén una respuesta firme en tiempo real.",
+    desc: "Younited transforma el crédito en una experiencia sencilla, transparente y 100% digital. Obtén una respuesta firme en tiempo real.",
     simulate: "Simular mi préstamo",
     express: "Solicitud Express",
     trustpilot: "Nota Trustpilot 4.8/5",
@@ -39,7 +40,7 @@ export const landing = {
   renovation_subtitle: "AL MEJOR INTERÉS.",
   renovation_desc: "Financia tus obras de aislamiento o decoración con un acompañamiento a medida.",
   renovation_cta: "Descubrir la oferta de reformas",
-  renovation_features: ["IVA al 5,5%", "Ayudas Estatales", "Eco-Crédito", "Garantía Profesional"],
+  renovation_features: ["IVA al 5,5%", "Ayudas Estatales", "Eco-Préstamo", "Garantía Profesional"],
   renovation_card_value_title: "Valor Añadido",
   renovation_card_value_desc: "Aumente el valor de su patrimonio inmobiliario.",
   renovation_card_saving_title: "Ahorro",
@@ -50,7 +51,7 @@ export const landing = {
   auto_subtitle: "HOY MISMO.",
   auto_desc: "Financia tu coche nuevo o de ocasión con una respuesta de principio inmediata.",
   auto_cta: "Simular mi préstamo auto",
-  expertise_label: "Experiencia LOGO",
+  expertise_label: "Experiencia Younited",
   expertise_title: "LA INTELIGENCIA AL SERVICIO DEL ",
   expertise_highlight: "CONSEJO.",
   access_guide: "Acceder a la guía completa",
@@ -67,7 +68,7 @@ export const landing = {
   prefooter: {
     smart_title: "Gestión Inteligente",
     smart_desc: "Gestiona tus reembolsos desde tu espacio de cliente seguro.",
-    smart_label: "Tecnología LOGO",
+    smart_label: "Tecnología Younited",
     help_desc: "¿Una pregunta sobre tu expediente? Accede a nuestro centro de ayuda completo.",
     help_cta: "Acceder a las FAQ",
     contact_title: "Expertos a tu escucha",

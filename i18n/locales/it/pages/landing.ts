@@ -1,8 +1,9 @@
+
 export const landing = {
   hero: {
     title: "IL TUO PROGETTO,",
     highlight: "LA NOSTRA ESPERIENZA.",
-    desc: "LOGO trasforma il credito in un'esperienza semplice, trasparente e 100% digitale. Ottieni una risposta ferma in tempo reale.",
+    desc: "Younited trasforma il credito in un'esperienza semplice, trasparente e 100% digitale. Ottieni una risposta ferma in tempo reale.",
     simulate: "Simula il mio prestito",
     express: "Richiesta Express",
     trustpilot: "Voto Trustpilot 4.8/5",
@@ -50,7 +51,7 @@ export const landing = {
   auto_subtitle: "OGGI.",
   auto_desc: "Finanzia la tua auto nuova o usata con una risposta di principio immediata.",
   auto_cta: "Simula il mio prestito auto",
-  expertise_label: "Expertise LOGO",
+  expertise_label: "Expertise Younited",
   expertise_title: "L'INTELLIGENZA AL SERVIZIO DELLA ",
   expertise_highlight: "CONSULENZA.",
   access_guide: "Accedi alla guida completa",
@@ -67,7 +68,7 @@ export const landing = {
   prefooter: {
     smart_title: "Gestione Intelligente",
     smart_desc: "Gestisci i tuoi rimborsi dalla tua area clienti protetta.",
-    smart_label: "Tecnologia LOGO",
+    smart_label: "Tecnologia Younited",
     help_desc: "Una domanda sulla tua pratica? Accedi al nostro centro assistenza completo.",
     help_cta: "Accedi alle FAQ",
     contact_title: "Esperti all'ascolto",
