@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -81,25 +82,25 @@ const HelpPage: React.FC = () => {
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
       
       {/* 1. HERO & SEARCH */}
-      <section className="relative pt-32 pb-20 bg-slate-50 dark:bg-slate-900/30 border-b border-slate-100 dark:border-slate-800 overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-0 pt-24 lg:pt-32 pb-10 lg:pb-20 bg-slate-50 dark:bg-slate-900/30 border-b border-slate-100 dark:border-slate-800 overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#6d28d944,transparent_70%)]"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 text-center space-y-10 relative z-10">
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-4xl md:text-7xl font-black uppercase tracking-tighter italic text-slate-950 dark:text-white leading-[0.85]">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-6 lg:space-y-10 relative z-10 w-full">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-3xl md:text-7xl font-black uppercase tracking-tighter italic text-slate-950 dark:text-white leading-[0.85]">
             {t('help.title')} <br />
             <span className="text-brand-primary">{t('help.highlight')}</span>
           </motion.h1>
           
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="max-w-3xl mx-auto relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-indigo-500 rounded-full blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
-            <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-full shadow-2xl overflow-hidden px-8">
-              <Search size={24} className="text-slate-300" />
+            <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-full shadow-2xl overflow-hidden px-6 lg:px-8">
+              <Search size={20} className="text-slate-300 lg:size-24" />
               <input 
                 type="text" 
                 placeholder={t('help.search_placeholder')}
-                className="w-full bg-transparent border-none py-6 pl-5 pr-4 text-lg md:text-xl font-medium outline-none text-slate-950 dark:text-white placeholder:text-slate-400"
+                className="w-full bg-transparent border-none py-4 lg:py-6 pl-3 lg:pl-5 pr-4 text-base lg:text-xl font-medium outline-none text-slate-950 dark:text-white placeholder:text-slate-400"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -107,10 +108,8 @@ const HelpPage: React.FC = () => {
           </motion.div>
         </div>
       </section>
-
+      
       <div className="max-w-7xl mx-auto px-6 py-20 space-y-40">
-        
-        {/* 2. QUICK CONTACT CARDS */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-8">
            {[
              { icon: <Mail />, title: "Support Email", desc: "Réponse détaillée sous 24h ouvrées.", color: "emerald", link: "mailto:Younitedcreditfr@outlook.fr" },
@@ -137,7 +136,6 @@ const HelpPage: React.FC = () => {
            ))}
         </section>
 
-        {/* 3. FAQ SECTION */}
         <section id="faq" className="space-y-12">
           <div className="flex items-center space-x-2 overflow-x-auto scrollbar-hide -mx-6 px-6 pb-4">
             {categories.map((cat) => (
@@ -191,7 +189,7 @@ const HelpPage: React.FC = () => {
                     ))}
                   </motion.div>
                 ) : (
-                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24 bg-slate-50 dark:bg-slate-900/40 rounded-[3rem] border-2 border-dashed border-slate-100 dark:border-slate-800">
+                  <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center py-24 bg-slate-50 dark:bg-slate-900/40 rounded-[3rem] border-2 border-dashed border-slate-100 dark:border-slate-800" >
                      <AlertCircle size={48} className="mx-auto text-slate-300 mb-6" />
                      <p className="text-slate-400 font-black uppercase tracking-[0.4em] text-xs">{t('help.no_results')}</p>
                   </motion.div>

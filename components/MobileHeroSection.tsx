@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -11,7 +12,8 @@ import {
   Heart,
   ShieldCheck,
   ChevronRight,
-  Shield
+  Shield,
+  Activity
 } from 'lucide-react';
 import StandardButton from './StandardButton';
 
@@ -47,22 +49,13 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp }) => {
       <div className="absolute bottom-1/4 left-0 w-48 h-48 bg-indigo-500/5 blur-[60px] rounded-full -translate-x-1/2 z-0"></div>
 
       <div className="relative z-10 space-y-8">
-        {/* Welcome Header */}
+        {/* Welcome Header - Removed "Assistant logo" title as requested */}
         <div className="flex items-center justify-between">
           <div className="space-y-1">
-            <motion.div 
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex items-center space-x-2 text-brand-primary"
-            >
-              <Shield size={14} className="fill-brand-primary" />
-              <span className="text-[10px] font-black uppercase tracking-widest">{t('chatbot.brand_label')}</span>
-            </motion.div>
             <motion.h2 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="text-2xl font-black tracking-tight text-slate-950 dark:text-white"
+              className="text-3xl font-black tracking-tight text-slate-950 dark:text-white"
             >
               {t('landing.hero.title')} <span className="text-brand-primary italic">{t('landing.hero.highlight')}</span>
             </motion.h2>
@@ -89,8 +82,8 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp }) => {
                <div className="text-right">
                   <p className="text-white/60 text-[8px] font-black uppercase tracking-widest leading-none mb-1">{t('landing.hero.response_time')}</p>
                   <div className="flex items-center justify-end space-x-1">
-                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                    <span className="text-white font-black text-xs uppercase italic">Online Now</span>
+                    <Activity size={10} className="text-emerald-500 animate-pulse" />
+                    <span className="text-white font-black text-[10px] uppercase italic">Analyse Digitale</span>
                   </div>
                </div>
             </div>
@@ -106,8 +99,8 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp }) => {
 
             <div className="flex items-center justify-between pt-4 border-t border-white/10">
                <div className="flex items-center space-x-2">
-                 <ShieldCheck size={14} className="text-emerald-500" />
-                 <span className="text-[9px] font-black text-white/50 uppercase tracking-widest">{t('landing.hero.secured')}</span>
+                 <Shield size={14} className="text-brand-secondary" />
+                 <span className="text-[9px] font-black text-white/50 uppercase tracking-widest">{t('landing.hero.expert_choice')}</span>
                </div>
                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white">
                  <ChevronRight size={20} />

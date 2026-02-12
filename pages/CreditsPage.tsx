@@ -10,17 +10,17 @@ const CreditsPage: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen transition-colors duration-500">
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 text-center space-y-10 relative z-10">
-          <div className="inline-flex items-center space-x-3 bg-brand-primary/10 text-brand-primary px-4 py-2 rounded-xl border border-brand-primary/20">
+      <section className="relative h-[50vh] lg:h-auto pt-24 lg:pt-32 pb-10 lg:pb-20 overflow-hidden flex items-center">
+        <div className="max-w-7xl mx-auto px-6 text-center space-y-6 lg:space-y-10 relative z-10 w-full">
+          <div className="inline-flex items-center space-x-3 bg-brand-primary/10 text-brand-primary px-4 py-1.5 lg:py-2 rounded-xl border border-brand-primary/20 mx-auto">
             <LayoutGrid size={18} />
-            <span className="text-[10px] font-black uppercase tracking-widest">{t('credits_page.label')}</span>
+            <span className="text-[9px] lg:text-[10px] font-black uppercase tracking-widest">{t('credits_page.label')}</span>
           </div>
-          <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-[0.9] italic">
+          <h1 className="text-3xl md:text-7xl font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-[0.9] italic">
             {t('credits_page.title')} <br />
             <span className="text-brand-primary">{t('credits_page.highlight')}</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-xl text-slate-500 dark:text-slate-400 font-medium">
+          <p className="max-w-2xl mx-auto text-base lg:text-xl text-slate-500 dark:text-slate-400 font-medium hidden sm:block">
             {t('credits_page.desc')}
           </p>
         </div>

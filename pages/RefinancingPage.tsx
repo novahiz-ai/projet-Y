@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -82,33 +83,27 @@ const RefinancingPage: React.FC = () => {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500">
       
-      <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center overflow-hidden bg-slate-50 dark:bg-slate-950">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[85vh] flex items-center overflow-hidden bg-slate-50 dark:bg-slate-950 pt-20 lg:pt-0">
         <div className="absolute inset-0 z-0">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-indigo-600/5 blur-[120px] rounded-full translate-x-1/3"></div>
           <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-blue-600/5 blur-[100px] rounded-full -translate-x-1/4"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-8">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-slate-900 dark:text-white tracking-tighter uppercase italic">
+        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 py-10 lg:py-16 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6 lg:space-y-8">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-slate-900 dark:text-white tracking-tighter uppercase italic">
                 {t('refinancing_loan.hero.title')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-600">{t('refinancing_loan.hero.highlight')}</span>
               </h1>
-              <p className="text-lg text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed font-medium">
+              <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                 {t('refinancing_loan.hero.desc')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-5 pt-2">
-                <Link to="/simulateur" state={{ offerId: 'rachat' }} className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-[2rem] font-black text-base text-center transition-all transform hover:scale-105 shadow-xl shadow-indigo-500/20 flex items-center justify-center space-x-3">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
+                <Link to="/simulateur" state={{ offerId: 'rachat' }} className="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 lg:py-4 rounded-[2rem] font-black text-sm lg:text-base text-center transition-all transform hover:scale-105 shadow-xl shadow-indigo-500/20 flex items-center justify-center space-x-3">
                   <span>{t('refinancing_loan.hero.cta')}</span>
-                  <ArrowRight size={20} />
+                  <ArrowRight size={18} />
                 </Link>
-                <div className="flex items-center justify-center space-x-4 px-6 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2rem] shadow-sm">
-                  <div className="text-center">
-                    <p className="text-xl font-black text-indigo-600">{t('refinancing_loan.hero.rate_val')}</p>
-                    <p className="text-[8px] text-slate-400 uppercase font-black tracking-widest">{t('refinancing_loan.hero.rate_label')}</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -129,10 +124,6 @@ const RefinancingPage: React.FC = () => {
                       <PhoneCall size={14} className="text-indigo-600" />
                       <span className="text-xs font-bold">+33 6 44 69 32 43</span>
                     </div>
-                    <div className="flex items-center space-x-3">
-                      <Clock size={14} className="text-emerald-500" />
-                      <span className="text-[10px] font-black uppercase tracking-widest">{t('refinancing_loan.card.service_label')}</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -141,6 +132,7 @@ const RefinancingPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Main Content Area */}
       <section className="relative z-10 space-y-32 py-24 bg-white dark:bg-slate-950 rounded-t-[4rem] -mt-10">
         <div className="max-w-7xl mx-auto px-4 lg:flex lg:gap-24">
           
@@ -184,7 +176,7 @@ const RefinancingPage: React.FC = () => {
                 </div>
               </div>
             </section>
-
+            {/* ... Rest of content */}
             <section id="eligibilite" className="space-y-12 scroll-mt-32">
               <div className="space-y-4">
                 <h2 className="text-3xl font-black uppercase tracking-tight">{t('refinancing_loan.content.elig_title')}</h2>
@@ -210,7 +202,7 @@ const RefinancingPage: React.FC = () => {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="space-y-6">
-                   <h4 className="text-lg font-black uppercase italic text-slate-900 dark:text-white">{t('refinancing_loan.content.loans_incl_t')}</h4>
+                   <h4 className="text-lg font-black uppercase italic text-slate-950 dark:text-white">{t('refinancing_loan.content.loans_incl_t')}</h4>
                    <div className="grid grid-cols-1 gap-3">
                       {inclList.map((text: any, i: number) => (
                         <div key={i} className="flex items-center space-x-3 text-sm font-bold">
@@ -312,11 +304,11 @@ const RefinancingPage: React.FC = () => {
                <div className="bg-indigo-600 p-12 lg:p-16 rounded-[4rem] text-white flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl shadow-indigo-500/20">
                   <div className="space-y-6 relative z-10 text-center lg:text-left">
                     <h2 className="text-4xl lg:text-5xl font-black leading-tight uppercase tracking-tighter italic">{t('refinancing_loan.content.cta_h2')}</h2>
-                    <p className="text-white/80 font-bold text-lg max-w-lg leading-relaxed">{t('refinancing_loan.content.cta_p')}</p>
+                    <p className="text-white/80 font-bold text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed">{t('refinancing_loan.content.cta_p')}</p>
                   </div>
                   <StandardButton 
                     variant="white" 
-                    className="w-full lg:w-auto !bg-slate-900 !text-white !px-12 !py-6 !text-lg shadow-3xl group"
+                    className="w-full lg:w-auto mx-auto lg:mx-0 !bg-slate-900 !text-white !px-12 !py-6 !text-lg shadow-3xl group"
                     onClick={() => navigate('/simulateur', { state: { offerId: 'rachat' } })}
                   >
                      <span>{t('refinancing_loan.content.cta_btn')}</span>

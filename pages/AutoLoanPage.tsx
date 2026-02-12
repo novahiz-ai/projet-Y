@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -65,7 +66,7 @@ const AutoLoanPage: React.FC = () => {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500">
       
-      <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&q=80&w=2000" 
@@ -75,20 +76,22 @@ const AutoLoanPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 pt-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
-              <h1 className="text-5xl lg:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic text-slate-950 dark:text-white">
+        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 pt-16 lg:pt-20 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+              <h1 className="text-4xl lg:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic text-slate-950 dark:text-white">
                 {t('auto_loan.hero.title')} <br />
                 <span className="text-emerald-600">{t('auto_loan.hero.highlight')}</span>
               </h1>
-              <p className="text-lg text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
+              <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                 {t('auto_loan.hero.desc')}
               </p>
-              <StandardButton variant="primary" className="!bg-emerald-600 hover:!bg-emerald-700 shadow-xl shadow-emerald-600/20" onClick={() => navigate('/simulateur', { state: { offerId: 'auto' } })}>
-                <span>{t('auto_loan.hero.cta')}</span>
-                <ArrowRight size={20} />
-              </StandardButton>
+              <div className="pt-2">
+                <StandardButton variant="primary" className="mx-auto lg:mx-0 !bg-emerald-600 hover:!bg-emerald-700 shadow-xl shadow-emerald-600/20 !py-4 lg:!py-5 !px-8 lg:!px-10" onClick={() => navigate('/simulateur', { state: { offerId: 'auto' } })}>
+                  <span>{t('auto_loan.hero.cta')}</span>
+                  <ArrowRight size={18} />
+                </StandardButton>
+              </div>
             </div>
           </div>
         </div>
@@ -114,7 +117,7 @@ const AutoLoanPage: React.FC = () => {
           </aside>
 
           <div className="lg:w-3/4 space-y-32">
-            
+            {/* Sections Content... */}
             <section id="definition" className="space-y-10 scroll-mt-32">
               <div className="flex items-center space-x-4">
                 <div className="w-12 h-12 bg-emerald-600/10 text-emerald-600 rounded-2xl flex items-center justify-center">
@@ -136,7 +139,7 @@ const AutoLoanPage: React.FC = () => {
                 </div>
               </div>
             </section>
-
+            {/* ... Rest of content */}
             <section id="apport" className="space-y-10 scroll-mt-32">
               <h2 className="text-3xl font-black uppercase tracking-tight">{t('auto_loan.content.apport_title')}</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

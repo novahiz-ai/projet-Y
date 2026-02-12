@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -45,35 +46,42 @@ const PersonalLoanPage: React.FC = () => {
   return (
     <div className="relative bg-white dark:bg-slate-950 transition-colors duration-500">
       
-      <section className="relative min-h-[85vh] lg:min-h-[90vh] w-full flex items-center justify-center overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[90vh] w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2000" 
             alt="Lifestyle" 
-            className="w-full h-full object-cover opacity-30 dark:opacity-40 scale-105 animate-[subtle-zoom_25s_infinite_alternate]"
+            className="w-full h-full object-cover opacity-30 dark:opacity-20 scale-105 animate-[subtle-zoom_25s_infinite_alternate]"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/80 to-white dark:from-slate-950/20 dark:via-slate-950/80 dark:to-slate-950"></div>
+          {/* Enhanced Dark Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/80 to-white dark:from-slate-950/40 dark:via-slate-950/80 dark:to-slate-950"></div>
+          
+          {/* Animated Glow in Dark Mode */}
+          <div className="hidden dark:block absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/10 blur-[100px] rounded-full animate-glow"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 relative z-10 w-full pt-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-in fade-in slide-in-from-left-12 duration-1000">
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-slate-900 dark:text-white tracking-tighter uppercase italic">
+        <div className="max-w-7xl mx-auto px-4 relative z-10 w-full pt-12 lg:pt-20 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-left-12 duration-1000">
+              <div className="space-y-3 lg:space-y-4">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.9] text-slate-900 dark:text-white tracking-tighter uppercase italic">
                   {t('personal_loan.hero.title')} <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-indigo-400 to-brand-secondary">
+                  <span className="text-vibrant">
                     {t('personal_loan.hero.highlight')}
                   </span>
                 </h1>
-                <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
+                <p className="text-sm md:text-lg text-slate-600 dark:text-slate-300 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                   {t('personal_loan.hero.desc')}
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <StandardButton onClick={() => navigate('/simulateur', { state: { offerId: 'perso' } })}>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
+                <StandardButton 
+                  onClick={() => navigate('/simulateur', { state: { offerId: 'perso' } })} 
+                  className="!py-4 lg:!py-5 !px-8 lg:!px-10 shadow-brand"
+                >
                   <span>{t('personal_loan.hero.cta')}</span>
-                  <ArrowRight size={20} />
+                  <ArrowRight size={18} />
                 </StandardButton>
               </div>
             </div>
@@ -102,10 +110,12 @@ const PersonalLoanPage: React.FC = () => {
           <div className="lg:w-3/4 space-y-32">
             <section id="definition" className="space-y-10">
               <div className="flex items-center space-x-4">
-                <Info size={32} className="text-indigo-600" />
+                <div className="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-brand-primary shadow-sm">
+                  <Info size={32} />
+                </div>
                 <h2 className="text-3xl lg:text-4xl font-black uppercase tracking-tight">{t('personal_loan.content.def_title')}</h2>
               </div>
-              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg font-medium">
                 {t('personal_loan.content.def_p1')}
               </p>
             </section>

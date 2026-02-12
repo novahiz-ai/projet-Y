@@ -1,3 +1,4 @@
+
 export const landing = {
   hero: {
     title: "YOUR PROJECT,",
@@ -7,8 +8,8 @@ export const landing = {
     express: "Express Request",
     trustpilot: "Trustpilot Score 4.8/5",
     response_time: "Response in 3 minutes",
-    expert_choice: "Expert's choice",
-    secured: "Secured Payment",
+    expert_choice: "ACPR License",
+    secured: "Responsible Credit",
     apr_fixed: "FIXED APR",
     projects: {
       auto: { label: "Auto Loan", desc: "Finance your new or used vehicle at the best rate.", limit: "Up to €60,000" },

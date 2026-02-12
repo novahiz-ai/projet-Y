@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -68,7 +69,7 @@ const GeneralLoanPage: React.FC = () => {
   return (
     <div className="relative bg-white dark:bg-slate-950 transition-colors duration-500">
       
-      <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=2000" 
@@ -78,20 +79,20 @@ const GeneralLoanPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 pt-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] tracking-tighter uppercase italic text-slate-950 dark:text-white">
+        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 pt-16 lg:pt-20 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[0.95] tracking-tighter uppercase italic text-slate-950 dark:text-white">
                 {t('mortgage.hero.title')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-rose-400">{t('mortgage.hero.highlight')}</span>
               </h1>
-              <p className="text-lg text-slate-500 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
+              <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                 {t('mortgage.hero.desc')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <StandardButton onClick={() => scrollTo('definition')}>
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
+                <StandardButton onClick={() => scrollTo('definition')} className="mx-auto lg:mx-0 !py-4 lg:!py-5 !px-8 lg:!px-10">
                   <span>{t('landing.view_catalog')}</span>
-                  <ChevronRight size={20} />
+                  <ChevronRight size={18} />
                 </StandardButton>
               </div>
             </div>
@@ -142,7 +143,7 @@ const GeneralLoanPage: React.FC = () => {
                 </div>
               </div>
             </section>
-
+            {/* ... Rest of content */}
             <section id="eligibilite" className="space-y-12 scroll-mt-32">
               <div className="space-y-4">
                 <h2 className="text-3xl font-black uppercase tracking-tight">{t('mortgage.content.eligibility_title')}</h2>
@@ -244,11 +245,11 @@ const GeneralLoanPage: React.FC = () => {
                <div className="bg-rose-600 p-12 lg:p-16 rounded-[4rem] text-white flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl shadow-rose-600/20">
                   <div className="space-y-6 relative z-10 text-center lg:text-left">
                     <h2 className="text-4xl lg:text-5xl font-black leading-tight uppercase tracking-tighter italic">{t('mortgage.content.cta_h2')}</h2>
-                    <p className="text-white/80 font-bold text-lg max-w-lg leading-relaxed">{t('mortgage.content.cta_p')}</p>
+                    <p className="text-white/80 font-bold text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed">{t('mortgage.content.cta_p')}</p>
                   </div>
                   <StandardButton 
                     variant="white" 
-                    className="w-full lg:w-auto !bg-slate-950 !text-white !px-12 !py-6 !text-lg shadow-3xl group"
+                    className="w-full lg:w-auto mx-auto lg:mx-0 !bg-slate-950 !text-white !px-12 !py-6 !text-lg shadow-3xl group"
                     onClick={() => navigate('/simulateur')}
                   >
                      <span>{t('mortgage.content.cta_btn')}</span>

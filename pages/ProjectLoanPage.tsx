@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -82,7 +83,7 @@ const ProjectLoanPage: React.FC = () => {
     <div className="relative bg-white dark:bg-slate-950 transition-colors duration-500">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[90vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=2000" 
@@ -92,30 +93,30 @@ const ProjectLoanPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white/90 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 pt-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 pt-16 lg:pt-20 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-8"
+              className="space-y-6 lg:space-y-8"
             >
-              <h1 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic text-slate-950 dark:text-white">
+              <h1 className="text-3xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic text-slate-950 dark:text-white">
                 {t('project_loan.hero.title')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-indigo-500">{t('project_loan.hero.highlight')}</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed font-medium">
+              <p className="text-sm md:text-xl text-slate-500 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                 {t('project_loan.hero.desc')}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-5">
+              <div className="flex flex-col sm:flex-row gap-4 lg:gap-5 pt-2 justify-center lg:justify-start">
                 <StandardButton 
                   onClick={() => navigate('/simulateur', { state: { offerId: 'projet' } })}
-                  className="!bg-cyan-600 hover:!bg-cyan-700 shadow-xl shadow-cyan-600/20 !py-6"
+                  className="mx-auto lg:mx-0 !bg-cyan-600 hover:!bg-cyan-700 shadow-xl shadow-cyan-600/20 !py-4 lg:!py-6 !px-8 lg:!px-10"
                 >
-                  <span className="text-lg">{t('project_loan.hero.cta') || t('landing.hero.simulate')}</span>
-                  <ArrowRight size={20} />
+                  <span className="text-base lg:text-lg">{t('project_loan.hero.cta') || t('landing.hero.simulate')}</span>
+                  <ArrowRight size={18} />
                 </StandardButton>
               </div>
             </motion.div>
@@ -151,7 +152,7 @@ const ProjectLoanPage: React.FC = () => {
         </div>
       </section>
 
-      {/* --- CONTENT AREA --- */}
+      {/* Content body remains same... */}
       <div className="relative z-10 space-y-32 py-24 bg-white dark:bg-slate-950 rounded-t-[4rem] -mt-10 lg:-mt-20 transition-colors duration-500">
         <div className="max-w-7xl mx-auto px-6 lg:flex lg:gap-24">
           
@@ -194,7 +195,7 @@ const ProjectLoanPage: React.FC = () => {
                 </div>
               </div>
             </motion.section>
-
+            {/* ... Rest of content */}
             {/* Section 2: Projets Inspirations */}
             <motion.section 
               id="projets" 
@@ -285,7 +286,7 @@ const ProjectLoanPage: React.FC = () => {
               className="space-y-16 scroll-mt-32"
             >
               <div className="space-y-6">
-                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none italic">
+                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter leading-none italic text-center lg:text-left">
                   {t('project_loan.content.eligibility_title')} 
                   <span className="text-cyan-600">{t('project_loan.content.eligibility_highlight')}</span>
                 </h2>
@@ -314,7 +315,7 @@ const ProjectLoanPage: React.FC = () => {
               <OfferSummaryTable 
                 rows={summaryRows.map((r: any) => ({ label: r.t, value: r.v, isHighlight: r.h }))}
               />
-            </motion.section>
+            </section>
 
             <ContactSection accentColor="text-cyan-600" />
             <LegalWarning />
@@ -322,30 +323,6 @@ const ProjectLoanPage: React.FC = () => {
         </div>
       </div>
 
-      {/* --- FINAL CTA SECTION --- */}
-      <section className="py-32 bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-900 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-600/5 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="max-w-5xl mx-auto px-6 text-center space-y-12 relative z-10">
-           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false }} className="space-y-6">
-              <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter italic leading-[0.9]">{t('project_loan.content.cta_h2')}</h2>
-              <p className="text-slate-500 dark:text-slate-400 font-bold text-xl max-w-2xl mx-auto leading-relaxed">{t('project_loan.content.cta_p')}</p>
-           </motion.div>
-           
-           <div className="flex flex-col items-center space-y-8">
-             <StandardButton 
-               onClick={() => navigate('/simulateur', { state: { offerId: 'projet' } })}
-               className="mx-auto !py-7 !px-16 !text-xl !bg-slate-950 dark:!bg-white dark:!text-slate-950 hover:scale-105 shadow-2xl active:scale-95"
-             >
-                {t('project_loan.content.cta_btn')}
-             </StandardButton>
-             <div className="flex items-center space-x-3 text-slate-400 text-[10px] font-black uppercase tracking-[0.4em]">
-                <Clock size={16} />
-                <span>{t('project_loan.content.cta_notice')}</span>
-             </div>
-           </div>
-        </div>
-      </section>
-      
       <style dangerouslySetInnerHTML={{ __html: `
         .scroll-mt-32 { scroll-margin-top: 128px; }
       `}} />

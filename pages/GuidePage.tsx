@@ -72,7 +72,7 @@ const GuidePage: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden pt-20">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[70vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=2000" 
@@ -82,25 +82,25 @@ const GuidePage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white/40 to-transparent dark:from-slate-950 dark:via-slate-950/40 dark:to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-10">
-            <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter text-slate-900 dark:text-white leading-[0.9] italic">
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center text-center lg:text-left">
+          <div className="space-y-4 lg:space-y-10">
+            <h1 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-slate-900 dark:text-white leading-[0.9] italic">
               {t('hero.title')} <br />
               <span className="text-brand-primary">LE GUIDE.</span>
             </h1>
-            <p className="max-w-xl text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+            <p className="max-w-xl mx-auto lg:mx-0 text-sm md:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed hidden sm:block">
               {t('hero.desc')}
             </p>
           </div>
 
-          <div className="relative group">
+          <div className="relative group hidden sm:block">
             <div className="absolute -inset-4 bg-brand-primary/10 blur-[100px] rounded-full opacity-50"></div>
             <div className="relative overflow-hidden rounded-[3rem] aspect-video shadow-3xl bg-slate-100 dark:bg-slate-900 border-4 border-white dark:border-slate-800">
               {featuredArticles.map((art, idx) => (
                 <div key={art.id} className={`absolute inset-0 transition-all duration-1000 ${idx === carouselIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-110 pointer-events-none'}`}>
                   <img src={art.image} alt="" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-8 space-y-4">
+                  <div className="absolute bottom-0 left-0 right-0 p-8 space-y-4 text-left">
                     <span className="px-3 py-1 bg-brand-primary text-white rounded-lg text-[9px] font-black uppercase tracking-widest">{art.categoryLabel}</span>
                     <h3 className="text-2xl font-black text-white uppercase tracking-tight leading-tight">{art.title}</h3>
                     <button onClick={() => navigate(`/guide/${art.id}`)} className="flex items-center space-x-2 text-white/80 hover:text-white transition-colors font-black uppercase text-[10px] tracking-widest">

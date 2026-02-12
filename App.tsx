@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -316,7 +317,6 @@ const AppContent: React.FC = () => {
       
       {location.pathname !== '/simulateur' && !isAppFormOpen && (
         <nav className={`fixed top-0 w-full z-[150] transition-all duration-500 h-[65px] lg:h-[75px] flex items-center ${scrolled || isSearchOpen ? 'bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm' : 'bg-transparent'}`}>
-          {/* Professional Background Image Overlay - Mobile Only */}
           <div className="lg:hidden absolute inset-0 z-[-1] overflow-hidden pointer-events-none">
             <img 
               src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" 
@@ -393,6 +393,9 @@ const AppContent: React.FC = () => {
                   </div>
 
                   <div className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''}`}>
+                    <button onClick={() => setIsSearchOpen(true)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300" aria-label="Rechercher">
+                      <Search size={18} />
+                    </button>
                     <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-2 lg:p-2.5 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300" aria-label="Changer de thème">{isDarkMode ? <Sun size={18} /> : <Moon size={18} />}</button>
                     <LanguageSwitcher />
                     <button onClick={() => setIsMobileMenuOpen(true)} className="lg:hidden p-2 lg:p-2.5 bg-brand-primary/10 text-brand-primary rounded-xl" aria-label="Menu Mobile"><AnimatedMenuIcon isOpen={isMobileMenuOpen} /></button>

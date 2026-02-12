@@ -1,7 +1,9 @@
+
 export const loans = {
   offers_list: {
     title: "NOS SOLUTIONS DE",
     highlight: "FINANCEMENT.",
+    desc: "Découvrez nos solutions de financement conçues pour s'adapter à chaque étape de votre vie, avec la rapidité et la transparence United.",
     connected_services: "Services Connectés",
     cat_all: "Tout",
     cat_mobility: "Mobilité",
@@ -122,7 +124,7 @@ export const loans = {
         response: "Réponse",
         response_val: "Immédiate",
         type: "Type",
-        type_val: "Amortissable",
+        type_val: "Amortisable",
         rate: "TAEG",
         rate_val: "Dès 4.5%",
         funds_notice: "Fonds versés sous 48h ouvrées."

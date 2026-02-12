@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -87,7 +88,7 @@ const HomeImprovementPage: React.FC = () => {
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500">
       
       {/* 1. Hero Section */}
-      <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[85vh] flex items-center overflow-hidden pt-20 lg:pt-0">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=2000" 
@@ -98,27 +99,21 @@ const HomeImprovementPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-tr from-white dark:from-slate-900 via-transparent to-orange-500/10 transition-colors duration-500"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7 space-y-8 text-slate-900 dark:text-white transition-colors duration-500">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] tracking-tighter uppercase italic">
+        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 py-10 lg:py-16 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6 lg:space-y-8 text-slate-900 dark:text-white transition-colors duration-500">
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[0.95] tracking-tighter uppercase italic">
                 {t('travaux.hero.title')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">{t('travaux.hero.highlight')}</span> <br />
                 {t('travaux.hero.subtitle')}
               </h1>
-              <p className="text-lg text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed font-medium">
+              <p className="text-sm md:text-lg text-slate-500 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                 {t('travaux.hero.desc')}
               </p>
-              <div className="flex flex-col sm:flex-row gap-5 pt-2">
-                <StandardButton onClick={() => navigate('/simulateur', { state: { offerId: 'travaux' } })} className="!bg-orange-500 hover:!bg-orange-600 shadow-orange-500/20">
+              <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center lg:justify-start">
+                <StandardButton onClick={() => navigate('/simulateur', { state: { offerId: 'travaux' } })} className="!bg-orange-500 hover:!bg-orange-600 shadow-orange-500/20 !py-4 lg:!py-5 !px-8 lg:!px-10">
                   {t('travaux.hero.cta')}
                 </StandardButton>
-                <div className="flex items-center justify-center space-x-4 px-6 py-4 bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-2xl backdrop-blur-md">
-                  <div className="text-center">
-                    <p className="text-xl font-black text-orange-600 dark:text-amber-400">{t('travaux.hero.rate_val')}</p>
-                    <p className="text-[8px] text-slate-500 dark:text-slate-500 uppercase font-black tracking-widest">{t('travaux.hero.rate_label')}</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -178,7 +173,9 @@ const HomeImprovementPage: React.FC = () => {
             
             <section id="definition" className="space-y-10 scroll-mt-32">
               <div className="flex items-center space-x-4">
-                <Info size={32} className="text-orange-600" />
+                <div className="w-14 h-14 bg-orange-600/10 text-orange-600 rounded-2xl flex items-center justify-center">
+                   <Info size={32} />
+                </div>
                 <h2 className="text-3xl lg:text-4xl font-black uppercase tracking-tight">{t('travaux.content.def_title')}</h2>
               </div>
               <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-lg space-y-6 font-medium">

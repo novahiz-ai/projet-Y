@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { 
@@ -128,7 +129,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="h-10 w-px bg-slate-200 dark:bg-slate-800" />
               <div className="flex items-center space-x-3 text-slate-500 dark:text-slate-400">
                 <ShieldCheck size={18} className="text-emerald-500" />
-                <span className="text-[10px] font-black uppercase tracking-widest">ISO 27001 Certified</span>
+                <span className="text-[10px] font-black uppercase tracking-widest">Crédit Responsable</span>
               </div>
             </div>
           </div>

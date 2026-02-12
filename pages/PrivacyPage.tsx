@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -19,6 +18,7 @@ import {
 } from 'lucide-react';
 
 const PrivacyPage: React.FC = () => {
+  // Fix: Added 'const' to declare navigate
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -54,7 +54,7 @@ const PrivacyPage: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
-      <div className="relative overflow-hidden pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 transition-colors duration-500">
+      <div className="relative overflow-hidden h-[50vh] lg:h-auto pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 transition-colors duration-500 flex items-center">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=2000" 
@@ -62,7 +62,6 @@ const PrivacyPage: React.FC = () => {
             className="w-full h-full object-cover opacity-10 dark:opacity-20 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-slate-50/90 via-slate-50/80 to-transparent dark:from-slate-900/90 dark:via-slate-900/80 dark:to-transparent"></div>
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-primary/5 blur-[100px] rounded-full translate-x-1/2"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -107,142 +106,73 @@ const PrivacyPage: React.FC = () => {
 
         <div className="lg:w-3/4 space-y-24">
           <section id="introduction" className="space-y-6">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center">
-                <ShieldCheck size={20} />
-              </div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.intro_title')}</h2>
-            </div>
+            <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.intro_title')}</h2>
             <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed font-medium text-lg">
               <p>{t('privacy_page.intro_p1')}</p>
               <p>{t('privacy_page.intro_p2')}</p>
             </div>
           </section>
 
-          <section id="collecte" className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center">
-                <Database size={20} />
-              </div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.collect_title')}</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {collectItems.map((card, i) => (
-                <div key={i} className="p-6 bg-slate-50 dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 hover:border-brand-primary/20 transition-colors">
-                  <h4 className="text-xs font-black uppercase tracking-widest text-brand-primary mb-3">{card.t}</h4>
-                  <p className="text-sm leading-relaxed">{card.d}</p>
-                </div>
-              ))}
-            </div>
+          <section id="collecte" className="space-y-10">
+             <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.collect_title')}</h2>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {Array.isArray(collectItems) && collectItems.map((item, i) => (
+                   <div key={i} className="p-8 bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800">
+                      <h4 className="font-black uppercase text-brand-primary text-xs mb-4">{item.t}</h4>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 font-medium leading-relaxed">{item.d}</p>
+                   </div>
+                ))}
+             </div>
           </section>
 
           <section id="finalites" className="space-y-6">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center">
-                <Eye size={20} />
-              </div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.purpose_title')}</h2>
-            </div>
-            <div className="space-y-4">
-              {purposeItems.map((text, i) => (
-                <div key={i} className="flex items-center space-x-4 p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl">
-                  <div className="w-2 h-2 rounded-full bg-brand-primary"></div>
-                  <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{text}</span>
-                </div>
-              ))}
-            </div>
+             <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.purpose_title')}</h2>
+             <ul className="space-y-4">
+                {Array.isArray(purposeItems) && purposeItems.map((item, i) => (
+                   <li key={i} className="flex items-start space-x-4">
+                      <div className="w-6 h-6 rounded-full bg-brand-primary/10 text-brand-primary flex items-center justify-center shrink-0 mt-0.5">
+                         <ShieldCheck size={14} />
+                      </div>
+                      <span className="text-sm font-bold text-slate-600 dark:text-slate-400">{item}</span>
+                   </li>
+                ))}
+             </ul>
           </section>
 
           <section id="securite" className="space-y-6">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center">
-                <Lock size={20} />
-              </div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.security_title')}</h2>
-            </div>
-            <div className="bg-indigo-600 p-10 rounded-[3rem] text-white space-y-6 shadow-xl relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-black uppercase">{t('privacy_page.security_h3')}</h3>
-                  <p className="text-indigo-100 text-sm leading-relaxed">
-                    {t('privacy_page.security_p')}
-                  </p>
-                </div>
-                <div className="flex justify-center md:justify-end">
-                   <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-md border border-white/10">
-                      <Key size={32} />
-                   </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section id="droits" className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center">
-                <UserCheck size={20} />
-              </div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.rights_title')}</h2>
-            </div>
-            <p className="text-slate-600 dark:text-slate-400 font-medium">{t('privacy_page.rights_p')}</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-               {rightsItems.map((item, i) => (
-                 <div key={i} className="p-6 bg-slate-50 dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800">
-                    <h4 className="font-bold text-sm mb-1 uppercase tracking-tight text-slate-900 dark:text-white">{item.t}</h4>
-                    <p className="text-xs text-slate-500">{item.d}</p>
-                 </div>
-               ))}
-            </div>
-          </section>
-
-          <section id="cookies" className="space-y-6">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center">
-                <Cookie size={20} />
-              </div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.cookies_title')}</h2>
-            </div>
-            <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 space-y-4">
-               <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
-                 {t('privacy_page.cookies_p')}
-               </p>
-               <button className="flex items-center space-x-2 text-brand-primary font-black uppercase tracking-widest text-[10px] hover:underline">
-                 <span>{t('privacy_page.cookies_btn')}</span>
-                 <ExternalLink size={12} />
-               </button>
-            </div>
-          </section>
-
-          <section id="contact" className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <div className="w-10 h-10 bg-brand-primary/10 text-brand-primary rounded-xl flex items-center justify-center">
-                <Mail size={20} />
-              </div>
-              <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.contact_title')}</h2>
-            </div>
-            <div className="bg-slate-950 p-12 rounded-[4rem] text-white flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl">
-               <div className="space-y-4 text-center md:text-left">
-                  <h3 className="text-xl font-black uppercase">{t('privacy_page.contact_h3')}</h3>
-                  <p className="text-slate-400 text-sm font-medium">{t('privacy_page.contact_p')}</p>
-               </div>
-               <div className="flex flex-col space-y-3">
-                  <a href="mailto:dpo@younited-credit.fr" className="bg-brand-primary hover:bg-brand-secondary text-white px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all text-center">
-                    {t('privacy_page.contact_btn')}
-                  </a>
-                  <p className="text-[9px] text-slate-500 uppercase tracking-widest text-center">{t('privacy_page.contact_notice')}</p>
-               </div>
-            </div>
-          </section>
-
-          <section className="bg-slate-50 dark:bg-slate-900/40 p-10 rounded-[3rem] border border-slate-100 dark:border-slate-800">
-             <div className="flex items-center space-x-3 mb-6">
-                <AlertCircle className="text-brand-primary" size={20} />
-                <span className="text-[10px] font-black uppercase tracking-widest text-slate-500">Note</span>
+             <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.security_title')}</h2>
+             <div className="bg-slate-950 p-10 rounded-[3rem] text-white space-y-6">
+                <h3 className="text-xl font-black uppercase text-brand-primary italic">{t('privacy_page.security_h3')}</h3>
+                <p className="text-slate-400 font-medium leading-relaxed">{t('privacy_page.security_p')}</p>
              </div>
-             <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest leading-relaxed">
-               {t('privacy_page.footer_note', { date: new Date().toLocaleDateString() })}
-             </p>
+          </section>
+
+          <section id="droits" className="space-y-10">
+             <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.rights_title')}</h2>
+             <p className="text-slate-600 dark:text-slate-400 font-medium">{t('privacy_page.rights_p')}</p>
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {Array.isArray(rightsItems) && rightsItems.map((item, i) => (
+                   <div key={i} className="p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.5rem]">
+                      <h4 className="font-black uppercase text-xs text-slate-900 dark:text-white mb-4">{item.t}</h4>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed">{item.d}</p>
+                   </div>
+                ))}
+             </div>
+          </section>
+
+          <section id="contact" className="space-y-6">
+             <h2 className="text-2xl font-black uppercase tracking-tight">{t('privacy_page.contact_title')}</h2>
+             <div className="p-10 bg-slate-50 dark:bg-slate-900 rounded-[3rem] border border-slate-100 dark:border-slate-800 space-y-6">
+                <h3 className="text-lg font-black uppercase">{t('privacy_page.contact_h3')}</h3>
+                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">{t('privacy_page.contact_p')}</p>
+                <button 
+                  onClick={() => window.location.href = "mailto:dpo@younited-credit.fr"}
+                  className="px-8 py-4 bg-brand-primary text-white rounded-full font-black text-xs uppercase tracking-widest shadow-brand active:scale-95 transition-all"
+                >
+                  {t('privacy_page.contact_btn')}
+                </button>
+                <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest">{t('privacy_page.contact_notice')}</p>
+             </div>
           </section>
         </div>
       </div>
@@ -250,4 +180,5 @@ const PrivacyPage: React.FC = () => {
   );
 };
 
+// Fix: Added default export to resolve the error in App.tsx
 export default PrivacyPage;

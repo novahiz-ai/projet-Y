@@ -1,7 +1,9 @@
+
 export const loans = {
   offers_list: {
     title: "OUR FINANCING",
     highlight: "SOLUTIONS.",
+    desc: "Discover our financing solutions designed to adapt to every stage of your life, with United speed and transparency.",
     connected_services: "Connected Services",
     cat_all: "All",
     cat_mobility: "Mobility",
@@ -176,7 +178,7 @@ export const loans = {
       why_item1_t: "Speed",
       why_item1_d: "Principle agreement in 3 minutes.",
       why_item2_t: "Professionalism",
-      why_item2_d: "Guidance from auto experts.",
+      why_item2_d: "Apoyo de expertos del sector.",
       why_model_t: "An ethical model",
       why_model_d: "Our funds come from responsible investors.",
       why_model_stat: "98% Satisfied Clients",
@@ -393,7 +395,7 @@ export const loans = {
       simulation_list: ["Zero paper", "Zero waiting", "Zero stress"],
       justif_title: "Flash documents",
       justif_items: [
-        { t: "Digital ID" },
+        { t: "ID Digitale" },
         { t: "Bank Link" },
         { t: "IBAN" },
         { t: "Signature" }

@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -12,7 +13,11 @@ import {
   TrendingUp,
   Target,
   LayoutGrid,
-  Wallet
+  Wallet,
+  Star,
+  CheckCircle2,
+  Clock,
+  Shield
 } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import { motion } from 'framer-motion';
@@ -81,25 +86,22 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
   const durationPct = ((duration - 6) / (120 - 6)) * 100;
 
   return (
-    <div className="fixed inset-0 z-[500] flex items-center justify-center bg-slate-950/40 dark:bg-slate-950/80 backdrop-blur-md overflow-hidden md:p-4">
-      {/* Pop-up Container: Fullscreen on mobile, 900x570 on desktop */}
+    <div className="fixed inset-0 z-[500] flex items-center justify-center bg-white md:bg-slate-950/40 dark:bg-slate-950/80 backdrop-blur-md overflow-hidden p-0 md:p-4">
       <motion.div 
-        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        initial={{ opacity: 0, scale: 1, y: 0 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
-        className="relative w-full md:max-w-[900px] h-full md:h-[570px] md:max-h-[85vh] bg-white dark:bg-slate-900 md:rounded-[3rem] shadow-3xl flex flex-col md:flex-row overflow-hidden p-2.5 gap-2.5 md:border border-slate-100 dark:border-slate-800"
+        className="relative w-full md:max-w-[900px] h-full md:h-[570px] md:max-h-[85vh] bg-white dark:bg-slate-900 md:rounded-[3rem] shadow-none md:shadow-3xl flex flex-col md:flex-row overflow-hidden p-0 md:p-2.5 gap-2.5 md:border border-slate-100 dark:border-slate-800"
       >
-        {/* Floating Close Button */}
         <button 
           onClick={() => navigate('/')}
-          className="absolute top-6 right-6 z-[100] w-10 h-10 bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl flex items-center justify-center text-slate-500 hover:bg-rose-500 hover:text-white transition-all shadow-sm"
+          className="absolute top-6 right-6 z-[100] w-12 h-12 bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl flex items-center justify-center text-slate-500 hover:bg-rose-500 hover:text-white transition-all shadow-sm"
         >
-          <X size={20} />
+          <X size={24} />
         </button>
 
-        {/* Column 1: Inputs */}
-        <div className="flex-1 bg-slate-50/50 dark:bg-slate-950/20 rounded-[2.5rem] border border-slate-100 dark:border-slate-800/50 p-6 flex flex-col justify-center overflow-y-auto scrollbar-hide h-full">
-          <div className="space-y-5 w-full">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="flex-1 bg-white dark:bg-slate-950/20 md:bg-slate-50/50 md:rounded-[2.5rem] md:border border-slate-100 dark:border-slate-800/50 p-6 md:p-6 flex flex-col justify-start md:justify-center overflow-y-auto scrollbar-hide h-full pt-16 md:pt-6">
+          <div className="space-y-6 md:space-y-5 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-3">
               <ModernSelect 
                 label={t('simulator.project')}
                 options={LOAN_OFFERS.filter(o => o.id !== 'assurance').map(o => ({ value: o.id, label: t(o.title) }))}
@@ -112,16 +114,16 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
               />
 
               <div className="space-y-1.5">
-                <label className="text-[9px] font-black uppercase text-slate-400 tracking-[0.2em] px-2 flex items-center space-x-2">
+                <label className="text-[10px] md:text-[9px] font-black uppercase text-slate-400 tracking-[0.2em] px-2 flex items-center space-x-2">
                   <LayoutGrid size={11} className="text-indigo-500" />
                   <span>{t('simulator.currency')}</span>
                 </label>
-                <div className="flex bg-white dark:bg-slate-800 p-1 rounded-2xl border border-slate-200 dark:border-slate-700">
+                <div className="flex bg-slate-50 dark:bg-slate-800 p-1 rounded-2xl border border-slate-200 dark:border-slate-700">
                   {(['EUR', 'USD', 'GBP'] as const).map((cur) => (
                     <button
                       key={cur}
                       onClick={() => setCurrency(cur)}
-                      className={`flex-1 py-2 rounded-xl text-[9px] font-black transition-all ${currency === cur ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
+                      className={`flex-1 py-3 md:py-2 rounded-xl text-[10px] md:text-[9px] font-black transition-all ${currency === cur ? 'bg-indigo-600 text-white shadow-lg' : 'text-slate-400 hover:text-slate-600'}`}
                     >
                       {cur}
                     </button>
@@ -130,42 +132,56 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
               </div>
             </div>
 
-            <div className="space-y-4">
-              <div className="p-5 bg-white dark:bg-slate-800 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 space-y-4 shadow-sm group">
+            <div className="space-y-6 md:space-y-4">
+              <div className="p-6 md:p-5 bg-slate-50 md:bg-white dark:bg-slate-800 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 space-y-4 md:space-y-4 shadow-sm group">
                 <div className="flex justify-between items-end">
-                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] flex items-center space-x-2">
-                    <div className="w-1 h-1 rounded-full bg-indigo-500" />
+                  <p className="text-[10px] md:text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
                     <span>{t('simulator.amount')}</span>
                   </p>
-                  <div className="text-2xl font-black text-slate-950 dark:text-white tracking-tighter italic leading-none">
-                    {amount.toLocaleString()}<span className="text-indigo-600 ml-1 text-lg">{currencyConfig[currency as keyof typeof currencyConfig].symbol}</span>
+                  <div className="text-4xl md:text-2xl font-black text-slate-950 dark:text-white tracking-tighter italic leading-none">
+                    {amount.toLocaleString()}<span className="text-indigo-600 ml-1 text-2xl md:text-lg">{currencyConfig[currency as keyof typeof currencyConfig].symbol}</span>
                   </div>
                 </div>
                 <input 
                   type="range" min="500" max={amountMax} step="100"
                   value={amount} onChange={(e) => setAmount(Number(e.target.value))}
                   style={{ backgroundImage: `linear-gradient(to right, #4f46e5 ${amountPct}%, #e2e8f0 ${amountPct}%)` }}
-                  className="simulator-slider compact-slider w-full h-1.5 rounded-full appearance-none cursor-pointer"
+                  className="simulator-slider compact-slider w-full h-3 md:h-1.5 rounded-full appearance-none cursor-pointer touch-none"
                 />
               </div>
 
-              <div className="p-5 bg-white dark:bg-slate-800 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 space-y-4 shadow-sm group">
+              <div className="p-6 md:p-5 bg-slate-50 md:bg-white dark:bg-slate-800 rounded-[2.5rem] border border-slate-100 dark:border-slate-700 space-y-4 md:space-y-4 shadow-sm group">
                 <div className="flex justify-between items-end">
-                  <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] flex items-center space-x-2">
-                    <div className="w-1 h-1 rounded-full bg-orange-500" />
+                  <p className="text-[10px] md:text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] flex items-center space-x-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500" />
                     <span>{t('simulator.duration')}</span>
                   </p>
-                  <div className="text-2xl font-black text-slate-950 dark:text-white tracking-tighter italic leading-none">
-                    {duration}<span className="text-orange-500 text-lg ml-1.5 uppercase font-black">{t('simulator.months')}</span>
+                  <div className="text-4xl md:text-2xl font-black text-slate-950 dark:text-white tracking-tighter italic leading-none">
+                    {duration}<span className="text-orange-500 text-2xl md:text-lg ml-1.5 uppercase font-black">{t('simulator.months')}</span>
                   </div>
                 </div>
                 <input 
                   type="range" min="6" max={120} step="1"
                   value={duration} onChange={(e) => setDuration(Number(e.target.value))}
                   style={{ backgroundImage: `linear-gradient(to right, #f59e0b ${durationPct}%, #e2e8f0 ${durationPct}%)` }}
-                  className="simulator-slider duration-slider compact-slider w-full h-1.5 rounded-full appearance-none cursor-pointer"
+                  className="simulator-slider duration-slider compact-slider w-full h-3 md:h-1.5 rounded-full appearance-none cursor-pointer touch-none"
                 />
               </div>
+            </div>
+
+            <div className="md:hidden py-2 grid grid-cols-2 gap-3">
+              {[
+                { icon: <CheckCircle2 size={16}/>, text: "0€ Frais Dossier", color: "text-emerald-500", bg: "bg-emerald-500/10" },
+                { icon: <Clock size={16}/>, text: "Réponse 3min", color: "text-brand-primary", bg: "bg-brand-primary/10" },
+                { icon: <Shield size={16}/>, text: "Sécurisé eIDAS", color: "text-indigo-500", bg: "bg-indigo-500/10" },
+                { icon: <Zap size={16}/>, text: "TAEG Fixe", color: "text-amber-500", bg: "bg-amber-500/10" }
+              ].map((chip, idx) => (
+                <div key={idx} className={`flex items-center space-x-3 px-5 py-4 rounded-3xl ${chip.bg} ${chip.color} border border-slate-100 dark:border-slate-800 shadow-inner-soft`}>
+                   {chip.icon}
+                   <span className="text-[10px] font-black uppercase tracking-tight">{chip.text}</span>
+                </div>
+              ))}
             </div>
 
             <div className="pt-4 border-t border-slate-200 dark:border-slate-700 space-y-3 hidden md:block">
@@ -187,7 +203,6 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
           </div>
         </div>
 
-        {/* Column 2: Results - Hidden on Mobile */}
         <div className="hidden md:flex w-full md:w-[380px] bg-slate-100 dark:bg-slate-950 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-center items-center relative overflow-hidden h-full">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-[0.03] dark:opacity-[0.05] pointer-events-none scale-125">
              <Wallet size={400} strokeWidth={0.5} className="text-brand-primary" />
@@ -254,28 +269,39 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
           </div>
         </div>
 
-        {/* Mobile Pinned Bar - Real-time results on small screens */}
-        <div className="md:hidden sticky bottom-0 left-0 right-0 z-50 p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 flex items-center justify-between shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
-           <div className="flex flex-col">
-              <span className="text-[8px] font-black uppercase text-slate-400 tracking-widest">{t('simulator.est_monthly')}</span>
-              <div className="flex items-baseline space-x-1">
-                <motion.span 
-                   key={results.monthlyPayment}
-                   initial={{ y: 5, opacity: 0 }}
-                   animate={{ y: 0, opacity: 1 }}
-                   className="text-2xl font-black text-slate-950 dark:text-white italic"
-                >
-                  {results.monthlyPayment}
-                </motion.span>
-                <span className="text-xs font-black text-indigo-600 italic">{currencyConfig[currency as keyof typeof currencyConfig].symbol}</span>
+        <div className="md:hidden sticky bottom-0 left-0 right-0 z-50 p-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 flex flex-col space-y-6 shadow-[0_-20px_60px_rgba(0,0,0,0.2)]">
+           <div className="flex items-center justify-between">
+              <div className="flex flex-col">
+                <span className="text-[10px] font-black uppercase text-slate-400 tracking-[0.3em] mb-1">{t('simulator.est_monthly')}</span>
+                <div className="flex items-baseline space-x-2">
+                  <motion.span 
+                    key={results.monthlyPayment}
+                    initial={{ y: 15, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    className="text-5xl font-black text-slate-950 dark:text-white italic tracking-tighter"
+                  >
+                    {results.monthlyPayment}
+                  </motion.span>
+                  <span className="text-xl font-black text-indigo-600 italic">{currencyConfig[currency as keyof typeof currencyConfig].symbol}</span>
+                </div>
+              </div>
+              <div className="text-right">
+                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Coût Total</p>
+                 <p className="text-xl font-black text-slate-950 dark:text-white italic leading-none">{results.totalCost.toLocaleString()} {currencyConfig[currency as keyof typeof currencyConfig].symbol}</p>
+                 <div className="flex items-center justify-end space-x-1 mt-2 text-brand-primary">
+                    <Target size={12}/>
+                    <span className="text-[9px] font-black">TAEG {selectedOffer.minRate}%</span>
+                 </div>
               </div>
            </div>
+           
            <button 
              onClick={handleProceed}
-             className="bg-brand-primary text-white h-12 px-6 rounded-2xl font-black uppercase text-[10px] tracking-widest flex items-center space-x-2 shadow-brand active:scale-95 transition-all"
+             className="w-full bg-brand-primary text-white h-18 py-5 rounded-[2.5rem] font-black uppercase text-sm tracking-[0.4em] flex items-center justify-center space-x-4 shadow-brand active:scale-95 transition-all"
            >
+             <Zap size={20} className="fill-white" />
              <span>{t('simulator.continue')}</span>
-             <ArrowRight size={14} />
+             <ArrowRight size={20} />
            </button>
         </div>
       </motion.div>
@@ -283,14 +309,21 @@ const SimulatorPage: React.FC<SimulatorPageProps> = ({ onProceedToApp }) => {
       <style dangerouslySetInnerHTML={{ __html: `
         .compact-slider::-webkit-slider-thumb {
           -webkit-appearance: none;
-          width: 20px;
-          height: 20px;
+          width: 44px;
+          height: 44px;
           background: #ffffff;
-          border: 5px solid currentColor;
+          border: 12px solid currentColor;
           border-radius: 50%;
           cursor: pointer;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
           transition: all 0.2s ease;
+        }
+        @media (min-width: 768px) {
+          .compact-slider::-webkit-slider-thumb {
+            width: 20px;
+            height: 20px;
+            border: 5px solid currentColor;
+          }
         }
         .duration-slider::-webkit-slider-thumb { color: #f59e0b; }
         .simulator-slider:not(.duration-slider)::-webkit-slider-thumb { color: #4f46e5; }

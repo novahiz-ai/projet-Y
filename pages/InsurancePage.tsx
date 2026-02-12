@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -58,16 +59,13 @@ const InsurancePage: React.FC = () => {
   };
 
   const autoItems = getArray('insurance.content.auto_items');
-  const pricingUseList = getArray('insurance.content.auto_pricing_use_list');
-  const pricingProfileList = getArray('insurance.content.auto_pricing_profile_list');
-  const habitationMultiriskList = getArray('insurance.content.habitation_multirisk_list');
   const borrowerList = getArray('insurance.content.borrower_list');
   const summaryItems = getArray('insurance.content.summary_items');
 
   return (
     <div className="relative bg-white dark:bg-slate-950 transition-colors duration-500">
       
-      <section className="relative min-h-[85vh] w-full flex items-center overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=2000" 
@@ -77,23 +75,23 @@ const InsurancePage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 pt-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
-              <div className="space-y-4">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-slate-900 dark:text-white tracking-tighter uppercase italic">
+        <div className="max-w-7xl mx-auto px-4 w-full relative z-10 pt-16 lg:pt-20 text-center lg:text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-6 lg:space-y-8 animate-in fade-in slide-in-from-left-8 duration-1000">
+              <div className="space-y-3 lg:space-y-4">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[0.95] text-slate-900 dark:text-white tracking-tighter uppercase italic">
                   {t('insurance.hero.title')} <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-slate-400">{t('insurance.hero.highlight')}</span>
                 </h1>
-                <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed font-medium">
+                <p className="text-sm md:text-lg text-slate-600 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                   {t('insurance.hero.desc')}
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
-                <StandardButton onClick={() => scrollTo('auto')}>
+              <div className="flex flex-col sm:flex-row gap-4 items-center justify-center lg:justify-start">
+                <StandardButton onClick={() => scrollTo('auto')} className="mx-auto lg:mx-0 !py-4 lg:!py-5 !px-8 lg:!px-10">
                   <span>{t('landing.view_catalog')}</span>
-                  <ArrowRight size={20} />
+                  <ArrowRight size={18} />
                 </StandardButton>
               </div>
             </div>
@@ -121,6 +119,7 @@ const InsurancePage: React.FC = () => {
         </div>
       </section>
 
+      {/* Content body remains same... */}
       <div className="relative z-10 space-y-32 py-24 bg-white dark:bg-slate-950 rounded-t-[4rem] -mt-10">
         <div className="max-w-7xl mx-auto px-4 lg:flex lg:gap-24">
           
@@ -245,11 +244,11 @@ const InsurancePage: React.FC = () => {
                <div className="bg-brand-primary p-12 rounded-[4rem] text-white flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-2xl">
                   <div className="space-y-6 relative z-10 text-center lg:text-left">
                     <h2 className="text-4xl lg:text-5xl font-black leading-tight uppercase tracking-tighter italic">{t('insurance.content.cta_title')}</h2>
-                    <p className="text-indigo-100 font-bold text-lg max-w-lg leading-relaxed">{t('insurance.content.cta_desc')}</p>
+                    <p className="text-indigo-100 font-bold text-lg max-w-lg mx-auto lg:mx-0 leading-relaxed">{t('insurance.content.cta_desc')}</p>
                   </div>
                   <StandardButton 
                     variant="white" 
-                    className="w-full lg:w-auto !bg-slate-950 !text-white !px-12 !py-6 !text-lg shadow-3xl group"
+                    className="w-full lg:w-auto mx-auto lg:mx-0 !bg-slate-950 !text-white !px-12 !py-6 !text-lg shadow-3xl group"
                     onClick={() => navigate('/simulateur')}
                   >
                      <span>{t('insurance.content.cta_btn')}</span>

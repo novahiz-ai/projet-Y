@@ -1,3 +1,4 @@
+
 export const landing = {
   hero: {
     title: "VOTRE PROJET,",
@@ -7,8 +8,8 @@ export const landing = {
     express: "Demande Express",
     trustpilot: "Note Trustpilot 4.8/5",
     response_time: "Réponse en 3 minutes",
-    expert_choice: "Le choix de l'expert",
-    secured: "Paiement Sécurisé",
+    expert_choice: "Agrément ACPR",
+    secured: "Crédit Responsable",
     apr_fixed: "TAEG FIXE",
     projects: {
       auto: { label: "Prêt Auto", desc: "Financez votre véhicule neuf ou d'occasion au meilleur taux.", limit: "Jusqu'à 60 000€" },
@@ -50,7 +51,7 @@ export const landing = {
   auto_desc: "Financez votre voiture neuve ou d'occasion avec une réponse de principe immédiate.",
   auto_cta: "Simuler mon prêt auto",
   expertise_label: "Expertise logo",
-  expertise_title: "L'INTELLIGENCE AU SERVICE DU ",
+  expertise_title: "L'INTELLIGENZA AU SERVICE DU ",
   expertise_highlight: "CONSEIL.",
   access_guide: "Accéder au guide complet",
   testimonials: {
