@@ -3,7 +3,7 @@ import React from 'react';
 import { User } from 'lucide-react';
 import CountrySelector from '../../CountrySelector';
 import CustomDatePicker from '../../CustomDatePicker';
-import { FormLabel, FormInput } from '../../ui/FormControls';
+import { FormLabel, FormInput, FormSelect } from '../../ui/FormControls';
 
 const IdentityStep = ({ formData, setFormData, t, isMinor }: any) => (
   <div className="space-y-10">
@@ -23,15 +23,16 @@ const IdentityStep = ({ formData, setFormData, t, isMinor }: any) => (
       />
       <div className="space-y-1 md:col-span-2">
         <FormLabel Icon={User}>{t('form.fields.firstname')}</FormLabel>
-        <div className="flex space-x-3">
-          <select 
-            className="bg-slate-50 dark:bg-slate-900 border-none rounded-2xl px-4 font-bold outline-none text-slate-900 dark:text-white" 
-            value={formData.civility} 
-            onChange={e => setFormData({...formData, civility: e.target.value})}
-          >
-            <option value="mr">{t('form.options.civility.mr')}</option>
-            <option value="mrs">{t('form.options.civility.mrs')}</option>
-          </select>
+        <div className="flex space-x-3 items-center">
+          <div className="w-40 shrink-0">
+            <FormSelect 
+              value={formData.civility} 
+              onChange={e => setFormData({...formData, civility: e.target.value})}
+            >
+              <option value="mr">{t('form.options.civility.mr')}</option>
+              <option value="mrs">{t('form.options.civility.mrs')}</option>
+            </FormSelect>
+          </div>
           <FormInput 
             placeholder={t('form.placeholders.firstname')} 
             value={formData.firstName} 

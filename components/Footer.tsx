@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { PhoneCall, Mail, Clock, Facebook, Twitter, Instagram, Linkedin, ShieldCheck, CheckCircle2, Globe, Lock } from 'lucide-react';
+import { PhoneCall, Mail, Facebook, Twitter, Instagram, Linkedin, ShieldCheck, CheckCircle2, Globe, Lock } from 'lucide-react';
 import { LOAN_OFFERS } from '../constants';
-import Logo from './Logo';
 import { getFooterLegalLinks } from '../data/navigation';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();

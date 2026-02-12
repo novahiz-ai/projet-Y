@@ -87,5 +87,5 @@ export const common = {
   labels: { language: "Språk", rate_from: "Ränta från", express_demand: "Express", see_details: "Detaljer", months_count: "Månader", support_247: "Expertis", characteristic: "Egenskap", details: "Data" },
   cookies_banner: { title: "Integritet", subtitle: "Cookies", desc: "Vi använder cookies.", accept: "Acceptera", decline: "Avvisa", policy: "Dataskydd" },
   consent: { title: "Information", warning: "En kredit är bindande.", accept: "Validera", decline: "Avbryt" },
-  footer: { desc: "Kreditinstitut.", offers_title: "Erbjudanden", resources_title: "Expertise", social_title: "Sociala medier", rights: "© {{year}} LOGO. Alla rättigheter förbehållna.", legal: "Juridisk information", privacy: "Integritet", cookies: "Cookies", eu_notice: "EU-regler.", assistance: "Assistans", whatsapp_direct: "WhatsApp", glossary_fin: "Ordlista", trust_label: "Reglerat" }
+  footer: { desc: "Kreditinstitut.", offers_title: "Erbjudanden", resources_title: "Expertise", social_title: "Sociala medier", rights: "© {{year}} Younited. Alla rättigheter förbehållna.", legal: "Juridisk information", privacy: "Integritet", cookies: "Cookies", eu_notice: "EU-regler.", assistance: "Assistans", whatsapp_direct: "WhatsApp", glossary_fin: "Ordlista", trust_label: "Reglerat" }
 };

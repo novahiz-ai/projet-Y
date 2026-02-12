@@ -11,7 +11,7 @@ export const common = {
   },
   nav: {
     home: "Home",
-    credit: "Credito",
+    credit: "Soluzioni",
     simulator: "Simulatore",
     guide: "Guida",
     resources: "Risorse",
@@ -92,5 +92,5 @@ export const common = {
   labels: { language: "Lingua", rate_from: "Tasso da", express_demand: "Richiesta Express", see_details: "Dettagli", months_count: "Mesi", support_247: "Expertise", characteristic: "Caratteristica", details: "Dati" },
   cookies_banner: { title: "Privacy", subtitle: "Cookie", desc: "Usiamo i cookie.", accept: "Accetta", decline: "Rifiuta", policy: "Protezione dati" },
   consent: { title: "Nota", warning: "Il credito ti impegna e va rimborsato.", accept: "Valida", decline: "Annulla" },
-  footer: { desc: "Istituto di credito.", offers_title: "Offerte", resources_title: "Expertise", social_title: "Social", rights: "© {{year}} LOGO. Tutti i diritti riservati.", legal: "Note Legali", privacy: "Privacy", cookies: "Cookie", eu_notice: "Normativa UE.", assistance: "Assistenza", whatsapp_direct: "WhatsApp", glossary_fin: "Glossario", trust_label: "Regolato" }
+  footer: { desc: "Istituto di credito.", offers_title: "Offerte", resources_title: "Expertise", social_title: "Social", rights: "© {{year}} Younited. Tutti i diritti riservati.", legal: "Note Legali", privacy: "Privacy", cookies: "Cookie", eu_notice: "Normativa UE.", assistance: "Assistenza", whatsapp_direct: "WhatsApp", glossary_fin: "Glossario", trust_label: "Regolato" }
 };

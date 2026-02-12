@@ -4,17 +4,12 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Search, 
-  SpellCheck, 
-  Lightbulb, 
-  LayoutGrid,
-  ChevronRight,
-  ArrowRight,
-  AlertCircle
+  SpellCheck, Lightbulb, LayoutGrid, ChevronRight, AlertCircle
 } from 'lucide-react';
 import StandardButton from '../components/StandardButton';
 import { getGlossaryTerms } from '../data/glossary/terms';
 import { GLOSSARY_CATEGORIES } from '../data/glossary/categories';
+import SearchInput from '../components/ui/SearchInput';
 
 const GlossaryPage: React.FC = () => {
   const navigate = useNavigate();
@@ -71,12 +66,12 @@ const GlossaryPage: React.FC = () => {
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
       
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-24 overflow-hidden border-b border-slate-50 dark:border-slate-900">
+      <section className="relative h-[50vh] lg:h-auto pt-32 pb-24 overflow-hidden border-b border-slate-50 dark:border-slate-900 flex items-center">
         <div className="absolute inset-0 z-0 opacity-10">
            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/20 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-10 w-full">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="inline-flex items-center space-x-3 bg-brand-primary/10 text-brand-primary px-5 py-2.5 rounded-2xl border border-brand-primary/20 backdrop-blur-md">
             <SpellCheck size={20} className="animate-pulse" />
             <span className="text-[10px] font-black uppercase tracking-[0.3em]">{t('glossary.label')}</span>
@@ -91,21 +86,14 @@ const GlossaryPage: React.FC = () => {
             {t('glossary.desc')}
           </motion.p>
 
-          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="max-w-2xl mx-auto relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-indigo-500 rounded-full blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
-            <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-full shadow-2xl overflow-hidden px-8 py-1">
-              <Search size={24} className="text-slate-300" />
-              <input 
-                type="text" 
-                placeholder={t('glossary.search_placeholder')}
-                className="w-full bg-transparent border-none py-5 pl-5 pr-4 text-base md:text-xl font-medium outline-none text-slate-950 dark:text-white placeholder:text-slate-400"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <div className="hidden sm:flex text-[9px] font-black text-slate-300 uppercase bg-slate-50 dark:bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-100 dark:border-slate-700">
-                {filteredTerms.length} Results
-              </div>
-            </div>
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="max-w-2xl mx-auto">
+            <SearchInput 
+              value={searchQuery}
+              onChange={setSearchQuery}
+              onClear={() => setSearchQuery('')}
+              placeholder={t('glossary.search_placeholder')}
+              resultsCount={filteredTerms.length}
+            />
           </motion.div>
         </div>
       </section>

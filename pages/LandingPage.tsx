@@ -68,18 +68,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
         <MobileHeroSection onOpenApp={onOpenApp} onOpenSimulator={onOpenSimulator} />
       </div>
 
-      {/* Main Content Container with exactly 25px margin-top below the hero */}
+      {/* Main Content Container with optimized responsive layout */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.05 }}
-        className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[4rem] lg:rounded-t-[6rem] mt-[25px] lg:mt-[25px] transition-colors duration-500 pb-20"
+        className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[3rem] lg:rounded-t-[6rem] mt-[10px] lg:mt-[25px] transition-colors duration-500 pb-12 lg:pb-20"
       >
-        <div className="pt-12 flex justify-center">
+        <div className="pt-8 lg:pt-12 flex justify-center px-4">
           <StatsBar />
         </div>
 
-        <div className="space-y-32 py-24">
+        <div className="space-y-16 md:space-y-24 lg:space-y-32 py-10 md:py-16 lg:py-24">
           <OffersGallery 
             onOpenApp={onOpenApp} 
             onNavigateOffer={(id) => navigate(`/offres/${id}`)} 

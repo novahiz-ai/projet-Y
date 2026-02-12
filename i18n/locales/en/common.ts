@@ -1,7 +1,7 @@
 
 export const common = {
   chatbot: {
-    welcome: "Hello! I am LOGO's digital assistant. How can I help you today?",
+    welcome: "Hello! I am Younited's digital assistant. How can I help you today?",
     error: "Connection issue. Try again?",
     brand_label: "Expert Advice",
     agent_name: "Digital Analyst",
@@ -9,9 +9,27 @@ export const common = {
     placeholder: "Describe your project...",
     version: "Gouvernance 4.0-S"
   },
+  auth: {
+    login_title: "Welcome",
+    login_highlight: "BACK.",
+    login_subtitle: "Access your secure client space to manage your projects.",
+    signup_title: "Create your",
+    signup_highlight: "ACCOUNT.",
+    signup_subtitle: "Join Younited and get your financing in record time.",
+    email_label: "Email Address",
+    password_label: "Password",
+    forgot_password: "Forgot password?",
+    login_btn: "Login",
+    signup_btn: "Sign up",
+    google_btn: "Continue with Google",
+    no_account: "New to Younited?",
+    have_account: "Already a client?",
+    create_account: "Create an account",
+    back_to_login: "Login"
+  },
   nav: {
     home: "Home",
-    credit: "Credit",
+    credit: "Solutions",
     simulator: "Simulator",
     guide: "Guide",
     resources: "Resources",
@@ -19,6 +37,9 @@ export const common = {
     help: "Help",
     about: "About",
     credits: "Credits",
+    login: "Login",
+    client_space: "Client Space",
+    profile: "Profile",
     glossary_label: "Financial Glossary",
     resources_menu: {
       help_label: "Help",
@@ -180,8 +201,9 @@ export const common = {
     title: "Privacy respect",
     subtitle: "Cookies & Traceability",
     desc: "We use cookies to secure browsing and optimize simulation tools.",
-    accept: "Accept all",
-    decline: "Continue without accepting",
+    accept: "Accept",
+    decline: "Decline",
+    manage: "Accept or decline",
     policy: "Data protection"
   },
   consent: {
@@ -195,7 +217,7 @@ export const common = {
     offers_title: "Our Offers",
     resources_title: "Expertise",
     social_title: "Social Networks",
-    rights: "© {{year}} LOGO. ALL RIGHTS RESERVED.",
+    rights: "© {{year}} Younited. ALL RIGHTS RESERVED.",
     legal: "Legal Notice",
     privacy: "Privacy",
     cookies: "Cookies",

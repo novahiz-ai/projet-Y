@@ -34,15 +34,15 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
   ];
 
   return (
-    <section className="relative pt-24 pb-12 px-5 lg:hidden bg-white dark:bg-slate-950 overflow-hidden min-h-[90vh] flex flex-col justify-between">
-      {/* Professional Background Image Overlay for Header */}
-      <div className="absolute top-0 left-0 w-full h-[320px] z-0 pointer-events-none">
+    <section className="relative pt-32 pb-12 px-5 lg:hidden bg-white dark:bg-slate-950 overflow-hidden min-h-[90vh] flex flex-col justify-between">
+      {/* Professional Background Image Overlay for Header - Adjusted gradient for embedding */}
+      <div className="absolute top-0 left-0 w-full h-[400px] z-0 pointer-events-none">
         <img 
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" 
-          className="w-full h-full object-cover opacity-20 dark:opacity-30 blur-[1px]" 
+          className="w-full h-full object-cover opacity-30 dark:opacity-40 blur-[1px]" 
           alt="" 
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/10 dark:from-slate-950/10 via-white/80 dark:via-slate-950/80 to-white dark:to-slate-950"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 dark:from-black/40 via-white dark:via-slate-950 to-white dark:to-slate-950"></div>
       </div>
 
       {/* Dynamic Background Elements */}

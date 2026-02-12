@@ -1,10 +1,12 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from '../Header';
 import Footer from '../Footer';
 import PreFooter from '../PreFooter';
 import MobileBottomNav from '../MobileBottomNav';
 import CookieBanner from '../CookieBanner';
+import MobileMenu from '../MobileMenu';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -18,24 +20,49 @@ interface MainLayoutProps {
 const MainLayout: React.FC<MainLayoutProps> = ({ 
   children, isDarkMode, setIsDarkMode, onSearchOpen, onOpenApp, onOpenSimulator 
 }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
+
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-500 bg-white dark:bg-slate-950">
-      <Header 
-        isDarkMode={isDarkMode} 
-        setIsDarkMode={setIsDarkMode} 
-        onSearchOpen={onSearchOpen} 
-        onOpenApp={onOpenApp} 
-        onOpenSimulator={onOpenSimulator}
-      />
+      {!isLoginPage && (
+        <Header 
+          isDarkMode={isDarkMode} 
+          setIsDarkMode={setIsDarkMode} 
+          onSearchOpen={onSearchOpen} 
+          onOpenApp={onOpenApp} 
+          onOpenSimulator={onOpenSimulator}
+          onMobileMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        />
+      )}
 
-      <main className="flex-grow pt-[60px] lg:pt-0 pb-[60px] lg:pb-0">
+      <main className={`flex-grow ${!isLoginPage ? 'pb-[60px] lg:pb-0' : ''}`}>
         {children}
       </main>
 
-      <PreFooter onOpenApp={onOpenApp} />
-      <Footer />
+      {!isLoginPage && (
+        <>
+          <PreFooter onOpenApp={onOpenApp} />
+          <Footer />
+        </>
+      )}
+      
       <CookieBanner />
-      <MobileBottomNav onOpenApp={onOpenApp} onOpenSimulator={onOpenSimulator} />
+      
+      <MobileMenu 
+        isOpen={isMobileMenuOpen} 
+        onClose={() => setIsMobileMenuOpen(false)} 
+        onOpenSimulator={onOpenSimulator}
+      />
+
+      {!isLoginPage && (
+        <MobileBottomNav 
+          onOpenApp={onOpenApp} 
+          onOpenSimulator={onOpenSimulator} 
+          onSearchOpen={onSearchOpen}
+        />
+      )}
     </div>
   );
 };

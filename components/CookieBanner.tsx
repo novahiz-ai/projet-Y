@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 
 const COOKIE_ACCEPTED_KEY = 'younited_cookies_accepted';
 const COOKIE_LAST_SHOWN_KEY = 'younited_cookies_last_shown';
-const REAPPEAR_INTERVAL = 48 * 60 * 60 * 1000;
+const REAPPEAR_INTERVAL = 72 * 60 * 60 * 1000; // 72 heures en millisecondes
 
 const CookieBanner: React.FC = () => {
   const { t } = useTranslation();
@@ -15,23 +15,33 @@ const CookieBanner: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    let timer: number;
+    
     const checkCookieStatus = () => {
       const isAccepted = localStorage.getItem(COOKIE_ACCEPTED_KEY);
+      
+      // Si l'utilisateur a déjà accepté, on ne montre plus jamais la bannière
       if (isAccepted === 'true') return;
 
       const lastShown = localStorage.getItem(COOKIE_LAST_SHOWN_KEY);
       const now = Date.now();
 
+      // Si l'utilisateur n'a pas accepté (soit ignoré, soit refusé précédemment)
+      // On vérifie si l'intervalle de 72h est dépassé
       if (!lastShown || (now - parseInt(lastShown)) > REAPPEAR_INTERVAL) {
-        const timer = setTimeout(() => {
+        timer = window.setTimeout(() => {
           setIsVisible(true);
+          // On met à jour la date de dernière apparition pour le prochain cycle de 72h
           localStorage.setItem(COOKIE_LAST_SHOWN_KEY, now.toString());
-        }, 1500);
-        return () => clearTimeout(timer);
+        }, 2000);
       }
     };
 
     checkCookieStatus();
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const handleAccept = () => {
@@ -40,6 +50,8 @@ const CookieBanner: React.FC = () => {
   };
 
   const handleDecline = () => {
+    // On marque comme non accepté, la bannière réapparaîtra dans 72h
+    localStorage.setItem(COOKIE_ACCEPTED_KEY, 'false');
     setIsVisible(false);
   };
 
@@ -61,12 +73,12 @@ const CookieBanner: React.FC = () => {
                   <Cookie size={24} />
                 </div>
                 <div>
-                  <h3 className="text-sm font-black uppercase tracking-tight text-slate-900 dark:text-white">{t('cookies_banner.title')}</h3>
+                  <h3 className="text-sm font-black uppercase tracking-tight text-slate-950 dark:text-white">{t('cookies_banner.title')}</h3>
                   <p className="text-[10px] font-black uppercase text-slate-400 tracking-widest mt-0.5">{t('cookies_banner.subtitle')}</p>
                 </div>
               </div>
               <button 
-                onClick={handleDecline}
+                onClick={() => setIsVisible(false)}
                 className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400 transition-colors"
               >
                 <X size={18} />
@@ -77,22 +89,24 @@ const CookieBanner: React.FC = () => {
               {t('cookies_banner.desc')}
             </p>
 
-            <div className="flex gap-3">
-              <button 
-                onClick={handleAccept}
-                className="flex-1 flex items-center justify-center space-x-2 px-6 py-4 rounded-3xl bg-brand-primary text-white font-black uppercase text-[10px] tracking-widest hover:bg-brand-secondary transition-all shadow-brand"
-              >
-                <ShieldCheck size={14} />
-                <span>{t('cookies_banner.accept')}</span>
-              </button>
-              
-              <button 
-                onClick={handleDecline}
-                className="flex-1 flex items-center justify-center space-x-2 px-6 py-4 rounded-3xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-black uppercase text-[10px] tracking-widest hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
-              >
-                <XCircle size={14} />
-                <span>{t('cookies_banner.decline')}</span>
-              </button>
+            <div className="space-y-3">
+              <div className="flex gap-3">
+                <button 
+                  onClick={handleAccept}
+                  className="flex-1 flex items-center justify-center space-x-2 px-6 py-4 rounded-3xl bg-brand-primary text-white font-black uppercase text-[10px] tracking-widest hover:bg-brand-secondary transition-all shadow-brand active:scale-95"
+                >
+                  <ShieldCheck size={14} />
+                  <span>{t('cookies_banner.accept')}</span>
+                </button>
+                
+                <button 
+                  onClick={handleDecline}
+                  className="flex-1 flex items-center justify-center space-x-2 px-6 py-4 rounded-3xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-black uppercase text-[10px] tracking-widest hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95 border border-slate-200 dark:border-slate-700"
+                >
+                  <XCircle size={14} />
+                  <span>{t('cookies_banner.decline')}</span>
+                </button>
+              </div>
             </div>
 
             <div className="pt-2 text-center">

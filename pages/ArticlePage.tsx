@@ -91,12 +91,12 @@ const ArticlePage: React.FC = () => {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
       
-      <section className="relative pt-32 pb-12 md:pb-20 overflow-hidden">
+      <section className="relative h-[50vh] lg:h-auto pt-32 pb-12 md:pb-20 overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/5 dark:from-brand-primary/10 to-transparent"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-8 md:space-y-10 text-center lg:text-left">
+        <div className="max-w-7xl mx-auto px-6 relative z-10 space-y-8 md:space-y-10 text-center lg:text-left w-full">
           <motion.button 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
@@ -204,7 +204,7 @@ const ArticlePage: React.FC = () => {
                             <div className="w-6 h-6 rounded-full bg-brand-primary text-white flex items-center justify-center shrink-0 mt-1 shadow-brand">
                                <CheckCircle2 size={14} />
                             </div>
-                            <span className="text-xs md:text-base font-bold text-slate-700 dark:text-slate-300 leading-snug">{item}</span>
+                            <span className="text-xs md:base font-bold text-slate-700 dark:text-slate-300 leading-snug">{item}</span>
                           </div>
                         ))}
                       </div>

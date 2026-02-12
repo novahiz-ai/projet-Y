@@ -1,8 +1,13 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import './i18n/config';
+
+// Hooks & Utils
+import { useTheme } from './hooks/useTheme';
+import { useModals } from './hooks/useModals';
+import ScrollToTop from './components/navigation/ScrollToTop';
 
 // Pages
 import LandingPage from './pages/LandingPage';
@@ -25,6 +30,7 @@ import GlossaryPage from './pages/GlossaryPage';
 import HelpPage from './pages/HelpPage';
 import AboutPage from './pages/AboutPage';
 import CreditsPage from './pages/CreditsPage';
+import LoginPage from './pages/LoginPage';
 
 // Components
 import MainLayout from './components/layout/MainLayout';
@@ -32,60 +38,15 @@ import ApplicationFormModal from './components/ApplicationFormModal';
 import SimulatorModal from './components/SimulatorModal';
 import SearchOverlay from './components/SearchOverlay';
 
-const ScrollToTop = () => {
-  const { pathname, hash } = useLocation();
-  useEffect(() => {
-    if (hash) {
-      const id = hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }
-  }, [pathname, hash]);
-  return null;
-};
-
 const AppContent: React.FC = () => {
   const location = useLocation();
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) return savedTheme === 'dark';
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
-  });
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    }
-  }, [isDarkMode]);
-
-  const [isAppFormOpen, setIsAppFormOpen] = useState(false);
-  const [appContext, setAppContext] = useState<any>(null);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isSimulatorOpen, setIsSimulatorOpen] = useState(false);
-  const [simulatorOfferId, setSimulatorOfferId] = useState<string | undefined>(undefined);
-
-  const handleOpenAppForm = (context?: any) => {
-    setAppContext(context || null);
-    setIsAppFormOpen(true);
-    setIsSimulatorOpen(false);
-  };
-
-  const handleOpenSimulator = (offerId?: string) => {
-    setSimulatorOfferId(offerId);
-    setIsSimulatorOpen(true);
-  };
-
-  useEffect(() => {
-    const handleSim = (e: any) => handleOpenSimulator(e.detail?.offerId);
-    window.addEventListener('openSimulator', handleSim);
-    return () => window.removeEventListener('openSimulator', handleSim);
-  }, []);
+  const { isDarkMode, setIsDarkMode } = useTheme();
+  const { 
+    isAppFormOpen, setIsAppFormOpen, appContext, 
+    isSearchOpen, setIsSearchOpen, 
+    isSimulatorOpen, setIsSimulatorOpen, simulatorOfferId,
+    handleOpenAppForm, handleOpenSimulator
+  } = useModals();
 
   return (
     <MainLayout
@@ -120,6 +81,7 @@ const AppContent: React.FC = () => {
           <Route path="/mentions-legales" element={<LegalNoticePage />} />
           <Route path="/confidentialite" element={<PrivacyPage />} />
           <Route path="/cookies" element={<CookiesPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AnimatePresence>

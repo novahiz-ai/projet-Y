@@ -4,39 +4,14 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Search, 
-  HelpCircle, 
-  PhoneCall, 
-  ChevronDown, 
-  User, 
-  CreditCard, 
-  LifeBuoy, 
-  Car, 
-  Home, 
-  Building, 
-  Layers, 
-  Lightbulb, 
-  ShieldCheck,
-  MessageSquare,
-  Clock,
-  ThumbsUp,
-  ThumbsDown,
-  ArrowRight,
-  Zap,
-  FileSignature,
-  Wallet,
-  Smartphone,
-  CheckCircle2,
-  AlertCircle,
-  ShieldAlert,
-  ChevronRightCircle,
-  Mail
+  HelpCircle, PhoneCall, ChevronDown, User, CreditCard, Car, Home, Building, Layers, 
+  Lightbulb, ShieldCheck, Clock, Mail, ArrowRight, AlertCircle
 } from 'lucide-react';
 import ContactSection from '../components/ContactSection';
 import LegalWarning from '../components/LegalWarning';
-import StandardButton from '../components/StandardButton';
 import { FaqSkeleton } from '../components/Skeleton';
 import { getFaqData } from '../data/help/faq';
+import SearchInput from '../components/ui/SearchInput';
 
 const HelpPage: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -80,8 +55,6 @@ const HelpPage: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
-      
-      {/* 1. HERO & SEARCH */}
       <section className="relative h-[50vh] lg:h-auto lg:min-h-0 pt-24 lg:pt-32 pb-10 lg:pb-20 bg-slate-50 dark:bg-slate-900/30 border-b border-slate-100 dark:border-slate-800 overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0 opacity-10">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#6d28d944,transparent_70%)]"></div>
@@ -93,18 +66,13 @@ const HelpPage: React.FC = () => {
             <span className="text-brand-primary">{t('help.highlight')}</span>
           </motion.h1>
           
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="max-w-3xl mx-auto relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-primary to-indigo-500 rounded-full blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
-            <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-full shadow-2xl overflow-hidden px-6 lg:px-8">
-              <Search size={20} className="text-slate-300 lg:size-24" />
-              <input 
-                type="text" 
-                placeholder={t('help.search_placeholder')}
-                className="w-full bg-transparent border-none py-4 lg:py-6 pl-3 lg:pl-5 pr-4 text-base lg:text-xl font-medium outline-none text-slate-950 dark:text-white placeholder:text-slate-400"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="max-w-2xl mx-auto">
+            <SearchInput 
+              value={searchQuery}
+              onChange={setSearchQuery}
+              onClear={() => setSearchQuery('')}
+              placeholder={t('help.search_placeholder')}
+            />
           </motion.div>
         </div>
       </section>
@@ -125,7 +93,7 @@ const HelpPage: React.FC = () => {
                   {React.cloneElement(item.icon as React.ReactElement<any>, { size: 28 })}
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-xl font-black uppercase tracking-tight">{item.title}</h3>
+                  <h3 className="text-xl font-black uppercase tracking-tight text-slate-950 dark:text-white">{item.title}</h3>
                   <p className="text-sm text-slate-500 font-medium leading-relaxed">{item.desc}</p>
                 </div>
                 <div className="text-[10px] font-black uppercase text-brand-primary tracking-widest flex items-center space-x-2">

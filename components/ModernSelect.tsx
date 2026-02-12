@@ -51,10 +51,10 @@ const ModernSelect: React.FC<ModernSelectProps> = ({
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className={`w-full flex items-center justify-between bg-slate-50 dark:bg-slate-800/50 border-2 transition-all py-4 px-6 rounded-2xl text-left outline-none ${
+          className={`w-full flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/30 border transition-all py-4 px-6 rounded-2xl text-left outline-none shadow-inner-soft ${
             isOpen 
-              ? 'border-brand-primary ring-4 ring-brand-primary/10' 
-              : 'border-transparent hover:bg-slate-100 dark:hover:bg-slate-800'
+              ? 'border-brand-primary/40 ring-4 ring-brand-primary/5' 
+              : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
           }`}
         >
           <span className={`text-sm font-medium ${selectedOption ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>

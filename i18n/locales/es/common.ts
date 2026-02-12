@@ -11,7 +11,7 @@ export const common = {
   },
   nav: {
     home: "Inicio",
-    credit: "Crédito",
+    credit: "Soluciones",
     simulator: "Simulador",
     guide: "Guía",
     resources: "Recursos",
@@ -33,7 +33,7 @@ export const common = {
     cat_offers: "Ofertas",
     cat_glossary: "Glosario",
     cat_guides: "Guía",
-    cat_quick: "Acceso Rápido",
+    cat_quick: "Accesso Rápido",
     version: "Búsqueda",
     placeholder: "Buscar...",
     results_for: "Resultados para",
@@ -86,6 +86,6 @@ export const common = {
   stats: { borrowers: "Prestatarios", funds: "Financiación", satisfaction: "Satisfacción", live: "Tiempo Real", banking: "Banking", index: "Soberano" },
   labels: { language: "Idioma", rate_from: "Tasa desde", express_demand: "Express", see_details: "Detalles", months_count: "Meses", support_247: "Expertos", characteristic: "Característica", details: "Datos" },
   cookies_banner: { title: "Privacidad", subtitle: "Cookies", desc: "Usamos cookies.", accept: "Aceptar", decline: "Rechazar", policy: "Protección datos" },
-  consent: { title: "Nota", warning: "Un crédito te compromete.", accept: "Validar", decline: "Anular" },
-  footer: { desc: "Entidad de crédito.", offers_title: "Ofertas", resources_title: "Pericia", social_title: "Redes", rights: "© {{year}} LOGO. Todos los derechos reservados.", legal: "Aviso Legal", privacy: "Privacidad", cookies: "Cookies", eu_notice: "Normativa UE.", assistance: "Asistencia", whatsapp_direct: "WhatsApp", glossary_fin: "Glosario", trust_label: "Regulado" }
+  consent: { title: "Nota", warning: "Un crédito te compromete.", accept: "Validar", decline: "Annulla" },
+  footer: { desc: "Entidad de crédito.", offers_title: "Ofertas", resources_title: "Pericia", social_title: "Redes", rights: "© {{year}} Younited. Todos los derechos reservados.", legal: "Aviso Legal", privacy: "Privacidad", cookies: "Cookies", eu_notice: "Normativa UE.", assistance: "Asistencia", whatsapp_direct: "WhatsApp", glossary_fin: "Glosario", trust_label: "Regulado" }
 };

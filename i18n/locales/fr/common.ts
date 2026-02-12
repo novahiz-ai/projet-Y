@@ -9,9 +9,27 @@ export const common = {
     placeholder: "Décrivez votre projet (ex: travaux, auto...)",
     version: "Gouvernance 4.0-S"
   },
+  auth: {
+    login_title: "Bon retour",
+    login_highlight: "PARMI NOUS.",
+    login_subtitle: "Accédez à votre espace client sécurisé pour piloter vos projets.",
+    signup_title: "Créez votre",
+    signup_highlight: "COMPTE.",
+    signup_subtitle: "Rejoignez Younited et obtenez votre financement en un temps record.",
+    email_label: "Adresse Email",
+    password_label: "Mot de passe",
+    forgot_password: "Mot de passe oublié ?",
+    login_btn: "Se connecter",
+    signup_btn: "S'inscrire",
+    google_btn: "Continuer avec Google",
+    no_account: "Nouveau chez Younited ?",
+    have_account: "Déjà client ?",
+    create_account: "Créer un compte",
+    back_to_login: "Se connecter"
+  },
   nav: {
     home: "Accueil",
-    credit: "Crédit",
+    credit: "Solutions",
     simulator: "Simulateur",
     guide: "Guide",
     resources: "Ressources",
@@ -19,6 +37,9 @@ export const common = {
     help: "Aide",
     about: "À Propos",
     credits: "Crédits",
+    login: "Connexion",
+    client_space: "Espace Client",
+    profile: "Mon Profil",
     glossary_label: "Glossaire Financier",
     resources_menu: {
       help_label: "Aide",
@@ -180,8 +201,9 @@ export const common = {
     title: "Respect de la vie privée",
     subtitle: "Cookies & Traçabilité",
     desc: "Nous utilisons des cookies pour sécuriser votre navigation et optimiser nos outils de simulation. Vous gardez le contrôle total sur vos préférences.",
-    accept: "Tout accepter",
-    decline: "Continuer sans accepter",
+    accept: "Accepter",
+    decline: "Refuser",
+    manage: "Accepter ou refuser",
     policy: "Protection des données"
   },
   consent: {

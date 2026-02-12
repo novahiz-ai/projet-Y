@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+
+import React, { useState, useEffect, useMemo } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { 
-  Sun, Moon, ChevronDown, Search as SearchIcon, Zap, Menu, User, Car, Layers, Building, SpellCheck, ArrowRight, Lightbulb, ShoppingBag,
-  HelpCircle, BookOpen
+  ChevronDown, Search as SearchIcon, Zap, ArrowRight, UserCircle2, LayoutDashboard
 } from 'lucide-react';
-import { Home as HomeIcon } from 'lucide-react';
-// Fix: Import StandardButton to resolve 'Cannot find name' errors on lines using it
 import StandardButton from './StandardButton';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeToggle from './navigation/ThemeToggle';
 import Logo from './Logo';
 import { getCreditLinks, getResourceLinks } from '../data/navigation';
+import { getIcon } from '../constants';
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -19,10 +19,14 @@ interface HeaderProps {
   onSearchOpen: () => void;
   onOpenApp: (context?: any) => void;
   onOpenSimulator: () => void;
+  onMobileMenuToggle?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, onSearchOpen, onOpenApp, onOpenSimulator }) => {
+const Header: React.FC<HeaderProps> = ({ 
+  isDarkMode, setIsDarkMode, onSearchOpen, onOpenApp, onOpenSimulator, onMobileMenuToggle 
+}) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
 
@@ -32,21 +36,8 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, onSearchOpen
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const creditLinks = getCreditLinks(t);
-  const resourceLinks = getResourceLinks(t);
-
-  const getIcon = (id: string) => {
-    switch(id) {
-      case 'perso': return <User className="text-indigo-500" />;
-      case 'auto': return <Car className="text-emerald-500" />;
-      case 'travaux': return <HomeIcon className="text-orange-500" />;
-      case 'projet': return <Lightbulb className="text-cyan-500" />;
-      case 'conso': return <ShoppingBag className="text-blue-500" />;
-      case 'rachat': return <Layers className="text-purple-500" />;
-      case 'immo': return <Building className="text-rose-500" />;
-      default: return <Zap size={18} />;
-    }
-  };
+  const creditLinks = useMemo(() => getCreditLinks(t), [t]);
+  const resourceLinks = useMemo(() => getResourceLinks(t), [t]);
 
   const menuVariants = {
     hidden: { opacity: 0, y: 10, scale: 0.98 },
@@ -57,36 +48,42 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, onSearchOpen
   return (
     <nav 
       onMouseLeave={() => setActiveMenu(null)}
-      className={`fixed top-0 w-full z-[150] transition-all duration-500 h-[70px] lg:h-[90px] flex items-center ${scrolled || activeMenu ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm' : 'bg-transparent'}`}
+      className={`fixed top-0 w-full z-[150] transition-all duration-500 h-[70px] lg:h-[90px] flex items-center ${
+        scrolled || activeMenu 
+          ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm' 
+          : 'bg-transparent border-b border-transparent'
+      }`}
     >
        <div className="max-w-7xl mx-auto w-full px-6 lg:px-10 flex justify-between items-center h-full">
-         <div className="flex-1 lg:flex-none flex items-center">
-           <Logo />
+         <div className="flex-1 lg:flex-none flex items-center min-w-[120px]">
+           <Link to="/" className="active:scale-95 transition-transform">
+             <Logo />
+           </Link>
          </div>
          
          <div className="hidden lg:flex items-center justify-center flex-1">
             <div className="flex items-center space-x-12">
-              <Link to="/" className="text-[13px] font-black uppercase tracking-widest text-slate-500 hover:text-brand-primary transition-colors">{t('nav.home')}</Link>
+              <Link to="/" className={`text-[13px] font-black uppercase tracking-widest transition-colors ${scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>{t('nav.home')}</Link>
 
               <div className="relative" onMouseEnter={() => setActiveMenu('credit')}>
-                <button className={`flex items-center space-x-2 text-[13px] font-black uppercase tracking-widest transition-colors ${activeMenu === 'credit' ? 'text-brand-primary' : 'text-slate-500 hover:text-brand-primary'}`}>
+                <button className={`flex items-center space-x-2 text-[13px] font-black uppercase tracking-widest transition-colors ${activeMenu === 'credit' ? 'text-brand-primary' : scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>
                   <span>{t('nav.credit')}</span>
                   <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === 'credit' ? 'rotate-180' : ''}`} />
                 </button>
                 
                 <AnimatePresence>
                   {activeMenu === 'credit' && (
-                    <motion.div variants={menuVariants} initial="hidden" animate="visible" exit="exit" className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[650px] bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-3xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+                    <motion.div variants={menuVariants} initial="hidden" animate="visible" exit="exit" className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-[750px] bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-3xl border border-slate-100 dark:border-slate-800 overflow-hidden">
                       <div className="grid grid-cols-12">
                         <div className="col-span-8 p-12 grid grid-cols-2 gap-x-8 gap-y-8">
                           {creditLinks.map((link) => (
                             <Link key={link.path} to={link.path} onClick={() => setActiveMenu(null)} className="flex items-start space-x-5 group">
                               <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-sm">
-                                {getIcon(link.id)}
+                                {getIcon(link.icon || 'Zap', 18)}
                               </div>
                               <div>
-                                <p className="text-[12px] font-black uppercase tracking-tight text-slate-900 dark:text-white group-hover:text-brand-primary transition-colors">{link.name}</p>
-                                <p className="text-[11px] text-slate-400 font-medium leading-tight mt-1.5 uppercase tracking-tighter">{link.desc}</p>
+                                <p className="text-[12px] font-black uppercase tracking-tight text-slate-950 dark:text-white group-hover:text-brand-primary transition-colors">{link.name}</p>
+                                <p className="text-[10px] text-slate-400 font-medium leading-tight mt-1.5 uppercase tracking-tighter">{link.desc}</p>
                               </div>
                             </Link>
                           ))}
@@ -97,10 +94,7 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, onSearchOpen
                               <h4 className="text-sm font-black uppercase tracking-widest italic">{t('landing.hero.simulate')}</h4>
                               <p className="text-xs text-slate-500 font-medium leading-relaxed">Solution de financement instantanée.</p>
                            </div>
-                           {/* Fix: StandardButton used here requires the import added above */}
-                           <StandardButton onClick={() => { onOpenSimulator(); setActiveMenu(null); }} className="w-full !py-4 shadow-brand !rounded-2xl !text-xs">
-                             Simuler
-                           </StandardButton>
+                           <StandardButton onClick={() => { onOpenSimulator(); setActiveMenu(null); }} className="w-full !py-4 shadow-brand !rounded-2xl !text-xs">Simuler</StandardButton>
                         </div>
                       </div>
                     </motion.div>
@@ -108,10 +102,10 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, onSearchOpen
                 </AnimatePresence>
               </div>
 
-              <button onClick={() => onOpenSimulator()} className="text-[13px] font-black uppercase tracking-widest text-slate-500 hover:text-brand-primary transition-colors">{t('nav.simulator')}</button>
+              <button onClick={() => onOpenSimulator()} className={`text-[13px] font-black uppercase tracking-widest transition-colors ${scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>{t('nav.simulator')}</button>
 
               <div className="relative" onMouseEnter={() => setActiveMenu('aide')}>
-                <button className={`flex items-center space-x-2 text-[13px] font-black uppercase tracking-widest transition-colors ${activeMenu === 'aide' ? 'text-brand-primary' : 'text-slate-500 hover:text-brand-primary'}`}>
+                <button className={`flex items-center space-x-2 text-[13px] font-black uppercase tracking-widest transition-colors ${activeMenu === 'aide' ? 'text-brand-primary' : scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>
                   <span>{t('nav.resources')}</span>
                   <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === 'aide' ? 'rotate-180' : ''}`} />
                 </button>
@@ -123,10 +117,10 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, onSearchOpen
                          {resourceLinks.map((link) => (
                            <Link key={link.path} to={link.path} onClick={() => setActiveMenu(null)} className="flex items-center space-x-6 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 group transition-all">
                              <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-950 flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform">
-                               {link.id === 'help' ? <HelpCircle className="text-brand-primary" /> : link.id === 'guide' ? <BookOpen className="text-emerald-500" /> : <SpellCheck className="text-amber-500" />}
+                               {getIcon(link.icon || 'Zap', 18)}
                              </div>
                              <div>
-                               <p className="text-[12px] font-black uppercase text-slate-900 dark:text-white tracking-tight">{link.name}</p>
+                               <p className="text-[12px] font-black uppercase text-slate-950 dark:text-white tracking-tight">{link.name}</p>
                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1.5">{link.desc}</p>
                              </div>
                            </Link>
@@ -146,11 +140,32 @@ const Header: React.FC<HeaderProps> = ({ isDarkMode, setIsDarkMode, onSearchOpen
          </div>
 
          <div className="flex items-center space-x-4 flex-none h-full">
-           <button onClick={onSearchOpen} className="p-3 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300"><SearchIcon size={22} /></button>
-           <button onClick={() => setIsDarkMode(!isDarkMode)} className="p-3 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors">{isDarkMode ? <Sun size={20} /> : <Moon size={20} />}</button>
-           <div className="hidden sm:block"><LanguageSwitcher /></div>
-           <button onClick={() => onOpenApp()} className="hidden sm:flex bg-brand-primary text-white px-8 py-3.5 rounded-full font-black text-xs uppercase tracking-widest shadow-brand transition-transform active:scale-95">{t('nav.request')}</button>
-           <button className="lg:hidden p-3 rounded-xl hover:bg-black/5 dark:hover:bg-white/10 transition-colors text-slate-600 dark:text-slate-300"><Menu size={24} /></button>
+           <button onClick={onSearchOpen} className={`p-3 rounded-xl transition-colors ${scrolled ? 'hover:bg-black/5 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300' : 'hover:bg-white/10 text-slate-700 dark:text-slate-200'}`}>
+             <SearchIcon size={22} strokeWidth={2.5} />
+           </button>
+           <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} scrolled={scrolled} />
+           <LanguageSwitcher />
+           <button 
+             onClick={() => navigate('/login')}
+             className={`hidden lg:flex items-center space-x-3 px-6 py-3.5 rounded-full font-black text-[11px] uppercase tracking-[0.2em] shadow-xl transition-all active:scale-95 group border ${
+               scrolled 
+                 ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 border-transparent dark:border-slate-100 hover:shadow-brand-primary/20' 
+                 : 'bg-white/10 dark:bg-slate-900/50 backdrop-blur-md text-slate-900 dark:text-white border-slate-200/50 dark:border-slate-700/50 hover:bg-white/20'
+             }`}
+           >
+             <UserCircle2 size={18} className="group-hover:scale-110 transition-transform" />
+             <span>{t('nav.client_space')}</span>
+           </button>
+           <button 
+            onClick={onMobileMenuToggle}
+            className={`lg:hidden p-3 rounded-xl transition-all active:scale-90 flex items-center justify-center ${
+              scrolled 
+                ? 'bg-brand-primary/10 text-brand-primary border border-brand-primary/10 shadow-inner-soft' 
+                : 'text-slate-900 dark:text-white hover:bg-white/10 transition-colors'
+            }`}
+           >
+             <LayoutDashboard size={24} strokeWidth={2.5} />
+           </button>
          </div>
        </div>
     </nav>

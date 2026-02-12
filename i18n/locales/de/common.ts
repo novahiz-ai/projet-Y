@@ -11,7 +11,7 @@ export const common = {
   },
   nav: {
     home: "Startseite",
-    credit: "Kredit",
+    credit: "Lösungen",
     simulator: "Simulator",
     guide: "Ratgeber",
     resources: "Ressourcen",
@@ -58,7 +58,6 @@ export const common = {
     availability_title: "Verfügbarkeit",
     availability_desc: "Dauerservice"
   },
-  // Rest simplified for brevity but all keys are checked
   form: {
     step_back: "Zurück",
     next: "Weiter",
@@ -103,5 +102,5 @@ export const common = {
   labels: { language: "Sprache", rate_from: "Zinsen ab", express_demand: "Express", see_details: "Details", months_count: "Monate", support_247: "Experten", characteristic: "Merkmal", details: "Daten" },
   cookies_banner: { title: "Datenschutz", subtitle: "Cookies", desc: "Wir nutzen Cookies.", accept: "Akzeptieren", decline: "Ablehnen", policy: "Datenschutz" },
   consent: { title: "Hinweis", warning: "Kredite müssen zurückgezahlt werden.", accept: "Bestätigen", decline: "Abbrechen" },
-  footer: { desc: "Kreditinstitut.", offers_title: "Angebote", resources_title: "Expertise", social_title: "Social Media", rights: "© {{year}} LOGO. Alle Rechte vorbehalten.", legal: "Impressum", privacy: "Datenschutz", cookies: "Cookies", eu_notice: "EU-konform.", assistance: "Hilfe", whatsapp_direct: "WhatsApp", glossary_fin: "Glossar", trust_label: "Reguliert" }
+  footer: { desc: "Kreditinstitut.", offers_title: "Angebote", resources_title: "Expertise", social_title: "Social Media", rights: "© {{year}} Younited. Alle Rechte vorbehalten.", legal: "Impressum", privacy: "Datenschutz", cookies: "Cookies", eu_notice: "EU-konform.", assistance: "Hilfe", whatsapp_direct: "WhatsApp", glossary_fin: "Glossar", trust_label: "Reguliert" }
 };

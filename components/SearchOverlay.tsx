@@ -49,18 +49,18 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            className="relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-3xl md:mt-24 bg-white dark:bg-slate-900 md:rounded-[2.5rem] shadow-3xl overflow-hidden flex flex-col"
+            className="relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-3xl md:mt-24 bg-white dark:bg-slate-900 md:rounded-[2.5rem] shadow-3xl overflow-hidden flex flex-col border border-slate-100 dark:border-slate-800"
           >
-            <div className="flex items-center px-6 py-4 md:py-6 border-b border-slate-100 dark:border-slate-800">
-              <div className="relative flex-1 flex items-center">
-                <SearchIcon size={22} className="text-brand-primary absolute left-0" />
+            <div className="flex items-center px-6 py-4 md:py-6 border-b border-slate-100 dark:border-slate-800 bg-slate-50/30 dark:bg-slate-950/30">
+              <div className="relative flex-1 flex items-center group">
+                <SearchIcon size={22} className="text-brand-primary absolute left-4 group-focus-within:scale-110 transition-transform" />
                 <input
                   ref={inputRef}
                   type="text"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder={t('search.placeholder')}
-                  className="w-full bg-transparent border-none pl-10 pr-4 py-2 text-lg md:text-xl font-medium not-italic text-slate-900 dark:text-white outline-none placeholder:text-slate-400 placeholder:font-normal"
+                  className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 focus:border-brand-primary/40 focus:ring-4 focus:ring-brand-primary/5 rounded-2xl pl-12 pr-4 py-3.5 text-lg font-medium text-slate-900 dark:text-white outline-none transition-all shadow-inner-soft"
                 />
               </div>
               <div className="flex items-center space-x-3 ml-4">
@@ -70,7 +70,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
                 </div>
                 <button 
                   onClick={onClose}
-                  className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl text-slate-500 transition-colors"
+                  className="p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl text-slate-500 transition-colors border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
                 >
                   <X size={20} />
                 </button>
@@ -92,7 +92,7 @@ const SearchOverlay: React.FC<SearchOverlayProps> = ({ isOpen, onClose }) => {
                         <button 
                           key={term}
                           onClick={() => setQuery(term)}
-                          className="px-4 py-2 bg-slate-50 dark:bg-slate-800 hover:bg-brand-primary hover:text-white rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 transition-all"
+                          className="px-4 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-brand-primary hover:text-white hover:border-brand-primary rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 transition-all shadow-sm"
                         >
                           {term}
                         </button>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { CreditCard, Landmark } from 'lucide-react';
-import { FormLabel, FormInput } from '../../ui/FormControls';
+import { FormLabel, FormInput, FormSelect } from '../../ui/FormControls';
 
 const FundsStep = ({ formData, setFormData, t }: any) => (
   <div className="space-y-10">
@@ -16,8 +16,7 @@ const FundsStep = ({ formData, setFormData, t }: any) => (
     <div className="space-y-6">
       <div className="space-y-1">
         <FormLabel Icon={Landmark}>{t('form.fields.bank')}</FormLabel>
-        <select 
-          className="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-2xl p-4 font-bold outline-none text-slate-900 dark:text-white" 
+        <FormSelect 
           value={formData.primaryBank} 
           onChange={e => setFormData({...formData, primaryBank: e.target.value})}
         >
@@ -25,7 +24,7 @@ const FundsStep = ({ formData, setFormData, t }: any) => (
           <option value="bnp">BNP Paribas</option>
           <option value="socgen">Société Générale</option>
           <option value="other">{t('form.bank_other')}</option>
-        </select>
+        </FormSelect>
       </div>
 
       <div className="space-y-1">

@@ -10,7 +10,6 @@ export interface Country {
 }
 
 const COUNTRIES: Country[] = [
-  // Europe (Liste exhaustive)
   { code: 'AL', name: 'Albanie', flag: '🇦🇱', dialCode: '+355' },
   { code: 'DE', name: 'Allemagne', flag: '🇩🇪', dialCode: '+49' },
   { code: 'AD', name: 'Andorre', flag: '🇦🇩', dialCode: '+376' },
@@ -57,8 +56,6 @@ const COUNTRIES: Country[] = [
   { code: 'CH', name: 'Suisse', flag: '🇨🇭', dialCode: '+41' },
   { code: 'UA', name: 'Ukraine', flag: '🇺🇦', dialCode: '+380' },
   { code: 'VA', name: 'Vatican', flag: '🇻🇦', dialCode: '+39' },
-
-  // Afrique (Sélection)
   { code: 'CI', name: 'Côte d\'Ivoire', flag: '🇨🇮', dialCode: '+225' },
   { code: 'SN', name: 'Sénégal', flag: '🇸🇳', dialCode: '+221' },
   { code: 'MA', name: 'Maroc', flag: '🇲🇦', dialCode: '+212' },
@@ -68,8 +65,6 @@ const COUNTRIES: Country[] = [
   { code: 'CD', name: 'Congo (RDC)', flag: '🇨🇩', dialCode: '+243' },
   { code: 'GA', name: 'Gabon', flag: '🇬🇦', dialCode: '+241' },
   { code: 'BJ', name: 'Bénin', flag: '🇧🇯', dialCode: '+229' },
-  
-  // Asie (Sélection)
   { code: 'CN', name: 'Chine', flag: '🇨🇳', dialCode: '+86' },
   { code: 'JP', name: 'Japon', flag: '🇯🇵', dialCode: '+81' },
   { code: 'IN', name: 'Inde', flag: '🇮🇳', dialCode: '+91' },
@@ -110,7 +105,9 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({ value, onChange, labe
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent hover:border-brand-primary/20 rounded-2xl py-4 px-6 flex items-center justify-between transition-all outline-none"
+        className={`w-full bg-slate-50/50 dark:bg-slate-900/30 border transition-all rounded-2xl py-4 px-6 flex items-center justify-between outline-none shadow-inner-soft ${
+          isOpen ? 'border-brand-primary/40 ring-4 ring-brand-primary/5' : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+        }`}
       >
         <div className="flex items-center space-x-3">
           <span className="text-xl">{selectedCountry.flag}</span>
@@ -120,7 +117,7 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({ value, onChange, labe
       </button>
 
       {isOpen && (
-        <div className="absolute top-full left-0 right-0 mt-2 z-[200] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl shadow-3xl max-h-64 overflow-y-auto scrollbar-hide py-3">
+        <div className="absolute top-full left-0 right-0 mt-2 z-[200] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-100 dark:border-slate-800 rounded-3xl shadow-3xl max-h-64 overflow-y-auto scrollbar-hide py-3">
           {COUNTRIES.map((c) => (
             <button
               key={c.code}
@@ -128,7 +125,7 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({ value, onChange, labe
                 onChange(c);
                 setIsOpen(false);
               }}
-              className={`w-full flex items-center space-x-4 px-6 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left ${value === c.code ? 'bg-brand-primary/5 text-brand-primary' : 'text-slate-600 dark:text-slate-400'}`}
+              className={`w-full flex items-center space-x-4 px-6 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors text-left ${value === c.code ? 'bg-brand-primary/10 text-brand-primary' : 'text-slate-600 dark:text-slate-400'}`}
             >
               <span className="text-xl">{c.flag}</span>
               <div className="flex-1">
