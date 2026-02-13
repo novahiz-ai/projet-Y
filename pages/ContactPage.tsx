@@ -3,22 +3,12 @@ import React, { useState } from 'react';
 import { 
   Phone, 
   Mail, 
-  MapPin, 
-  Clock, 
   Send, 
-  Globe, 
-  ChevronRight, 
-  Linkedin, 
-  Twitter, 
-  Facebook,
-  ShieldCheck,
-  ArrowRight,
-  Info,
-  Zap,
   Building2,
   Headphones,
-  MessageCircle,
-  CheckCircle2
+  CheckCircle2,
+  ShieldCheck,
+  Clock
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -65,13 +55,11 @@ const ContactPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 mt-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-          
-          {/* Info Side */}
           <div className="lg:col-span-5 space-y-12">
             <FadeIn direction="right" className="space-y-8">
               <h2 className="text-4xl font-black uppercase tracking-tight italic">Comment pouvons-nous <span className="text-brand-primary">vous aider ?</span></h2>
               <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-                Qu'il s'agisse d'une question sur une demande en cours, d'un besoin de conseil sur nos offres ou d'une assistance technique, nous sommes là.
+                Qu'il s'agisse d'une question sur une demande en cours ou d'un besoin de conseil, nous sommes là.
               </p>
             </FadeIn>
 
@@ -91,57 +79,24 @@ const ContactPage: React.FC = () => {
                 </FadeIn>
               ))}
             </div>
-
-            <FadeIn delay={0.4} className="p-10 bg-slate-950 rounded-[3rem] text-white space-y-6 relative overflow-hidden shadow-2xl">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 blur-3xl rounded-full"></div>
-              <div className="flex items-center space-x-3 text-brand-primary">
-                <Clock size={20} />
-                <span className="text-[10px] font-black uppercase tracking-[0.3em]">Disponibilité Digitale</span>
-              </div>
-              <h3 className="text-2xl font-black uppercase italic leading-tight">Service Permanent.</h3>
-              <p className="text-slate-400 text-sm font-medium leading-relaxed">
-                Nos plateformes de simulation et de signature électronique sont accessibles 24h/24, 7j/7 pour une autonomie totale.
-              </p>
-            </FadeIn>
           </div>
 
-          {/* Form Side */}
           <div className="lg:col-span-7">
             <FadeIn className="relative">
-              <div className="absolute -inset-4 bg-brand-primary/5 blur-[100px] rounded-full opacity-50"></div>
               <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-12 rounded-[3.5rem] shadow-3xl">
                 <AnimatePresence mode="wait">
                   {!isSubmitted ? (
-                    <motion.form 
-                      key="form"
-                      initial={{ opacity: 0 }} 
-                      animate={{ opacity: 1 }} 
-                      exit={{ opacity: 0, y: -20 }}
-                      onSubmit={handleSubmit} 
-                      className="space-y-8"
-                    >
+                    <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -20 }} onSubmit={handleSubmit} className="space-y-8">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-1">
                           <FormLabel>Votre Nom</FormLabel>
-                          <FormInput 
-                            required
-                            placeholder="Jean Dupont"
-                            value={formState.name}
-                            onChange={e => setFormState({...formState, name: e.target.value})}
-                          />
+                          <FormInput required placeholder="Jean Dupont" value={formState.name} onChange={e => setFormState({...formState, name: e.target.value})} />
                         </div>
                         <div className="space-y-1">
                           <FormLabel>Email</FormLabel>
-                          <FormInput 
-                            required
-                            type="email"
-                            placeholder="jean@exemple.com"
-                            value={formState.email}
-                            onChange={e => setFormState({...formState, email: e.target.value})}
-                          />
+                          <FormInput required type="email" placeholder="jean@exemple.com" value={formState.email} onChange={e => setFormState({...formState, email: e.target.value})} />
                         </div>
                       </div>
-
                       <div className="space-y-1">
                         <FormLabel>Sujet de la demande</FormLabel>
                         <ModernSelect 
@@ -155,53 +110,19 @@ const ContactPage: React.FC = () => {
                           onChange={val => setFormState({...formState, subject: val})}
                         />
                       </div>
-
                       <div className="space-y-1">
                         <FormLabel>Message</FormLabel>
-                        <textarea 
-                          required
-                          rows={5}
-                          className="w-full bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 focus:border-brand-primary/40 focus:ring-4 focus:ring-brand-primary/5 rounded-2xl p-6 outline-none font-bold text-slate-900 dark:text-white transition-all shadow-inner-soft"
-                          placeholder="Comment pouvons-nous vous aider ?"
-                          value={formState.message}
-                          onChange={e => setFormState({...formState, message: e.target.value})}
-                        />
+                        <textarea required rows={5} className="w-full bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 focus:border-brand-primary/40 focus:ring-4 focus:ring-brand-primary/5 rounded-2xl p-6 outline-none font-bold text-slate-900 dark:text-white transition-all shadow-inner-soft" placeholder="Comment pouvons-nous vous aider ?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} />
                       </div>
-
-                      <div className="pt-4">
-                        <StandardButton type="submit" className="w-full !py-6 shadow-brand group">
-                          <span>Envoyer ma demande</span>
-                          <Send size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        </StandardButton>
-                      </div>
-                      
-                      <div className="flex items-center justify-center space-x-3 text-slate-400">
-                        <ShieldCheck size={14} className="text-emerald-500" />
-                        <span className="text-[10px] font-black uppercase tracking-widest">Envoi sécurisé par cryptage AES-256</span>
-                      </div>
+                      <StandardButton type="submit" className="w-full !py-6 shadow-brand">Envoyer ma demande</StandardButton>
                     </motion.form>
                   ) : (
-                    <motion.div 
-                      key="success"
-                      initial={{ opacity: 0, scale: 0.9 }} 
-                      animate={{ opacity: 1, scale: 1 }}
-                      className="py-20 text-center space-y-8"
-                    >
-                      <div className="w-24 h-24 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-2xl shadow-emerald-500/20">
+                    <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-20 text-center space-y-8">
+                      <div className="w-24 h-24 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-2xl">
                         <CheckCircle2 size={48} />
                       </div>
-                      <div className="space-y-4">
-                        <h3 className="text-3xl font-black uppercase tracking-tight text-slate-950 dark:text-white">Message envoyé !</h3>
-                        <p className="text-slate-500 dark:text-slate-400 font-medium max-w-sm mx-auto">
-                          Merci {formState.name}. Votre demande a été transmise à notre équipe. Nous vous répondrons sous 24h ouvrées.
-                        </p>
-                      </div>
-                      <button 
-                        onClick={() => setIsSubmitted(false)}
-                        className="text-brand-primary font-black uppercase text-[10px] tracking-widest hover:underline"
-                      >
-                        Envoyer un autre message
-                      </button>
+                      <h3 className="text-3xl font-black uppercase text-slate-950 dark:text-white">Message envoyé !</h3>
+                      <button onClick={() => setIsSubmitted(false)} className="text-brand-primary font-black uppercase text-[10px] tracking-widest hover:underline">Envoyer un autre message</button>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -209,10 +130,7 @@ const ContactPage: React.FC = () => {
             </FadeIn>
           </div>
         </div>
-
-        <div className="mt-40">
-           <LegalWarning />
-        </div>
+        <div className="mt-40"><LegalWarning /></div>
       </div>
     </div>
   );
