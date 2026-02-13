@@ -1,4 +1,4 @@
-# CHECKLIST DE VALIDATION SOUVERAINE (V4.0-S)
+# CHECKLIST DE VALIDATION SOUVERAINE (V15)
 
 Avant chaque réponse, modification ou déploiement, les points suivants doivent être impérativement validés :
 
@@ -13,6 +13,7 @@ Avant chaque réponse, modification ou déploiement, les points suivants doivent
 - [ ] **Web Standard APIs :** Validation de l'usage exclusif des APIs Web standard.
 - [ ] **Sécurité Variables :** Absence de clés API en clair dans le code.
 - [ ] **Rendu Client-Only :** Isolation des librairies sensibles (SignaturePad, Recharts).
+- [ ] **Supabase Sync :** Vérification de la cohérence des schémas si applicables.
 
 ## 3. STRUCTURE & MODULARISATION
 - [ ] **Snapshot Inviolable :** Les structures de pages et le routage sont préservés.

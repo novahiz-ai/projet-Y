@@ -1,10 +1,14 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown, Check } from 'lucide-react';
 
-interface Option {
+/**
+ * V15 — SOVEREIGN UI
+ * Component: ATOMIC_SELECT
+ */
+export interface Option {
   value: string;
   label: string;
+  icon?: React.ReactNode; // Extension pour compatibilité V15
 }
 
 interface ModernSelectProps {
@@ -57,9 +61,12 @@ const ModernSelect: React.FC<ModernSelectProps> = ({
               : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
           }`}
         >
-          <span className={`text-sm font-medium ${selectedOption ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>
-            {selectedOption ? selectedOption.label : placeholder}
-          </span>
+          <div className="flex items-center space-x-3">
+            {selectedOption?.icon && <span className="text-brand-primary shrink-0">{selectedOption.icon}</span>}
+            <span className={`text-sm font-medium ${selectedOption ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>
+              {selectedOption ? selectedOption.label : placeholder}
+            </span>
+          </div>
           <ChevronDown 
             size={18} 
             className={`text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-brand-primary' : ''}`} 
@@ -89,7 +96,10 @@ const ModernSelect: React.FC<ModernSelectProps> = ({
                     : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                <span className="uppercase tracking-tight">{option.label}</span>
+                <div className="flex items-center space-x-3">
+                  {option.icon && <span className="shrink-0 opacity-50">{option.icon}</span>}
+                  <span className="uppercase tracking-tight">{option.label}</span>
+                </div>
                 {value === option.value && <Check size={16} className="shrink-0" />}
               </button>
             ))}

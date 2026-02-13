@@ -59,7 +59,7 @@ const ContactPage: React.FC = () => {
             <FadeIn direction="right" className="space-y-8">
               <h2 className="text-4xl font-black uppercase tracking-tight italic">Comment pouvons-nous <span className="text-brand-primary">vous aider ?</span></h2>
               <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
-                Qu'il s'agisse d'une question sur une demande en cours ou d'un besoin de conseil, nous sommes là.
+                Qu'il s'agisse d'une question sur une demande en cours ou d'un besoin de conseil sur nos offres, nous sommes là.
               </p>
             </FadeIn>
 
@@ -86,7 +86,14 @@ const ContactPage: React.FC = () => {
               <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 md:p-12 rounded-[3.5rem] shadow-3xl">
                 <AnimatePresence mode="wait">
                   {!isSubmitted ? (
-                    <motion.form key="form" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0, y: -20 }} onSubmit={handleSubmit} className="space-y-8">
+                    <motion.form 
+                      key="form" 
+                      initial={{ opacity: 0 }} 
+                      animate={{ opacity: 1 }} 
+                      exit={{ opacity: 0, y: -20 }} 
+                      onSubmit={handleSubmit} 
+                      className="space-y-8"
+                    >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div className="space-y-1">
                           <FormLabel>Votre Nom</FormLabel>
@@ -112,16 +119,31 @@ const ContactPage: React.FC = () => {
                       </div>
                       <div className="space-y-1">
                         <FormLabel>Message</FormLabel>
-                        <textarea required rows={5} className="w-full bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 focus:border-brand-primary/40 focus:ring-4 focus:ring-brand-primary/5 rounded-2xl p-6 outline-none font-bold text-slate-900 dark:text-white transition-all shadow-inner-soft" placeholder="Comment pouvons-nous vous aider ?" value={formState.message} onChange={e => setFormState({...formState, message: e.target.value})} />
+                        <textarea 
+                          required 
+                          rows={5} 
+                          className="w-full bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 focus:border-brand-primary/40 focus:ring-4 focus:ring-brand-primary/5 rounded-2xl p-6 outline-none font-bold text-slate-900 dark:text-white transition-all shadow-inner-soft" 
+                          placeholder="Comment pouvons-nous vous aider ?" 
+                          value={formState.message} 
+                          onChange={e => setFormState({...formState, message: e.target.value})} 
+                        />
                       </div>
                       <StandardButton type="submit" className="w-full !py-6 shadow-brand">Envoyer ma demande</StandardButton>
+                      
+                      <div className="flex items-center justify-center space-x-3 text-slate-400">
+                        <ShieldCheck size={14} className="text-emerald-500" />
+                        <span className="text-[10px] font-black uppercase tracking-widest">Envoi sécurisé • Protection des données</span>
+                      </div>
                     </motion.form>
                   ) : (
                     <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-20 text-center space-y-8">
                       <div className="w-24 h-24 bg-emerald-500 text-white rounded-full flex items-center justify-center mx-auto shadow-2xl">
                         <CheckCircle2 size={48} />
                       </div>
-                      <h3 className="text-3xl font-black uppercase text-slate-950 dark:text-white">Message envoyé !</h3>
+                      <div className="space-y-2">
+                        <h3 className="text-3xl font-black uppercase text-slate-950 dark:text-white">Message envoyé !</h3>
+                        <p className="text-slate-500 font-medium">Nous vous répondrons sous 24h ouvrées.</p>
+                      </div>
                       <button onClick={() => setIsSubmitted(false)} className="text-brand-primary font-black uppercase text-[10px] tracking-widest hover:underline">Envoyer un autre message</button>
                     </motion.div>
                   )}

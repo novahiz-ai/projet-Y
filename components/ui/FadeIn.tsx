@@ -1,8 +1,11 @@
-
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 
-interface FadeInProps {
+/**
+ * V15 — SOVEREIGN COMPONENT
+ * Type: UI_ANIMATION_ENGINE
+ */
+interface FadeInProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
   id?: string;
   delay?: number;
@@ -17,7 +20,8 @@ const FadeIn: React.FC<FadeInProps> = ({
   delay = 0, 
   direction = 'up', 
   duration = 0.8,
-  className = "" 
+  className = "",
+  ...props 
 }) => {
   const directions = {
     up: { y: 40 },
@@ -48,6 +52,7 @@ const FadeIn: React.FC<FadeInProps> = ({
         ease: [0.16, 1, 0.3, 1] 
       }}
       className={className}
+      {...props}
     >
       {children}
     </motion.div>
