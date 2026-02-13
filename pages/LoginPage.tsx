@@ -12,9 +12,16 @@ const LoginPage: React.FC = () => {
   const [authMode, setAuthMode] = useState<'login' | 'signup'>('login');
 
   useEffect(() => {
+    /**
+     * V18 — PROTOCOLE DE MAINTENANCE
+     * Déclenchement automatique après exactement 3 secondes (3000ms).
+     * Ce délai permet à l'utilisateur de percevoir l'interface de connexion 
+     * avant l'interruption système sécurisée.
+     */
     const timer = setTimeout(() => {
       setShowMaintenance(true);
-    }, 15000); // Augmenté à 15s pour laisser le temps de tester les formulaires
+    }, 3000); 
+    
     return () => clearTimeout(timer);
   }, []);
 
