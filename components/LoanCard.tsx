@@ -3,7 +3,8 @@ import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from
 import { useTranslation } from 'react-i18next';
 import { Zap, ArrowUpRight } from 'lucide-react';
 import { LoanOffer } from '../types';
-import { getIcon } from '../constants';
+// Fix: Import getIcon from the correct location
+import { getIcon } from '../infrastructure/IconRegistry';
 
 interface LoanCardProps {
   offer: LoanOffer;

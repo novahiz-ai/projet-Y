@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "hash": "SHA-256-V16-SOVEREIGN",
+  "contracts": {
+    "LoanOffer": "id|type|title|description|minRate|icon|color",
+    "Article": "id|category|title|excerpt|readTime|image|sections",
+    "SimulationResult": "monthlyPayment|totalInterest|totalCost"
+  }
+}

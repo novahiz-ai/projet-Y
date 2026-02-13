@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { getIcon } from '../../constants';
+// Fix: Import getIcon from the correct location
+import { getIcon } from '../../infrastructure/IconRegistry';
 
 interface HeaderMegaMenuResourcesProps {
   links: any[];

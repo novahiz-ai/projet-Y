@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import { getIcon } from '../../constants';
+// Fix: Import getIcon from the correct location
+import { getIcon } from '../../infrastructure/IconRegistry';
 import { LoanOffer } from '../../types';
 
 interface SearchOfferResultProps {

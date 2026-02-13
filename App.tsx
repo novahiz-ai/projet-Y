@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
@@ -37,6 +36,7 @@ import MainLayout from './components/layout/MainLayout';
 import ApplicationFormModal from './components/ApplicationFormModal';
 import SimulatorModal from './components/SimulatorModal';
 import SearchOverlay from './components/SearchOverlay';
+import ConnectivityNotification from './components/ui/ConnectivityNotification';
 
 const AppContent: React.FC = () => {
   const location = useLocation();
@@ -57,6 +57,7 @@ const AppContent: React.FC = () => {
       onOpenSimulator={() => handleOpenSimulator()}
     >
       <ScrollToTop />
+      <ConnectivityNotification />
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
       
       <AnimatePresence mode="wait">

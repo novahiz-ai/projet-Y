@@ -1,19 +1,5 @@
-
-import React from 'react';
-import { 
-  ShoppingBag, 
-  User, 
-  Car, 
-  Home, 
-  Zap, 
-  Layers, 
-  Building, 
-  ShieldCheck, 
-  Lightbulb 
-} from 'lucide-react';
 import { LoanOffer, LoanType } from './types';
 
-// On stocke les clés de traduction pour que les composants puissent utiliser t() dynamiquement
 export const LOAN_OFFERS: LoanOffer[] = [
   {
     id: 'conso',
@@ -98,18 +84,3 @@ export const LOAN_OFFERS: LoanOffer[] = [
     color: 'bg-cyan-500'
   }
 ];
-
-export const getIcon = (name: string, size = 24) => {
-  switch (name) {
-    case 'ShoppingBag': return <ShoppingBag size={size} />;
-    case 'User': return <User size={size} />;
-    case 'Car': return <Car size={size} />;
-    case 'Home': return <Home size={size} />;
-    case 'Zap': return <Zap size={size} />;
-    case 'Layers': return <Layers size={size} />;
-    case 'Building': return <Building size={size} />;
-    case 'ShieldCheck': return <ShieldCheck size={size} />;
-    case 'Lightbulb': return <Lightbulb size={size} />;
-    default: return <ShoppingBag size={size} />;
-  }
-};

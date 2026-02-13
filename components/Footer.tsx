@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { PhoneCall, Mail, Facebook, Twitter, Instagram, Linkedin, ShieldCheck, CheckCircle2, Globe, Lock } from 'lucide-react';
+import { PhoneCall, Mail, ShieldCheck, CheckCircle2, Globe, Lock, Gavel } from 'lucide-react';
 import { LOAN_OFFERS } from '../constants';
 import { getFooterLegalLinks } from '../data/navigation';
 import Logo from './Logo';
@@ -68,11 +68,19 @@ const Footer: React.FC = () => {
           </div>
           <div className="space-y-10">
             <div className="space-y-6">
-              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-primary">{t('footer.social_title')}</h4>
-              <div className="flex space-x-3">
-                {[Facebook, Twitter, Instagram, Linkedin].map((Icon, i) => (
-                  <a key={i} href="#" className="w-11 h-11 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-primary hover:text-white hover:border-brand-primary transition-all"><Icon size={20} /></a>
-                ))}
+              <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-primary">Conformité Légale</h4>
+              <div className="p-6 bg-slate-50 dark:bg-slate-900 rounded-[2rem] border border-slate-100 dark:border-slate-800 space-y-4">
+                 <div className="flex items-center space-x-3 text-slate-900 dark:text-white">
+                    <Gavel size={18} className="text-brand-primary" />
+                    <span className="text-[10px] font-black uppercase tracking-tight">Autorité ACPR</span>
+                 </div>
+                 <p className="text-[9px] text-slate-500 leading-relaxed font-medium uppercase tracking-tight">
+                   Younited est agréé en tant qu'établissement de crédit — Prestataire de Services d'Investissement par l'Autorité de Contrôle Prudentiel et de Résolution (ACPR, n° d'agrément 16488).
+                 </p>
+                 <div className="pt-2 flex items-center space-x-2">
+                    <ShieldCheck size={14} className="text-emerald-500" />
+                    <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Registre ORIAS : 11061269</span>
+                 </div>
               </div>
             </div>
           </div>

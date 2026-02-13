@@ -2,8 +2,8 @@ import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
 /**
- * V16 — SOVEREIGN UI ANIMATION ENGINE
- * Optimisé pour la réactivité et la fluidité GPU.
+ * V16.2 — SOVEREIGN VIEWPORT ENGINE
+ * Optimisé pour réduire l'usage CPU en stoppant les calculs hors-écran.
  */
 interface FadeInProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
@@ -47,13 +47,14 @@ const FadeIn: React.FC<FadeInProps> = ({
         scale: 1,
         filter: 'blur(0px)' 
       }}
-      viewport={{ once: true, amount: 0.05 }}
+      // Strict Viewport Lock
+      viewport={{ once: true, amount: 0.15 }}
       transition={{ 
         delay, 
         duration, 
         type: "spring",
-        stiffness: 400, // Plus nerveux
-        damping: 30,    // Moins d'oscillation
+        stiffness: 400,
+        damping: 30,
         mass: 0.8
       }}
       className={className}

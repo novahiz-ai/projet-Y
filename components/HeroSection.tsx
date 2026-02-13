@@ -4,7 +4,8 @@ import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getHeroProjects } from '../data/heroProjects';
-import { getIcon } from '../constants';
+// Fix: Import getIcon from the correct location
+import { getIcon } from '../infrastructure/IconRegistry';
 import TrustBadges from './ui/TrustBadges';
 
 interface HeroSectionProps {
