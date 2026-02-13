@@ -20,7 +20,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenApp, onOpenSimu
     { icon: <LayoutGrid size={20} />, label: "solutions", path: '/offres' },
     { icon: null, label: '', path: 'apply', isAction: true }, 
     { icon: <Calculator size={20} />, label: "calculer", path: 'simulator', isSimulator: true },
-    { icon: <UserCircle2 size={20} strokeWidth={2.5} />, label: "profile", path: '/login', isProfile: true }
+    { icon: <UserCircle2 size={20} strokeWidth={2.5} />, label: "profil", path: '/login', isProfile: true }
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -31,7 +31,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenApp, onOpenSimu
         {/* Main Background with restricted height (60px) and no overflow */}
         <div className="absolute inset-0 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-t border-slate-200/50 dark:border-slate-800/50 shadow-[0_-10px_40px_rgba(0,0,0,0.12)]" />
         
-        <div className="relative w-full flex items-center justify-around h-[60px] px-2 max-w-md mx-auto overflow-hidden">
+        <div className="relative w-full flex items-center justify-around h-[60px] px-1 max-w-md mx-auto overflow-hidden">
           {navItems.map((item, i) => {
             if (item.isAction) {
               return (
@@ -61,12 +61,12 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenApp, onOpenSimu
               <button
                 key={i}
                 onClick={handleClick}
-                className="flex flex-col items-center justify-center space-y-0.5 w-14 transition-all relative h-full"
+                className="flex flex-col items-center justify-center space-y-0.5 w-[72px] transition-all relative h-full px-0"
               >
                 <div className={`transition-all duration-300 ${active ? 'text-brand-primary scale-110' : 'text-slate-400 opacity-70'}`}>
                   {item.icon}
                 </div>
-                <span className={`text-[8px] font-black uppercase tracking-tight transition-all ${active ? 'text-brand-primary opacity-100' : 'text-slate-400 opacity-60'} truncate max-w-full px-1`}>
+                <span className={`text-[7.5px] font-black uppercase tracking-tight transition-all ${active ? 'text-brand-primary opacity-100' : 'text-slate-400 opacity-60'} whitespace-nowrap overflow-visible`}>
                   {item.label}
                 </span>
                 
