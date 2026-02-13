@@ -19,6 +19,13 @@ const OffersPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isAppFormOpen, setIsAppFormOpen] = useState(false);
   const [appContext, setAppContext] = useState<any>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 100);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const categories = useMemo(() => [
     { id: 'mobilite', label: t('offers.cat_mobility'), icon: <Car size={14} />, types: ['auto'] },
@@ -50,7 +57,7 @@ const OffersPage: React.FC = () => {
         breadcrumb={[{ label: t('nav.credit') }]}
       />
 
-      <div className="sticky top-20 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 transition-all py-4">
+      <div className={`sticky z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 transition-all duration-500 py-3 ${scrolled ? 'top-[60px]' : 'top-[65px] lg:top-[100px]'}`}>
         <div className="max-w-7xl mx-auto px-6">
           <CategoryFilter 
             categories={categories} 

@@ -16,6 +16,13 @@ const GlossaryPage: React.FC = () => {
   const { t, i18n } = useTranslation();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 100);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const GLOSSARY_TERMS = useMemo(() => getGlossaryTerms(t), [t, i18n.language]);
   const alphabet = useMemo(() => "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split(""), []);
@@ -40,7 +47,7 @@ const GlossaryPage: React.FC = () => {
     if (firstTerm) {
       const element = document.getElementById(getTermSlug(firstTerm.term));
       if (element) {
-        window.scrollTo({ top: element.offsetTop - 140, behavior: 'smooth' });
+        window.scrollTo({ top: element.offsetTop - (scrolled ? 120 : 160), behavior: 'smooth' });
       }
     }
   };
@@ -58,8 +65,8 @@ const GlossaryPage: React.FC = () => {
         resultsCount={filteredTerms.length}
       />
 
-      <section className="sticky top-[70px] lg:top-[100px] z-[60] bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 transition-all">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col md:flex-row items-center gap-6">
+      <section className={`sticky z-[60] bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 transition-all duration-500 ${scrolled ? 'top-[60px] py-3' : 'top-[65px] lg:top-[100px] py-5'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
           <div className="flex items-center space-x-2 overflow-x-auto scrollbar-hide shrink-0 pb-2 md:pb-0">
             <LayoutGrid size={14} className="text-slate-400 mr-2 shrink-0" />
             <button 

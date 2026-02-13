@@ -18,6 +18,11 @@ import TrustBadgeBanner from '../components/TrustBadgeBanner';
 import ExpertiseNewsroom from '../components/ExpertiseNewsroom';
 import PageWrapper from '../components/layout/PageWrapper';
 
+// Nouvelles Sections
+import SecurityVaultSection from '../components/home/SecurityVaultSection';
+import ComparisonSection from '../components/home/ComparisonSection';
+import EUReachSection from '../components/home/EUReachSection';
+
 interface LandingPageProps {
   onOpenApp: (context?: any) => void;
   onOpenSimulator: (offerId?: string) => void;
@@ -29,7 +34,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
 
   return (
     <PageWrapper>
-      {/* Desktop Hero: High Immersion (Large screens) */}
+      {/* 1. Hero Sections (Image BG) */}
       <div className="hidden lg:block">
         <HeroSection 
           title={t('landing.hero.title')}
@@ -63,12 +68,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
         </HeroSection>
       </div>
 
-      {/* Tablet Hero: Centered & Gridded (iPad / Galaxy Tab) */}
       <div className="hidden md:block lg:hidden">
         <TabletHeroSection onOpenApp={onOpenApp} onOpenSimulator={onOpenSimulator} />
       </div>
 
-      {/* Smartphone Hero: Stacked & Fast (iPhone / Android) */}
       <div className="md:hidden">
         <MobileHeroSection onOpenApp={onOpenApp} onOpenSimulator={onOpenSimulator} />
       </div>
@@ -77,25 +80,50 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.01 }}
-        className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[3rem] lg:rounded-t-[6rem] mt-[10px] lg:mt-[25px] transition-colors duration-500 pb-12 lg:pb-20"
+        className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[3rem] lg:rounded-t-[6rem] mt-[10px] lg:mt-[25px] transition-colors duration-500"
       >
         <div className="pt-8 lg:pt-12 flex justify-center px-4">
           <StatsBar />
         </div>
 
-        <div className="space-y-16 md:space-y-24 lg:space-y-32 py-10 md:py-16 lg:py-24">
-          <OffersGallery 
-            onOpenApp={onOpenApp} 
-            onNavigateOffer={(id) => navigate(`/offres/${id}`)} 
-          />
+        {/* 2. Offers Gallery (Fond Blanc) */}
+        <OffersGallery 
+          onOpenApp={onOpenApp} 
+          onNavigateOffer={(id) => navigate(`/offres/${id}`)} 
+        />
+
+        {/* 3. Security Vault (Fond Sombre - Deep Navy) */}
+        <SecurityVaultSection />
+
+        {/* 4. Process Steps (Fond Gris Doux) */}
+        <div className="bg-slate-50 dark:bg-slate-900/40">
           <ProcessSteps />
+        </div>
+
+        {/* 5. Comparison Section (Fond Blanc) */}
+        <ComparisonSection />
+
+        {/* 6. Trust Badge Banner (Fond Gris Doux) */}
+        <div className="bg-slate-50 dark:bg-slate-900/40 py-20 lg:py-32 border-y border-slate-100 dark:border-slate-800">
           <TrustBadgeBanner />
-          <HomeRenovationSection onDiscover={() => navigate('/offres/travaux')} />
-          <AutoPromoSection />
+        </div>
+
+        {/* 7. Reno & Auto Promo (Fond Images) */}
+        <HomeRenovationSection onDiscover={() => navigate('/offres/travaux')} />
+        <AutoPromoSection />
+
+        {/* 8. EU Reach (Fond Sombre / Map) */}
+        <EUReachSection />
+
+        {/* 9. Newsroom & Testimonials (Fond Blanc & Alternance) */}
+        <div className="bg-white dark:bg-slate-950 py-20 lg:py-32">
           <ExpertiseNewsroom 
             onNavigateArticle={(id) => navigate(`/guide/${id}`)} 
             onNavigateGuide={() => navigate('/guide')}
           />
+        </div>
+
+        <div className="bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-800">
           <TestimonialsSection />
         </div>
       </motion.div>

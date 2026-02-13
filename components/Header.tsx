@@ -30,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showAuthMenu, setShowAuthMenu] = useState(false);
   
-  // Simulation d'état de connexion (à lier à votre système d'auth réel plus tard)
+  // Simulation d'état de connexion
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   const authMenuRef = useRef<HTMLDivElement>(null);
@@ -64,49 +64,49 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <nav 
       onMouseLeave={() => setActiveMenu(null)}
-      className={`fixed top-0 w-full z-[150] transition-all duration-500 h-[70px] lg:h-[100px] flex items-center ${
-        scrolled || activeMenu 
-          ? 'bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm' 
-          : 'bg-transparent border-b border-transparent'
-      }`}
+      className={`fixed top-0 w-full z-[150] transition-all duration-500 flex items-center ${
+        scrolled 
+          ? 'h-[60px] bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-800/50 shadow-sm' 
+          : 'h-[65px] lg:h-[100px] bg-transparent border-b border-transparent'
+      } ${activeMenu ? 'bg-white dark:bg-slate-950 !border-slate-200/50 dark:!border-slate-800/50' : ''}`}
       role="navigation"
       aria-label="Navigation principale"
     >
        <div className="w-full max-w-[2560px] mx-auto px-6 lg:px-12 flex justify-between items-center h-full">
-         <div className="flex-none flex items-center min-w-[120px]">
+         <div className={`flex-none flex items-center min-w-[120px] transition-all duration-500 ${scrolled ? 'scale-90 origin-left' : 'scale-100'}`}>
            <Link to="/" className="active:scale-95 transition-transform" aria-label="Retour à l'accueil">
-             <Logo size="md" />
+             <Logo size={scrolled ? "sm" : "md"} />
            </Link>
          </div>
          
          <div className="hidden lg:flex items-center justify-center flex-1">
             <div className="flex items-center space-x-12 xl:space-x-16" role="menubar">
-              <Link to="/" role="menuitem" className={`text-[13px] font-black uppercase tracking-widest transition-colors ${scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>{t('nav.home')}</Link>
+              <Link to="/" role="menuitem" className={`font-black uppercase tracking-widest transition-all duration-500 ${scrolled ? 'text-[11px]' : 'text-[13px]'} ${scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>{t('nav.home')}</Link>
 
               <div className="relative" onMouseEnter={() => setActiveMenu('credit')}>
-                <button aria-expanded={activeMenu === 'credit'} aria-haspopup="true" className={`flex items-center space-x-2 text-[13px] font-black uppercase tracking-widest transition-colors ${activeMenu === 'credit' ? 'text-brand-primary' : scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>
+                <button aria-expanded={activeMenu === 'credit'} aria-haspopup="true" className={`flex items-center space-x-2 font-black uppercase tracking-widest transition-all duration-500 ${scrolled ? 'text-[11px]' : 'text-[13px]'} ${activeMenu === 'credit' ? 'text-brand-primary' : scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>
                   <span>{t('nav.credit')}</span>
-                  <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === 'credit' ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={scrolled ? 12 : 14} className={`transition-transform duration-300 ${activeMenu === 'credit' ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>{activeMenu === 'credit' && <HeaderMegaMenuCredit links={creditLinks} onOpenSimulator={onOpenSimulator} onClose={() => setActiveMenu(null)} />}</AnimatePresence>
               </div>
 
-              <button onClick={() => onOpenSimulator()} className={`text-[13px] font-black uppercase tracking-widest transition-colors ${scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>{t('nav.simulator')}</button>
+              <button onClick={() => onOpenSimulator()} className={`font-black uppercase tracking-widest transition-all duration-500 ${scrolled ? 'text-[11px]' : 'text-[13px]'} ${scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>{t('nav.simulator')}</button>
 
               <div className="relative" onMouseEnter={() => setActiveMenu('aide')}>
-                <button aria-expanded={activeMenu === 'aide'} aria-haspopup="true" className={`flex items-center space-x-2 text-[13px] font-black uppercase tracking-widest transition-colors ${activeMenu === 'aide' ? 'text-brand-primary' : scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>
+                <button aria-expanded={activeMenu === 'aide'} aria-haspopup="true" className={`flex items-center space-x-2 font-black uppercase tracking-widest transition-all duration-500 ${scrolled ? 'text-[11px]' : 'text-[13px]'} ${activeMenu === 'aide' ? 'text-brand-primary' : scrolled ? 'text-slate-500 hover:text-brand-primary' : 'text-slate-700 dark:text-slate-200 hover:text-brand-primary'}`}>
                   <span>{t('nav.resources')}</span>
-                  <ChevronDown size={14} className={`transition-transform duration-300 ${activeMenu === 'aide' ? 'rotate-180' : ''}`} />
+                  <ChevronDown size={scrolled ? 12 : 14} className={`transition-transform duration-300 ${activeMenu === 'aide' ? 'rotate-180' : ''}`} />
                 </button>
                 <AnimatePresence>{activeMenu === 'aide' && <HeaderMegaMenuResources links={resourceLinks} onClose={() => setActiveMenu(null)} />}</AnimatePresence>
               </div>
             </div>
          </div>
 
-         <div className="flex items-center space-x-3 lg:space-x-5 flex-none h-full">
-           <div className="flex items-center space-x-1 border-r border-slate-100 dark:border-slate-800 pr-4 lg:pr-6">
-             <button onClick={onSearchOpen} aria-label="Rechercher" className={`p-3 rounded-xl transition-colors ${scrolled ? 'hover:bg-black/5 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300' : 'hover:bg-white/10 text-slate-700 dark:text-slate-200'}`}>
-               <SearchIcon size={20} strokeWidth={2.5} />
+         <div className="flex items-center space-x-2 lg:space-x-4 flex-none h-full">
+           <div className="flex items-center space-x-0.5 border-r border-slate-100 dark:border-slate-800 pr-2 lg:pr-4">
+             <button onClick={onSearchOpen} aria-label="Rechercher" className={`p-2 lg:p-3 rounded-xl transition-colors ${scrolled ? 'hover:bg-black/5 dark:hover:bg-white/10 text-slate-600 dark:text-slate-300' : 'hover:bg-white/10 text-slate-700 dark:text-slate-200'}`}>
+               <SearchIcon size={scrolled ? 18 : 20} strokeWidth={2.5} />
              </button>
              <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} scrolled={scrolled} />
              <LanguageSwitcher />
@@ -115,15 +115,15 @@ const Header: React.FC<HeaderProps> = ({
            <div className="relative" ref={authMenuRef}>
              <button 
                onClick={handleProfileClick}
-               className={`hidden lg:flex items-center justify-center w-12 h-12 rounded-2xl shadow-xl transition-all active:scale-90 group border relative ${
+               className={`hidden lg:flex items-center justify-center rounded-2xl shadow-xl transition-all active:scale-90 group border relative ${
                  scrolled 
-                   ? 'bg-slate-950 dark:bg-white text-white dark:text-slate-950 border-transparent dark:border-slate-100' 
-                   : 'bg-white/10 dark:bg-slate-900/40 backdrop-blur-md text-slate-900 dark:text-white border-white/20 dark:border-slate-700/50 hover:bg-white/20'
+                   ? 'w-10 h-10 bg-slate-950 dark:bg-white text-white dark:text-slate-950 border-transparent dark:border-slate-100' 
+                   : 'w-12 h-12 bg-white/10 dark:bg-slate-900/40 backdrop-blur-md text-slate-900 dark:text-white border-white/20 dark:border-slate-700/50 hover:bg-white/20'
                }`}
                aria-label={t('nav.client_space')}
              >
-               <UserCircle2 size={24} className="group-hover:scale-110 transition-transform" />
-               {isLoggedIn && <div className="absolute top-2 right-2 w-2.5 h-2.5 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900" />}
+               <UserCircle2 size={scrolled ? 20 : 24} className="group-hover:scale-110 transition-transform" />
+               {isLoggedIn && <div className={`absolute top-1 right-1 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 ${scrolled ? 'w-2 h-2' : 'w-2.5 h-2.5'}`} />}
              </button>
 
              <AnimatePresence>
@@ -155,7 +155,9 @@ const Header: React.FC<HeaderProps> = ({
              </AnimatePresence>
            </div>
 
-           <button onClick={onMobileMenuToggle} aria-label="Menu mobile" className={`lg:hidden p-3 rounded-xl transition-all active:scale-90 flex items-center justify-center ${scrolled ? 'bg-brand-primary/10 text-brand-primary border border-brand-primary/10 shadow-inner-soft' : 'text-slate-900 dark:text-white hover:bg-white/10'}`}><LayoutDashboard size={24} strokeWidth={2.5} /></button>
+           <button onClick={onMobileMenuToggle} aria-label="Menu mobile" className={`lg:hidden p-2 rounded-xl transition-all active:scale-90 flex items-center justify-center ${scrolled ? 'bg-brand-primary/10 text-brand-primary border border-brand-primary/10' : 'text-slate-900 dark:text-white hover:bg-white/10'}`}>
+             <LayoutDashboard size={scrolled ? 22 : 24} strokeWidth={2.5} />
+           </button>
          </div>
        </div>
     </nav>

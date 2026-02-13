@@ -22,6 +22,13 @@ const GuidePage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 100);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const ARTICLES = useMemo(() => getArticles(t), [t, i18n.language]);
 
@@ -65,7 +72,7 @@ const GuidePage: React.FC = () => {
     setCurrentPage(page);
     const element = document.getElementById('articles-list');
     if (element) {
-      window.scrollTo({ top: element.offsetTop - 120, behavior: 'smooth' });
+      window.scrollTo({ top: element.offsetTop - (scrolled ? 80 : 120), behavior: 'smooth' });
     }
   };
 
@@ -114,8 +121,8 @@ const GuidePage: React.FC = () => {
         </div>
       </section>
 
-      <section className="sticky top-20 z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-y border-slate-100 dark:border-slate-800 transition-all">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center space-x-2 overflow-x-auto scrollbar-hide">
+      <section className={`sticky z-40 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-y border-slate-100 dark:border-slate-800 transition-all duration-500 ${scrolled ? 'top-[60px] py-2' : 'top-[65px] lg:top-[100px] py-4'}`}>
+        <div className="max-w-7xl mx-auto px-6 flex items-center space-x-2 overflow-x-auto scrollbar-hide">
           <Filter size={16} className="text-slate-400 mr-2 shrink-0" />
           {CATEGORIES.map(cat => (
             <button key={cat.id} onClick={() => {setActiveCategory(cat.id); setCurrentPage(1);}} className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap ${activeCategory === cat.id ? 'bg-brand-primary text-white shadow-lg' : 'bg-slate-50 dark:bg-slate-900 text-slate-500 hover:bg-slate-100'}`}>
