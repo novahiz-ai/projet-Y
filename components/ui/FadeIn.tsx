@@ -2,8 +2,8 @@ import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
 /**
- * V16 — SOVEREIGN COMPONENT
- * Type: UI_ANIMATION_ENGINE
+ * V16 — SOVEREIGN UI ANIMATION ENGINE
+ * Optimisé pour la réactivité et la fluidité GPU.
  */
 interface FadeInProps extends HTMLMotionProps<'div'> {
   children: React.ReactNode;
@@ -19,15 +19,15 @@ const FadeIn: React.FC<FadeInProps> = ({
   id,
   delay = 0, 
   direction = 'up', 
-  duration = 0.5,
+  duration = 0.4,
   className = "",
   ...props 
 }) => {
   const directions = {
-    up: { y: 20 },
-    down: { y: -20 },
-    left: { x: 20 },
-    right: { x: -20 },
+    up: { y: 15 },
+    down: { y: -15 },
+    left: { x: 15 },
+    right: { x: -15 },
     none: { x: 0, y: 0 }
   };
 
@@ -37,8 +37,8 @@ const FadeIn: React.FC<FadeInProps> = ({
       initial={{ 
         opacity: 0, 
         ...directions[direction],
-        scale: 0.98,
-        filter: 'blur(8px)' 
+        scale: 0.99,
+        filter: 'blur(4px)' 
       }}
       whileInView={{ 
         opacity: 1, 
@@ -47,14 +47,14 @@ const FadeIn: React.FC<FadeInProps> = ({
         scale: 1,
         filter: 'blur(0px)' 
       }}
-      viewport={{ once: true, amount: 0.1 }}
+      viewport={{ once: true, amount: 0.05 }}
       transition={{ 
         delay, 
         duration, 
         type: "spring",
-        stiffness: 100,
-        damping: 15,
-        mass: 0.5
+        stiffness: 400, // Plus nerveux
+        damping: 30,    // Moins d'oscillation
+        mass: 0.8
       }}
       className={className}
       {...props}
