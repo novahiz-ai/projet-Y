@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ShieldCheck, TrendingUp, Car, Home, Shield, Info } from 'lucide-react';
+import { Car, TrendingUp } from 'lucide-react';
 import LoanPageLayout from '../components/LoanPageLayout';
 import OfferSummaryTable from '../components/OfferSummaryTable';
 import ExpertCtaBanner from '../components/ui/ExpertCtaBanner';
@@ -19,9 +18,13 @@ const InsurancePage: React.FC = () => {
     { id: 'resume', title: t('insurance.nav.resume') }
   ];
 
-  const autoItems = t('insurance.content.auto_items', { returnObjects: true }) as any[];
-  const borrowerList = t('insurance.content.borrower_list', { returnObjects: true }) as string[];
-  const summaryItems = t('insurance.content.summary_items', { returnObjects: true }) as any[];
+  const getSafeArray = (key: string) => {
+    const res = t(key, { returnObjects: true });
+    return Array.isArray(res) ? res : [];
+  };
+
+  const autoItems = getSafeArray('insurance.content.auto_items');
+  const summaryItems = getSafeArray('insurance.content.summary_items');
 
   return (
     <LoanPageLayout 
@@ -51,7 +54,7 @@ const InsurancePage: React.FC = () => {
       <section id="auto" className="scroll-mt-32 space-y-12">
         <SectionHeading title={t('insurance.content.auto_title')} description={t('insurance.content.auto_p')} />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {autoItems.map((item, i) => (
+          {autoItems.map((item: any, i: number) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="p-8 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.5rem] space-y-4 group hover:border-indigo-500 transition-all h-full">
                 <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center shadow-sm text-indigo-600 group-hover:scale-110 transition-transform">

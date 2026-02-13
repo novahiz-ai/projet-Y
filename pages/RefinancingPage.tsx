@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Info, CheckCircle2, CreditCard, XCircle, Shield } from 'lucide-react';
+import { Info, CheckCircle2, XCircle } from 'lucide-react';
 import LoanPageLayout from '../components/LoanPageLayout';
 import OfferSummaryTable from '../components/OfferSummaryTable';
 import ExpertCtaBanner from '../components/ui/ExpertCtaBanner';
@@ -16,8 +15,13 @@ const RefinancingPage: React.FC = () => {
     { id: 'resume', title: t('refinancing_loan.nav.resume') }
   ];
 
-  const advList = t('refinancing_loan.content.adv_list', { returnObjects: true }) as any[];
-  const summaryRows = t('refinancing_loan.content.summary_rows', { returnObjects: true }) as any[];
+  const getSafeArray = (key: string) => {
+    const res = t(key, { returnObjects: true });
+    return Array.isArray(res) ? res : [];
+  };
+
+  const advList = getSafeArray('refinancing_loan.content.adv_list');
+  const summaryRows = getSafeArray('refinancing_loan.content.summary_rows');
 
   return (
     <LoanPageLayout 

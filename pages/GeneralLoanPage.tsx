@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Info, Building2, Users, CheckCircle2, XCircle } from 'lucide-react';
+import { Info } from 'lucide-react';
 import LoanPageLayout from '../components/LoanPageLayout';
 import OfferSummaryTable from '../components/OfferSummaryTable';
 import ExpertCtaBanner from '../components/ui/ExpertCtaBanner';
@@ -18,9 +17,14 @@ const GeneralLoanPage: React.FC = () => {
     { id: 'resume', title: t('mortgage.nav.resume') }
   ];
 
-  const eligibilityItems = t('mortgage.content.eligibility_items', { returnObjects: true }) as any[];
-  const justifRows = t('mortgage.content.justif_rows', { returnObjects: true }) as any[];
-  const summaryRows = t('mortgage.content.summary_rows', { returnObjects: true }) as any[];
+  const getSafeArray = (key: string) => {
+    const res = t(key, { returnObjects: true });
+    return Array.isArray(res) ? res : [];
+  };
+
+  const eligibilityItems = getSafeArray('mortgage.content.eligibility_items');
+  const justifRows = getSafeArray('mortgage.content.justif_rows');
+  const summaryRows = getSafeArray('mortgage.content.summary_rows');
 
   return (
     <LoanPageLayout 
@@ -57,7 +61,7 @@ const GeneralLoanPage: React.FC = () => {
           description={t('mortgage.content.eligibility_subtitle')}
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {eligibilityItems.map((item, i) => (
+          {eligibilityItems.map((item: any, i: number) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="p-8 bg-slate-50 dark:bg-slate-900 border border-transparent hover:border-rose-500/30 rounded-[2.5rem] transition-all group h-full">
                 <div className="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center text-rose-600 font-black mb-4 shadow-sm group-hover:scale-110 transition-transform">0{i+1}</div>
@@ -80,7 +84,7 @@ const GeneralLoanPage: React.FC = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-xs font-bold text-slate-500">
-              {justifRows.map((row, i) => (
+              {justifRows.map((row: any, i: number) => (
                 <tr key={i} className="hover:bg-slate-50 dark:hover:bg-slate-900/50 transition-colors">
                   <td className="px-8 py-5 text-slate-900 dark:text-white">{row.t}</td>
                   <td className="px-8 py-5">{row.v}</td>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { AlertCircle, ShieldCheck, Zap, ArrowRight } from 'lucide-react';
@@ -16,8 +15,13 @@ const FastLoanPage: React.FC = () => {
     { id: 'resume', title: t('fast_loan.nav.resume') }
   ];
 
-  const criteriaItems = t('fast_loan.content.criteria_items', { returnObjects: true }) as any[];
-  const summaryRows = t('fast_loan.content.summary_rows', { returnObjects: true }) as any[];
+  const getSafeArray = (key: string) => {
+    const res = t(key, { returnObjects: true });
+    return Array.isArray(res) ? res : [];
+  };
+
+  const criteriaItems = getSafeArray('fast_loan.content.criteria_items');
+  const summaryRows = getSafeArray('fast_loan.content.summary_rows');
 
   return (
     <LoanPageLayout 
@@ -55,7 +59,7 @@ const FastLoanPage: React.FC = () => {
           <p className="text-slate-500 font-medium">{t('fast_loan.content.criteria_subtitle')}</p>
         </FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {criteriaItems.map((item, i) => (
+          {criteriaItems.map((item: any, i: number) => (
             <FadeIn key={i} delay={i * 0.1}>
               <div className="p-8 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.5rem] flex items-start space-x-6 hover:shadow-xl transition-all group">
                 <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 flex items-center justify-center shrink-0 shadow-sm text-yellow-600 font-black group-hover:scale-110 transition-transform">0{i+1}</div>

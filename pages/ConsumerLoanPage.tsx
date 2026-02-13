@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Info, Smartphone, Zap, ShieldCheck, CheckCircle, ArrowRight } from 'lucide-react';
+import { Info, Smartphone, Zap, ShieldCheck, CheckCircle } from 'lucide-react';
 import LoanPageLayout from '../components/LoanPageLayout';
 import ProjectIconsGrid from '../components/ProjectIconsGrid';
 import OfferSummaryTable from '../components/OfferSummaryTable';
@@ -20,17 +19,22 @@ const ConsumerLoanPage: React.FC = () => {
     { id: 'resume', title: t('consumer_loan.nav.resume') }
   ];
 
+  const getSafeArray = (key: string) => {
+    const res = t(key, { returnObjects: true });
+    return Array.isArray(res) ? res : [];
+  };
+
   const advantages = [
     { title: t('consumer_loan.advantages.online.title'), description: t('consumer_loan.advantages.online.desc'), icon: Smartphone },
     { title: t('consumer_loan.advantages.express.title'), description: t('consumer_loan.advantages.express.desc'), icon: Zap },
     { title: t('consumer_loan.advantages.secure.title'), description: t('consumer_loan.advantages.secure.desc'), icon: ShieldCheck }
   ];
 
-  const eligibilityItems = (t('consumer_loan.content.eligibility.items', { returnObjects: true }) as any[]).map((item, i) => ({
+  const eligibilityItems = getSafeArray('consumer_loan.content.eligibility.items').map((item: any, i: number) => ({
     title: item.t, description: item.d, number: `0${i+1}`
   }));
 
-  const projectsList = t('consumer_loan.content.projects_list', { returnObjects: true }) as string[];
+  const projectsList = getSafeArray('consumer_loan.content.projects_list') as string[];
 
   return (
     <LoanPageLayout 
