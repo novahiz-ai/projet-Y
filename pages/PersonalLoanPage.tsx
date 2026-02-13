@@ -23,10 +23,11 @@ const PersonalLoanPage: React.FC = () => {
         highlight: t('personal_loan.hero.highlight'),
         desc: t('personal_loan.hero.desc'),
         cta: t('personal_loan.hero.cta'),
-        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2000"
+        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=2000",
+        offerId: 'perso'
       }}
       navItems={navItems}
-      accentColor="text-indigo-600"
+      accentColorClass="text-indigo-600"
     >
       <section id="definition" className="space-y-10 scroll-mt-32">
         <div className="flex items-center space-x-4">

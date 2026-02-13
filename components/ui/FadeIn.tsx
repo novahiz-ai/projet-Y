@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 interface FadeInProps {
   children: React.ReactNode;
+  id?: string;
   delay?: number;
   direction?: 'up' | 'down' | 'left' | 'right' | 'none';
   duration?: number;
@@ -12,6 +13,7 @@ interface FadeInProps {
 
 const FadeIn: React.FC<FadeInProps> = ({ 
   children, 
+  id,
   delay = 0, 
   direction = 'up', 
   duration = 0.8,
@@ -27,6 +29,7 @@ const FadeIn: React.FC<FadeInProps> = ({
 
   return (
     <motion.div
+      id={id}
       initial={{ 
         opacity: 0, 
         ...directions[direction],

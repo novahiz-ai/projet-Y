@@ -147,7 +147,7 @@ const ContactPage: React.FC = () => {
                         <ModernSelect 
                           options={[
                             { value: 'pret', label: 'Demande de prêt' },
-                            { icon: 'rachat', value: 'rachat', label: 'Rachat de crédits' },
+                            { value: 'rachat', label: 'Rachat de crédits' },
                             { value: 'suivi', label: 'Suivi de dossier' },
                             { value: 'autre', label: 'Autre question' }
                           ]}
@@ -191,7 +191,7 @@ const ContactPage: React.FC = () => {
                         <CheckCircle2 size={48} />
                       </div>
                       <div className="space-y-4">
-                        <h3 className="text-3xl font-black uppercase tracking-tight text-slate-900 dark:text-white">Message envoyé !</h3>
+                        <h3 className="text-3xl font-black uppercase tracking-tight text-slate-950 dark:text-white">Message envoyé !</h3>
                         <p className="text-slate-500 dark:text-slate-400 font-medium max-w-sm mx-auto">
                           Merci {formState.name}. Votre demande a été transmise à notre équipe. Nous vous répondrons sous 24h ouvrées.
                         </p>
