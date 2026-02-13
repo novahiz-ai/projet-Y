@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { LOAN_OFFERS } from '../../constants';
 import ModernSelect from '../ModernSelect';
@@ -28,13 +27,8 @@ const SimulatorControls: React.FC<SimulatorControlsProps> = ({
   const selectedOffer = LOAN_OFFERS.find(o => o.id === selectedOfferId) || LOAN_OFFERS[0];
 
   return (
-    <div className="space-y-8 lg:space-y-10 w-full max-w-xl mx-auto md:mx-0">
-      <div className="hidden md:block space-y-1">
-         <h2 className="text-3xl font-black uppercase tracking-tighter italic leading-none text-slate-950 dark:text-white">{t('simulator.title')}</h2>
-         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Projet de financement United</p>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+    <div className="space-y-3 lg:space-y-4 w-full max-w-xl mx-auto md:mx-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <ModernSelect 
           label={t('simulator.project')} 
           options={LOAN_OFFERS.filter(o => o.id !== 'assurance').map(o => ({ value: o.id, label: t(o.title) }))} 
@@ -45,11 +39,11 @@ const SimulatorControls: React.FC<SimulatorControlsProps> = ({
           currencies={currencies} 
           currentCurrency={currency} 
           onCurrencyChange={onCurrencyChange} 
-          label="Devise de référence" 
+          label="Devise" 
         />
       </div>
 
-      <div className="space-y-4 lg:space-y-6">
+      <div className="space-y-2 lg:space-y-3">
         <SliderInput 
           label={t('simulator.amount')}
           value={amount}

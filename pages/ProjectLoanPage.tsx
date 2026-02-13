@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -76,7 +75,7 @@ const ProjectLoanPage: React.FC = () => {
     <div className="relative bg-white dark:bg-slate-950 transition-colors duration-500">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[60vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
+      <section className="relative h-[75vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=2000" 

@@ -21,7 +21,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   const { t } = useTranslation();
 
   return (
-    <section className="relative overflow-hidden h-[50vh] lg:h-auto pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 flex items-center lg:min-h-[50vh]">
+    <section className="relative overflow-hidden h-[75vh] lg:h-auto pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 flex items-center lg:min-h-[50vh]">
       <div className="absolute inset-0 z-0">
         {image && <img src={image} alt="" className="w-full h-full object-cover opacity-10 dark:opacity-20 scale-105" />}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
@@ -51,13 +51,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             </motion.div>
           )}
           
-          <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-[0.85] italic">
+          <h1 className="text-4xl md:text-h1 font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-[0.85] italic">
             {title} <br />
             <span className="text-brand-primary">{highlight}</span>
           </h1>
           
           {description && (
-            <p className="text-lg md:text-2xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-h3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-2xl">
               {description}
             </p>
           )}

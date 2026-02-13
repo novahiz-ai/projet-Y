@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import Header from '../Header';
@@ -26,6 +25,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({
 
   return (
     <div className="min-h-screen flex flex-col transition-colors duration-500 bg-white dark:bg-slate-950">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-6 focus:py-3 focus:bg-brand-primary focus:text-white focus:rounded-xl focus:shadow-xl">
+        Passer au contenu principal
+      </a>
+
       {!isLoginPage && (
         <Header 
           isDarkMode={isDarkMode} 
@@ -37,7 +40,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({
         />
       )}
 
-      <main className={`flex-grow ${!isLoginPage ? 'pb-[60px] lg:pb-0' : ''}`}>
+      <main id="main-content" className={`flex-grow ${!isLoginPage ? 'pb-[60px] lg:pb-0' : ''}`}>
         {children}
       </main>
 

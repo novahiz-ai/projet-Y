@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronRight, ArrowRight } from 'lucide-react';
@@ -56,7 +55,7 @@ const LoanPageLayout: React.FC<LoanPageLayoutProps> = ({
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500" style={{ '--accent-color': accentHex } as React.CSSProperties}>
-      <section className="relative h-[50vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
+      <section className="relative h-[75vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img src={hero.image} alt="" className="w-full h-full object-cover opacity-20 dark:opacity-30 scale-105" />
           <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>

@@ -1,16 +1,23 @@
-
 export const landing = {
   hero: {
     title: "YOUR PROJECT,",
     highlight: "OUR EXPERTISE.",
     desc: "Younited transforms credit into a simple, transparent, and 100% digital experience. Get a firm response in real-time.",
     simulate: "Simulate my loan",
+    simulate_desc: "Calculate your project and get an immediate answer.",
     express: "Express Request",
     trustpilot: "Trustpilot Score 4.8/5",
     response_time: "Response in 3 minutes",
+    response_time_desc: "Immediate principle response in 3 minutes.",
     expert_choice: "ACPR License",
     secured: "Responsible Credit",
     apr_fixed: "FIXED APR",
+    tablet_edition: "Tablet Pro Edition",
+    total_security: "Total Security",
+    security_text: "eIDAS certified analysis and integrated GDPR protection.",
+    digital_analysis: "Digital Analysis",
+    quick_finance: "Quick Finance",
+    view_all: "All",
     projects: {
       auto: { label: "Auto Loan", desc: "Finance your new or used vehicle at the best rate.", limit: "Up to €60,000" },
       immo: { label: "Mortgage", desc: "Become a homeowner with tailor-made support.", limit: "Real estate projects" },
@@ -59,9 +66,10 @@ export const landing = {
     title: "THEY ",
     highlight: "TRUST US.",
     items: [
-      { name: "Thomas B.", text: "Ultra-fast response and very intuitive interface. Financed my car in 48h.", type: "Auto Loan" },
-      { name: "Julie D.", text: "Debt consolidation allowed me to breathe monthly. A big thanks to the analysts.", type: "Consolidation" },
-      { name: "Kevin M.", text: "Finally a bank that speaks my language. Simple, clear and precise.", type: "Personal Loan" }
+      { name: "Thomas B.", text: "Ultra-fast response and very intuitive interface. Financed my car in 48h.", type: "Auto Loan", country: "United Kingdom" },
+      { name: "Julie D.", text: "Debt consolidation allowed me to breathe monthly. A big thanks to the analysts.", type: "Consolidation", country: "Italy" },
+      { name: "Kevin M.", text: "Finally a bank that speaks my language. Simple, clear and precise.", type: "Personal Loan", country: "Spain" },
+      { name: "Elena S.", text: "100% digital process, funds received very quickly for my home improvement.", type: "Renovation Loan", country: "Germany" }
     ]
   },
   prefooter: {

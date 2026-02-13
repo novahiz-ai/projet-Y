@@ -1,17 +1,23 @@
-
 export const landing = {
   hero: {
     title: "TU PROYECTO,",
     highlight: "NUESTRA EXPERIENCIA.",
     desc: "Younited transforma el crédito en una experiencia sencilla, transparente y 100% digital. Obtén una respuesta firme en tiempo real.",
     simulate: "Simular mi préstamo",
+    simulate_desc: "Calcule su proyecto y obtenga una respuesta inmediata.",
     express: "Solicitud Express",
     trustpilot: "Nota Trustpilot 4.8/5",
     response_time: "Respuesta en 3 minutos",
-    expert_choice: "La elección del experto",
-    secured: "Pago Seguro",
-    tech_label: "Tecnología 100% Digital",
+    response_time_desc: "Respuesta de principio inmediata en 3 minutos.",
+    expert_choice: "Autorización ACPR",
+    secured: "Crédito Responsable",
     apr_fixed: "TAE FIJO",
+    tablet_edition: "Edición Tablet Pro",
+    total_security: "Seguridad Total",
+    security_text: "Análisis certificado eIDAS y protección RGPD integrada.",
+    digital_analysis: "Análisis Digital",
+    quick_finance: "Financiación Rápida",
+    view_all: "Todos",
     projects: {
       auto: { label: "Préstamo Auto", desc: "Financia tu vehículo nuevo o de ocasión a la mejor tasa.", limit: "Hasta 60.000€" },
       immo: { label: "Hipoteca", desc: "Hazte propietario con un acompañamiento a medida.", limit: "Proyectos inmobiliarios" },
@@ -60,9 +66,9 @@ export const landing = {
     title: "ELLOS CONFÍAN ",
     highlight: "EN NOSOTROS.",
     items: [
-      { name: "Thomas B.", text: "Respuesta ultra rápida e interfaz muy intuitiva. Financié mi coche en 48h.", type: "Préstamo Auto" },
-      { name: "Julie D.", text: "La reunificación de deudas me permitió respirar mensualmente. Mil gracias a los analistas.", type: "Reunificación" },
-      { name: "Kevin M.", text: "Por fin un banco que habla mi idioma. Sencillo, claro y preciso.", type: "Préstamo Personal" }
+      { name: "Thomas B.", text: "Respuesta ultra rápida e interfaz muy intuitiva. Financié mi coche en 48h.", type: "Préstamo Auto", country: "Francia" },
+      { name: "Julie D.", text: "La reunificación de deudas me permitió respirar mensualmente. Mil gracias a los analistas.", type: "Reunificación", country: "Italia" },
+      { name: "Kevin M.", text: "Por fin un banco que habla mi idioma. Sencillo, claro y preciso.", type: "Préstamo Personal", country: "España" }
     ]
   },
   prefooter: {

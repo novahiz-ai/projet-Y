@@ -1,11 +1,11 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ChevronRight, ShieldCheck, Clock } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getHeroProjects } from '../data/heroProjects';
 import { getIcon } from '../constants';
+import TrustBadges from './ui/TrustBadges';
 
 interface HeroSectionProps {
   title: string;
@@ -35,13 +35,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <img 
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2560" 
           alt="" 
-          className="w-full h-full object-cover opacity-[0.08] dark:opacity-[0.15] transition-opacity duration-1000"
+          loading="eager"
+          className="w-full h-full object-cover opacity-[0.18] dark:opacity-[0.28] transition-opacity duration-1000 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent" />
+        {/* Refined gradient for better text legibility on high opacity bg */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent dark:from-slate-950 dark:via-slate-950/70 dark:to-transparent" />
         <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full animate-glow pointer-events-none" />
       </div>
 
-      <div className="w-full max-w-[1920px] mx-auto px-6 lg:px-20 xl:px-32 relative z-10">
+      <div className="w-full max-w-[2560px] mx-auto px-6 lg:px-20 xl:px-32 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:h-[450px] items-stretch">
           <div className="w-full lg:w-[65%] flex flex-col justify-between h-full py-2">
             <div className="space-y-6">
@@ -91,20 +93,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               {children}
             </div>
 
-            <div className="flex flex-wrap items-center gap-x-10 gap-y-4 pt-6 border-t border-slate-100 dark:border-slate-900/50">
-              <div className="flex items-center space-x-3">
-                <span className="text-brand-primary font-black text-lg">4.8/5</span>
-                <p className="text-[8px] font-black uppercase tracking-widest text-slate-400">{t('landing.hero.trustpilot')}</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Clock size={16} className="text-brand-primary" />
-                <span className="text-[9px] font-black uppercase text-slate-950 dark:text-white">3 Minutes</span>
-                <p className="text-[8px] font-black uppercase tracking-widest text-slate-400 ml-1">{t('landing.hero.response_time')}</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <ShieldCheck size={18} className="text-emerald-500" />
-                <span className="text-[9px] font-black uppercase text-slate-950 dark:text-white">Agréé ACPR</span>
-              </div>
+            <div className="pt-6 border-t border-slate-100 dark:border-slate-900/50">
+              <TrustBadges />
             </div>
           </div>
 

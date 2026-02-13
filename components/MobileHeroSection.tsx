@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -15,7 +14,7 @@ import {
   Shield,
   Activity
 } from 'lucide-react';
-import StandardButton from './StandardButton';
+import TrustBadges from './ui/TrustBadges';
 
 interface MobileHeroSectionProps {
   onOpenApp: (context?: any) => void;
@@ -34,23 +33,17 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
   ];
 
   return (
-    <section className="relative pt-32 pb-12 px-5 lg:hidden bg-white dark:bg-slate-950 overflow-hidden min-h-[90vh] flex flex-col justify-between">
-      {/* Professional Background Image Overlay for Header - Adjusted gradient for embedding */}
-      <div className="absolute top-0 left-0 w-full h-[400px] z-0 pointer-events-none">
+    <section className="relative pt-32 pb-12 px-5 md:hidden bg-white dark:bg-slate-950 overflow-hidden min-h-[90vh] flex flex-col justify-between">
+      <div className="absolute top-0 left-0 w-full h-[450px] z-0 pointer-events-none">
         <img 
           src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" 
-          className="w-full h-full object-cover opacity-30 dark:opacity-40 blur-[1px]" 
+          className="w-full h-full object-cover opacity-[0.45] dark:opacity-[0.55] blur-[0.5px]" 
           alt="" 
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 dark:from-black/40 via-white dark:via-slate-950 to-white dark:to-slate-950"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 dark:from-black/40 via-white dark:via-slate-950 to-white dark:to-slate-950" />
       </div>
 
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/10 blur-[80px] rounded-full -translate-y-1/2 translate-x-1/2 z-0"></div>
-      <div className="absolute bottom-1/4 left-0 w-48 h-48 bg-indigo-500/5 blur-[60px] rounded-full -translate-x-1/2 z-0"></div>
-
       <div className="relative z-10 space-y-8">
-        {/* Welcome Header */}
         <div className="flex items-center justify-between">
           <div className="space-y-1">
             <motion.h2 
@@ -66,7 +59,6 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
           </div>
         </div>
 
-        {/* Main Action Card: Simulator */}
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -84,7 +76,7 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
                   <p className="text-white/60 text-[8px] font-black uppercase tracking-widest leading-none mb-1">{t('landing.hero.response_time')}</p>
                   <div className="flex items-center justify-end space-x-1">
                     <Activity size={10} className="text-emerald-500 animate-pulse" />
-                    <span className="text-white font-black text-[10px] uppercase italic">Analyse Digitale</span>
+                    <span className="text-white font-black text-[10px] uppercase italic">{t('landing.hero.digital_analysis')}</span>
                   </div>
                </div>
             </div>
@@ -94,7 +86,7 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
                  {t('landing.hero.simulate')}
                </h3>
                <p className="text-slate-400 text-xs font-medium max-w-[200px]">
-                 Calculez votre projet et obtenez une réponse immédiate.
+                 {t('landing.hero.simulate_desc')}
                </p>
             </div>
 
@@ -110,12 +102,11 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
           </div>
         </motion.div>
 
-        {/* Categories Grid */}
         <div className="space-y-4">
           <div className="flex items-center justify-between px-2">
-             <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Financement Rapide</span>
+             <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{t('landing.hero.quick_finance')}</span>
              <button onClick={() => navigate('/offres')} className="text-[10px] font-black text-brand-primary uppercase tracking-widest flex items-center space-x-1">
-               <span>Tous</span>
+               <span>{t('landing.hero.view_all')}</span>
                <ChevronRight size={12} />
              </button>
           </div>
@@ -138,7 +129,6 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
           </div>
         </div>
 
-        {/* Express Demand Secondary Action */}
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -151,21 +141,13 @@ const MobileHeroSection: React.FC<MobileHeroSectionProps> = ({ onOpenApp, onOpen
         </motion.button>
       </div>
 
-      {/* Trust Footer */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="pt-10 flex items-center justify-center space-x-6 grayscale opacity-40"
+        className="pt-10 border-t border-slate-100 dark:border-slate-900/50"
       >
-        <div className="flex flex-col items-center">
-           <span className="text-[10px] font-black text-brand-primary">4.8/5</span>
-           <span className="text-[7px] font-black uppercase tracking-widest">Trustpilot</span>
-        </div>
-        <div className="w-px h-6 bg-slate-200 dark:bg-slate-800" />
-        <span className="text-[7px] font-black uppercase tracking-widest">Verified eIDAS</span>
-        <div className="w-px h-6 bg-slate-200 dark:bg-slate-800" />
-        <span className="text-[7px] font-black uppercase tracking-widest">EU Banking License</span>
+        <TrustBadges variant="grid" />
       </motion.div>
     </section>
   );

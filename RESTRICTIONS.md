@@ -1,6 +1,6 @@
-# REGISTRE DES RESTRICTIONS (V15 — SOVEREIGN)
+# REGISTRE DES RESTRICTIONS (V16 — SOVEREIGN)
 
-Ce fichier consigne les interdictions formelles liées à l'environnement Vercel et à la gouvernance V15.
+Ce fichier consigne les interdictions formelles liées à l'environnement Vercel et à la gouvernance V16.
 
 ## INFRASTRUCTURE VERCEL & SUPABASE
 - **PROHIBITION_VRC_001** : Interdiction d'utiliser les modules Node.js `fs`, `path`, `os` dans le runtime Edge.
@@ -16,3 +16,4 @@ Ce fichier consigne les interdictions formelles liées à l'environnement Vercel
 - **PROHIBITION_IA_001** : Interdiction de mentionner l'identité de l'IA (Gemini/Google) dans les réponses clients.
 - **PROHIBITION_IA_002** : Interdiction d'utiliser les propriétés dépréciées du SDK Gemini. Utilisation stricte de `.text` (SDK v0.4.0).
 - **PROHIBITION_IA_003** : Interdiction de générer du code sans respecter le typage strict TypeScript (no implicit any).
+- **PROHIBITION_IA_004** : (V16) Interdiction de passer outre le reporting systématique d'exécution.

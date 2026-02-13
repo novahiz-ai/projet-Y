@@ -1,24 +1,16 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { 
-  MessageSquare,
-  LayoutGrid,
-  Car,
-  Home,
-  Zap,
-  ShieldCheck
-} from 'lucide-react';
+import { LayoutGrid, Car, Home, Zap, ShieldCheck } from 'lucide-react';
 import { LOAN_OFFERS } from '../constants';
-import StandardButton from '../components/StandardButton';
 import LegalWarning from '../components/LegalWarning';
 import LoanCard from '../components/LoanCard';
 import { CardSkeleton } from '../components/Skeleton';
 import ApplicationFormModal from '../components/ApplicationFormModal';
 import PageHeader from '../components/ui/PageHeader';
 import CategoryFilter from '../components/ui/CategoryFilter';
+import OffersExpertBanner from '../components/offers/OffersExpertBanner';
 
 const OffersPage: React.FC = () => {
   const { t } = useTranslation();
@@ -36,7 +28,7 @@ const OffersPage: React.FC = () => {
   ], [t]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 600);
+    const timer = setTimeout(() => setIsLoading(false), 500);
     return () => clearTimeout(timer);
   }, [activeTab]);
 
@@ -63,7 +55,7 @@ const OffersPage: React.FC = () => {
           <CategoryFilter 
             categories={categories} 
             activeId={activeTab} 
-            onSelect={setActiveTab} 
+            onSelect={(id) => { setIsLoading(true); setActiveTab(id); }} 
             allLabel={t('offers.cat_all')} 
             MainIcon={LayoutGrid}
           />
@@ -85,22 +77,7 @@ const OffersPage: React.FC = () => {
           )}
         </AnimatePresence>
 
-        <section className="mt-32 p-12 lg:p-20 bg-slate-900 rounded-[4rem] text-white flex flex-col lg:flex-row items-center justify-between gap-12 relative overflow-hidden shadow-3xl">
-           <div className="absolute top-0 right-0 w-80 h-80 bg-brand-primary/10 blur-[120px] rounded-full"></div>
-           <div className="space-y-6 relative z-10 text-center lg:text-left max-w-2xl">
-              <div className="inline-flex items-center space-x-3 text-brand-primary">
-                 <MessageSquare size={20} className="animate-bounce" />
-                 <span className="text-[10px] font-black uppercase tracking-[0.3em]">Accompagnement Dédié</span>
-              </div>
-              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter italic leading-[0.9]">{t('offers.expert_support')}</h2>
-              <p className="text-slate-400 text-lg font-medium leading-relaxed">
-                Nos analystes financiers vous répondent en direct pour optimiser votre plan de financement.
-              </p>
-           </div>
-           <StandardButton variant="white" className="!text-slate-900 !px-12 !py-6 text-lg active:scale-95" onClick={() => window.location.href = "mailto:Younitedcreditfr@outlook.fr"}>
-              {t('offers.contact_expert')}
-           </StandardButton>
-        </section>
+        <OffersExpertBanner />
         <LegalWarning />
       </div>
     </div>

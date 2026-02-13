@@ -50,7 +50,7 @@ const CookiesPage: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
-      <div className="relative overflow-hidden h-[50vh] lg:h-auto pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 transition-colors duration-500 flex items-center">
+      <div className="relative overflow-hidden h-[75vh] lg:h-auto pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 transition-colors duration-500 flex items-center">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000" 

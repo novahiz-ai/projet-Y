@@ -2,7 +2,7 @@ import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
 /**
- * V15 — SOVEREIGN COMPONENT
+ * V16 — SOVEREIGN COMPONENT
  * Type: UI_ANIMATION_ENGINE
  */
 interface FadeInProps extends HTMLMotionProps<'div'> {
@@ -19,15 +19,15 @@ const FadeIn: React.FC<FadeInProps> = ({
   id,
   delay = 0, 
   direction = 'up', 
-  duration = 0.8,
+  duration = 0.5,
   className = "",
   ...props 
 }) => {
   const directions = {
-    up: { y: 40 },
-    down: { y: -40 },
-    left: { x: 40 },
-    right: { x: -40 },
+    up: { y: 20 },
+    down: { y: -20 },
+    left: { x: 20 },
+    right: { x: -20 },
     none: { x: 0, y: 0 }
   };
 
@@ -37,19 +37,24 @@ const FadeIn: React.FC<FadeInProps> = ({
       initial={{ 
         opacity: 0, 
         ...directions[direction],
-        filter: 'blur(10px)' 
+        scale: 0.98,
+        filter: 'blur(8px)' 
       }}
       whileInView={{ 
         opacity: 1, 
         x: 0, 
         y: 0,
+        scale: 1,
         filter: 'blur(0px)' 
       }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ 
         delay, 
         duration, 
-        ease: [0.16, 1, 0.3, 1] 
+        type: "spring",
+        stiffness: 100,
+        damping: 15,
+        mass: 0.5
       }}
       className={className}
       {...props}

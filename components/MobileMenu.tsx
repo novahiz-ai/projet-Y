@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
@@ -44,7 +43,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenSimulato
     { icon: <Home size={20} />, label: t('nav.home'), path: '/' },
     { 
       icon: <LayoutGrid size={20} />, 
-      label: t('nav.credit'), 
+      label: "solutions", 
       isExpandable: true,
       isExpanded: isCreditExpanded,
       onToggle: () => setIsCreditExpanded(!isCreditExpanded)
@@ -80,7 +79,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, onOpenSimulato
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: "spring", damping: 30, stiffness: 300 }}
-            className="absolute top-0 right-0 h-full w-[75vw] bg-white dark:bg-slate-950 shadow-3xl flex flex-col border-l border-slate-100 dark:border-slate-800"
+            className="absolute top-0 right-0 h-full w-[75vw] md:w-[40%] bg-white dark:bg-slate-950 shadow-3xl flex flex-col border-l border-slate-100 dark:border-slate-800"
           >
             <div className="p-6 flex items-center justify-between border-b border-slate-50 dark:border-slate-900">
               <Logo />

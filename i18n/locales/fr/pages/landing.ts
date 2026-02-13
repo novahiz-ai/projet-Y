@@ -1,16 +1,23 @@
-
 export const landing = {
   hero: {
     title: "VOTRE PROJET,",
     highlight: "NOTRE EXPERTISE.",
     desc: "Younited transforme le crédit en une expérience simple, transparente et 100% digitale. Obtenez une réponse ferme en temps réel.",
     simulate: "Simuler mon prêt",
+    simulate_desc: "Calculez votre projet et obtenez une réponse immédiate.",
     express: "Demande Express",
     trustpilot: "Note Trustpilot 4.8/5",
     response_time: "Réponse en 3 minutes",
+    response_time_desc: "Réponse de principe immédiate en 3 minutes.",
     expert_choice: "Agrément ACPR",
     secured: "Crédit Responsable",
     apr_fixed: "TAEG FIXE",
+    tablet_edition: "Édition Tablette Pro",
+    total_security: "Sécurité Totale",
+    security_text: "Analyse certifiée eIDAS et protection RGPD intégrée.",
+    digital_analysis: "Analyse Digitale",
+    quick_finance: "Financement Rapide",
+    view_all: "Tous",
     projects: {
       auto: { label: "Prêt Auto", desc: "Financez votre véhicule neuf ou d'occasion au meilleur taux.", limit: "Jusqu'à 60 000€" },
       immo: { label: "Prêt Immo", desc: "Devenez propriétaire avec un accompagnement sur-mesure.", limit: "Projets immobiliers" },
@@ -59,9 +66,10 @@ export const landing = {
     title: "ILS NOUS FONT ",
     highlight: "CONFIANCE.",
     items: [
-      { name: "Thomas B.", text: "Réponse ultra rapide et interface très intuitive. J'ai financé ma voiture en 48h.", type: "Prêt Auto" },
-      { name: "Julie D.", text: "Le rachat de crédit m'a permis de souffler mensuellement. Un grand merci aux analystes.", type: "Rachat" },
-      { name: "Kevin M.", text: "Enfin une banque qui parle mon langage. Simple, net et précis.", type: "Prêt Perso" }
+      { name: "Thomas B.", text: "Réponse ultra rapide et interface très intuitive. J'ai financé ma voiture en 48h.", type: "Prêt Auto", country: "France" },
+      { name: "Julie D.", text: "Le rachat de crédit m'a permis de souffler mensuellement. Un grand merci aux analystes.", type: "Rachat de crédits", country: "Italie" },
+      { name: "Kevin M.", text: "Enfin une banque qui parle mon langage. Simple, net et précis.", type: "Prêt Personnel", country: "Espagne" },
+      { name: "Elena S.", text: "Processus 100% digital, fonds reçus très rapidement pour mes travaux.", type: "Prêt Travaux", country: "Portugal" }
     ]
   },
   prefooter: {

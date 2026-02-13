@@ -1,4 +1,4 @@
-# CHECKLIST DE VALIDATION SOUVERAINE (V15)
+# CHECKLIST DE VALIDATION SOUVERAINE (V16)
 
 Avant chaque réponse, modification ou déploiement, les points suivants doivent être impérativement validés :
 
@@ -20,7 +20,11 @@ Avant chaque réponse, modification ou déploiement, les points suivants doivent
 - [ ] **Externalisation :** Blocs > 50 lignes déplacés dans `components/`.
 - [ ] **Propriété .text :** Extraction des réponses Gemini via la propriété `.text` exclusivement.
 
-## 4. DESIGN & UX
+## 4. REPORTING (Nouveau V16)
+- [ ] **Log d'exécution :** Génération du rapport JSON après mutation.
+- [ ] **Type Fingerprinting :** Vérification des hashes SHA-256 des contrats d'interface.
+
+## 5. DESIGN & UX
 - [ ] **Tokens Design :** Utilisation stricte des variables de thème CSS.
 - [ ] **Accessibilité :** Attributs ARIA présents sur les nouveaux composants.
 - [ ] **Responsive :** Validation mobile/tablette/desktop.

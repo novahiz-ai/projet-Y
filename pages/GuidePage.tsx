@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -72,7 +71,7 @@ const GuidePage: React.FC = () => {
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
-      <section className="relative h-[50vh] lg:h-auto lg:min-h-[70vh] flex items-center overflow-hidden pt-20">
+      <section className="relative h-[75vh] lg:h-auto lg:min-h-[70vh] flex items-center overflow-hidden pt-20">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1454165833767-027ffea9e77b?auto=format&fit=crop&q=80&w=2000" 

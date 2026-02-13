@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -38,30 +37,28 @@ const StandardButton: React.FC<StandardButtonProps> = ({
       disabled={disabled}
       style={style}
       whileHover={!disabled ? { 
-        scale: 1.02, 
-        y: -2,
+        scale: 1.03, 
+        y: -3,
         boxShadow: variant === 'primary' || variant === 'secondary'
-          ? "0 25px 50px -12px rgba(124, 58, 237, 0.4)" 
-          : "0 20px 40px -12px rgba(0,0,0,0.1)"
+          ? "0 30px 60px -12px rgba(124, 58, 237, 0.45)" 
+          : "0 20px 40px -12px rgba(0,0,0,0.12)"
       } : {}}
-      whileTap={!disabled ? { scale: 0.96 } : {}}
-      transition={{ type: "spring", stiffness: 400, damping: 15 }}
+      whileTap={!disabled ? { scale: 0.94, y: 0 } : {}}
+      transition={{ type: "spring", stiffness: 500, damping: 15 }}
       className={`${baseStyles} ${variants[variant]} ${className} group`}
     >
-      {/* Shine Effect Animation */}
       <motion.div 
         initial={{ x: "-100%" }}
         whileHover={{ x: "100%" }}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none skew-x-12"
+        transition={{ duration: 0.6, ease: "circOut" }}
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent pointer-events-none skew-x-12"
       />
 
       <span className="relative z-10 flex items-center space-x-3 whitespace-nowrap">
         {children}
       </span>
 
-      {/* Internal border highlight for depth */}
-      <div className="absolute inset-0 rounded-2xl md:rounded-[1.5rem] border border-white/5 pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl md:rounded-[1.5rem] border border-white/10 pointer-events-none" />
     </motion.button>
   );
 };

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -18,7 +17,7 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenApp, onOpenSimu
 
   const navItems = [
     { icon: <Home size={20} />, label: t('nav.home'), path: '/' },
-    { icon: <LayoutGrid size={20} />, label: t('nav.credit'), path: '/offres' },
+    { icon: <LayoutGrid size={20} />, label: "solutions", path: '/offres' },
     { icon: null, label: '', path: 'apply', isAction: true }, 
     { icon: <Calculator size={20} />, label: "calculer", path: 'simulator', isSimulator: true },
     { icon: <UserCircle2 size={20} strokeWidth={2.5} />, label: "profile", path: '/login', isProfile: true }

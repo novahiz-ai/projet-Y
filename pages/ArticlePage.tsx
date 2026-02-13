@@ -91,7 +91,7 @@ const ArticlePage: React.FC = () => {
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
       
-      <section className="relative h-[50vh] lg:h-auto pt-32 pb-12 md:pb-20 overflow-hidden flex items-center">
+      <section className="relative h-[75vh] lg:h-auto pt-32 pb-12 md:pb-20 overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/5 dark:from-brand-primary/10 to-transparent"></div>
         </div>

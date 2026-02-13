@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -66,7 +65,7 @@ const GlossaryPage: React.FC = () => {
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500 min-h-screen">
       
       {/* HERO SECTION */}
-      <section className="relative h-[50vh] lg:h-auto pt-32 pb-24 overflow-hidden border-b border-slate-50 dark:border-slate-900 flex items-center">
+      <section className="relative h-[75vh] lg:h-auto pt-32 pb-24 overflow-hidden border-b border-slate-50 dark:border-slate-900 flex items-center">
         <div className="absolute inset-0 z-0 opacity-10">
            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/20 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
         </div>

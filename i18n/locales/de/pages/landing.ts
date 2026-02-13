@@ -1,17 +1,23 @@
-
 export const landing = {
   hero: {
     title: "IHR PROJEKT,",
     highlight: "UNSERE EXPERTISE.",
     desc: "Younited macht Kredite einfach, transparent und 100% digital. Erhalten Sie eine verbindliche Antwort in Echtzeit.",
     simulate: "Meinen Kredit simulieren",
+    simulate_desc: "Berechnen Sie Ihr Projekt und erhalten Sie sofort eine Antwort.",
     express: "Express-Anfrage",
     trustpilot: "Trustpilot Note 4.8/5",
     response_time: "Antwort in 3 Minuten",
-    expert_choice: "Experten-Empfehlung",
-    secured: "Sichere Zahlung",
-    tech_label: "100% Digitale Technologie",
+    response_time_desc: "Sofortige Grundsatzantwort in 3 Minuten.",
+    expert_choice: "ACPR-Zulassung",
+    secured: "Verantwortungsvoller Kredit",
     apr_fixed: "FEST-TAEG",
+    tablet_edition: "Tablet Pro Edition",
+    total_security: "Volle Sicherheit",
+    security_text: "eIDAS-zertifizierte Analyse und integrierter DSGVO-Schutz.",
+    digital_analysis: "Digitale Analyse",
+    quick_finance: "Schnellfinanzierung",
+    view_all: "Alle",
     projects: {
       auto: { label: "Autokredit", desc: "Finanzieren Sie Ihr Fahrzeug zum Bestzins.", limit: "Bis zu 60.000€" },
       immo: { label: "Immobilien", desc: "Werden Sie Eigentümer mit individueller Begleitung.", limit: "Immobilienprojekte" },
@@ -60,9 +66,9 @@ export const landing = {
     title: "SIE VERTRAUEN ",
     highlight: "UNS.",
     items: [
-      { name: "Thomas B.", text: "Ultraschnelle Antwort und sehr intuitive Benutzeroberfläche. Auto in 48h finanziert.", type: "Autokredit" },
-      { name: "Julie D.", text: "Die Umschuldung hat mein monatliches Budget spürbar entlastet. Vielen Dank.", type: "Umschuldung" },
-      { name: "Kevin M.", text: "Endlich eine Bank, die meine Sprache spricht. Einfach, klar und präzise.", type: "Privatkredit" }
+      { name: "Thomas B.", text: "Ultraschnelle Antwort und sehr intuitive Benutzeroberfläche. Auto in 48h finanziert.", type: "Autokredit", country: "Frankreich" },
+      { name: "Julie D.", text: "Die Umschuldung hat mein monatliches Budget spürbar entlastet. Vielen Dank.", type: "Umschuldung", country: "Italien" },
+      { name: "Kevin M.", text: "Endlich eine Bank, die meine Sprache spricht. Einfach, klar und präzise.", type: "Privatkredit", country: "Spanien" }
     ]
   },
   prefooter: {

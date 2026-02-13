@@ -1,17 +1,23 @@
-
 export const landing = {
   hero: {
     title: "IL TUO PROGETTO,",
     highlight: "LA NOSTRA ESPERIENZA.",
     desc: "Younited trasforma il credito in un'esperienza semplice, trasparente e 100% digitale. Ottieni una risposta ferma in tempo reale.",
     simulate: "Simula il mio prestito",
+    simulate_desc: "Calcola il tuo progetto e ricevi una risposta immediata.",
     express: "Richiesta Express",
     trustpilot: "Voto Trustpilot 4.8/5",
     response_time: "Risposta in 3 minuti",
-    expert_choice: "La scelta dell'esperto",
-    secured: "Pagamento Sicuro",
-    tech_label: "Tecnologia 100% Digitale",
+    response_time_desc: "Risposta di principio immediata in 3 minuti.",
+    expert_choice: "Autorizzazione ACPR",
+    secured: "Credito Responsabile",
     apr_fixed: "TAEG FISSO",
+    tablet_edition: "Edizione Tablet Pro",
+    total_security: "Sicurezza Totale",
+    security_text: "Analisi certificata eIDAS e protezione RGPD integrata.",
+    digital_analysis: "Analisi Digitale",
+    quick_finance: "Finanziamento Rapido",
+    view_all: "Tutti",
     projects: {
       auto: { label: "Prestito Auto", desc: "Finanzia il tuo veicolo nuovo o usato al miglior tasso.", limit: "Fino a 60.000€" },
       immo: { label: "Mutuo", desc: "Diventa proprietario con un supporto su misura.", limit: "Progetti immobiliari" },
@@ -60,9 +66,9 @@ export const landing = {
     title: "CI DANNO ",
     highlight: "FIDUCIA.",
     items: [
-      { name: "Thomas B.", text: "Risposta ultra rapida e interfaccia molto intuitiva. Ho finanziato la mia auto in 48 ore.", type: "Prestito Auto" },
-      { name: "Julie D.", text: "Il consolidamento debiti mi ha permesso di respirare mensilmente. Un grande grazie agli analisti.", type: "Raggruppamento" },
-      { name: "Kevin M.", text: "Finalmente una banca che parla la mia lingua. Semplice, chiaro e preciso.", type: "Prestito Personale" }
+      { name: "Thomas B.", text: "Risposta ultra rapida e interfaccia molto intuitiva. Ho finanziato la mia auto in 48 ore.", type: "Prestito Auto", country: "Francia" },
+      { name: "Julie D.", text: "Il consolidamento debiti mi ha permesso di respirare mensilmente. Un grande grazie agli analisti.", type: "Raggruppamento", country: "Italia" },
+      { name: "Kevin M.", text: "Finalmente una banca che parla la mia lingua. Semplice, chiaro e preciso.", type: "Prestito Personale", country: "Spagna" }
     ]
   },
   prefooter: {

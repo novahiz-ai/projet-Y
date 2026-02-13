@@ -1,17 +1,23 @@
-
 export const landing = {
   hero: {
     title: "DITT PROJEKT,",
     highlight: "VÅR EXPERTIS.",
     desc: "Younited förvandlar kredit till en enkel, transparent och 100 % digital upplevelse. Få ett definitivt svar i realtid.",
     simulate: "Simulera mitt lån",
+    simulate_desc: "Beräkna ditt projekt och få ett omedelbart svar.",
     express: "Expressansökan",
     trustpilot: "Trustpilot-betyg 4.8/5",
     response_time: "Svar inom 3 minuter",
-    expert_choice: "Expertens val",
-    secured: "Säker betalning",
-    tech_label: "100% Digital Teknik",
+    response_time_desc: "Omedelbart principbesked på 3 minuter.",
+    expert_choice: "ACPR-tillstånd",
+    secured: "Ansvarsfull Kredit",
     apr_fixed: "FAST EFFEKTIV RÄNTA",
+    tablet_edition: "Tablet Pro Edition",
+    total_security: "Total Säkerhet",
+    security_text: "eIDAS-certifierad analys och integrerat GDPR-skydd.",
+    digital_analysis: "Digital Analys",
+    quick_finance: "Snabb Finansiering",
+    view_all: "Alla",
     projects: {
       auto: { label: "Billån", desc: "Finansiera ditt nya eller begagnade fordon till bästa ränta.", limit: "Upp till 600 000 kr" },
       immo: { label: "Bolån", desc: "Bli husägare med skräddarsytt stöd.", limit: "Fastighetsprojekt" },
@@ -60,9 +66,9 @@ export const landing = {
     title: "DE GER OSS ",
     highlight: "FÖRTROENDE.",
     items: [
-      { name: "Thomas B.", text: "Ultrasnabbt svar och mycket intuitivt gränssnitt. Finansierade min bil på 48 timmar.", type: "Billån" },
-      { name: "Julie D.", text: "Skuldfinansiering gjorde att jag kunde andas igen varje månad. Stort tack till analytikerna.", type: "Samlingslån" },
-      { name: "Kevin M.", text: "Äntligen en bank som talar mitt språk. Enkelt, tydligt och exakt.", type: "Privatlån" }
+      { name: "Thomas B.", text: "Ultrasnabbt svar och mycket intuitivt gränssnitt. Finansierade min bil på 48 timmar.", type: "Billån", country: "Frankrike" },
+      { name: "Julie D.", text: "Skuldfinansiering gjorde att jag kunde andas igen varje månad. Stort tack till analytikerna.", type: "Samlingslån", country: "Italien" },
+      { name: "Kevin M.", text: "Äntligen en bank som talar mitt språk. Enkelt, tydligt och exakt.", type: "Privatlån", country: "Spanien" }
     ]
   },
   prefooter: {

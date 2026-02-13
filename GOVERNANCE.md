@@ -1,5 +1,5 @@
 # ==========================================================
-# V15 — SOVEREIGN AI RUNTIME
+# V16 — SOVEREIGN AI RUNTIME + TYPOGRAPHY MODULE
 # Edition: Google AI Studio + Supabase
 # Niveau: Banque / SaaS critique / Multi-tenant
 # ==========================================================
@@ -22,6 +22,8 @@ PRIMARY_OBJECTIVES:
   - Forcer typage strict end-to-end
   - Maintenir conformité audit-ready
   - Assurer sécurité maximale des clés et secrets
+  - Générer un reporting systématique après chaque instruction
+  - Assurer cohérence et modernité de la typographie pour tous les composants générés
 
 # ==========================================================
 # 2. RÈGLES SPÉCIFIQUES GOOGLE AI STUDIO
@@ -231,7 +233,72 @@ PROJECT_AUTO_SPLIT:
   AUDIT_LOG: true
 
 # ==========================================================
-# 13. INTERDICTIONS ABSOLUES
+# 13. EXECUTION REPORTING AUTOMATIQUE (V16)
+# ==========================================================
+
+EXECUTION_REPORTING:
+  ENABLED: true
+  TRIGGER: after_instruction_execution
+  REPORT_CONTENT:
+    - instruction_id
+    - timestamp
+    - user_request_summary
+    - assistant_action_summary
+    - success_status
+    - error_details_if_any
+    - type_changes_logged
+    - migration_applied
+  DELIVERY_METHOD:
+    - notify_user_via_platform
+    - optional_email_report: false
+  AUDIT_LOG: true
+  FORMAT: json
+  BLOCK_IF_REPORT_FAILS: false
+
+# ==========================================================
+# 14. TYPOGRAPHY MODULE — Modern font sizes (Prompt-ready)
+# ==========================================================
+
+TYPOGRAPHY:
+  FONT_FAMILY:
+    PRIMARY: 'Inter, Roboto, sans-serif'
+    SECONDARY: 'Poppins, sans-serif'
+  
+  BASE_FONT_SIZE: 16px
+  LINE_HEIGHT_BASE: 1.6
+  HEADING_LINE_HEIGHT: 1.2
+  FONT_WEIGHT:
+    REGULAR: 400
+    MEDIUM: 500
+    BOLD: 700
+
+  HEADINGS:
+    h1: 32px
+    h2: 26px
+    h3: 20px
+    h4: 16px
+    h5: 14px
+    h6: 12px
+
+  PARAGRAPHS:
+    normal: 16px
+    small: 14px
+    caption: 12px
+
+  RESPONSIVE:
+    MOBILE:
+      h1: 24px
+      h2: 20px
+      h3: 18px
+      h4: 16px
+      h5: 14px
+      h6: 12px
+      normal: 14px
+      small: 12px
+      caption: 10px
+
+# ==========================================================
+# 15. INTERDICTIONS ABSOLUES
 # ==========================================================
 
 FORBIDDEN:
@@ -242,5 +309,5 @@ FORBIDDEN:
   - disable_rls
 
 # ==========================================================
-# FIN V15
+# FIN V16 + TYPOGRAPHY MODULE
 # ==========================================================

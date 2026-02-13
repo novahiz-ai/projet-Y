@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -7,6 +6,7 @@ import { Zap, ArrowRight } from 'lucide-react';
 
 import HeroSection from '../components/HeroSection';
 import MobileHeroSection from '../components/MobileHeroSection';
+import TabletHeroSection from '../components/TabletHeroSection';
 import StandardButton from '../components/StandardButton';
 import StatsBar from '../components/StatsBar';
 import ProcessSteps from '../components/ProcessSteps';
@@ -16,6 +16,7 @@ import AutoPromoSection from '../components/AutoPromoSection';
 import OffersGallery from '../components/OffersGallery';
 import TrustBadgeBanner from '../components/TrustBadgeBanner';
 import ExpertiseNewsroom from '../components/ExpertiseNewsroom';
+import PageWrapper from '../components/layout/PageWrapper';
 
 interface LandingPageProps {
   onOpenApp: (context?: any) => void;
@@ -27,19 +28,18 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
   const navigate = useNavigate();
 
   return (
-    <div className="relative">
-      {/* Desktop Hero */}
+    <PageWrapper>
+      {/* Desktop Hero: High Immersion (Large screens) */}
       <div className="hidden lg:block">
         <HeroSection 
           title={t('landing.hero.title')}
           highlightText={t('landing.hero.highlight')}
           description={t('landing.hero.desc')}
         >
-          {/* Action Buttons: Single line forced via flex-row and reduced padding */}
           <div className="flex flex-row items-center gap-3 w-full max-w-2xl">
             <StandardButton 
               onClick={() => onOpenSimulator()} 
-              className="flex-1 !px-5 !py-4 shadow-brand whitespace-nowrap group"
+              className="flex-1 shadow-brand group"
             >
               <Zap size={16} className="group-hover:fill-white transition-all group-hover:scale-110 shrink-0" />
               <span className="text-xs xl:text-sm">{t('landing.hero.simulate')}</span>
@@ -48,12 +48,12 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
             <StandardButton 
               variant="outline" 
               onClick={() => onOpenApp({ express: true })}
-              className="flex-1 !px-5 !py-4 group !border-slate-100 dark:!border-slate-800 whitespace-nowrap"
+              className="flex-1 group !border-slate-100 dark:!border-slate-800"
             >
               <span className="text-xs xl:text-sm">{t('landing.hero.express')}</span>
               <motion.div
                 animate={{ x: [0, 4, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 className="shrink-0"
               >
                 <ArrowRight size={16} className="group-hover:text-brand-primary" />
@@ -63,16 +63,20 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
         </HeroSection>
       </div>
 
-      {/* Mobile Hero */}
-      <div className="lg:hidden">
+      {/* Tablet Hero: Centered & Gridded (iPad / Galaxy Tab) */}
+      <div className="hidden md:block lg:hidden">
+        <TabletHeroSection onOpenApp={onOpenApp} onOpenSimulator={onOpenSimulator} />
+      </div>
+
+      {/* Smartphone Hero: Stacked & Fast (iPhone / Android) */}
+      <div className="md:hidden">
         <MobileHeroSection onOpenApp={onOpenApp} onOpenSimulator={onOpenSimulator} />
       </div>
 
-      {/* Main Content Container with optimized responsive layout */}
       <motion.div 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.05 }}
+        viewport={{ once: true, amount: 0.01 }}
         className="relative z-10 bg-white dark:bg-slate-950 rounded-t-[3rem] lg:rounded-t-[6rem] mt-[10px] lg:mt-[25px] transition-colors duration-500 pb-12 lg:pb-20"
       >
         <div className="pt-8 lg:pt-12 flex justify-center px-4">
@@ -95,7 +99,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
           <TestimonialsSection />
         </div>
       </motion.div>
-    </div>
+    </PageWrapper>
   );
 };
 
