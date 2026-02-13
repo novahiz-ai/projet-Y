@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { UserPlus, ArrowRight, ArrowLeft, CheckCircle2, Shield, User, Briefcase, Mail, Lock } from 'lucide-react';
+import { UserPlus, ArrowRight, ArrowLeft, CheckCircle2, Shield, Mail, Lock, Briefcase } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { FormLabel, FormInput, FormSelect } from '../ui/FormControls';
 import CustomDatePicker from '../CustomDatePicker';
