@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { LOAN_OFFERS } from '../../constants';
 import ModernSelect from '../ModernSelect';
 import SimulatorCurrencyToggle from './SimulatorCurrencyToggle';
 import SliderInput from './SliderInput';
 import { useTranslation } from 'react-i18next';
+import { getLimitsForOffer } from '../../data/simulator/limits';
 
 interface SimulatorControlsProps {
   selectedOfferId: string;
@@ -24,11 +25,29 @@ const SimulatorControls: React.FC<SimulatorControlsProps> = ({
   currencySymbol, currencies
 }) => {
   const { t } = useTranslation();
-  const selectedOffer = LOAN_OFFERS.find(o => o.id === selectedOfferId) || LOAN_OFFERS[0];
+  const limits = getLimitsForOffer(selectedOfferId);
+  const prevOfferIdRef = useRef(selectedOfferId);
+
+  // LOGIQUE DE PROTECTION SOUVERAINE : Auto-ajustement des limites
+  useEffect(() => {
+    if (prevOfferIdRef.current !== selectedOfferId) {
+      // Si on change de type de projet, on réinitialise au minimum réaliste de ce projet
+      // pour éviter des situations absurdes (ex: Immo à 500€)
+      onAmountChange(limits.minAmount);
+      onDurationChange(limits.minDuration);
+      prevOfferIdRef.current = selectedOfferId;
+    } else {
+      // Ajustement simple pour rester dans les bornes si modification manuelle
+      if (amount < limits.minAmount) onAmountChange(limits.minAmount);
+      if (amount > limits.maxAmount) onAmountChange(limits.maxAmount);
+      if (duration < limits.minDuration) onDurationChange(limits.minDuration);
+      if (duration > limits.maxDuration) onDurationChange(limits.maxDuration);
+    }
+  }, [selectedOfferId, limits, amount, duration, onAmountChange, onDurationChange]);
 
   return (
-    <div className="space-y-3 lg:space-y-4 w-full max-w-xl mx-auto md:mx-0">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <div className="space-y-6 w-full max-w-xl mx-auto md:mx-0">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <ModernSelect 
           label={t('simulator.project')} 
           options={LOAN_OFFERS.filter(o => o.id !== 'assurance').map(o => ({ value: o.id, label: t(o.title) }))} 
@@ -43,25 +62,23 @@ const SimulatorControls: React.FC<SimulatorControlsProps> = ({
         />
       </div>
 
-      <div className="space-y-2 lg:space-y-3">
+      <div className="space-y-4">
         <SliderInput 
           label={t('simulator.amount')}
           value={amount}
-          min={500}
-          max={selectedOffer.maxAmount || 150000}
-          step={100}
+          min={limits.minAmount}
+          max={limits.maxAmount}
+          step={limits.step}
           unit={currencySymbol}
-          unitColorClass="text-brand-primary"
           onChange={onAmountChange}
         />
         <SliderInput 
           label={t('simulator.duration')}
           value={duration}
-          min={6}
-          max={120}
+          min={limits.minDuration}
+          max={limits.maxDuration}
           unit="mois"
-          unitColorClass="text-brand-primary"
-          gradientColor="var(--brand-primary)"
+          step={1}
           onChange={onDurationChange}
         />
       </div>

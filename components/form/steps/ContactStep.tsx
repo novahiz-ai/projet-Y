@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { FormLabel, FormInput } from '../../ui/FormControls';
@@ -15,7 +14,7 @@ const ContactStep = ({ formData, setFormData, t }: any) => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="space-y-1 md:col-span-2">
-        <FormLabel Icon={Mail}>{t('form.fields.email')}</FormLabel>
+        <FormLabel Icon={Mail} required>{t('form.fields.email')}</FormLabel>
         <FormInput 
           type="email"
           placeholder={t('form.placeholders.email')} 
@@ -24,7 +23,7 @@ const ContactStep = ({ formData, setFormData, t }: any) => (
         />
       </div>
       <div className="space-y-1">
-        <FormLabel Icon={Phone}>{t('form.fields.phone')}</FormLabel>
+        <FormLabel Icon={Phone} required>{t('form.fields.phone')}</FormLabel>
         <FormInput 
           placeholder="+33 6 00 00 00 00" 
           value={formData.phone} 
@@ -32,7 +31,7 @@ const ContactStep = ({ formData, setFormData, t }: any) => (
         />
       </div>
       <div className="space-y-1">
-        <FormLabel Icon={MapPin}>{t('form.fields.city')}</FormLabel>
+        <FormLabel Icon={MapPin} required>{t('form.fields.city')}</FormLabel>
         <FormInput 
           placeholder={t('form.placeholders.city')} 
           value={formData.city} 

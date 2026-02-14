@@ -18,14 +18,12 @@ const TabletHeroSection: React.FC<TabletHeroSectionProps> = ({ onOpenApp, onOpen
 
   return (
     <section className="relative pt-48 pb-20 px-10 hidden md:block lg:hidden bg-white dark:bg-slate-950 overflow-hidden min-h-[85vh] flex flex-col justify-center">
-      {/* Immersive Background Layer */}
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=2000" 
           alt="" 
           className="w-full h-full object-cover opacity-[0.45] dark:opacity-[0.55] scale-105 transition-opacity duration-1000"
         />
-        {/* Lighter overlays to reveal image more clearly */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white dark:from-slate-950/40 dark:via-transparent dark:to-slate-950" />
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-primary/15 blur-[140px] rounded-full translate-x-1/3 -translate-y-1/4 pointer-events-none animate-glow"></div>
       </div>
@@ -47,11 +45,11 @@ const TabletHeroSection: React.FC<TabletHeroSectionProps> = ({ onOpenApp, onOpen
         </StaggerContainer>
 
         <div className="grid grid-cols-12 gap-8 items-stretch">
-          {/* Main Action Card: Simulator */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
             className="col-span-7 bg-slate-950 dark:bg-slate-900 rounded-[3rem] p-9 text-white relative overflow-hidden shadow-3xl flex flex-col justify-between border border-white/5"
           >
             <div className="absolute top-0 right-0 w-40 h-40 bg-brand-primary/20 blur-3xl"></div>
@@ -75,11 +73,11 @@ const TabletHeroSection: React.FC<TabletHeroSectionProps> = ({ onOpenApp, onOpen
             </div>
           </motion.div>
 
-          {/* Secondary Action Card: Express */}
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
             className="col-span-5 bg-white/60 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200/60 dark:border-slate-800 rounded-[3rem] p-9 flex flex-col justify-between shadow-xl"
           >
             <div className="space-y-5">

@@ -28,7 +28,6 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenApp, onOpenSimu
   return (
     <div className="lg:hidden fixed bottom-0 left-0 right-0 z-[300] pointer-events-none">
       <div className="relative pointer-events-auto flex flex-col items-center">
-        {/* Main Background with restricted height (60px) and no overflow */}
         <div className="absolute inset-0 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl border-t border-slate-200/50 dark:border-slate-800/50 shadow-[0_-10px_40px_rgba(0,0,0,0.12)]" />
         
         <div className="relative w-full flex items-center justify-around h-[60px] px-1 max-w-md mx-auto overflow-hidden">
@@ -39,9 +38,8 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenApp, onOpenSimu
                   <motion.button
                     whileTap={{ scale: 0.92 }}
                     onClick={() => onOpenApp()}
-                    className="relative w-11 h-11 bg-brand-primary text-white rounded-full flex items-center justify-center shadow-brand shadow-brand-primary/30 border-2 border-white/20 dark:border-slate-800/40 z-10 overflow-hidden group"
+                    className="relative w-11 h-11 bg-brand-primary text-white rounded-full flex items-center justify-center shadow-brand shadow-brand-primary/30 border-2 border-slate-100/20 dark:border-slate-800/40 z-10 overflow-hidden group"
                   >
-                    {/* Inlaid border effect inside the button */}
                     <div className="absolute inset-0 rounded-full border border-black/10 pointer-events-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]" />
                     <ClipboardList size={20} strokeWidth={2.5} className="group-hover:scale-110 transition-transform" />
                   </motion.button>
@@ -81,7 +79,6 @@ const MobileBottomNav: React.FC<MobileBottomNavProps> = ({ onOpenApp, onOpenSimu
           })}
         </div>
         
-        {/* Safe Area Handling */}
         <div className="bg-white/95 dark:bg-slate-950/95 w-full h-[env(safe-area-inset-bottom)]" />
       </div>
     </div>

@@ -64,16 +64,18 @@
                     },
                     colors: {
                         brand: {
-                            primary: '#7c3aed',
-                            secondary: '#6366f1',
+                            // Liaison aux variables CSS pour un changement dynamique Violet -> Bleu
+                            primary: 'var(--brand-primary)', 
+                            dark: 'var(--brand-dark)',
+                            light: 'var(--brand-light)',
+                            secondary: '#81c784',
                             green: '#10b981',
                             orange: '#f97316'
                         }
                     },
                     boxShadow: {
-                        'brand': '0 20px 40px -15px rgba(124, 58, 237, 0.3)',
-                        'brand-green': '0 20px 40px -15px rgba(16, 185, 129, 0.3)',
-                        'brand-orange': '0 20px 40px -15px rgba(249, 115, 22, 0.3)',
+                        'brand': '0 20px 40px -15px var(--brand-shadow)',
+                        'brand-violet': '0 20px 40px -15px rgba(124, 58, 237, 0.4)',
                         '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)'
                     },
                     animation: {
@@ -95,6 +97,22 @@
         }
     </script>
     <style type="text/css">
+        :root {
+            /* VIOLET RICHE (Thème Clair) */
+            --brand-primary: #7c3aed;
+            --brand-dark: #6d28d9;
+            --brand-light: #ddd6fe;
+            --brand-shadow: rgba(124, 58, 237, 0.4);
+        }
+
+        .dark {
+            /* BLEU COMPATIBLE (Thème Sombre) */
+            --brand-primary: #3b82f6;
+            --brand-dark: #2563eb;
+            --brand-light: #bfdbfe;
+            --brand-shadow: rgba(59, 130, 246, 0.4);
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -104,7 +122,7 @@
             overflow-y: scroll;
         }
 
-        /* NATIVE APP FEEL - MASK SCROLLBARS */
+        /* NATIVE APP FEEL */
         @media (max-width: 1024px) {
             * {
                 scrollbar-width: none !important;
@@ -132,11 +150,12 @@
             background-clip: content-box;
         }
         .dark ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(59, 130, 246, 0.1);
             background-clip: content-box;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background-color: rgba(124, 58, 237, 0.4);
+            background-color: var(--brand-primary);
+            opacity: 0.4;
         }
 
         .skeleton-shimmer {
@@ -147,11 +166,6 @@
         @keyframes shimmer {
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
-        }
-        :root {
-            --brand-primary: #7c3aed;
-            --brand-green: #10b981;
-            --brand-orange: #f97316;
         }
     </style>
 </head>

@@ -1,9 +1,9 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { X, TrendingUp, Download, Loader2, ArrowRight } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { LOAN_OFFERS } from '../constants';
-import { SIMULATOR_CURRENCIES, SIMULATOR_LIMITS } from '../data/simulator/config';
+import { SIMULATOR_CURRENCIES } from '../data/simulator/config';
 import SimulationRecap from './simulator/SimulationRecap';
 import SimulatorControls from './simulator/SimulatorControls';
 import SimulatorMobileSticky from './simulator/SimulatorMobileSticky';
@@ -51,20 +51,33 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({ isOpen, onClose, onProc
   if (!isOpen) return null;
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[500] flex items-center justify-center p-0 md:p-6 overflow-hidden">
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="absolute inset-0 bg-slate-950/60 backdrop-blur-md" />
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      exit={{ opacity: 0 }} 
+      className="fixed inset-0 z-[500] flex items-center justify-center p-0 md:p-6 overflow-hidden"
+    >
+      <motion.div 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        exit={{ opacity: 0 }} 
+        onClick={onClose} 
+        className="absolute inset-0 bg-slate-950/60 backdrop-blur-md" 
+      />
       
       <motion.div 
+        layout
         initial={{ opacity: 0, scale: 0.9, y: 30 }} 
         animate={{ opacity: 1, scale: 1, y: 0 }} 
-        transition={{ type: "spring", stiffness: 300, damping: 30 }} 
-        className="relative w-full h-full md:max-w-6xl md:h-[500px] bg-white dark:bg-slate-950 md:rounded-[2.5rem] shadow-3xl flex flex-col overflow-hidden border border-slate-100 dark:border-slate-800"
+        exit={{ opacity: 0, scale: 0.9, y: 30 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }} 
+        className="relative w-full h-full md:max-w-6xl md:h-[600px] lg:h-[550px] bg-white dark:bg-slate-950 md:rounded-[2.5rem] shadow-3xl flex flex-col overflow-hidden border border-slate-100 dark:border-slate-800"
       >
         <button 
           onClick={onClose} 
-          className="hidden md:flex absolute top-4 right-4 w-9 h-9 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-xl items-center justify-center text-slate-400 hover:text-rose-500 transition-all z-[160] border border-slate-100 dark:border-slate-700 active:scale-90"
+          className="hidden md:flex absolute top-6 right-6 w-10 h-10 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-xl items-center justify-center text-slate-400 hover:text-rose-500 transition-all z-[160] border border-slate-100 dark:border-slate-700 active:scale-90"
         >
-          <X size={18} />
+          <X size={20} />
         </button>
 
         <header className="md:hidden shrink-0 px-6 py-4 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 bg-white/50 dark:bg-slate-950/50 backdrop-blur-xl z-[100]">
@@ -76,7 +89,7 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({ isOpen, onClose, onProc
         </header>
 
         <main className="flex-1 flex flex-col md:flex-row overflow-hidden relative min-h-0">
-          <div className="flex-1 p-6 overflow-y-auto pb-[240px] md:pb-6 flex flex-col">
+          <div className="flex-1 p-8 overflow-y-auto pb-[240px] md:pb-8 flex flex-col">
             <SimulatorDesktopHeader />
             <div className="flex-1 min-h-0">
               <SimulatorControls 
@@ -92,18 +105,19 @@ const SimulatorModal: React.FC<SimulatorModalProps> = ({ isOpen, onClose, onProc
                 currencies={SIMULATOR_CURRENCIES}
               />
             </div>
-            <div className="hidden md:flex flex-col space-y-6 pt-4 shrink-0">
+            <div className="hidden md:flex flex-col space-y-6 pt-6 shrink-0">
               <SimulatorTrustBadges />
               <div className="flex gap-4">
-                <StandardButton onClick={handleContinue} className="flex-1 !py-4 shadow-brand group !rounded-xl">
-                  <span className="text-[11px] uppercase tracking-widest font-black">Continuer</span>
+                <StandardButton onClick={handleContinue} className="flex-1 !py-5 shadow-brand group !rounded-xl">
+                  <span className="text-[11px] uppercase tracking-widest font-black">Lancer ma demande</span>
                   <ArrowRight size={18} className="group-hover:translate-x-2 transition-transform" />
                 </StandardButton>
               </div>
             </div>
           </div>
 
-          <div ref={recapRef} className="hidden md:flex md:w-[450px] p-6 bg-slate-50/50 dark:bg-slate-900/30 border-l border-slate-100 dark:border-slate-800 relative overflow-hidden">
+          <div ref={recapRef} className="hidden md:flex md:w-[420px] p-8 bg-slate-50/50 dark:bg-slate-900/30 border-l border-slate-100 dark:border-slate-800 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary/5 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
             <SimulationRecap 
               results={results}
               amount={amount}

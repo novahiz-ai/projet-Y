@@ -1,8 +1,8 @@
-import React from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import React, { useEffect, useState } from 'react';
 import { Download, Loader2, ArrowRight } from 'lucide-react';
 import StandardButton from '../StandardButton';
 import SimulatorCurrencyInfo from './SimulatorCurrencyInfo';
+import SimulationPieChart from './SimulationPieChart';
 
 interface SimulationRecapProps {
   results: {
@@ -22,11 +22,18 @@ interface SimulationRecapProps {
 const SimulationRecap: React.FC<SimulationRecapProps> = ({ 
   results, amount, rate, currencySymbol, isExporting, onExport, onContinue, showActions = true 
 }) => {
-  // Couleurs : Violet (#7c3aed) et Orange (#f97316)
-  const chartData = [
-    { name: 'Capital', value: amount, color: '#7c3aed' },
-    { name: 'Intérêts', value: Math.max(1, results.totalInterest), color: '#f97316' }
-  ];
+  const [primaryColor, setPrimaryColor] = useState('#7c3aed');
+
+  useEffect(() => {
+    const updateColor = () => {
+      const color = getComputedStyle(document.documentElement).getPropertyValue('--brand-primary').trim();
+      if (color) setPrimaryColor(color);
+    };
+    updateColor();
+    const observer = new MutationObserver(updateColor);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="flex flex-col items-center justify-center space-y-4 w-full h-full py-2">
@@ -37,32 +44,19 @@ const SimulationRecap: React.FC<SimulationRecapProps> = ({
         />
       </div>
 
-      <div className="w-full flex-1 min-h-0 relative flex items-center justify-center">
-        <div className="w-full h-full max-h-[300px] lg:max-h-[320px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie 
-                data={chartData} cx="50%" cy="50%" 
-                innerRadius="84%" outerRadius="100%" paddingAngle={3} 
-                dataKey="value" stroke="none" animationDuration={1000}
-              >
-                {chartData.map((entry, index) => <Cell key={`cell-${index}`} fill={entry.color} />)}
-              </Pie>
-            </PieChart>
-          </ResponsiveContainer>
-        </div>
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-1">TAEG Fixe</p>
-          <p className="text-3xl lg:text-4xl font-black text-brand-primary italic leading-none">{rate}%</p>
-        </div>
-      </div>
+      <SimulationPieChart 
+        amount={amount} 
+        totalInterest={results.totalInterest} 
+        primaryColor={primaryColor} 
+        rate={rate} 
+      />
 
       <div className="shrink-0 w-full grid grid-cols-2 gap-3 pb-2">
-        <div className="p-3 lg:p-4 bg-slate-950 dark:bg-slate-900 rounded-[2rem] border border-slate-800 text-center shadow-sm">
+        <div className="p-3 lg:p-4 bg-slate-950 dark:bg-slate-900 rounded-[2rem] border border-slate-100/10 dark:border-slate-800 text-center shadow-sm">
           <p className="text-[8px] font-black text-white uppercase mb-1 tracking-wider opacity-60">Intérêts</p>
-          <p className="text-sm font-black text-brand-primary italic">{results.totalInterest.toLocaleString()} {currencySymbol}</p>
+          <p className="text-sm font-black text-brand-primary italic transition-colors duration-500">{results.totalInterest.toLocaleString()} {currencySymbol}</p>
         </div>
-        <div className="p-3 lg:p-4 bg-slate-950 dark:bg-slate-900 rounded-[2rem] border border-slate-800 text-center shadow-sm">
+        <div className="p-3 lg:p-4 bg-slate-950 dark:bg-slate-900 rounded-[2rem] border border-slate-100/10 dark:border-slate-800 text-center shadow-sm">
           <p className="text-[8px] font-black text-white uppercase mb-1 tracking-wider opacity-60">Total Dû</p>
           <p className="text-sm font-black text-orange-500 italic">{results.totalCost.toLocaleString()} {currencySymbol}</p>
         </div>

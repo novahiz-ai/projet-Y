@@ -1,15 +1,20 @@
 {
-  "instruction_id": "RESILIENCE_ENGINE_002",
-  "timestamp": "2024-05-20T11:00:00Z",
-  "summary": "Implémentation Service Worker (sw.js), Hook Connectivité, Notifications Offline et Optimisation Viewport Animations.",
+  "instruction_id": "DASHBOARD_CORE_006",
+  "timestamp": "2024-05-20T15:00:00Z",
+  "summary": "Mise en place de la structure Dashboard (Layout, Sidebar, Home, Cards) avec placeholder pour l'intelligence KRC.",
   "status": "SUCCESS",
   "impacted_files": [
-    "sw.js",
-    "hooks/useConnectivity.ts",
-    "components/ui/ConnectivityNotification.tsx",
-    "components/Footer.tsx",
-    "components/ui/FadeIn.tsx"
+    "components/layout/DashboardLayout.tsx",
+    "pages/dashboard/DashboardHome.tsx",
+    "pages/dashboard/CardsPage.tsx",
+    "App.tsx"
   ],
   "governance_lock": "ENABLED",
-  "performance_boost": "CPU usage reduced by ~20% via Viewport Engine"
+  "dashboard_features": [
+    "Retractable Pro Sidebar",
+    "Animated Balance & Entry/Exit stats",
+    "Activity charts with Recharts",
+    "3D Interactive Virtual Cards",
+    "Integrated Search and Notifications"
+  ]
 }

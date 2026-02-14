@@ -1,4 +1,3 @@
-
 export const common = {
   chatbot: {
     welcome: "Bonjour ! Je suis votre conseiller digital Younited. Comment puis-je accompagner votre projet financier aujourd'hui ?",
@@ -117,7 +116,7 @@ export const common = {
     bank_other: "Autre établissement",
     security_footer: "Protection AES-256",
     fields: {
-      firstname: "Prénom",
+      firstname: "Nom Complet",
       lastname: "Nom",
       birthdate: "Date de naissance",
       job_title: "Profession",
@@ -129,12 +128,12 @@ export const common = {
       city: "Ville",
       iban: "IBAN",
       id_doc: "Identité",
-      address_doc: "Domicile",
+      address_doc: "Domicicile",
       income_doc: "Revenus",
       tax_residency: "Résidence fiscale",
       bank: "Banque principale",
       purpose: "Projet",
-      amount: "Montant",
+      amount: "Montant souhaité",
       months: "Durée (mois)",
       income: "Revenus mensuels",
       rent: "Charges fixes",
@@ -142,7 +141,7 @@ export const common = {
       dependents: "Enfants à charge"
     },
     placeholders: {
-      firstname: "Prénom",
+      firstname: "Prénom & Nom",
       lastname: "Nom",
       job_title: "Poste occupé",
       employer: "Société",
@@ -164,9 +163,11 @@ export const common = {
         etudiant: "Étudiant"
       },
       civility: {
-        mr: "Monsieur",
-        mrs: "Madame",
-        ms: "Mademoiselle"
+        mr: "Homme",
+        mrs: "Femme",
+        nb: "Non-binaire",
+        fluid: "Genderfluid",
+        other: "Autre"
       },
       family_status: {
         single: "Célibataire",
@@ -195,7 +196,9 @@ export const common = {
     characteristic: "Caractéristique",
     details: "Données",
     load_more: "Afficher plus d'offres",
-    load_less: "Afficher moins"
+    load_less: "Afficher moins",
+    mandatory: "Obligatoire",
+    optional: "Optionnel"
   },
   cookies_banner: {
     title: "Respect de la vie privée",

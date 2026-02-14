@@ -31,12 +31,31 @@ import AboutPage from './pages/AboutPage';
 import CreditsPage from './pages/CreditsPage';
 import LoginPage from './pages/LoginPage';
 
+// Dashboard Pages
+import DashboardHome from './pages/dashboard/DashboardHome';
+import CardsPage from './pages/dashboard/CardsPage';
+
 // Components
 import MainLayout from './components/layout/MainLayout';
+import DashboardLayout from './components/layout/DashboardLayout';
 import ApplicationFormModal from './components/ApplicationFormModal';
 import SimulatorModal from './components/SimulatorModal';
 import SearchOverlay from './components/SearchOverlay';
 import ConnectivityNotification from './components/ui/ConnectivityNotification';
+
+const DashboardRoutes = () => (
+  <DashboardLayout>
+    <Routes>
+      <Route path="/" element={<DashboardHome />} />
+      <Route path="/cards" element={<CardsPage />} />
+      <Route path="/loan" element={<div className="p-10 text-center font-black uppercase text-slate-400">Section Demande de prêt bientôt disponible en vue Dashboard</div>} />
+      <Route path="/history" element={<div className="p-10 text-center font-black uppercase text-slate-400">Historique des transactions bientôt disponible</div>} />
+      <Route path="/transfer-internal" element={<div className="p-10 text-center font-black uppercase text-slate-400">Virement Interne bientôt disponible</div>} />
+      <Route path="/transfer-local" element={<div className="p-10 text-center font-black uppercase text-slate-400">Virement Local bientôt disponible</div>} />
+      <Route path="/settings" element={<div className="p-10 text-center font-black uppercase text-slate-400">Paramètres profil bientôt disponible</div>} />
+    </Routes>
+  </DashboardLayout>
+);
 
 const AppContent: React.FC = () => {
   const location = useLocation();
@@ -47,6 +66,12 @@ const AppContent: React.FC = () => {
     isSimulatorOpen, setIsSimulatorOpen, simulatorOfferId,
     handleOpenAppForm, handleOpenSimulator
   } = useModals();
+
+  const isDashboard = location.pathname.startsWith('/dashboard');
+
+  if (isDashboard) {
+    return <DashboardRoutes />;
+  }
 
   return (
     <MainLayout

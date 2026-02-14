@@ -1,13 +1,12 @@
-
 export const common = {
   chatbot: {
-    welcome: "¡Hola! Soy tu asesor digital Younited. ¿Cómo puedo ayudarte hoy?",
-    error: "Error de conexión. ¿Reintentar?",
+    welcome: "¡Hola! Soy tu asesor digital Younited. ¿Cómo puedo acompañar tu proyecto financiero hoy?",
+    error: "Se ha producido una dificultad de conexión. ¿Quieres volver a intentarlo?",
     brand_label: "Consejo Experto",
     agent_name: "Analista Digital",
-    secure_notice: "Canal seguro",
+    secure_notice: "Canal de soporte seguro",
     placeholder: "Describe tu proyecto...",
-    version: "Gouvernance 4.0-S"
+    version: "Governance 4.0-S"
   },
   nav: {
     home: "Inicio",
@@ -19,10 +18,19 @@ export const common = {
     help: "Ayuda",
     about: "Quiénes Somos",
     credits: "Créditos",
+    login: "Acceder",
+    client_space: "Área Clientes",
+    profile: "Perfil",
     glossary_label: "Glosario",
     resources_menu: {
       help_label: "Ayuda",
-      guide_label: "Guía",
+      help_desc: "Respuestas a tus preguntas.",
+      guide_label: "Guía del crédito",
+      guide_desc: "Dossier expertos.",
+      glossary_label: "Glosario",
+      glossary_desc: "Léxico financiero.",
+      privacy_label: "Privacidad",
+      cookies_label: "Cookies",
       expert_center_label: "Centro de pericia",
       about_btn: "Nuestra visión"
     }
@@ -57,8 +65,26 @@ export const common = {
     phases: { basics: "Perfil", situation: "Situación", finances: "Finanzas", finalize: "Validación" },
     identity_title: "SU ",
     identity_highlight: "IDENTIDAD.",
+    identity_desc: "Información contractual.",
+    activity_title: "SU ",
+    activity_highlight: "ACTIVIDAD.",
+    contact_title: "SUS ",
+    contact_highlight: "CONTACTOS.",
+    funds_title: "SUS ",
+    funds_highlight: "FONDOS.",
+    project_title: "SU ",
+    project_highlight: "PROYECTO.",
+    budget_title: "SU ",
+    budget_highlight: "PRESUPUESTO.",
+    docs_title: "SUS ",
+    docs_highlight: "DOCUMENTOS.",
+    sign_title: "SU ",
+    sign_highlight: "FIRMA.",
+    sign_desc: "Firme en el recuadro para validar.",
+    sign_submit: "Finalizar solicitud",
+    sign_cert: "Certificado eIDAS",
     fields: {
-      firstname: "Nombre",
+      firstname: "Nombre completo",
       lastname: "Apellido",
       birthdate: "Fecha de nacimiento",
       job_title: "Profesión",
@@ -74,18 +100,47 @@ export const common = {
       income_doc: "Ingresos",
       tax_residency: "Residencia fiscal",
       bank: "Banco",
-      purpose: "Proyecto",
+      purpose: "Progetto",
       amount: "Monto",
       months: "Duración",
       income: "Ingresos",
       rent: "Cargas",
       family_status: "Estado",
       dependents: "Hijos"
+    },
+    placeholders: {
+      firstname: "Nombre & Apellido",
+      lastname: "Apellido",
+      job_title: "Puesto",
+      employer: "Empresa",
+      email: "contacto@ejemplo.es",
+      address: "Dirección completa",
+      zip: "28001",
+      city: "Ciudad",
+      income: "2500",
+      rent: "800",
+      amount: "Monto",
+      months: "Meses"
+    },
+    options: {
+      job_status: {
+        cdi: "Indefinido",
+        cdd: "Temporal",
+        indep: "Autónomo",
+        retraite: "Jubilado",
+        etudiant: "Estudiante"
+      },
+      civility: {
+        mr: "Hombre",
+        mrs: "Mujer",
+        nb: "No binario",
+        other: "Otro"
+      }
     }
   },
   stats: { borrowers: "Prestatarios", funds: "Financiación", satisfaction: "Satisfacción", live: "Tiempo Real", banking: "Banking", index: "Soberano" },
-  labels: { language: "Idioma", rate_from: "Tasa desde", express_demand: "Express", see_details: "Detalles", months_count: "Meses", support_247: "Expertos", characteristic: "Característica", details: "Datos" },
+  labels: { language: "Idioma", rate_from: "Tasa desde", express_demand: "Express", see_details: "Detalles", months_count: "Meses", support_247: "Expertos", characteristic: "Característica", details: "Datos", load_more: "Más ofertas", load_less: "Menos", mandatory: "Obligatorio", optional: "Opcional" },
   cookies_banner: { title: "Privacidad", subtitle: "Cookies", desc: "Usamos cookies.", accept: "Aceptar", decline: "Rechazar", policy: "Protección datos" },
-  consent: { title: "Nota", warning: "Un crédito te compromete.", accept: "Validar", decline: "Annulla" },
+  consent: { title: "Nota", warning: "Un crédito te compromete.", accept: "Validar", decline: "Cancelar" },
   footer: { desc: "Entidad de crédito.", offers_title: "Ofertas", resources_title: "Pericia", social_title: "Redes", rights: "© {{year}} Younited. Todos los derechos reservados.", legal: "Aviso Legal", privacy: "Privacidad", cookies: "Cookies", eu_notice: "Normativa UE.", assistance: "Asistencia", whatsapp_direct: "WhatsApp", glossary_fin: "Glosario", trust_label: "Regulado" }
 };

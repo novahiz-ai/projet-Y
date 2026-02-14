@@ -123,7 +123,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onOpenApp, onOpenSimulator })
           />
         </div>
 
-        <div className="bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-800">
+        <div className="bg-slate-50 dark:bg-slate-900/40 border-t border-slate-100 dark:border-slate-800 pb-24 lg:pb-0">
           <TestimonialsSection />
         </div>
       </motion.div>

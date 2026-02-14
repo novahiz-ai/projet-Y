@@ -5,12 +5,12 @@ import { ChevronLeft, X } from 'lucide-react';
 const LoginNavigation: React.FC = () => {
   return (
     <>
-      <div className="md:hidden absolute top-6 right-5 z-[100]">
+      <div className="absolute top-6 right-5 z-[100] md:hidden">
         <Link 
           to="/" 
-          className="w-12 h-12 flex items-center justify-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/50 dark:border-slate-800/50 rounded-full text-slate-900 dark:text-white shadow-xl active:scale-90 transition-all group"
+          className="w-10 h-10 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded-full text-slate-900 dark:text-white shadow-xl active:scale-90 transition-all group border border-slate-200 dark:border-slate-700"
         >
-          <X size={24} className="group-hover:rotate-90 transition-transform duration-300" />
+          <X size={20} className="group-hover:rotate-90 transition-transform duration-300" />
         </Link>
       </div>
 

@@ -23,9 +23,16 @@ const PageHeader: React.FC<PageHeaderProps> = ({
   return (
     <section className="relative overflow-hidden h-[75vh] lg:h-auto pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 flex items-center lg:min-h-[50vh]">
       <div className="absolute inset-0 z-0">
-        {image && <img src={image} alt="" className="w-full h-full object-cover opacity-10 dark:opacity-20 scale-105" />}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-primary/5 blur-[100px] rounded-full translate-x-1/2 animate-glow"></div>
+        {image && (
+          <img 
+            src={image} 
+            alt="" 
+            className="w-full h-full object-cover opacity-[0.35] dark:opacity-[0.45] scale-105" 
+          />
+        )}
+        {/* Contraste Layer */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80 dark:to-transparent"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-primary/10 blur-[120px] rounded-full translate-x-1/2 animate-glow"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
@@ -35,8 +42,8 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             {breadcrumb.map((item, i) => (
               <React.Fragment key={i}>
                 <ChevronRight size={12} />
-                <span className={i === breadcrumb.length - 1 ? "text-slate-900 dark:text-white" : ""}>
-                  {item.path ? <button onClick={() => navigate(item.path!)} className="hover:text-brand-primary">{item.label}</button> : item.label}
+                <span className={i === breadcrumb.length - 1 ? "text-slate-900 dark:text-white font-black" : ""}>
+                  {item.path ? <button onClick={() => navigate(item.path!)} className="hover:text-brand-primary font-black">{item.label}</button> : item.label}
                 </span>
               </React.Fragment>
             ))}
@@ -51,13 +58,13 @@ const PageHeader: React.FC<PageHeaderProps> = ({
             </motion.div>
           )}
           
-          <h1 className="text-4xl md:text-h1 font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-[0.85] italic">
+          <h1 className="text-4xl md:text-h1 font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-[0.85] italic drop-shadow-sm">
             {title} <br />
             <span className="text-brand-primary">{highlight}</span>
           </h1>
           
           {description && (
-            <p className="text-lg md:text-h3 text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-2xl">
+            <p className="text-lg md:text-h3 text-slate-700 dark:text-slate-200 font-semibold leading-relaxed max-w-2xl bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-2xl p-4 md:p-0 md:bg-transparent md:backdrop-blur-none">
               {description}
             </p>
           )}

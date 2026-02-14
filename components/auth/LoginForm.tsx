@@ -27,10 +27,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitch }) => {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: 20 }}
-      className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-8 rounded-[3rem] shadow-3xl border border-slate-100 dark:border-slate-800 relative w-[350px] h-[450px] flex flex-col justify-between"
+      className="bg-white dark:bg-slate-950 md:bg-white/95 md:dark:bg-slate-900/95 md:backdrop-blur-xl p-8 md:rounded-[3rem] md:shadow-3xl md:border md:border-slate-100 md:dark:border-slate-800 relative w-full h-full min-h-screen md:min-h-0 md:w-[350px] md:h-[450px] flex flex-col justify-center md:justify-between"
     >
-      <div className="space-y-6">
-        <div className="flex flex-col items-center space-y-2">
+      <div className="space-y-6 md:space-y-6">
+        <div className="flex flex-col items-center space-y-2 mb-4 md:mb-0">
           <Logo size="sm" />
           <p className="text-[8px] font-black uppercase tracking-[0.4em] text-slate-400">Accès Client</p>
         </div>
@@ -47,7 +47,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onSwitch }) => {
         </div>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-4 mt-10 md:mt-0">
         <StandardButton className="w-full !py-4 shadow-brand">
           <span className="text-xs">{t('auth.login_btn')}</span>
           <ArrowRight size={16} />

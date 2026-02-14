@@ -39,7 +39,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
         <div className="pt-6 border-t border-slate-200/50 dark:border-slate-800/50 space-y-4">
           <div className="flex items-center space-x-4">
-            <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-white dark:border-slate-800 shadow-sm transition-transform group-hover:scale-105">
+            <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-slate-100 dark:border-slate-800 shadow-sm transition-transform group-hover:scale-105">
               <img src={avatar} alt={name} className="w-full h-full object-cover" loading="lazy" />
             </div>
             <div className="min-w-0">

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Wallet, Landmark } from 'lucide-react';
 import { FormLabel, FormInput } from '../../ui/FormControls';
@@ -15,7 +14,7 @@ const BudgetStep = ({ formData, setFormData, t }: any) => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div className="space-y-1">
-        <FormLabel Icon={Wallet}>{t('form.fields.income')}</FormLabel>
+        <FormLabel Icon={Wallet} required>{t('form.fields.income')}</FormLabel>
         <FormInput 
           type="number"
           placeholder={t('form.placeholders.income')} 
@@ -24,7 +23,7 @@ const BudgetStep = ({ formData, setFormData, t }: any) => (
         />
       </div>
       <div className="space-y-1">
-        <FormLabel Icon={Landmark}>{t('form.fields.rent')}</FormLabel>
+        <FormLabel Icon={Landmark} required>{t('form.fields.rent')}</FormLabel>
         <FormInput 
           type="number"
           placeholder={t('form.placeholders.rent')} 

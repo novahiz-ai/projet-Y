@@ -4,8 +4,7 @@ import { ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getHeroProjects } from '../data/heroProjects';
-// Fix: Import getIcon from the correct location
-import { getIcon } from '../infrastructure/IconRegistry';
+import ProjectSelector from './hero/ProjectSelector';
 import TrustBadges from './ui/TrustBadges';
 
 interface HeroSectionProps {
@@ -36,10 +35,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <img 
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2560" 
           alt="" 
-          loading="eager"
           className="w-full h-full object-cover opacity-[0.18] dark:opacity-[0.28] transition-opacity duration-1000 scale-105"
         />
-        {/* Refined gradient for better text legibility on high opacity bg */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent dark:from-slate-950 dark:via-slate-950/70 dark:to-transparent" />
         <div className="absolute top-1/4 -left-20 w-[600px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full animate-glow pointer-events-none" />
       </div>
@@ -51,6 +48,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <motion.h1 
                 initial={{ opacity: 0, x: -30 }} 
                 animate={{ opacity: 1, x: 0 }} 
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
                 className="text-4xl md:text-5xl xl:text-6xl font-black leading-tight tracking-tighter uppercase italic text-slate-950 dark:text-white"
               >
                 <span className="block">{title}</span>
@@ -59,36 +57,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               <motion.p 
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
-                transition={{ delay: 0.2 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
                 className="max-w-2xl text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed"
               >
                 {description}
               </motion.p>
             </div>
 
-            <div className="flex flex-nowrap gap-3 max-w-full overflow-x-auto lg:overflow-visible scrollbar-hide py-2">
-              {projects.map((proj, idx) => (
-                <button
-                  key={proj.id}
-                  onClick={() => setActiveProject(idx)}
-                  className={`px-5 py-3 rounded-[1.8rem] border-2 transition-all flex items-center space-x-3 shrink-0 ${
-                    activeProject === idx 
-                      ? 'bg-white dark:bg-slate-900 border-brand-primary shadow-xl shadow-brand-primary/15 scale-105 z-10' 
-                      : 'bg-white/40 dark:bg-slate-900/40 border-slate-100 dark:border-slate-800 hover:border-slate-200'
-                  }`}
-                >
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-                    activeProject === idx ? 'bg-brand-primary text-white shadow-md' : 'bg-slate-100 dark:bg-slate-800 text-slate-400'
-                  }`}>
-                    {getIcon(proj.iconName, 18)}
-                  </div>
-                  <div className="text-left">
-                    <p className="text-[9px] font-black uppercase text-slate-950 dark:text-white leading-none mb-0.5">{t(proj.labelKey)}</p>
-                    <p className={`text-[9px] font-black ${activeProject === idx ? 'text-brand-primary' : 'text-slate-400'}`}>{proj.rate}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
+            <ProjectSelector 
+              projects={projects} 
+              activeIndex={activeProject} 
+              onSelect={setActiveProject} 
+            />
 
             <div className="flex flex-row items-center gap-4 pt-2">
               {children}
@@ -106,12 +86,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 initial={{ opacity: 0, scale: 0.95, rotateY: 10 }}
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 exit={{ opacity: 0, scale: 1.02, rotateY: -10 }}
-                transition={{ duration: 0.7, ease: [0.19, 1, 0.22, 1] }}
-                className="relative w-[350px] h-full bg-slate-900 rounded-[3rem] shadow-3xl overflow-hidden border-[6px] border-white dark:border-slate-800 cursor-pointer group"
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                className="relative w-[350px] h-full bg-slate-900 rounded-[3rem] shadow-3xl overflow-hidden border-[6px] border-slate-50 dark:border-slate-800 cursor-pointer group"
                 onClick={() => navigate(`/offres/${projects[activeProject].id}`)}
               >
                 <img src={projects[activeProject].image} className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-1000" alt="" />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-slate-950/10 to-transparent" />
                 
                 <div className="absolute bottom-6 left-8 right-8 space-y-3 text-white">
                   <div className="space-y-1">

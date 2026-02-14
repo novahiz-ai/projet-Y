@@ -1,13 +1,12 @@
-
 export const common = {
   chatbot: {
-    welcome: "Hallo! Ich bin Ihr digitaler Younited-Berater. Wie kann ich Sie heute unterstützen?",
-    error: "Verbindungsfehler. Erneut versuchen?",
+    welcome: "Hallo! Ich bin Ihr digitaler Younited-Berater. Wie kann ich Ihr Finanzprojekt heute begleiten?",
+    error: "Ein Verbindungsproblem ist aufgetreten. Möchten Sie es erneut versuchen?",
     brand_label: "Expertenrat",
     agent_name: "Digitaler Analyst",
-    secure_notice: "Sicherer Supportkanal",
-    placeholder: "Beschreiben Sie Ihr Projekt...",
-    version: "Gouvernance 4.0-S"
+    secure_notice: "Souveräner & sicherer Support-Kanal",
+    placeholder: "Beschreiben Sie Ihr Projekt (z.B. Bauen, Auto...)",
+    version: "Governance 4.0-S"
   },
   nav: {
     home: "Startseite",
@@ -19,18 +18,21 @@ export const common = {
     help: "Hilfe",
     about: "Über uns",
     credits: "Impressum",
+    login: "Anmelden",
+    client_space: "Kundenbereich",
+    profile: "Mein Profil",
     glossary_label: "Finanzglossar",
     resources_menu: {
       help_label: "Hilfe",
       help_desc: "Antworten auf Ihre Fragen.",
-      guide_label: "Leitfaden",
+      guide_label: "Kredit-Leitfaden",
       guide_desc: "Experten-Dossiers.",
       glossary_label: "Glossar",
-      glossary_desc: "Finanzlexikon.",
+      glossary_desc: "Vollständiges Finanzlexikon.",
       legal_label: "Rechtliches",
       legal_desc: "Regulatorischer Rahmen.",
       privacy_label: "Datenschutz",
-      privacy_desc: "Datenschutz.",
+      privacy_desc: "Schutz der Daten.",
       cookies_label: "Cookies",
       cookies_desc: "Einstellungen.",
       expert_center_label: "Zentrum",
@@ -41,11 +43,11 @@ export const common = {
     no_results: "Keine Ergebnisse gefunden",
     try_terms: "Suchbegriffe eingeben",
     cat_offers: "Kreditangebote",
-    cat_glossary: "Lexikon",
-    cat_guides: "Expertise",
+    cat_glossary: "Lexikon & Definitionen",
+    cat_guides: "Expertise & Ratgeber",
     cat_quick: "Schnellzugriff",
-    version: "Suche",
-    placeholder: "Suchen...",
+    version: "Souveräne Suche",
+    placeholder: "Nach Expertise suchen...",
     results_for: "Ergebnisse für",
     nav_tip: "Navigieren",
     open_tip: "Öffnen",
@@ -53,7 +55,7 @@ export const common = {
   },
   contact_section: {
     whatsapp_label: "Direkter Kontakt",
-    email_label: "Institutionelle E-Mail",
+    email_label: "E-Mail",
     support_label: "Support 24/7",
     availability_title: "Verfügbarkeit",
     availability_desc: "Dauerservice"
@@ -67,13 +69,26 @@ export const common = {
     phases: { basics: "Profil", situation: "Lage", finances: "Finanzen", finalize: "Validierung" },
     identity_title: "IHRE ",
     identity_highlight: "IDENTITÄT.",
-    identity_desc: "Informationen.",
+    identity_desc: "Vertragliche Informationen.",
     activity_title: "IHRE ",
     activity_highlight: "TÄTIGKEIT.",
     contact_title: "IHRE ",
     contact_highlight: "DATEN.",
+    funds_title: "IHRE ",
+    funds_highlight: "MITTEL.",
+    project_title: "IHR ",
+    project_highlight: "PROJEKT.",
+    budget_title: "IHR ",
+    budget_highlight: "BUDGET.",
+    docs_title: "IHRE ",
+    docs_highlight: "DOKUMENTE.",
+    sign_title: "IHRE ",
+    sign_highlight: "UNTERSCHRIFT.",
+    sign_desc: "Bitte unterschreiben Sie im Rahmen.",
+    sign_submit: "Dossier abschließen",
+    sign_cert: "eIDAS zertifiziert",
     fields: {
-      firstname: "Vorname",
+      firstname: "Vollständiger Name",
       lastname: "Nachname",
       birthdate: "Geburtsdatum",
       job_title: "Beruf",
@@ -96,11 +111,40 @@ export const common = {
       rent: "Kosten",
       family_status: "Status",
       dependents: "Kinder"
+    },
+    placeholders: {
+      firstname: "Vor- & Nachname",
+      lastname: "Name",
+      job_title: "Position",
+      employer: "Firma",
+      email: "kontakt@beispiel.de",
+      address: "Vollständige Adresse",
+      zip: "10115",
+      city: "Stadt",
+      income: "2500",
+      rent: "800",
+      amount: "Betrag",
+      months: "Monate"
+    },
+    options: {
+      job_status: {
+        cdi: "Unbefristet",
+        cdd: "Befristet",
+        indep: "Selbstständig",
+        retraite: "Rentner",
+        etudiant: "Student"
+      },
+      civility: {
+        mr: "Mann",
+        mrs: "Frau",
+        nb: "Nicht-binär",
+        other: "Andere"
+      }
     }
   },
   stats: { borrowers: "Kreditnehmer", funds: "Finanzierung", satisfaction: "Zufriedenheit", live: "Echtzeit", banking: "Banking", index: "Souverän" },
-  labels: { language: "Sprache", rate_from: "Zinsen ab", express_demand: "Express", see_details: "Details", months_count: "Monate", support_247: "Experten", characteristic: "Merkmal", details: "Daten" },
+  labels: { language: "Sprache", rate_from: "Zinsen ab", express_demand: "Express", see_details: "Details", months_count: "Monate", support_247: "Experten", characteristic: "Merkmal", details: "Daten", load_more: "Mehr anzeigen", load_less: "Weniger", mandatory: "Erforderlich", optional: "Optional" },
   cookies_banner: { title: "Datenschutz", subtitle: "Cookies", desc: "Wir nutzen Cookies.", accept: "Akzeptieren", decline: "Ablehnen", policy: "Datenschutz" },
   consent: { title: "Hinweis", warning: "Kredite müssen zurückgezahlt werden.", accept: "Bestätigen", decline: "Abbrechen" },
-  footer: { desc: "Kreditinstitut.", offers_title: "Angebote", resources_title: "Expertise", social_title: "Social Media", rights: "© {{year}} Younited. Alle Rechte vorbehalten.", legal: "Impressum", privacy: "Datenschutz", cookies: "Cookies", eu_notice: "EU-konform.", assistance: "Hilfe", whatsapp_direct: "WhatsApp", glossary_fin: "Glossar", trust_label: "Reguliert" }
+  footer: { desc: "Kreditinstitut.", offers_title: "Angebote", resources_title: "Expertise", social_title: "Social Media", rights: "© {{year}} Younited. Alle Rechte vorbehalten.", legal: "Impressum", privacy: "Datenschutz", cookies: "Cookies", eu_notice: "EU-konform.", assistance: "Hilfe", whatsapp_direct: "WhatsApp", glossary_fin: "Glossary", trust_label: "Reguliert" }
 };

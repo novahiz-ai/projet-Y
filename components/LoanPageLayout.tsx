@@ -56,18 +56,28 @@ const LoanPageLayout: React.FC<LoanPageLayoutProps> = ({
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500" style={{ '--accent-color': accentHex } as React.CSSProperties}>
       <section className="relative h-[75vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
+        {/* V16.4 — Enchanced Background Visibility */}
         <div className="absolute inset-0 z-0">
-          <img src={hero.image} alt="" className="w-full h-full object-cover opacity-20 dark:opacity-30 scale-105" />
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
+          <img 
+            src={hero.image} 
+            alt="" 
+            className="w-full h-full object-cover opacity-[0.45] dark:opacity-[0.55] scale-105 transition-opacity duration-700" 
+          />
+          {/* Advanced Gradient Mask for Legibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80 dark:to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-white dark:via-slate-950/20 dark:to-slate-950" />
         </div>
+
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 pt-16 lg:pt-20 text-center lg:text-left">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <FadeIn direction="right" duration={1}>
               <div className="space-y-6 lg:space-y-8">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter uppercase italic text-slate-950 dark:text-white">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter uppercase italic text-slate-950 dark:text-white drop-shadow-sm">
                   {hero.title} <br /><span className={accentColorClass}>{hero.highlight}</span>
                 </h1>
-                <p className="text-sm md:text-lg text-slate-500 dark:text-slate-300 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">{hero.desc}</p>
+                <p className="text-sm md:text-lg text-slate-700 dark:text-slate-200 max-w-lg mx-auto lg:mx-0 leading-relaxed font-semibold bg-white/5 dark:bg-black/5 backdrop-blur-sm p-4 rounded-2xl md:p-0 md:bg-transparent md:backdrop-blur-none">
+                  {hero.desc}
+                </p>
                 <div className="pt-2">
                   <StandardButton 
                     onClick={() => window.dispatchEvent(new CustomEvent('openSimulator', { detail: { offerId: hero.offerId } }))} 

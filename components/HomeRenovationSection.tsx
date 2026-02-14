@@ -87,13 +87,13 @@ const HomeRenovationSection: React.FC<HomeRenovationSectionProps> = ({ onDiscove
             </motion.div>
           </div>
 
-          <div className="lg:col-span-6 relative h-[450px] md:h-[500px] flex items-center justify-center">
+          <div className="lg:col-span-6 relative h-[580px] md:h-[500px] flex items-center justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.8, x: -50 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="absolute z-20 left-4 md:left-10 top-10 w-64 md:w-80 p-8 md:p-10 bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl border border-slate-100 dark:border-slate-800 space-y-6"
+              className="absolute z-20 left-4 md:left-10 top-0 md:top-10 w-64 md:w-80 p-8 md:p-10 bg-white dark:bg-slate-900 rounded-[3rem] shadow-2xl border border-slate-100 dark:border-slate-800 space-y-6"
             >
               <div className="w-14 h-14 bg-orange-50 dark:bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-500">
                 <TrendingUp size={32} />
@@ -113,7 +113,7 @@ const HomeRenovationSection: React.FC<HomeRenovationSectionProps> = ({ onDiscove
               whileInView={{ opacity: 1, scale: 1, x: 20 }}
               viewport={{ once: false }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-              className="absolute z-30 right-4 md:right-0 bottom-10 w-64 md:w-80 p-8 md:p-10 bg-slate-950 rounded-[3.5rem] shadow-3xl border border-slate-800/50 space-y-6"
+              className="absolute z-30 right-4 md:right-0 bottom-4 md:bottom-10 w-64 md:w-80 p-8 md:p-10 bg-slate-950 rounded-[3.5rem] shadow-3xl border border-slate-800/50 space-y-6"
             >
               <div className="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center text-slate-950">
                 <Zap size={32} className="fill-current" />

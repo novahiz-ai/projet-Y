@@ -74,15 +74,15 @@ const ProjectLoanPage: React.FC = () => {
   return (
     <div className="relative bg-white dark:bg-slate-950 transition-colors duration-500">
       
-      {/* --- HERO SECTION --- */}
+      {/* --- HERO SECTION — V16.4 Raffinée --- */}
       <section className="relative h-[75vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=2000" 
             alt="Project Dream" 
-            className="w-full h-full object-cover opacity-20 dark:opacity-30 scale-105"
+            className="w-full h-full object-cover opacity-[0.35] dark:opacity-[0.45] scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-transparent dark:from-slate-950 dark:via-slate-950/90 dark:to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80 dark:to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 pt-16 lg:pt-20 text-center lg:text-left">
@@ -93,12 +93,12 @@ const ProjectLoanPage: React.FC = () => {
               transition={{ duration: 0.8 }}
               className="space-y-6 lg:space-y-8"
             >
-              <h1 className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic text-slate-950 dark:text-white">
+              <h1 className="text-4xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic text-slate-950 dark:text-white drop-shadow-sm">
                 {t('project_loan.hero.title')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-indigo-500">{t('project_loan.hero.highlight')}</span>
               </h1>
 
-              <p className="text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+              <p className="text-base md:text-xl text-slate-700 dark:text-slate-200 max-w-xl mx-auto lg:mx-0 leading-relaxed font-semibold bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-2xl p-4 lg:p-0 lg:bg-transparent lg:backdrop-blur-none">
                 {t('project_loan.hero.desc')}
               </p>
 

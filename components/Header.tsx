@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { 
-  ChevronDown, Search as SearchIcon, UserCircle2, LayoutDashboard, LogIn, UserPlus, LogOut, Settings
+  ChevronDown, Search as SearchIcon, UserCircle2, LayoutDashboard
 } from 'lucide-react';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeToggle from './navigation/ThemeToggle';
@@ -11,6 +11,7 @@ import Logo from './Logo';
 import { getCreditLinks, getResourceLinks } from '../data/navigation';
 import HeaderMegaMenuCredit from './navigation/HeaderMegaMenuCredit';
 import HeaderMegaMenuResources from './navigation/HeaderMegaMenuResources';
+import AuthMenu from './navigation/AuthMenu';
 
 interface HeaderProps {
   isDarkMode: boolean;
@@ -29,8 +30,6 @@ const Header: React.FC<HeaderProps> = ({
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showAuthMenu, setShowAuthMenu] = useState(false);
-  
-  // Simulation d'état de connexion
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   
   const authMenuRef = useRef<HTMLDivElement>(null);
@@ -54,11 +53,8 @@ const Header: React.FC<HeaderProps> = ({
   const resourceLinks = useMemo(() => getResourceLinks(t), [t]);
 
   const handleProfileClick = () => {
-    if (!isLoggedIn) {
-      navigate('/login');
-    } else {
-      setShowAuthMenu(!showAuthMenu);
-    }
+    if (!isLoggedIn) navigate('/login');
+    else setShowAuthMenu(!showAuthMenu);
   };
 
   return (
@@ -126,33 +122,11 @@ const Header: React.FC<HeaderProps> = ({
                {isLoggedIn && <div className={`absolute top-1 right-1 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 ${scrolled ? 'w-2 h-2' : 'w-2.5 h-2.5'}`} />}
              </button>
 
-             <AnimatePresence>
-               {isLoggedIn && showAuthMenu && (
-                 <motion.div
-                   initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                   animate={{ opacity: 1, y: 0, scale: 1 }}
-                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                   className="absolute top-full right-0 mt-4 w-64 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2rem] shadow-3xl overflow-hidden p-3 space-y-1"
-                 >
-                    <button className="w-full flex items-center space-x-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-left group">
-                      <div className="w-10 h-10 rounded-xl bg-brand-primary/10 text-brand-primary flex items-center justify-center group-hover:scale-110 transition-transform"><LayoutDashboard size={20} /></div>
-                      <p className="text-[11px] font-black uppercase text-slate-950 dark:text-white">Tableau de bord</p>
-                    </button>
-                    <button className="w-full flex items-center space-x-4 p-4 rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all text-left group">
-                      <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 flex items-center justify-center group-hover:scale-110 transition-transform"><Settings size={20} /></div>
-                      <p className="text-[11px] font-black uppercase text-slate-950 dark:text-white">Paramètres</p>
-                    </button>
-                    <div className="h-px bg-slate-100 dark:bg-slate-800 my-2 mx-4" />
-                    <button 
-                      onClick={() => setIsLoggedIn(false)}
-                      className="w-full flex items-center space-x-4 p-4 rounded-2xl hover:bg-rose-50 dark:hover:bg-rose-500/10 transition-all text-left group"
-                    >
-                      <div className="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center group-hover:scale-110 transition-transform"><LogOut size={20} /></div>
-                      <p className="text-[11px] font-black uppercase text-rose-500">Déconnexion</p>
-                    </button>
-                 </motion.div>
-               )}
-             </AnimatePresence>
+             <AuthMenu 
+               isOpen={isLoggedIn && showAuthMenu} 
+               onLogout={() => setIsLoggedIn(false)} 
+               onNavigate={(path) => { navigate(path); setShowAuthMenu(false); }} 
+             />
            </div>
 
            <button onClick={onMobileMenuToggle} aria-label="Menu mobile" className={`lg:hidden p-2 rounded-xl transition-all active:scale-90 flex items-center justify-center ${scrolled ? 'bg-brand-primary/10 text-brand-primary border border-brand-primary/10' : 'text-slate-900 dark:text-white hover:bg-white/10'}`}>

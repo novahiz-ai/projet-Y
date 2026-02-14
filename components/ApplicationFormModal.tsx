@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import StandardButton from './StandardButton';
 import FormHeader from './form/FormHeader';
 import FormFooter from './form/FormFooter';
+import ApplicationFormNav from './form/ApplicationFormNav';
 import { useApplicationForm } from '../hooks/useApplicationForm';
 import { 
   IdentityStep, ProjectStep, ActivityStep, ContactStep, FundsStep, BudgetStep, UploadStep, SignatureStep 
@@ -18,7 +18,7 @@ interface ApplicationFormModalProps {
 const ApplicationFormModal: React.FC<ApplicationFormModalProps> = ({ isOpen, onClose, initialContext }) => {
   const { t } = useTranslation();
   const totalSteps = 8;
-  const { step, direction, formData, setFormData, handleNext, handlePrev, isMinor } = useApplicationForm(isOpen, initialContext, totalSteps);
+  const { step, direction, formData, setFormData, handleNext, handlePrev, isMinor, isStepValid } = useApplicationForm(isOpen, initialContext, totalSteps);
   
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const signaturePadRef = useRef<any>(null);
@@ -26,7 +26,6 @@ const ApplicationFormModal: React.FC<ApplicationFormModalProps> = ({ isOpen, onC
   const addressFileRef = useRef<HTMLInputElement>(null);
   const incomeFileRef = useRef<HTMLInputElement>(null);
 
-  // Focus trap and accessibility
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -55,8 +54,8 @@ const ApplicationFormModal: React.FC<ApplicationFormModalProps> = ({ isOpen, onC
         onClose={onClose} 
       />
 
-      <main className="flex-1 overflow-y-auto py-12 scrollbar-hide">
-        <div className="max-w-2xl mx-auto px-6">
+      <main className="flex-1 overflow-y-auto py-12 scrollbar-hide flex flex-col justify-center">
+        <div className="max-w-2xl mx-auto px-6 w-full">
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div 
               key={step} 
@@ -65,6 +64,7 @@ const ApplicationFormModal: React.FC<ApplicationFormModalProps> = ({ isOpen, onC
               animate={{ opacity: 1, x: 0 }} 
               exit={{ opacity: 0, x: direction < 0 ? 30 : -30 }} 
               transition={{ duration: 0.4, ease: [0.19, 1, 0.22, 1] }}
+              className="w-full"
             >
               {step === 1 && <IdentityStep formData={formData} setFormData={setFormData} t={t} isMinor={isMinor} />}
               {step === 2 && <ProjectStep formData={formData} setFormData={setFormData} t={t} />}
@@ -75,15 +75,13 @@ const ApplicationFormModal: React.FC<ApplicationFormModalProps> = ({ isOpen, onC
               {step === 7 && <UploadStep formData={formData} setFormData={setFormData} t={t} idFileRef={idFileRef} addressFileRef={addressFileRef} incomeFileRef={incomeFileRef} />}
               {step === 8 && <SignatureStep canvasRef={canvasRef} signaturePadRef={signaturePadRef} t={t} />}
               
-              <div className="mt-16 pb-10">
-                <StandardButton 
-                  onClick={step === totalSteps ? onClose : handleNext} 
-                  className="w-full !py-6 shadow-brand active:scale-[0.98]" 
-                  disabled={step === 1 && isMinor}
-                >
-                  <span className="text-base font-black tracking-widest">{step === totalSteps ? t('form.sign_submit') : t('form.next')}</span>
-                </StandardButton>
-              </div>
+              <ApplicationFormNav 
+                step={step}
+                totalSteps={totalSteps}
+                isStepValid={isStepValid}
+                onNext={handleNext}
+                onClose={onClose}
+              />
             </motion.div>
           </AnimatePresence>
         </div>

@@ -51,38 +51,39 @@ const CookiesPage: React.FC = () => {
   return (
     <div className="bg-white dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
       <div className="relative overflow-hidden h-[75vh] lg:h-auto pt-32 pb-20 border-b border-slate-100 dark:border-slate-800 transition-colors duration-500 flex items-center">
+        {/* Background Visibility — V16.4 */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2000" 
             alt="Cookies background" 
-            className="w-full h-full object-cover opacity-10 dark:opacity-20 scale-105"
+            className="w-full h-full object-cover opacity-[0.25] dark:opacity-[0.35] scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-50/90 via-slate-50/80 to-transparent dark:from-slate-900/90 dark:via-slate-900/80 dark:to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-white/80 to-transparent dark:from-slate-950/90 dark:via-slate-950/80 dark:to-transparent"></div>
           <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-primary/5 blur-[100px] rounded-full translate-x-1/2"></div>
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
           <nav className="flex items-center space-x-2 text-[10px] font-black uppercase tracking-widest text-slate-400 mb-10">
             <button onClick={() => navigate('/')} className="hover:text-brand-primary transition-colors">{t('nav.home')}</button>
             <ChevronRight size={12} />
-            <span className="text-slate-900 dark:text-white">{t('footer.cookies')}</span>
+            <span className="text-slate-900 dark:text-white font-black">{t('footer.cookies')}</span>
           </nav>
           
           <div className="max-w-4xl space-y-6">
-            <h1 className="text-5xl lg:text-6xl font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-tight">
+            <h1 className="text-5xl lg:text-6xl font-black uppercase tracking-tighter text-slate-950 dark:text-white leading-tight drop-shadow-sm">
               {t('cookies_page.title')} <br />
               <span className="text-brand-primary italic">{t('cookies_page.highlight')}</span>
             </h1>
-            <p className="text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-2xl">
+            <p className="text-xl text-slate-700 dark:text-slate-200 font-semibold leading-relaxed max-w-2xl bg-white/5 dark:bg-black/5 backdrop-blur-sm p-4 md:p-0 rounded-2xl">
               {t('cookies_page.desc')}
             </p>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 mt-20 lg:flex lg:gap-24">
+      <div className="max-w-7xl mx-auto px-6 mt-20 lg:flex lg:gap-24">
         <aside className="hidden lg:block lg:w-1/4">
-          <div className="sticky top-32 space-y-2 bg-slate-50/50 dark:bg-slate-900/30 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800">
+          <div className="sticky top-32 space-y-2 bg-slate-50/50 dark:bg-slate-900/30 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-4 mb-4">Navigation</p>
             {sections.map((section) => (
               <button

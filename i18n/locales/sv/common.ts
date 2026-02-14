@@ -1,17 +1,16 @@
-
 export const common = {
   chatbot: {
-    welcome: "Hej! Jag är din digitala Younited-rådgivare. Hur kan jag hjälpa dig idag?",
-    error: "Anslutningsfel. Försök igen?",
+    welcome: "Hej! Jag är din digitala Younited-rådgivare. Hur kan jag hjälpa dig med ditt finansiella projekt idag?",
+    error: "Ett anslutningsfel uppstod. Vill du försöka igen?",
     brand_label: "Expertråd",
     agent_name: "Digital Analytiker",
-    secure_notice: "Säker kanal",
+    secure_notice: "Säker supportkanal",
     placeholder: "Beskriv ditt projekt...",
-    version: "Gouvernance 4.0-S"
+    version: "Governance 4.0-S"
   },
   nav: {
     home: "Hem",
-    credit: "Kredit",
+    credit: "Lösningar",
     simulator: "Simulator",
     guide: "Guide",
     resources: "Resurser",
@@ -19,10 +18,16 @@ export const common = {
     help: "Hjälp",
     about: "Om Oss",
     credits: "Credits",
+    login: "Logga in",
+    client_space: "Kundzon",
+    profile: "Min profil",
     glossary_label: "Ordlista",
     resources_menu: {
       help_label: "Hjälp",
-      guide_label: "Guide",
+      guide_label: "Låneguide",
+      glossary_label: "Ordlista",
+      legal_label: "Juridik",
+      privacy_label: "Integritet",
       expert_center_label: "Expertcenter",
       about_btn: "Vår vision"
     }
@@ -38,7 +43,7 @@ export const common = {
     placeholder: "Sök...",
     results_for: "Resultat för",
     nav_tip: "Navigera",
-    open_tip: "Öppna",
+    open_tip: "Opri",
     close_tip: "Stäng"
   },
   contact_section: {
@@ -57,8 +62,26 @@ export const common = {
     phases: { basics: "Profil", situation: "Situation", finances: "Ekonomi", finalize: "Validering" },
     identity_title: "DIN ",
     identity_highlight: "IDENTITET.",
+    identity_desc: "Information.",
+    activity_title: "DIN ",
+    activity_highlight: "AKTIVITET.",
+    contact_title: "DINA ",
+    contact_highlight: "KONTAKTER.",
+    funds_title: "DINA ",
+    funds_highlight: "MEDEL.",
+    project_title: "DITT ",
+    project_highlight: "PROJEKT.",
+    budget_title: "DIN ",
+    budget_highlight: "BUDGET.",
+    docs_title: "DINA ",
+    docs_highlight: "DOKUMENT.",
+    sign_title: "DIN ",
+    sign_highlight: "SIGNATUR.",
+    sign_desc: "Signera i rutan.",
+    sign_submit: "Slutför ansökan",
+    sign_cert: "eIDAS certifierad",
     fields: {
-      firstname: "Förnamn",
+      firstname: "Fullständigt namn",
       lastname: "Efternamn",
       birthdate: "Födelsedatum",
       job_title: "Yrke",
@@ -74,17 +97,46 @@ export const common = {
       income_doc: "Inkomst",
       tax_residency: "Skattesäte",
       bank: "Bank",
-      purpose: "Projekt",
+      purpose: "Progetto",
       amount: "Belopp",
       months: "Varaktighet",
       income: "Månadsinkomst",
       rent: "Avgifter",
       family_status: "Status",
       dependents: "Barn"
+    },
+    placeholders: {
+      firstname: "Namn & Efternamn",
+      lastname: "Efternamn",
+      job_title: "Yrke",
+      employer: "Företag",
+      email: "kontakt@exempel.se",
+      address: "Fullständig adress",
+      zip: "11122",
+      city: "Stad",
+      income: "2500",
+      rent: "800",
+      amount: "Belopp",
+      months: "Månader"
+    },
+    options: {
+      job_status: {
+        cdi: "Tillsvidare",
+        cdd: "Visstid",
+        indep: "Frilans",
+        retraite: "Pensionär",
+        etudiant: "Student"
+      },
+      civility: {
+        mr: "Man",
+        mrs: "Kvinna",
+        nb: "Icke-binär",
+        other: "Annat"
+      }
     }
   },
   stats: { borrowers: "Låntagare", funds: "Finansiering", satisfaction: "Nöjdhet", live: "Realtid", banking: "Banking", index: "Souverän" },
-  labels: { language: "Språk", rate_from: "Ränta från", express_demand: "Express", see_details: "Detaljer", months_count: "Månader", support_247: "Expertis", characteristic: "Egenskap", details: "Data" },
+  labels: { language: "Språk", rate_from: "Ränta från", express_demand: "Express", see_details: "Detaljer", months_count: "Månader", support_247: "Expertis", characteristic: "Egenskap", details: "Data", load_more: "Fler", load_less: "Färre", mandatory: "Obligatorisk", optional: "Valfri" },
   cookies_banner: { title: "Integritet", subtitle: "Cookies", desc: "Vi använder cookies.", accept: "Acceptera", decline: "Avvisa", policy: "Dataskydd" },
   consent: { title: "Information", warning: "En kredit är bindande.", accept: "Validera", decline: "Avbryt" },
   footer: { desc: "Kreditinstitut.", offers_title: "Erbjudanden", resources_title: "Expertise", social_title: "Sociala medier", rights: "© {{year}} Younited. Alla rättigheter förbehållna.", legal: "Juridisk information", privacy: "Integritet", cookies: "Cookies", eu_notice: "EU-regler.", assistance: "Assistans", whatsapp_direct: "WhatsApp", glossary_fin: "Ordlista", trust_label: "Reglerat" }

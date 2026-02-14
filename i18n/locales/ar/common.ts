@@ -1,4 +1,3 @@
-
 export const common = {
   chatbot: {
     welcome: "مرحباً! أنا مستشارك الرقمي من يونايتد. كيف يمكنني مساعدتك اليوم؟",
@@ -7,7 +6,7 @@ export const common = {
     agent_name: "محلل رقمي",
     secure_notice: "قناة دعم آمنة وسيادية",
     placeholder: "صف مشروعك...",
-    version: "Gouvernance 4.0-S"
+    version: "Governance 4.0-S"
   },
   nav: {
     home: "الرئيسية",
@@ -19,12 +18,16 @@ export const common = {
     help: "مساعدة",
     about: "من نحن",
     credits: "الاعتمادات",
+    login: "دخول",
+    client_space: "مساحة العملاء",
+    profile: "الملف الشخصي",
     glossary_label: "قاموس مالي",
     resources_menu: {
       help_label: "مساعدة",
       guide_label: "دليل الاقتراض",
       glossary_label: "قاموس",
       legal_label: "قانوني",
+      privacy_label: "خصوصية",
       expert_center_label: "مركز الخبرة",
       about_btn: "رؤيتنا"
     }
@@ -59,8 +62,26 @@ export const common = {
     phases: { basics: "الملف الشخصي", situation: "الوضع", finances: "المالية", finalize: "التحقق" },
     identity_title: "هويتك ",
     identity_highlight: "الخاصة.",
+    identity_desc: "معلومات عقدية.",
+    activity_title: "نشاطك ",
+    activity_highlight: "المهني.",
+    contact_title: "بيانات ",
+    contact_highlight: "الاتصال.",
+    funds_title: "صرف ",
+    funds_highlight: "الأموال.",
+    project_title: "مشروعك ",
+    project_highlight: "الشخصي.",
+    budget_title: "ميزانيتك ",
+    budget_highlight: "المالية.",
+    docs_title: "الوثائق ",
+    docs_highlight: "الثبوتية.",
+    sign_title: "توقيعك ",
+    sign_highlight: "الإلكتروني.",
+    sign_desc: "يرجى التوقيع في الإطار للتحقق.",
+    sign_submit: "إنهاء ملفي",
+    sign_cert: "معتمد eIDAS",
     fields: {
-      firstname: "الاسم الأول",
+      firstname: "الاسم الكامل",
       lastname: "الكنية",
       birthdate: "تاريخ الميلاد",
       job_title: "المهنة",
@@ -83,11 +104,38 @@ export const common = {
       rent: "أعباء",
       family_status: "حالة عائلية",
       dependents: "أطفال"
+    },
+    placeholders: {
+      firstname: "الاسم والكنية",
+      lastname: "الكنية",
+      job_title: "المهنة",
+      employer: "الشركة",
+      email: "contact@example.com",
+      address: "العنوان الكامل",
+      zip: "10000",
+      city: "المدينة",
+      amount: "المبلغ",
+      months: "الأشهر"
+    },
+    options: {
+      job_status: {
+        cdi: "دائم",
+        cdd: "مؤقت",
+        indep: "مستقل",
+        retraite: "متقاعد",
+        etudiant: "طالب"
+      },
+      civility: {
+        mr: "ذكر",
+        mrs: "أنثى",
+        nb: "غير محدد",
+        other: "آخر"
+      }
     }
   },
   stats: { borrowers: "مقترضين", funds: "تمويلات", satisfaction: "رضا", live: "وقت حقيقي", banking: "خدمات بنكية", index: "سيادي" },
-  labels: { language: "لغة", rate_from: "معدل من", express_demand: "طلب سريع", see_details: "تفاصيل", months_count: "أشهر", support_247: "خبرة 24/7", characteristic: "خاصية", details: "بيانات" },
-  cookies_banner: { title: "خصوصية", subtitle: "ملفات تعريف", desc: "نستخدم ملفات التعريف.", accept: "قبول الكل", decline: "رفض", policy: "حماية البيانات" },
+  labels: { language: "لغة", rate_from: "معدل من", express_demand: "طلب سريع", see_details: "تفاصيل", months_count: "أشهر", support_247: "خبرة 24/7", characteristic: "خاصية", details: "بيانات", load_more: "المزيد", load_less: "أقل", mandatory: "إلزامي", optional: "اختياري" },
+  cookies_banner: { title: "خصوصية", subtitle: "ملفات تعريف", desc: "نستخدم ملفات التعريف.", accept: "قبول", decline: "رفض", policy: "حماية البيانات" },
   consent: { title: "ملاحظة", warning: "الائتمان يلزمك ويجب سداده.", accept: "تحقق ومتابعة", decline: "إلغاء" },
   footer: { desc: "مؤسسة ائتمان سيادية.", offers_title: "عروضنا", resources_title: "خبرة", social_title: "شبكات اجتماعية", rights: "© {{year}} يونايتد. جميع الحقوق محفوظة.", legal: "إشعار قانوني", privacy: "خصوصية", cookies: "ملفات تعريف", eu_notice: "متوافق مع لوائح الاتحاد الأوروبي.", assistance: "مساعدة", whatsapp_direct: "اتصال مباشر", glossary_fin: "قاموس", trust_label: "مرخص ومنظم" }
 };

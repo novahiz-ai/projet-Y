@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Briefcase, Building2 } from 'lucide-react';
 import { FormLabel, FormInput, FormSelect } from '../../ui/FormControls';
@@ -15,7 +14,7 @@ const ActivityStep = ({ formData, setFormData, t }: any) => (
     
     <div className="space-y-6">
       <div className="space-y-1">
-        <FormLabel Icon={Briefcase}>{t('form.fields.job_title')}</FormLabel>
+        <FormLabel Icon={Briefcase} required>{t('form.fields.job_title')}</FormLabel>
         <div className="flex flex-col md:flex-row gap-4">
           <div className="md:w-1/3">
             <FormSelect 
@@ -37,7 +36,7 @@ const ActivityStep = ({ formData, setFormData, t }: any) => (
       </div>
 
       <div className="space-y-1">
-        <FormLabel Icon={Building2}>{t('form.fields.employer')}</FormLabel>
+        <FormLabel Icon={Building2} optional>{t('form.fields.employer')}</FormLabel>
         <FormInput 
           placeholder={t('form.placeholders.employer')} 
           value={formData.employerName} 

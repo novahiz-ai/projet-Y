@@ -7,15 +7,15 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ className = "", size = 'md' }) => {
   const sizeClasses = {
-    sm: "text-lg",
-    md: "text-2xl",
-    lg: "text-4xl"
+    sm: "text-2xl",
+    md: "text-4xl",
+    lg: "text-6xl"
   };
 
   return (
-    <div className={`flex items-center select-none ${className}`}>
-      <span className={`${sizeClasses[size]} font-black italic tracking-tighter uppercase text-slate-950 dark:text-white`}>
-        <span className="text-brand-primary">L</span>OGO
+    <div className={`flex items-center font-black tracking-tighter select-none cursor-default ${className} ${sizeClasses[size]}`}>
+      <span className="bg-gradient-to-r from-[#7c3aed] via-[#10b981] to-[#f97316] bg-clip-text text-transparent italic drop-shadow-sm">
+        Logo
       </span>
     </div>
   );

@@ -18,7 +18,7 @@ const PageWrapper: React.FC<PageWrapperProps> = ({ children, className = "" }) =
         damping: 30,
         mass: 1
       }}
-      className={`min-h-screen ${className}`}
+      className={`min-h-screen pb-32 lg:pb-0 ${className}`}
     >
       {children}
     </motion.div>

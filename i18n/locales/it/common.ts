@@ -1,13 +1,12 @@
-
 export const common = {
   chatbot: {
-    welcome: "Buongiorno! Sono il tuo consulente digitale Younited. Come posso aiutarti oggi?",
-    error: "Errore di connessione. Riprovare?",
+    welcome: "Buongiorno! Sono il tuo consulente digitale Younited. Come posso accompagnare il tuo progetto finanziario oggi?",
+    error: "Si è verificata una difficoltà di connessione. Vuoi riprovare?",
     brand_label: "Consulenza",
     agent_name: "Analista Digitale",
-    secure_notice: "Canale sicuro",
+    secure_notice: "Canale di supporto sicuro",
     placeholder: "Descrivi il tuo progetto...",
-    version: "Gouvernance 4.0-S"
+    version: "Governance 4.0-S"
   },
   nav: {
     home: "Home",
@@ -19,15 +18,20 @@ export const common = {
     help: "Aiuto",
     about: "Chi Siamo",
     credits: "Crediti",
+    login: "Accedi",
+    client_space: "Area Clienti",
+    profile: "Profilo",
     glossary_label: "Glossario",
     resources_menu: {
       help_label: "Aiuto",
       help_desc: "Risposte alle tue domande.",
-      guide_label: "Guida",
-      guide_desc: "Esperti.",
+      guide_label: "Guida al credito",
+      guide_desc: "Dossier esperti.",
       glossary_label: "Glossario",
       glossary_desc: "Lessico finanziario.",
       legal_label: "Legale",
+      privacy_label: "Privacy",
+      cookies_label: "Cookie",
       expert_center_label: "Centro expertise",
       about_btn: "La nostra visione"
     }
@@ -43,7 +47,7 @@ export const common = {
     placeholder: "Cerca...",
     results_for: "Risultati per",
     nav_tip: "Naviga",
-    open_tip: "Apri",
+    open_tip: "Opri",
     close_tip: "Chiudi"
   },
   contact_section: {
@@ -62,8 +66,26 @@ export const common = {
     phases: { basics: "Profilo", situation: "Situazione", finances: "Finanze", finalize: "Validazione" },
     identity_title: "LA TUA ",
     identity_highlight: "IDENTITÀ.",
+    identity_desc: "Informazioni contrattuali.",
+    activity_title: "LA TUA ",
+    activity_highlight: "ATTIVITÀ.",
+    contact_title: "I TUOI ",
+    contact_highlight: "CONTATTI.",
+    funds_title: "I TUOI ",
+    funds_highlight: "FONDI.",
+    project_title: "IL TUO ",
+    project_highlight: "PROGETTO.",
+    budget_title: "IL TUO ",
+    budget_highlight: "BUDGET.",
+    docs_title: "I TUOI ",
+    docs_highlight: "DOCUMENTI.",
+    sign_title: "LA TUA ",
+    sign_highlight: "FIRMA.",
+    sign_desc: "Firma nel riquadro per convalidare.",
+    sign_submit: "Finalizza pratica",
+    sign_cert: "Certificato eIDAS",
     fields: {
-      firstname: "Nome",
+      firstname: "Nome completo",
       lastname: "Cognome",
       birthdate: "Data di nascita",
       job_title: "Professione",
@@ -86,10 +108,39 @@ export const common = {
       rent: "Oneri",
       family_status: "Stato",
       dependents: "Figli"
+    },
+    placeholders: {
+      firstname: "Nome & Cognome",
+      lastname: "Cognome",
+      job_title: "Posizione",
+      employer: "Azienda",
+      email: "contatto@esempio.it",
+      address: "Indirizzo completo",
+      zip: "00100",
+      city: "Città",
+      income: "2500",
+      rent: "800",
+      amount: "Importo",
+      months: "Mesi"
+    },
+    options: {
+      job_status: {
+        cdi: "Indeterminato",
+        cdd: "Determinato",
+        indep: "Freelance",
+        retraite: "Pensionato",
+        etudiant: "Studente"
+      },
+      civility: {
+        mr: "Uomo",
+        mrs: "Donna",
+        nb: "Non binario",
+        other: "Altro"
+      }
     }
   },
   stats: { borrowers: "Mutuatari", funds: "Finanziamenti", satisfaction: "Soddisfazione", live: "Tempo Reale", banking: "Banking", index: "Sovrano" },
-  labels: { language: "Lingua", rate_from: "Tasso da", express_demand: "Richiesta Express", see_details: "Dettagli", months_count: "Mesi", support_247: "Expertise", characteristic: "Caratteristica", details: "Dati" },
+  labels: { language: "Lingua", rate_from: "Tasso da", express_demand: "Richiesta Express", see_details: "Dettagli", months_count: "Mesi", support_247: "Expertise", characteristic: "Caratteristica", details: "Dati", load_more: "Più offerte", load_less: "Meno", mandatory: "Obbligatorio", optional: "Opzionale" },
   cookies_banner: { title: "Privacy", subtitle: "Cookie", desc: "Usiamo i cookie.", accept: "Accetta", decline: "Rifiuta", policy: "Protezione dati" },
   consent: { title: "Nota", warning: "Il credito ti impegna e va rimborsato.", accept: "Valida", decline: "Annulla" },
   footer: { desc: "Istituto di credito.", offers_title: "Offerte", resources_title: "Expertise", social_title: "Social", rights: "© {{year}} Younited. Tutti i diritti riservati.", legal: "Note Legali", privacy: "Privacy", cookies: "Cookie", eu_notice: "Normativa UE.", assistance: "Assistenza", whatsapp_direct: "WhatsApp", glossary_fin: "Glossario", trust_label: "Regolato" }

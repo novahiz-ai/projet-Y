@@ -1,14 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ChevronDown, Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, Check, X } from 'lucide-react';
 
-/**
- * V15 — SOVEREIGN UI
- * Component: ATOMIC_SELECT
- */
 export interface Option {
   value: string;
   label: string;
-  icon?: React.ReactNode; // Extension pour compatibilité V15
+  icon?: React.ReactNode;
+  flag?: string;
+  subLabel?: string;
 }
 
 interface ModernSelectProps {
@@ -29,83 +28,92 @@ const ModernSelect: React.FC<ModernSelectProps> = ({
   className = "" 
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-
   const selectedOption = options.find(opt => opt.value === value);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
   return (
-    <div className={`space-y-2 relative ${className}`} ref={containerRef}>
+    <div className={`space-y-2 w-full ${className}`}>
       {label && (
         <label className="text-[10px] font-black uppercase text-slate-400 tracking-widest px-1">
           {label}
         </label>
       )}
       
-      <div className="relative">
-        <button
-          type="button"
-          onClick={() => setIsOpen(!isOpen)}
-          className={`w-full flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/30 border transition-all py-4 px-6 rounded-2xl text-left outline-none shadow-inner-soft ${
-            isOpen 
-              ? 'border-brand-primary/40 ring-4 ring-brand-primary/5' 
-              : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
-          }`}
-        >
-          <div className="flex items-center space-x-3">
-            {selectedOption?.icon && <span className="text-brand-primary shrink-0">{selectedOption.icon}</span>}
-            <span className={`text-sm font-medium ${selectedOption ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>
-              {selectedOption ? selectedOption.label : placeholder}
-            </span>
-          </div>
-          <ChevronDown 
-            size={18} 
-            className={`text-slate-400 transition-transform duration-300 ${isOpen ? 'rotate-180 text-brand-primary' : ''}`} 
-          />
-        </button>
-
-        {/* Dropdown Pop-up */}
-        <div 
-          className={`absolute left-0 right-0 mt-3 z-[150] origin-top transition-all duration-300 ${
-            isOpen 
-              ? 'opacity-100 scale-100 translate-y-0 visible' 
-              : 'opacity-0 scale-95 -translate-y-2 invisible'
-          }`}
-        >
-          <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border border-slate-100 dark:border-slate-800 rounded-[2rem] shadow-3xl overflow-hidden max-h-72 overflow-y-auto scrollbar-hide py-3">
-            {options.map((option) => (
-              <button
-                key={option.value}
-                type="button"
-                onClick={() => {
-                  onChange(option.value);
-                  setIsOpen(false);
-                }}
-                className={`w-full flex items-center justify-between px-6 py-3.5 text-sm font-bold transition-colors text-left ${
-                  value === option.value 
-                    ? 'bg-brand-primary/10 text-brand-primary' 
-                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
-                }`}
-              >
-                <div className="flex items-center space-x-3">
-                  {option.icon && <span className="shrink-0 opacity-50">{option.icon}</span>}
-                  <span className="uppercase tracking-tight">{option.label}</span>
-                </div>
-                {value === option.value && <Check size={16} className="shrink-0" />}
-              </button>
-            ))}
-          </div>
+      <button
+        type="button"
+        onClick={() => setIsOpen(true)}
+        className="w-full flex items-center justify-between bg-slate-50/50 dark:bg-slate-900/30 border border-slate-200 dark:border-slate-800 transition-all py-4 px-6 rounded-2xl text-left outline-none shadow-inner-soft hover:border-brand-primary/40 focus:ring-4 focus:ring-brand-primary/5"
+      >
+        <div className="flex items-center space-x-3">
+          {selectedOption?.flag && <span className="text-xl">{selectedOption.flag}</span>}
+          {selectedOption?.icon && <span className="text-brand-primary">{selectedOption.icon}</span>}
+          <span className={`text-sm font-bold uppercase tracking-tight ${selectedOption ? 'text-slate-900 dark:text-white' : 'text-slate-400'}`}>
+            {selectedOption ? selectedOption.label : placeholder}
+          </span>
         </div>
-      </div>
+        <ChevronDown size={18} className="text-slate-400" />
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <div className="fixed inset-0 z-[600] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="absolute inset-0 bg-slate-950/60 backdrop-blur-md"
+            />
+            
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-[3rem] shadow-3xl border border-slate-100 dark:border-slate-800 overflow-hidden flex flex-col max-h-[80vh]"
+            >
+              <div className="p-6 border-b border-slate-50 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-950/50">
+                <h3 className="text-xs font-black uppercase tracking-widest text-slate-400">{label || "Choisir une option"}</h3>
+                <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl text-slate-400 transition-all">
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto p-4 space-y-2 scrollbar-hide">
+                {options.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => {
+                      onChange(option.value);
+                      setIsOpen(false);
+                    }}
+                    className={`w-full flex items-center justify-between p-5 rounded-2xl transition-all ${
+                      value === option.value 
+                        ? 'bg-brand-primary/10 border-2 border-brand-primary' 
+                        : 'bg-slate-50/50 dark:bg-slate-800/50 border-2 border-transparent hover:bg-slate-100 dark:hover:bg-slate-800'
+                    }`}
+                  >
+                    <div className="flex items-center space-x-4">
+                      {option.flag && <span className="text-2xl">{option.flag}</span>}
+                      {option.icon && <span className={value === option.value ? 'text-brand-primary' : 'text-slate-400'}>{option.icon}</span>}
+                      <div className="text-left">
+                        <p className={`text-sm font-black uppercase tracking-tight ${value === option.value ? 'text-brand-primary' : 'text-slate-900 dark:text-white'}`}>
+                          {option.label}
+                        </p>
+                        {option.subLabel && <p className="text-[10px] text-slate-400 font-bold mt-0.5">{option.subLabel}</p>}
+                      </div>
+                    </div>
+                    {value === option.value && (
+                      <div className="w-6 h-6 bg-brand-primary text-white rounded-full flex items-center justify-center">
+                        <Check size={14} strokeWidth={3} />
+                      </div>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
