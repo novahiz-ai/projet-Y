@@ -7,6 +7,11 @@ import { it } from './locales/it';
 import { es } from './locales/es';
 import { sv } from './locales/sv';
 import { ar } from './locales/ar';
+import { lb } from './locales/lb';
+import { ru } from './locales/ru';
+import { uk } from './locales/uk';
+import { pt } from './locales/pt';
+import { ro } from './locales/ro';
 
 const resources = {
   fr,
@@ -15,7 +20,12 @@ const resources = {
   it,
   es,
   sv,
-  ar
+  ar,
+  lb,
+  ru,
+  uk,
+  pt,
+  ro
 };
 
 i18n

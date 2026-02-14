@@ -2,7 +2,7 @@ export const landing = {
   hero: {
     title: "VOTRE PROJET,",
     highlight: "NOTRE EXPERTISE.",
-    desc: "Younited transforme le crédit en une expérience simple, transparente et 100% digitale. Obtenez une réponse ferme en temps réel.",
+    desc: "Younited transforme le crédit en une expérience simple, transparent et 100% digital. Obtenez une réponse ferme en temps réel.",
     simulate: "Simuler mon prêt",
     simulate_desc: "Calculez votre projet et obtenez une réponse immédiate.",
     express: "Demande Express",
@@ -25,6 +25,12 @@ export const landing = {
       projet: { label: "Prêt Projet", desc: "Mariage, voyage, études : réalisez vos rêves.", limit: "Multi-projets" }
     }
   },
+  trust_badges: {
+    acpr: { label: "Agréé ACPR", desc: "Licence Bancaire Européenne" },
+    eidas: { label: "Sécurité eIDAS", desc: "Signature 100% certifiée" },
+    gdpr: { label: "RGPD Compliant", desc: "Protection totale des données" },
+    resp: { label: "Crédit Responsable", desc: "Transparence des taux" }
+  },
   solutions_title: "NOS SOLUTIONS DE ",
   solutions_highlight: "CRÉDIT.",
   solutions_desc: "Trouvez le prêt adapté à votre profil parmi nos 9 offres.",
@@ -39,6 +45,45 @@ export const landing = {
       { title: "Signature", desc: "Transmettez vos pièces et signez en ligne en toute sécurité." },
       { title: "Fonds", desc: "Recevez les fonds sous 48h ouvrées après acceptation*." }
     ]
+  },
+  security_vault: {
+    label: "Forteresse Digitale",
+    title: "VOTRE SÉCURITÉ,",
+    highlight: "NOTRE PRIORITÉ.",
+    desc: "Younited déploie les technologies de pointe pour garantir l'intégrité de vos informations et la conformité totale de vos opérations.",
+    features: [
+      { title: "Cryptage AES-256", desc: "Vos données sont chiffrées selon les standards militaires les plus stricts." },
+      { title: "Agrément ACPR", desc: "Établissement de crédit agréé et régulé par les autorités bancaires." },
+      { title: "Hébergement EU", desc: "Données stockées exclusivement en Union Européenne (RGPD)." },
+      { title: "Transparence", desc: "Zéro frais cachés, taux fixe et conditions claires dès la signature." }
+    ]
+  },
+  comparison: {
+    title: "LA DIFFÉRENCE",
+    highlight: "YOUNITED.",
+    desc: "Pourquoi nous confier vos projets plutôt qu'à une banque classique ? La réponse est dans l'expérience.",
+    bank_name: "Banque Classique",
+    younited_items: [
+      { text: "Réponse de principe immédiate", sub: "Traitement algorithmique 24/7." },
+      { text: "Zéro papier, 100% digital", sub: "Signature eIDAS et Open Banking." },
+      { text: "Fonds versés sous 48h*", sub: "Après acceptation et délais légaux." }
+    ],
+    bank_items: [
+      "Délai d'analyse de 5 à 10 jours",
+      "Justificatifs papier et rendez-vous",
+      "Processus opaque et frais cachés"
+    ]
+  },
+  eu_reach: {
+    label: "Hub Financier Européen",
+    title: "UN LEADERSHIP",
+    highlight: "PAN-EUROPÉEN.",
+    stats: {
+      clients: "Clients Actifs",
+      countries: "Pays Couverts",
+      financed: "Financés",
+      standards: "Standards EU"
+    }
   },
   renovation_label: "Focus Rénovation",
   renovation_title: "TRANSFORMEZ ",

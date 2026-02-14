@@ -7,6 +7,13 @@ import FadeIn from '../ui/FadeIn';
 const EUReachSection: React.FC = () => {
   const { t } = useTranslation();
 
+  const stats = [
+    { icon: <Users />, val: "1M+", label: t('landing.eu_reach.stats.clients') },
+    { icon: <Building2 />, val: "9", label: t('landing.eu_reach.stats.countries') },
+    { icon: <TrendingUp />, val: "4Md€", label: t('landing.eu_reach.stats.financed') },
+    { icon: <Globe />, val: "EU", label: t('landing.eu_reach.stats.standards') }
+  ];
+
   return (
     <section className="relative py-32 lg:py-52 bg-slate-950 overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -21,23 +28,18 @@ const EUReachSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
         <FadeIn className="space-y-10">
-          <div className="inline-flex items-center space-x-3 bg-brand-orange/10 text-brand-orange px-5 py-2 rounded-full border border-brand-orange/20 backdrop-blur-md">
-            <Globe size={16} className="animate-spin-slow" />
-            <span className="text-[10px] font-black uppercase tracking-[0.4em]">Hub Financier Européen</span>
+          <div className="inline-flex items-center space-x-3 bg-white/5 text-brand-orange px-5 py-2 rounded-full border border-white/10 backdrop-blur-md">
+            <Globe size={16} className="animate-spin-slow text-brand-orange" />
+            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-orange">{t('landing.eu_reach.label')}</span>
           </div>
 
           <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic text-white leading-none">
-            UN LEADERSHIP <br />
-            <span className="text-brand-orange">PAN-EUROPÉEN.</span>
+            {t('landing.eu_reach.title')} <br />
+            <span className="text-brand-orange">{t('landing.eu_reach.highlight')}</span>
           </h2>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mt-24">
-             {[
-               { icon: <Users />, val: "1M+", label: "Clients Actifs" },
-               { icon: <Building2 />, val: "9", label: "Pays Couverts" },
-               { icon: <TrendingUp />, val: "4Md€", label: "Financés" },
-               { icon: <Globe />, val: "EU", label: "Standards" }
-             ].map((stat, i) => (
+             {stats.map((stat, i) => (
                <motion.div 
                  key={i}
                  initial={{ opacity: 0, y: 20 }}

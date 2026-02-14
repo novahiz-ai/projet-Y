@@ -40,6 +40,45 @@ export const landing = {
       { title: "Utbetalning", desc: "Få pengarna inom 48 timmar efter slutgiltigt godkännande*." }
     ]
   },
+  security_vault: {
+    label: "Digital Fästning",
+    title: "DIN SÄKERHET,",
+    highlight: "VÅR PRIORITET.",
+    desc: "Younited använder den senaste tekniken för att garantera integriteten för din information och fullständig efterlevnad.",
+    features: [
+      { title: "AES-256 Kryptering", desc: "Dina data krypteras enligt de strängaste militära standarderna." },
+      { title: "ACPR-tillstånd", desc: "Licensierat kreditinstitut som regleras av bankmyndigheter." },
+      { title: "EU-Hosting", desc: "Data lagras uteslutande inom Europeiska unionen (GDPR)." },
+      { title: "Transparens", desc: "Inga dolda avgifter, fast ränta och tydliga villkor från start." }
+    ]
+  },
+  comparison: {
+    title: "SKILLNADEN",
+    highlight: "YOUNITED.",
+    desc: "Varför anförtro dina projekt till oss snarare än till en klassisk bank? Svaret ligger i upplevelsen.",
+    bank_name: "Klassisk Bank",
+    younited_items: [
+      { text: "Omedelbart principbesked", sub: "Algoritmisk behandling 24/7." },
+      { text: "Noll papper, 100% digitalt", sub: "eIDAS-signatur och Open Banking." },
+      { text: "Utbetalning inom 48h*", sub: "Efter godkännande och lagstadgade frister." }
+    ],
+    bank_items: [
+      "5 till 10 dagars analystid",
+      "Pappershandlingar och möten",
+      "Otransparent process och dolda avgifter"
+    ]
+  },
+  eu_reach: {
+    label: "Europeisk Finans-Hub",
+    title: "ETT PAN-EUROPEISKT",
+    highlight: "LEADERSKAP.",
+    stats: {
+      clients: "Aktiva Kunder",
+      countries: "Länder som täcks",
+      financed: "Finansierat",
+      standards: "EU Standarder"
+    }
+  },
   renovation_label: "Fokus Renovering",
   renovation_title: "FÖRÄNDRA DITT ",
   renovation_highlight: "HEM.",

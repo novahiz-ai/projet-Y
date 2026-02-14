@@ -21,7 +21,7 @@ export const landing = {
     projects: {
       auto: { label: "Préstamo Auto", desc: "Financia tu vehículo nuevo o de ocasión a la mejor tasa.", limit: "Hasta 60.000€" },
       immo: { label: "Hipoteca", desc: "Hazte propietario con un acompañamiento a medida.", limit: "Proyectos inmobiliarios" },
-      perso: { label: "Préstamo Personale", desc: "Un crédito sin justificante para tus imprevistos.", limit: "Libre uso" },
+      perso: { label: "Préstamo Personal", desc: "Un crédito sin justificante para tus imprevistos.", limit: "Libre uso" },
       projet: { label: "Préstamo Proyecto", desc: "Bodas, viajes, estudios: realiza tus sueños.", limit: "Multiproyecto" }
     }
   },
@@ -39,6 +39,45 @@ export const landing = {
       { title: "Firma", desc: "Envía tus documentos y firma online con total seguridad." },
       { title: "Fondos", desc: "Recibe los fondos en 48h laborables tras la aceptación*." }
     ]
+  },
+  security_vault: {
+    label: "Fortaleza Digital",
+    title: "SU SEGURIDAD,",
+    highlight: "NUESTRA PRIORIDAD.",
+    desc: "Younited utiliza las tecnologías más avanzadas para garantizar la integridad de su información y el cumplimiento total.",
+    features: [
+      { title: "Cifrado AES-256", desc: "Sus datos están protegidos según los estándares militares más estrictos." },
+      { title: "Autorización ACPR", desc: "Entidad de crédito autorizada y regulada por las autoridades bancarias." },
+      { title: "Alojamiento EU", desc: "Datos almacenados exclusivamente en la Unión Europea (RGPD)." },
+      { title: "Transparencia", desc: "Sin comisiones ocultas, tipo fijo y condiciones claras desde la firma." }
+    ]
+  },
+  comparison: {
+    title: "LA DIFERENCIA",
+    highlight: "YOUNITED.",
+    desc: "¿Por qué confiarnos sus proyectos en lugar de a un banco tradicional? La respuesta está en la experiencia.",
+    bank_name: "Banco Tradicional",
+    younited_items: [
+      { text: "Respuesta de principio inmediata", sub: "Procesamiento algorítmico 24/7." },
+      { text: "Cero papel, 100% digital", sub: "Firma eIDAS y Open Banking." },
+      { text: "Fondos en 48h*", sub: "Tras aceptación y plazos legales." }
+    ],
+    bank_items: [
+      "Análisis de 5 a 10 días",
+      "Documentos en papel y citas",
+      "Proceso opaco y comisiones ocultas"
+    ]
+  },
+  eu_reach: {
+    label: "Hub Financiero Europeo",
+    title: "LIDERAZGO",
+    highlight: "PAN-EUROPEO.",
+    stats: {
+      clients: "Clientes Activos",
+      countries: "Países Cubiertos",
+      financed: "Financiados",
+      standards: "Estándares EU"
+    }
   },
   renovation_label: "Foco Reformas",
   renovation_title: "TRANSFORMA ",
@@ -72,7 +111,7 @@ export const landing = {
     ]
   },
   prefooter: {
-    smart_title: "Gestión Inteligente",
+    smart_title: "Gestión Intelligente",
     smart_desc: "Gestiona tus reembolsos desde tu espacio de cliente seguro.",
     smart_label: "Tecnología Younited",
     help_desc: "¿Una pregunta sobre tu expediente? Accede a nuestro centro de ayuda completo.",

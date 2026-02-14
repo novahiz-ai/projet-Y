@@ -30,7 +30,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   }, [projects.length]);
 
   return (
-    <section className="relative min-h-[85vh] w-full flex flex-col justify-center overflow-hidden bg-white dark:bg-slate-950 pt-48 pb-20 lg:pt-52 lg:pb-32 transition-all duration-700">
+    <section className="relative min-h-[85vh] md:min-h-[50vh] md:max-h-[50vh] lg:min-h-[85vh] lg:max-h-none w-full flex flex-col justify-center overflow-hidden bg-white dark:bg-slate-950 pt-48 pb-20 md:pt-32 md:pb-12 lg:pt-52 lg:pb-32 transition-all duration-700">
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2560" 
@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 initial={{ opacity: 0, x: -30 }} 
                 animate={{ opacity: 1, x: 0 }} 
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                className="text-4xl md:text-5xl xl:text-6xl font-black leading-tight tracking-tighter uppercase italic text-slate-950 dark:text-white"
+                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight tracking-tighter uppercase italic text-slate-950 dark:text-white"
               >
                 <span className="block">{title}</span>
                 <span className="text-brand-primary drop-shadow-sm">{highlightText}</span>
@@ -58,28 +58,30 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 initial={{ opacity: 0 }} 
                 animate={{ opacity: 1 }} 
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="max-w-2xl text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed"
+                className="max-w-2xl text-base md:text-lg lg:text-xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed"
               >
                 {description}
               </motion.p>
             </div>
 
-            <ProjectSelector 
-              projects={projects} 
-              activeIndex={activeProject} 
-              onSelect={setActiveProject} 
-            />
+            <div className="md:hidden lg:block mt-8 lg:mt-0">
+              <ProjectSelector 
+                projects={projects} 
+                activeIndex={activeProject} 
+                onSelect={setActiveProject} 
+              />
+            </div>
 
-            <div className="flex flex-row items-center gap-4 pt-2">
+            <div className="flex flex-row items-center gap-4 pt-6 lg:pt-2">
               {children}
             </div>
 
-            <div className="pt-6 border-t border-slate-100 dark:border-slate-900/50">
+            <div className="hidden lg:block pt-6 border-t border-slate-100 dark:border-slate-900/50">
               <TrustBadges />
             </div>
           </div>
 
-          <div className="w-full lg:w-[35%] relative h-[300px] lg:h-[450px] flex justify-center items-center">
+          <div className="hidden lg:flex w-full lg:w-[35%] relative h-[300px] lg:h-[450px] justify-center items-center">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProject}
@@ -87,7 +89,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 exit={{ opacity: 0, scale: 1.02, rotateY: -10 }}
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                className="relative w-[350px] h-full bg-slate-900 rounded-[3rem] shadow-3xl overflow-hidden border-[6px] border-slate-50 dark:border-slate-800 cursor-pointer group"
+                className="relative w-[350px] h-full bg-slate-900 rounded-[3rem] shadow-3xl overflow-hidden border-[6px] border-slate-100 dark:border-slate-800 cursor-pointer group"
                 onClick={() => navigate(`/offres/${projects[activeProject].id}`)}
               >
                 <img src={projects[activeProject].image} className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:scale-105 transition-transform duration-1000" alt="" />
@@ -104,7 +106,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                       <span className="text-[8px] font-black uppercase tracking-widest text-white/70">{t('landing.hero.apr_fixed')}</span>
                     </div>
                   </div>
-                  <div className="pt-3 border-t border-white/10 flex justify-between items-center">
+                  <div className="pt-3 border-t border-slate-200/20 flex justify-between items-center">
                     <span className="text-[7px] font-black uppercase tracking-[0.2em] text-white/50">Détails de l'offre</span>
                     <div className="w-8 h-8 rounded-full bg-brand-primary text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-all">
                       <ChevronRight size={16} />

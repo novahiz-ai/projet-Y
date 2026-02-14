@@ -28,22 +28,21 @@ const SimulatorControls: React.FC<SimulatorControlsProps> = ({
   const limits = getLimitsForOffer(selectedOfferId);
   const prevOfferIdRef = useRef(selectedOfferId);
 
-  // LOGIQUE DE PROTECTION SOUVERAINE : Auto-ajustement des limites
+  // LOGIQUE DE PROTECTION SOUVERAINE : Auto-ajustement des limites au changement d'offre
   useEffect(() => {
     if (prevOfferIdRef.current !== selectedOfferId) {
-      // Si on change de type de projet, on réinitialise au minimum réaliste de ce projet
-      // pour éviter des situations absurdes (ex: Immo à 500€)
+      // Force le montant et la durée au minimum du nouveau type de projet
       onAmountChange(limits.minAmount);
       onDurationChange(limits.minDuration);
       prevOfferIdRef.current = selectedOfferId;
     } else {
-      // Ajustement simple pour rester dans les bornes si modification manuelle
+      // Ajustement simple pour rester dans les bornes lors des modifications manuelles
       if (amount < limits.minAmount) onAmountChange(limits.minAmount);
       if (amount > limits.maxAmount) onAmountChange(limits.maxAmount);
       if (duration < limits.minDuration) onDurationChange(limits.minDuration);
       if (duration > limits.maxDuration) onDurationChange(limits.maxDuration);
     }
-  }, [selectedOfferId, limits, amount, duration, onAmountChange, onDurationChange]);
+  }, [selectedOfferId, limits]);
 
   return (
     <div className="space-y-6 w-full max-w-xl mx-auto md:mx-0">

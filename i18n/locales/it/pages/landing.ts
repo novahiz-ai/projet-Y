@@ -26,7 +26,7 @@ export const landing = {
     }
   },
   solutions_title: "LE NOSTRE SOLUZIONI DI ",
-  solutions_highlight: "CREDITO.",
+  solutions_highlight: "CREDITARE.",
   solutions_desc: "Trova il prestito adatto al tuo profilo tra le nostre 9 offerte.",
   view_catalog: "Vedi il catalogo",
   steps_title: "IL TUO CREDITO IN ",
@@ -39,6 +39,45 @@ export const landing = {
       { title: "Firma", desc: "Invia i tuoi documenti e firma online in tutta sicurezza." },
       { title: "Fondi", desc: "Ricevi i fondi entro 48 ore lavorative dall'accettazione*." }
     ]
+  },
+  security_vault: {
+    label: "Fortezza Digitale",
+    title: "LA TUA SICUREZZA,",
+    highlight: "LA NOSTRA PRIORITÀ.",
+    desc: "Younited utilizza tecnologie all'avanguardia per garantire l'integrità delle tue informazioni e la totale conformità.",
+    features: [
+      { title: "Crittografia AES-256", desc: "I tuoi dati sono protetti secondo i più rigorosi standard militari." },
+      { title: "Autorizzazione ACPR", desc: "Istituto di credito autorizzato e regolato dalle autorità bancarie." },
+      { title: "Hosting EU", desc: "Dati memorizzati esclusivamente nell'Unione Europea (GDPR)." },
+      { title: "Trasparenza", desc: "Zero costi nascosti, tasso fisso e condizioni chiare fin dalla firma." }
+    ]
+  },
+  comparison: {
+    title: "LA DIFFERENZA",
+    highlight: "YOUNITED.",
+    desc: "Perché affidare i tuoi progetti a noi piuttosto che a una banca tradizionale? La risposta è nell'esperienza.",
+    bank_name: "Banca Tradizionale",
+    younited_items: [
+      { text: "Risposta di principio immediata", sub: "Elaborazione algoritmica 24/7." },
+      { text: "Zero carta, 100% digitale", sub: "Firma eIDAS e Open Banking." },
+      { text: "Fondi in 48h*", sub: "Dopo accettazione e periodi legali." }
+    ],
+    bank_items: [
+      "Tempi di analisi da 5 a 10 giorni",
+      "Documenti cartacei e appuntamenti",
+      "Processo opaco e costi nascosti"
+    ]
+  },
+  eu_reach: {
+    label: "Hub Finanziario Europeo",
+    title: "UNA LEADERSHIP",
+    highlight: "PAN-EUROPEA.",
+    stats: {
+      clients: "Clienti Attivi",
+      countries: "Paesi Coperti",
+      financed: "Finanziati",
+      standards: "Standard EU"
+    }
   },
   renovation_label: "Focus Ristrutturazione",
   renovation_title: "TRASFORMA I TUOI ",
@@ -68,7 +107,7 @@ export const landing = {
     items: [
       { name: "Thomas B.", text: "Risposta ultra rapida e interfaccia molto intuitiva. Ho finanziato la mia auto in 48 ore.", type: "Prestito Auto", country: "Francia" },
       { name: "Julie D.", text: "Il consolidamento debiti mi ha permesso di respirare mensilmente. Un grande grazie agli analisti.", type: "Raggruppamento", country: "Italia" },
-      { name: "Kevin M.", text: "Finalmente una banca che parla la mia lingua. Semplice, chiaro e preciso.", type: "Prestito Personale", country: "Spagna" }
+      { name: "Kevin M.", text: "Finalmente una banca che parla la mia lingua. Sencillo, chiaro e preciso.", type: "Prestito Personale", country: "Spagna" }
     ]
   },
   prefooter: {

@@ -1,0 +1,152 @@
+export const common = {
+  chatbot: {
+    welcome: "Вітаю! Я ваш цифровий консультант Younited. Як я можу допомогти вашому фінансовому проєкту сьогодні?",
+    error: "Виникла помилка підключення. Бажаєте спробувати ще раз?",
+    brand_label: "Експертна порада",
+    agent_name: "Цифровий аналітик",
+    secure_notice: "Безпечний канал підтримки",
+    placeholder: "Опишіть ваш проєкт...",
+    version: "Governance 4.0-S"
+  },
+  nav: {
+    home: "Головна",
+    credit: "Рішення",
+    simulator: "Симулятор",
+    guide: "Гайд",
+    resources: "Ресурси",
+    help: "Допомога",
+    login: "Увійти",
+    client_space: "Кабінет"
+  },
+  form: {
+    step_back: "Назад",
+    next: "Продовжити",
+    step_label: "Крок",
+    secure_session: "Безпечна сесія",
+    completion_label: "Завершено",
+    phases: {
+      basics: "Профіль",
+      situation: "Ситуація",
+      finances: "Фінанси",
+      finalize: "Валідація"
+    },
+    identity_title: "ВАША ",
+    identity_highlight: "ОСОБИСТІСТЬ.",
+    identity_desc: "Договірна інформація.",
+    activity_title: "ВАША ",
+    activity_highlight: "ДІЯЛЬНІСТЬ.",
+    contact_title: "ВАШІ ",
+    contact_highlight: "КОНТАКТИ.",
+    funds_title: "ВАШІ ",
+    funds_highlight: "КОШТИ.",
+    funds_desc: "Виплата суми.",
+    project_title: "ВАШ ",
+    project_highlight: "ПРОЄКТ.",
+    budget_title: "ВАШ ",
+    budget_highlight: "БЮДЖЕТ.",
+    docs_title: "ВАШІ ",
+    docs_highlight: "ДОКУМЕНТИ.",
+    sign_title: "ВАШ ",
+    sign_highlight: "ПІДПИС.",
+    sign_desc: "Будь ласка, підпишіть у рамці для підтвердження зобов'язань.",
+    sign_reset: "Очистити",
+    sign_cert: "Сертифіковано eIDAS",
+    sign_submit: "Завершити заявку",
+    id_validation: "Цифровий ID",
+    bank_other: "Інша установа",
+    security_footer: "Захист AES-256",
+    fields: {
+      firstname: "Ім'я",
+      lastname: "Повне ім'я",
+      birthdate: "Дата народження",
+      job_title: "Професія",
+      employer: "Роботодавець",
+      email: "Email",
+      phone: "Телефон",
+      address: "Адреса",
+      zip: "Поштовий індекс",
+      city: "Місто",
+      iban: "IBAN",
+      id_doc: "Особистість",
+      address_doc: "Прописка",
+      income_doc: "Доходи",
+      tax_residency: "Податкове резидентство",
+      bank: "Основний банк",
+      purpose: "Проєкт",
+      amount: "Бажана сума",
+      months: "Термін (місяців)",
+      income: "Місячний дохід",
+      rent: "Постійні витрати",
+      family_status: "Сімейний стан",
+      dependents: "Діти на утриманні"
+    },
+    placeholders: {
+      firstname: "Ім'я",
+      lastname: "Прізвище",
+      job_title: "Посада",
+      employer: "Компанія",
+      email: "contact@email.com",
+      address: "Повна адреса",
+      zip: "01001",
+      city: "Місто",
+      income: "2500",
+      rent: "800",
+      amount: "Сума",
+      months: "Місяців"
+    },
+    options: {
+      job_status: {
+        cdi: "Постійна",
+        cdd: "Тимчасова",
+        indep: "Самозанятий",
+        retraite: "Пенсіонер",
+        etudiant: "Студент"
+      },
+      civility: {
+        mr: "Чоловік",
+        mrs: "Жінка",
+        nb: "Небінарний",
+        fluid: "Гендерфлюїд",
+        other: "Інше"
+      },
+      family_status: {
+        single: "Неодружений/Незаміжня",
+        married: "У шлюбі",
+        pacsed: "Цивільний союз",
+        divorced: "Розлучений(а)",
+        widowed: "Вдівець/Вдова"
+      }
+    }
+  },
+  auth: {
+    login_title: "З поверненням",
+    login_highlight: "ДО НАС.",
+    login_subtitle: "Увійдіть до кабінету для управління проєктами.",
+    signup_title: "Створити",
+    signup_highlight: "АККАУНТ.",
+    signup_subtitle: "Приєднуйтесь до Younited та отримайте фінансування швидше за всіх.",
+    email_label: "Електронна пошта",
+    password_label: "Пароль",
+    login_btn: "Увійти",
+    signup_btn: "Реєстрація"
+  },
+  labels: {
+    language: "Мова",
+    rate_from: "Ставка від",
+    express_demand: "Експрес-заявка",
+    see_details: "Детальніше",
+    characteristic: "Характеристика",
+    details: "Дані",
+    load_more: "Більше",
+    load_less: "Меньше",
+    mandatory: "Обов'язково",
+    optional: "Опціонально"
+  },
+  footer: {
+    desc: "Суверенна кредитна установа. Технологічна досконалість для відповідального фінансування.",
+    rights: "© {{year}} Younited. УСІ ПРАВА ЗАЩИЩЕНІ.",
+    legal: "Юридична інформація",
+    privacy: "Конфіденційність",
+    cookies: "Cookies"
+  }
+};

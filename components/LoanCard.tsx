@@ -19,8 +19,8 @@ const LoanCard: React.FC<LoanCardProps> = ({ offer, onClick, onExpressDemand }) 
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
-  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
+  const mouseXSpring = useSpring(x, { stiffness: 400, damping: 30 });
+  const mouseYSpring = useSpring(y, { stiffness: 400, damping: 30 });
   
   const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7deg", "-7deg"]);
   const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7deg", "7deg"]);
@@ -71,7 +71,7 @@ const LoanCard: React.FC<LoanCardProps> = ({ offer, onClick, onExpressDemand }) 
           <div className={`px-4 py-2 rounded-2xl border transition-all duration-500 ${
             isHovered 
               ? 'bg-brand-primary/5 border-brand-primary/30' 
-              : 'bg-slate-50/50 dark:bg-slate-800/40 border-slate-100 dark:border-slate-700'
+              : 'bg-slate-50/50 dark:bg-slate-800/40 border-slate-200 dark:border-slate-700'
           }`}>
             <span className={`text-[9px] uppercase font-black tracking-widest block leading-none mb-1.5 ${isHovered ? 'text-brand-primary' : 'text-slate-400'}`}>
               {t('labels.rate_from')}
@@ -94,7 +94,7 @@ const LoanCard: React.FC<LoanCardProps> = ({ offer, onClick, onExpressDemand }) 
         </div>
 
         <div className={`shrink-0 mt-auto pt-6 flex items-center justify-between border-t transition-colors duration-500 ${
-          isHovered ? 'border-brand-primary/20' : 'border-slate-50 dark:border-slate-800/50'
+          isHovered ? 'border-brand-primary/20' : 'border-slate-100 dark:border-slate-800/50'
         }`}>
           <motion.button 
             whileHover={{ scale: 1.05 }}

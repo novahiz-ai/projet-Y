@@ -10,7 +10,7 @@ const ProjectStep = ({ formData, setFormData, t }: any) => {
 
   useEffect(() => {
     if (prevLoanIdRef.current !== formData.loanId) {
-      // PROTECTION : Réinitialise aux bornes cohérentes pour le nouveau projet choisi
+      // PROTECTION : Réinitialise systématiquement aux bornes du nouveau projet
       setFormData({
         ...formData, 
         amount: limits.minAmount,
@@ -18,13 +18,13 @@ const ProjectStep = ({ formData, setFormData, t }: any) => {
       });
       prevLoanIdRef.current = formData.loanId;
     } else {
-      // Ajustement standard
+      // Garde-fous standards pour les entrées manuelles
       if (formData.amount < limits.minAmount) setFormData({...formData, amount: limits.minAmount});
       if (formData.amount > limits.maxAmount) setFormData({...formData, amount: limits.maxAmount});
       if (formData.duration < limits.minDuration) setFormData({...formData, duration: limits.minDuration});
       if (formData.duration > limits.maxDuration) setFormData({...formData, duration: limits.maxDuration});
     }
-  }, [formData.loanId, limits, formData, setFormData]);
+  }, [formData.loanId, limits]);
 
   return (
     <div className="space-y-10">

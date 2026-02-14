@@ -23,10 +23,10 @@ const StandardButton: React.FC<StandardButtonProps> = ({
   const baseStyles = "relative px-8 py-4 md:px-10 md:py-5 rounded-2xl md:rounded-[1.5rem] font-black text-xs md:text-sm uppercase tracking-[0.15em] transition-all flex items-center justify-center space-x-3 overflow-hidden select-none disabled:opacity-50 disabled:grayscale disabled:cursor-not-allowed";
   
   const variants = {
-    primary: "bg-brand-primary text-white shadow-brand border border-white/10",
-    secondary: "bg-brand-secondary text-white shadow-brand border border-white/10",
+    primary: "bg-brand-primary text-white shadow-brand border border-slate-200/10 dark:border-slate-800/20",
+    secondary: "bg-brand-secondary text-white shadow-brand border border-slate-200/10 dark:border-slate-800/20",
     outline: "border-2 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white hover:border-brand-primary/50 bg-transparent",
-    white: "bg-white text-brand-primary shadow-xl border border-slate-100",
+    white: "bg-white text-brand-primary shadow-xl border border-slate-200 dark:border-slate-800",
     ghost: "bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
   };
 
@@ -44,7 +44,7 @@ const StandardButton: React.FC<StandardButtonProps> = ({
           : "0 20px 40px -12px rgba(0,0,0,0.12)"
       } : {}}
       whileTap={!disabled ? { scale: 0.94, y: 0 } : {}}
-      transition={{ type: "spring", stiffness: 500, damping: 15 }}
+      transition={{ type: "spring", stiffness: 500, damping: 25 }}
       className={`${baseStyles} ${variants[variant]} ${className} group`}
     >
       <motion.div 
@@ -58,7 +58,7 @@ const StandardButton: React.FC<StandardButtonProps> = ({
         {children}
       </span>
 
-      <div className="absolute inset-0 rounded-2xl md:rounded-[1.5rem] border border-white/10 pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl md:rounded-[1.5rem] border border-slate-200/10 dark:border-slate-800/10 pointer-events-none" />
     </motion.button>
   );
 };

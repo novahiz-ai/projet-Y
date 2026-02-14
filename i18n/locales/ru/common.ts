@@ -1,0 +1,152 @@
+export const common = {
+  chatbot: {
+    welcome: "Здравствуйте! Я ваш цифровой консультант Younited. Как я могу помочь вашему финансовому проекту сегодня?",
+    error: "Произошла ошибка подключения. Хотите попробовать снова?",
+    brand_label: "Экспертный совет",
+    agent_name: "Цифровой аналитик",
+    secure_notice: "Безопасный канал поддержки",
+    placeholder: "Опишите ваш проект...",
+    version: "Governance 4.0-S"
+  },
+  nav: {
+    home: "Главная",
+    credit: "Решения",
+    simulator: "Симулятор",
+    guide: "Гайд",
+    resources: "Ресурсы",
+    help: "Помощь",
+    login: "Вход",
+    client_space: "Личный кабинет"
+  },
+  form: {
+    step_back: "Назад",
+    next: "Продолжить",
+    step_label: "Шаг",
+    secure_session: "Безопасная сессия",
+    completion_label: "Завершено",
+    phases: {
+      basics: "Профиль",
+      situation: "Ситуация",
+      finances: "Финансы",
+      finalize: "Валидация"
+    },
+    identity_title: "ВАША ",
+    identity_highlight: "ЛИЧНОСТЬ.",
+    identity_desc: "Договорная информация.",
+    activity_title: "ВАША ",
+    activity_highlight: "ДЕЯТЕЛЬНОСТЬ.",
+    contact_title: "ВАШИ ",
+    contact_highlight: "КОНТАКТЫ.",
+    funds_title: "ВАШИ ",
+    funds_highlight: "СРЕДСТВА.",
+    funds_desc: "Выплата суммы.",
+    project_title: "ВАШ ",
+    project_highlight: "ПРОЕКТ.",
+    budget_title: "ВАШ ",
+    budget_highlight: "БЮДЖЕТ.",
+    docs_title: "ВАШИ ",
+    docs_highlight: "ДОКУМЕНТЫ.",
+    sign_title: "ВАША ",
+    sign_highlight: "ПОДПИСЬ.",
+    sign_desc: "Пожалуйста, подпишите в рамке для подтверждения обязательств.",
+    sign_reset: "Очистить",
+    sign_cert: "Сертифицировано eIDAS",
+    sign_submit: "Завершить заявку",
+    id_validation: "Цифровой ID",
+    bank_other: "Другое учреждение",
+    security_footer: "Защита AES-256",
+    fields: {
+      firstname: "Имя",
+      lastname: "Полное имя",
+      birthdate: "Дата рождения",
+      job_title: "Профессия",
+      employer: "Работодатель",
+      email: "Email",
+      phone: "Телефон",
+      address: "Адрес",
+      zip: "Почтовый индекс",
+      city: "Город",
+      iban: "IBAN",
+      id_doc: "Личность",
+      address_doc: "Прописка",
+      income_doc: "Доходы",
+      tax_residency: "Налоговое резидентство",
+      bank: "Основной банк",
+      purpose: "Проект",
+      amount: "Желаемая сумма",
+      months: "Срок (месяцев)",
+      income: "Месячный доход",
+      rent: "Постоянные расходы",
+      family_status: "Семейное положение",
+      dependents: "Дети на иждивении"
+    },
+    placeholders: {
+      firstname: "Имя",
+      lastname: "Фамилия",
+      job_title: "Должность",
+      employer: "Компания",
+      email: "contact@email.com",
+      address: "Полный адрес",
+      zip: "101000",
+      city: "Город",
+      income: "2500",
+      rent: "800",
+      amount: "Сумма",
+      months: "Месяцев"
+    },
+    options: {
+      job_status: {
+        cdi: "Постоянная",
+        cdd: "Временная",
+        indep: "Самозанятый",
+        retraite: "Пенсионер",
+        etudiant: "Студент"
+      },
+      civility: {
+        mr: "Мужчина",
+        mrs: "Женщина",
+        nb: "Небинарный",
+        fluid: "Гендерфлюид",
+        other: "Другое"
+      },
+      family_status: {
+        single: "Холост/Незамужем",
+        married: "В браке",
+        pacsed: "Гражданский союз",
+        divorced: "Разведен(а)",
+        widowed: "Вдовец/Вдова"
+      }
+    }
+  },
+  auth: {
+    login_title: "С возвращением",
+    login_highlight: "К НАМ.",
+    login_subtitle: "Войдите в личный кабинет для управления проектами.",
+    signup_title: "Создать",
+    signup_highlight: "АККАУНТ.",
+    signup_subtitle: "Присоединяйтесь к Younited и получите финансирование в рекордные сроки.",
+    email_label: "Электронная почта",
+    password_label: "Пароль",
+    login_btn: "Войти",
+    signup_btn: "Регистрация"
+  },
+  labels: {
+    language: "Язык",
+    rate_from: "Ставка от",
+    express_demand: "Экспресс-заявка",
+    see_details: "Подробнее",
+    characteristic: "Характеристика",
+    details: "Данные",
+    load_more: "Показать больше",
+    load_less: "Свернуть",
+    mandatory: "Обязательно",
+    optional: "Опционально"
+  },
+  footer: {
+    desc: "Суверенная кредитная организация. Технологическое превосходство для ответственного финансирования.",
+    rights: "© {{year}} Younited. ВСЕ ПРАВА ЗАЩИЩЕНЫ.",
+    legal: "Юридическая информация",
+    privacy: "Конфиденциальность",
+    cookies: "Cookies"
+  }
+};

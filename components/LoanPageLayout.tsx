@@ -55,15 +55,13 @@ const LoanPageLayout: React.FC<LoanPageLayoutProps> = ({
 
   return (
     <div className="bg-white dark:bg-slate-950 transition-colors duration-500" style={{ '--accent-color': accentHex } as React.CSSProperties}>
-      <section className="relative h-[75vh] lg:h-auto lg:min-h-[85vh] w-full flex items-center overflow-hidden">
-        {/* V16.4 — Enchanced Background Visibility */}
+      <section className="relative h-[75vh] md:min-h-[50vh] md:max-h-[50vh] lg:min-h-[85vh] lg:max-h-none w-full flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={hero.image} 
             alt="" 
             className="w-full h-full object-cover opacity-[0.45] dark:opacity-[0.55] scale-105 transition-opacity duration-700" 
           />
-          {/* Advanced Gradient Mask for Legibility */}
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-slate-950 dark:via-slate-950/80 dark:to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-white dark:via-slate-950/20 dark:to-slate-950" />
         </div>
@@ -72,10 +70,10 @@ const LoanPageLayout: React.FC<LoanPageLayoutProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <FadeIn direction="right" duration={1}>
               <div className="space-y-6 lg:space-y-8">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tighter uppercase italic text-slate-950 dark:text-white drop-shadow-sm">
+                <h1 className="text-3xl md:text-5xl lg:text-7xl font-black leading-[0.95] tracking-tighter uppercase italic text-slate-950 dark:text-white drop-shadow-sm">
                   {hero.title} <br /><span className={accentColorClass}>{hero.highlight}</span>
                 </h1>
-                <p className="text-sm md:text-lg text-slate-700 dark:text-slate-200 max-w-lg mx-auto lg:mx-0 leading-relaxed font-semibold bg-white/5 dark:bg-black/5 backdrop-blur-sm p-4 rounded-2xl md:p-0 md:bg-transparent md:backdrop-blur-none">
+                <p className="text-sm md:text-base lg:text-lg text-slate-700 dark:text-slate-200 max-w-lg mx-auto lg:mx-0 leading-relaxed font-semibold bg-white/5 dark:bg-black/5 backdrop-blur-sm p-4 rounded-2xl md:p-0 md:bg-transparent md:backdrop-blur-none">
                   {hero.desc}
                 </p>
                 <div className="pt-2">
@@ -97,7 +95,7 @@ const LoanPageLayout: React.FC<LoanPageLayoutProps> = ({
       <div className="relative z-10 space-y-32 py-24 bg-white dark:bg-slate-950 rounded-t-[4rem] -mt-10">
         <div className="max-w-7xl mx-auto px-6 lg:flex lg:gap-24">
           <aside className="hidden lg:block lg:w-1/4">
-            <div className="sticky top-32 space-y-2 bg-slate-50 dark:bg-slate-900/40 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
+            <div className="sticky top-32 space-y-2 bg-slate-50 dark:bg-slate-900/40 p-6 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-sm">
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest px-4 mb-4">Dossier Expertise</p>
               {navItems.map((item) => (
                 <button 

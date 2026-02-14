@@ -6,6 +6,11 @@
     <title>Younited - Votre Prêt en un Clic</title>
     <meta name="description" content="Plateforme de financement innovante. Transformez le crédit en une expérience simple, transparente et humaine.">
     
+    <!-- Speed: Resource Prioritization -->
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://esm.sh">
+    
     <script type="importmap">
     {
       "imports": {
@@ -64,7 +69,6 @@
                     },
                     colors: {
                         brand: {
-                            // Liaison aux variables CSS pour un changement dynamique Violet -> Bleu
                             primary: 'var(--brand-primary)', 
                             dark: 'var(--brand-dark)',
                             light: 'var(--brand-light)',
@@ -98,7 +102,6 @@
     </script>
     <style type="text/css">
         :root {
-            /* VIOLET RICHE (Thème Clair) */
             --brand-primary: #7c3aed;
             --brand-dark: #6d28d9;
             --brand-light: #ddd6fe;
@@ -106,7 +109,6 @@
         }
 
         .dark {
-            /* BLEU COMPATIBLE (Thème Sombre) */
             --brand-primary: #3b82f6;
             --brand-dark: #2563eb;
             --brand-light: #bfdbfe;
@@ -120,9 +122,16 @@
             -moz-osx-font-smoothing: grayscale;
             font-size: 16px;
             overflow-y: scroll;
+            background-color: white;
         }
 
-        /* NATIVE APP FEEL */
+        .dark body { background-color: #020617; }
+
+        /* Performance: Prevent layout shifts */
+        .framer-layout-container {
+            contain: paint;
+        }
+
         @media (max-width: 1024px) {
             * {
                 scrollbar-width: none !important;

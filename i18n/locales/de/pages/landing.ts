@@ -25,6 +25,12 @@ export const landing = {
       projet: { label: "Projektkredit", desc: "Reisen, Hochzeiten, Studium: Träume verwirklichen.", limit: "Multi-Projekte" }
     }
   },
+  trust_badges: {
+    acpr: { label: "ACPR-Zugelassen", desc: "Europäische Banklizenz" },
+    eidas: { label: "eIDAS-Sicherheit", desc: "100% Zertifizierte Signatur" },
+    gdpr: { label: "DSGVO-Konform", desc: "Voller Datenschutz" },
+    resp: { label: "Verantwortlicher Kredit", desc: "Zinstransparenz" }
+  },
   solutions_title: "UNSERE KREDIT-",
   solutions_highlight: "LÖSUNGEN.",
   solutions_desc: "Finden Sie unter unseren 9 Angeboten das passende Darlehen.",
@@ -39,6 +45,45 @@ export const landing = {
       { title: "Unterschrift", desc: "Laden Sie Dokumente hoch und unterschreiben Sie sicher online." },
       { title: "Auszahlung", desc: "Erhalt der Mittel innerhalb von 48 Stunden nach Annahme*." }
     ]
+  },
+  security_vault: {
+    label: "Digitale Festung",
+    title: "IHRE SICHERHEIT,",
+    highlight: "UNSERE PRIORITÄT.",
+    desc: "Younited nutzt modernste Technologien, um die Integrität Ihrer Daten und die volle Konformität zu gewährleisten.",
+    features: [
+      { title: "AES-256 Verschlüsselung", desc: "Ihre Daten werden nach strengsten militärischen Standards verschlüsselt." },
+      { title: "ACPR-Zulassung", desc: "Zugelassenes Kreditinstitut, reguliert durch Bankenaufsichtsbehörden." },
+      { title: "EU-Hosting", desc: "Daten werden ausschließlich in der Europäischen Union gespeichert (DSGVO)." },
+      { title: "Transparenz", desc: "Keine versteckten Gebühren, feste Zinssätze und klare Bedingungen." }
+    ]
+  },
+  comparison: {
+    title: "DER UNTERSCHIED",
+    highlight: "YOUNITED.",
+    desc: "Warum sollten Sie uns Ihre Projekte anvertrauen statt einer klassischen Bank? Die Antwort liegt in der Erfahrung.",
+    bank_name: "Klassische Bank",
+    younited_items: [
+      { text: "Sofortige Grundsatzantwort", sub: "24/7 algorithmische Verarbeitung." },
+      { text: "Null Papier, 100% digital", sub: "eIDAS-Signatur und Open Banking." },
+      { text: "Geld in 48h*", sub: "Nach Annahme und gesetzlichen Fristen." }
+    ],
+    bank_items: [
+      "5 bis 10 Tage Analysezeit",
+      "Papierunterlagen und Termine",
+      "Undurchsichtige Prozesse & Gebühren"
+    ]
+  },
+  eu_reach: {
+    label: "Europäischer Finanz-Hub",
+    title: "EINE PAN-EUROPÄISCHE",
+    highlight: "FÜHRUNG.",
+    stats: {
+      clients: "Aktive Kunden",
+      countries: "Länder abgedeckt",
+      financed: "Finanziert",
+      standards: "EU-Standards"
+    }
   },
   renovation_label: "Fokus Renovierung",
   renovation_title: "VERWANDELN SIE ",

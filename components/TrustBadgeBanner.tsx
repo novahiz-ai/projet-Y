@@ -1,13 +1,15 @@
-
 import React from 'react';
 import { ShieldCheck, Lock, Globe, CheckCircle2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const TrustBadgeBanner: React.FC = () => {
+  const { t } = useTranslation();
+
   const badges = [
-    { icon: <ShieldCheck className="text-emerald-500" />, label: "Agréé ACPR", desc: "Licence Bancaire Européenne" },
-    { icon: <Lock className="text-brand-primary" />, label: "Sécurité eIDAS", desc: "Signature 100% certifiée" },
-    { icon: <Globe className="text-indigo-500" />, label: "RGPD Compliant", desc: "Protection totale des données" },
-    { icon: <CheckCircle2 className="text-amber-500" />, label: "Crédit Responsable", desc: "Transparence des taux" }
+    { icon: <ShieldCheck className="text-emerald-500" />, label: t('landing.trust_badges.acpr.label'), desc: t('landing.trust_badges.acpr.desc') },
+    { icon: <Lock className="text-brand-primary" />, label: t('landing.trust_badges.eidas.label'), desc: t('landing.trust_badges.eidas.desc') },
+    { icon: <Globe className="text-indigo-500" />, label: t('landing.trust_badges.gdpr.label'), desc: t('landing.trust_badges.gdpr.desc') },
+    { icon: <CheckCircle2 className="text-amber-500" />, label: t('landing.trust_badges.resp.label'), desc: t('landing.trust_badges.resp.desc') }
   ];
 
   return (
@@ -19,7 +21,7 @@ const TrustBadgeBanner: React.FC = () => {
               {badge.icon}
             </div>
             <div className="space-y-1">
-              <p className="text-[10px] font-black uppercase tracking-tight text-slate-900 dark:text-white leading-none">{badge.label}</p>
+              <p className="text-[10px] font-black uppercase tracking-tight text-slate-950 dark:text-white leading-none">{badge.label}</p>
               <p className="text-[8px] font-bold uppercase tracking-widest text-slate-400">{badge.desc}</p>
             </div>
           </div>

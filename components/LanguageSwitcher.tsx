@@ -7,7 +7,6 @@ const LanguageSwitcher: React.FC = () => {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isPending, setIsPending] = useState(false);
-  // Fix: Initialize useRef with null instead of the variable itself to avoid self-reference error
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const languages = [
@@ -16,7 +15,13 @@ const LanguageSwitcher: React.FC = () => {
     { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
     { code: 'it', label: 'Italiano', flag: '🇮🇹' },
     { code: 'es', label: 'Español', flag: '🇪🇸' },
-    { code: 'sv', label: 'Svenska', flag: '🇸🇪' }
+    { code: 'pt', label: 'Português', flag: '🇵🇹' },
+    { code: 'lb', label: 'Lëtzebuergesch', flag: '🇱🇺' },
+    { code: 'ro', label: 'Română', flag: '🇷🇴' },
+    { code: 'sv', label: 'Svenska', flag: '🇸🇪' },
+    { code: 'ru', label: 'Русский', flag: '🇷🇺' },
+    { code: 'uk', label: 'Українська', flag: '🇺🇦' },
+    { code: 'ar', label: 'العربية', flag: '🇲🇦' }
   ];
 
   const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
@@ -64,9 +69,9 @@ const LanguageSwitcher: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full right-0 mt-3 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-3xl overflow-hidden z-[200]"
+            className="absolute top-full right-0 mt-3 w-64 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-3xl overflow-hidden z-[200]"
           >
-            <div className="p-2 space-y-1">
+            <div className="p-2 space-y-1 max-h-[70vh] overflow-y-auto scrollbar-hide">
               <div className="px-4 py-2 border-b border-slate-50 dark:border-slate-800">
                 <span className="text-[8px] font-black uppercase text-slate-400 tracking-[0.2em]">{t('labels.language')}</span>
               </div>
@@ -77,7 +82,7 @@ const LanguageSwitcher: React.FC = () => {
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-sm font-bold transition-colors ${
                     i18n.language === lang.code
                       ? 'bg-brand-primary text-white shadow-lg'
-                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                      : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
                   }`}
                 >
                   <div className="flex items-center space-x-3">

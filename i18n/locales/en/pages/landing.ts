@@ -25,6 +25,12 @@ export const landing = {
       projet: { label: "Project Loan", desc: "Wedding, travel, studies: realize your dreams.", limit: "Multi-project" }
     }
   },
+  trust_badges: {
+    acpr: { label: "ACPR Licensed", desc: "European Banking License" },
+    eidas: { label: "eIDAS Security", desc: "100% Certified Signature" },
+    gdpr: { label: "GDPR Compliant", desc: "Full Data Protection" },
+    resp: { label: "Responsible Credit", desc: "Rate Transparency" }
+  },
   solutions_title: "OUR FINANCING ",
   solutions_highlight: "SOLUTIONS.",
   solutions_desc: "Find the loan adapted to your profile among our 9 offers.",
@@ -39,6 +45,45 @@ export const landing = {
       { title: "Signing", desc: "Upload your documents and sign online securely." },
       { title: "Funds", desc: "Receive funds within 48 business hours after final approval*." }
     ]
+  },
+  security_vault: {
+    label: "Digital Fortress",
+    title: "YOUR SECURITY,",
+    highlight: "OUR PRIORITY.",
+    desc: "Younited deploys cutting-edge technologies to guarantee the integrity of your information and full compliance.",
+    features: [
+      { title: "AES-256 Encryption", desc: "Your data is encrypted according to the strictest military standards." },
+      { title: "ACPR License", desc: "Licensed credit institution regulated by banking authorities." },
+      { title: "EU Hosting", desc: "Data stored exclusively in the European Union (GDPR)." },
+      { title: "Transparency", desc: "Zero hidden fees, fixed rates, and clear terms from signature." }
+    ]
+  },
+  comparison: {
+    title: "THE DIFFERENCE",
+    highlight: "YOUNITED.",
+    desc: "Why trust your projects to us rather than a traditional bank? The answer is in the experience.",
+    bank_name: "Traditional Bank",
+    younited_items: [
+      { text: "Immediate principle response", sub: "24/7 algorithmic processing." },
+      { text: "Zero paper, 100% digital", sub: "eIDAS signature and Open Banking." },
+      { text: "Funds within 48h*", sub: "After acceptance and legal periods." }
+    ],
+    bank_items: [
+      "5 to 10 days analysis time",
+      "Paper documents and appointments",
+      "Opaque process and hidden fees"
+    ]
+  },
+  eu_reach: {
+    label: "European Financial Hub",
+    title: "A PAN-EUROPEAN",
+    highlight: "LEADERSHIP.",
+    stats: {
+      clients: "Active Clients",
+      countries: "Countries Covered",
+      financed: "Financed",
+      standards: "EU Standards"
+    }
   },
   renovation_label: "Renovation Focus",
   renovation_title: "TRANSFORM ",
@@ -68,8 +113,7 @@ export const landing = {
     items: [
       { name: "Thomas B.", text: "Ultra-fast response and very intuitive interface. Financed my car in 48h.", type: "Auto Loan", country: "United Kingdom" },
       { name: "Julie D.", text: "Debt consolidation allowed me to breathe monthly. A big thanks to the analysts.", type: "Consolidation", country: "Italy" },
-      { name: "Kevin M.", text: "Finally a bank that speaks my language. Simple, clear and precise.", type: "Personal Loan", country: "Spain" },
-      { name: "Elena S.", text: "100% digital process, funds received very quickly for my home improvement.", type: "Renovation Loan", country: "Germany" }
+      { name: "Kevin M.", text: "Finally a bank that speaks my language. Simple, clear and precise.", type: "Personal Loan", country: "Spain" }
     ]
   },
   prefooter: {
